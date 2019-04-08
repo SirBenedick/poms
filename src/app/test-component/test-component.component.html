@@ -1,0 +1,99 @@
+<app-basic-layout>
+  <nz-breadcrumb style="margin:16px 0;" class="breadcrums">
+    <nz-breadcrumb-item>User</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Test-Compo</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+  <div class="basic-content">
+    <div nz-row>
+      <div nz-col nzSpan="12">
+        <div *ngIf="!typiCodeUserData">
+          <nz-card style="width: 300px;margin-top: 16px" [nzLoading]="true">
+            <nz-card-meta
+              nzTitle="Card title"
+              nzDescription="This is the description"
+            ></nz-card-meta>
+          </nz-card>
+        </div>
+        <div *ngIf="typiCodeUserData">
+          <nz-card
+            style="width:300px;"
+            nzTitle="{{ typiCodeUserData.name }}"
+            [nzExtra]="extraTemplate"
+          >
+            <p>{{ typiCodeUserData.username }}</p>
+            <p>{{ typiCodeUserData.email }}</p>
+            <p>{{ typiCodeUserData.phone }}</p>
+            <p>{{ typiCodeUserData.address.street }}</p>
+          </nz-card>
+          <ng-template #extraTemplate>
+            <a>More</a>
+          </ng-template>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-row [nzGutter]="16">
+          <nz-col [nzSpan]="12">
+            <nz-statistic
+              *ngIf="typiCodeUserData"
+              [nzValue]="typiCodeUserData.address.geo.lng | number"
+              [nzTitle]="'Feedback'"
+              [nzPrefix]="prefixTpl"
+            ></nz-statistic>
+            <ng-template #prefixTpl><i nz-icon type="like"></i></ng-template>
+          </nz-col>
+          <nz-col [nzSpan]="12">
+            <nz-statistic
+              [nzValue]="93"
+              [nzTitle]="'Unmerged'"
+              [nzSuffix]="'/ 100'"
+            ></nz-statistic>
+          </nz-col>
+        </nz-row>
+      </div>
+    </div>
+
+    <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">Default Size</h3>
+    <nz-list
+      [nzDataSource]="data"
+      nzBordered
+      [nzHeader]="'Header'"
+      [nzFooter]="'Footer'"
+      [nzRenderItem]="item"
+    >
+      <ng-template #item let-item
+        ><nz-list-item [nzContent]="item"></nz-list-item
+      ></ng-template>
+    </nz-list>
+    <p>
+      test-component works!
+    </p>
+    <nz-radio-group [(ngModel)]="radioValue">
+      <label nz-radio [ngStyle]="style" nzValue="A">Option A</label>
+      <label nz-radio [ngStyle]="style" nzValue="B">Option B</label>
+      <label nz-radio [ngStyle]="style" nzValue="C">Option C</label>
+      <label nz-radio [ngStyle]="style" nzValue="M">
+        More...
+        <input
+          type="text"
+          nz-input
+          *ngIf="radioValue == 'M'"
+          style="width: 100px; margin-left: 10px;"
+        />
+      </label>
+    </nz-radio-group>
+
+    <nz-card
+      style="width:300px;"
+      nzTitle="Card title"
+      [nzExtra]="extraTemplate"
+    >
+      <p>Card content</p>
+      <p>Card content</p>
+      <p>Card content</p>
+    </nz-card>
+    <ng-template #extraTemplate>
+      <a>More</a>
+    </ng-template>
+  </div>
+</app-basic-layout>
