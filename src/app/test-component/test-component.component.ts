@@ -39,11 +39,13 @@ export class TestComponentComponent implements OnInit {
     this.userDataSubscription = timer(3000, 1500)
       .pipe(
         switchMap((id: number) => this.backendService.getUserData(id)),
-        catchError((err, caught) => caught),
+        catchError((err, caught) => caught)
       )
       .subscribe((userData: IUserData) => {
-        console.log("Interval", userData), (this.typiCodeUserData = userData);
+        console.log("Interval", userData), 
+        (this.typiCodeUserData = userData);
       });
+
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
