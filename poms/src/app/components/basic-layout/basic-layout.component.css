@@ -1,0 +1,51 @@
+.flex-container {
+  margin: none;
+  border-style: none;
+  padding: none;
+  display: flex;
+  background-color: DodgerBlue;
+  justify-content: space-between;
+}
+
+/* .flex-container > div {
+  background-color: #f1f1f1;
+  margin: 0px;
+  padding: 0px;
+  font-size: 30px;
+} */
+
+#Spalte_Links {
+  width: 50px;
+  height: 100vh;
+  /* min-height: 100vh; */
+  /* object-fit: contain; */
+  background-color: #0faccb;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#Spalte_Links.toggled {
+  padding-right: 260px;
+}
+
+#Spalte_Rechts {
+  width: 310px;
+  height: 100vh;
+  object-fit: contain;
+  background-color: #0faccb;
+}
+#Kopfleiste {
+    /* flex-grow: 0; */
+    height: 60px;
+    object-fit: contain;
+    opacity: 0.8;
+    background-color: #94eaff;
+  }
+
+  .center-row{
+    flex-grow: 2;
+    background-color: rgb(193, 207, 221);
+  }

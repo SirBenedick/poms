@@ -1,0 +1,28 @@
+<div class="flex-container">
+  <!-- Left sidebar -->
+  <div id="Spalte_Links" [ngClass]="ref.click === true ? 'toggled' : ''">
+    <p>asasdasf</p>
+    <button
+      appSidebar
+      #ref="appSidebar"
+      type="button"
+      class=""
+      data-toggle="offcanvas"
+    >
+      asdasd
+    </button>
+<img src="../../../assets/png/account-login-3x.png" alt="Smiley face" height="42" width="42">
+  </div>
+  <!-- Middle Bar -->
+  <div class="center-row">
+    <nav class="nav" id="Kopfleiste">
+      <a class="nav-link active" href="#">Active</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </nav>
+    <ng-content></ng-content>
+  </div>
+  <!-- Right sidebar -->
+  <div id="Spalte_Rechts">Flex item 3</div>
+</div>
