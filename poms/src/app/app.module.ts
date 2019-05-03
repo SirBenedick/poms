@@ -8,13 +8,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { BasicLayoutComponent } from './components/basic-layout/basic-layout.component';
 import { SidebarDirective } from './directives/sidebar.directive';
+import { OrderComponent } from './pages/order/order.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicLayoutComponent,
     PrinterComponent,
-    SidebarDirective
+    SidebarDirective,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
