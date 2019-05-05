@@ -2,26 +2,48 @@
   <!-- Left sidebar -->
   <div id="Spalte_Links" [ngClass]="ref.click === true ? 'toggled' : ''">
     <button appSidebar #ref="appSidebar" type="button" class="" data-toggle="offcanvas">
-      >>
+     >
     </button>
+    <br><br>
+    <div class="Untere_Spalte">
+      <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face" height="20"
+        width="25">
+      <a routerLink="order" style="text-decoration:none; color:black"> Auftragsübersicht</a> </div>
+    <br>
+    <div class="Untere_Spalte">
+      <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face" height="20"
+        width="25">
+      <a> gedruckte Aufträge</a>
+    </div>
+    <br>
+    <div class="Untere_Spalte">
+      <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face" height="20"
+        width="25">
+      <a routerLink="printer" style="text-decoration:none; color:black">Druckerverwaltung</a>
+    </div>
+    <!-- Ganzen br ersetzten, bekomme es aber nicht hin-->
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><br><br>
 
-    <img src="../../../assets/png/account-login-3x.png" alt="Smiley face" height="42" width="42">
-    <a routerLink="order">Auftragsübersicht</a>
-    <br> <a routerLink="printer">Druckzeit</a>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-    <div>Hilfestellung</div>
-    <div>Einstellung</div>
+    <div class="Untere_Spalte">
+      <img src="../../../assets/png/Button_Hilfestellung/Button_Hilfestellung.png" alt="Smiley face" height="25" width="25">
+      Hilfestellung
+    </div>
+    <br>
+    <div class="Untere_Spalte">
+      <img src="../../../assets/png/Button_Einstellungen/Button_Einstellungen.png" alt="Smiley face" height="20" width="25">
+      Einstellungen
+    </div>
   </div>
   <!-- Middle Bar -->
   <div class="center-row">
     <nav class="nav" id="Kopfleiste">
       <div class="nav-link active" href="#">
         <input type="search" id="suche" placeholder="Suche">
+        <button tpye="submit"><img src="../../../assets/png/Lupe/Lupe.png" alt="Smiley face" height="25" width="25"> </button>
       </div>
 
       <div class="nav-link active" href="#">
+          <img src="../../../assets/png/Plusbutton/Plusbutton.png" alt="Smiley face" height="30" width="30">
         Neuen Auftrag anlegen
       </div>
       <!--   <a class="nav-link disabled" href="#">Disabled</a>
