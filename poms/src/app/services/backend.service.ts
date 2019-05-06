@@ -19,4 +19,11 @@ export class BackendService {
   testLog(): void{
     console.log("Void");
   }
+
+  printerGetAll(): Observable<Object>{
+    return this.http.get(this.url + "printer/get/all/");
+  }
+  printerGet(id: number): Observable<Object>{
+    return this.http.get(this.url + String(id));
+  }
 }
