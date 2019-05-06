@@ -1,9 +1,11 @@
-<h1>Die Restliche Druckzeit beträgt:  </h1>
-          <p>{{ printerData.name }}</p>
-          <p>{{ printerData.time_estimated }}</p>
-<br>
 <div style="text-align:center">
-    <h1>
-      Welcome to POMS!
-    </h1>
+  <h1>
+    Welcome to POMS!
+  </h1>
 </div>
+<div *ngIf="printerData.printer_id != 666">
+<h1>Die Restliche Druckzeit des Druckers {{ printerData.name }} beträgt:</h1>
+  <p>{{ printerData.name }}</p>
+  <p>{{ printerData.time_estimated }}</p>
+</div>
+<br />

@@ -29,17 +29,17 @@ export interface IUserData {
     }
   }
   export interface IPrinterData{
-    "printer_id": Number;
-    "name": string;
-    "host": string;
-    "port": number;
-    "is_printing": Number;
-    "current_layer": Number;
-    "max_layer": Number;
-    "print_start": String;
-    "time_estimated": String;
-    "model_height": Number;
-    "paused": Number;
-    "offline": Number;
-    "progress": Number;
+    printer_id: Number;
+    name: String;
+    host: String;
+    port: number;
+    is_printing: Number;
+    current_layer: Number;
+    max_layer: Number;
+    print_start: String;
+    time_estimated: String;
+    model_height: Number;
+    paused: Number;
+    offline: Number;
+    progress: Number;
   }

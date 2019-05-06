@@ -22,8 +22,8 @@ export class PrinterComponent implements OnInit {
   userDataSubscription: Subscription;
 
   printerDataSubscription: Subscription;
-  printerData: IPrinterData;
-
+  printerData: IPrinterData = {"printer_id":666,"name":"Exampledata","host":"141.19.113.185","port":8080,"is_printing":1,"current_layer":98,"max_layer":176,"print_start":"11:58:31","time_estimated":"01:06:51","model_height":18,"paused":0,"offline":0,"progress":0.5568181818181818};
+  
   constructor(private backendService: BackendService) {}
 
   ngOnInit() {
@@ -33,9 +33,9 @@ export class PrinterComponent implements OnInit {
         switchMap((counter: number) => this.backendService.printerGet(23)),
         catchError((err, caught) => caught)
       )
-      .subscribe((printerData: IPrinterData) => {
-        console.log("Interval", printerData);
-        this.printerData = printerData;
+      .subscribe((newPrinterData: IPrinterData) => {
+        console.log("Interval", newPrinterData);
+        this.printerData = newPrinterData;
       });
   }
   ngOnDestroy(): void {

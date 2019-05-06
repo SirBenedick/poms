@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BackendService {
-  url = 'https://jsonplaceholder.typicode.com/users/';
+  url = 'http://192.168.56.101:8082/';
 
 
   constructor(private http: HttpClient) { }
