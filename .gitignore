@@ -1,3 +1,8 @@
+
+#manually added
+idea/
+.idea/
+
 # Logs
 logs
 *.log
