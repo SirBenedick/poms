@@ -9,21 +9,27 @@ import { FormsModule } from '@angular/forms';
 import { BasicLayoutComponent } from './components/basic-layout/basic-layout.component';
 import { SidebarDirective } from './directives/sidebar.directive';
 import { OrderComponent } from './pages/order/order.component';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import de from '@angular/common/locales/de';
+import { PrintedordersComponent } from './pages/printedorders/printedorders.component';
 
-
+registerLocaleData(de);
 @NgModule({
   declarations: [
     AppComponent,
     BasicLayoutComponent,
     PrinterComponent,
     SidebarDirective,
-    OrderComponent
+    OrderComponent,
+    PrintedordersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
