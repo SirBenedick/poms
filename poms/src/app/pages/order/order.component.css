@@ -1,0 +1,40 @@
+.page-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.half-container {
+    max-height: 45vh;
+    min-height: 45vh;
+    background-color: blueviolet;
+    border: 1px solid red;
+    overflow: auto;
+}
+
+.draggable-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 60px;
+    background-color: red;
+}
+
+.expand-colapse {
+    width: 70%;
+    margin: 0;
+    padding: 30px;
+    font-size: 8pt;
+    background-color: yellow;
+}
+
+.expand-colapse1 {
+    width: 70%;
+    margin: 0;
+    padding: 30px;
+    font-size: 8pt;
+    background-color: green;
+}
+
+.expand-colapse-inner {
+    background-color: blue;
+}

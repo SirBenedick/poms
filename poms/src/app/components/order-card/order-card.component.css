@@ -1,0 +1,13 @@
+.card {
+    width: 149px;
+    height: 149px;
+    object-fit: contain;
+    /* background-image: url("../../../assets/png/Order-Card.png");
+    background-size: 149px; */
+}
+
+.Icon_Auftrag-1 {
+    width: 44.7px;
+    height: 44.7px;
+    object-fit: contain;
+}
