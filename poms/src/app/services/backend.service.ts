@@ -24,6 +24,6 @@ export class BackendService {
     return this.http.get(this.url + "printer/get/all/");
   }
   printerGet(id: number): Observable<Object>{
-    return this.http.get(this.url + String(id));
+    return this.http.get(this.url + "printer/get/" + String(id));
   }
 }
