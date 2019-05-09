@@ -13,6 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import de from '@angular/common/locales/de';
 import { PrintedordersComponent } from './pages/printedorders/printedorders.component';
+import { OrderCardComponent } from './components/order-card/order-card.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material';
 
 registerLocaleData(de);
 @NgModule({
@@ -22,14 +28,20 @@ registerLocaleData(de);
     PrinterComponent,
     SidebarDirective,
     OrderComponent,
-    PrintedordersComponent
+    PrintedordersComponent,
+    OrderCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
