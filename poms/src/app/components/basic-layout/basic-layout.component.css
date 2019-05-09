@@ -1,0 +1,70 @@
+.flex-container {
+    height: 100vh;
+    margin: none;
+    border-style: none;
+    padding: none;
+    display: flex;
+    background-color: DodgerBlue;
+    justify-content: space-between;
+}
+
+#Spalte-Links {
+    display: flex;
+    flex-direction: column;
+    width: 25px;
+    /* min-height: 100vh; */
+    /* object-fit: contain; */
+    background-color: #0faccb;
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#Spalte-Links>div {
+    /* Hier die Navigationsleiste anpassen
+ 
+  */
+}
+
+#Spalte-Links.toggled {
+    padding-right: 260px;
+}
+
+#Spalte-Rechts {
+    width: 310px;
+    height: 100vh;
+    object-fit: contain;
+    background-color: #0faccb;
+}
+
+#Kopfleiste {
+    /* flex-grow: 0; */
+    height: 60px;
+    object-fit: contain;
+    opacity: 0.8;
+    background-color: #94eaff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.center-row {
+    flex-grow: 2;
+    background-color: rgb(193, 207, 221);
+    display: flex;
+    flex-direction: column;
+}
+
+#suche {
+    width: 10em;
+    border: 2px solid #0FACCB;
+    background-color: #94EAFF;
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    transition: width 0.5s ease-in-out;
+}
+
+.auftrag {
+    width: 300px;
+}
