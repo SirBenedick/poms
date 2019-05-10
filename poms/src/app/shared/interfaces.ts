@@ -43,3 +43,14 @@ export interface IUserData {
     offline: Number;
     progress: Number;
   }
+
+  export interface IOrder{
+    orderId: Number;
+    groupId: any;
+    dueDate: String;
+    priority: String; 
+  }
+
+  export interface IGroupedOrders{
+
+  }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
-import { BackendService } from './../../services/backend.service';
+import { BackendService } from "./../../services/backend.service";
+import { IOrder } from "src/app/shared/interfaces";
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -12,30 +13,42 @@ import {
   styleUrls: ["./order.component.css"]
 })
 export class OrderComponent implements OnInit {
+  allUngroupedOrders: Array<IOrder> = [];
+  allGroupedOrders: Array<any> = [];
+
   constructor(private backendService: BackendService) {}
 
   ngOnInit() {
-
+    this.backendService
+      .getAllOrders()
+      .then((allOrdersResponse: Array<IOrder>) => {
+        this.sortOrderLists(allOrdersResponse);
+      });
   }
-  orderList = [
-    { orderId: "1", dueDate: "09.05.2019", priority: "hoch" },
-    { orderId: "2", dueDate: "09.05.2019", priority: "niedrig" }
-  ];
-  allGroupedOrders = [
-    {
-      groupId: 1,
-      orderCardsByGroup: [
-        { orderId: "111", dueDate: "09.05.2019", priority: "niedrig" },
-        { orderId: "112", dueDate: "09.05.2019", priority: "niedrig" }
-      ]
-    },
-    {
-      groupId: 2,
-      orderCardsByGroup: [
-        { orderId: "222", dueDate: "09.05.2019", priority: "niedrig" }
-      ]
-    }
-  ];
+
+  sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
+    allOrdersUnsorted.forEach(singleOrder => {
+      //check if groupId exists
+      if (singleOrder.groupId) {
+        //returns item with corresponding singleOrder.groupId or undefinded
+        let foundGroupObject = this.allGroupedOrders.find(
+          item => item.groupId === singleOrder.groupId
+        );
+        //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
+        if (foundGroupObject) {
+          foundGroupObject.orderCardsByGroup.push(singleOrder);
+        } else {
+          this.allGroupedOrders.push({
+            groupId: singleOrder.groupId,
+            orderCardsByGroup: [singleOrder]
+          });
+        }
+      } else {
+        this.allUngroupedOrders.push(singleOrder);
+      }
+    });
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(

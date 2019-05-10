@@ -13,7 +13,7 @@
         <mat-expansion-panel-header>
           <mat-panel-title>
             <b>Gruppe: {{ group.groupId }}</b
-            >, Aufträge: {{ group.orderCardsByGroup.length }}
+            >, Aufträge: {{ group.orderCardsByGroup.length}}
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="draggable-card-container">
@@ -30,15 +30,15 @@
       </mat-expansion-panel>
     </div>
     <div class="half-container">
-      <b>Unzugeordnete Aufträge</b>, Aufträge: {{ orderList.length }}
+      <b>Unzugeordnete Aufträge</b>, Aufträge: {{ allUngroupedOrders.length }}
       <div
         class="draggable-card-container"
         cdkDropList
-        [cdkDropListData]="orderList"
+        [cdkDropListData]="allUngroupedOrders"
         (cdkDropListDropped)="drop($event)"
       >
         <app-order-card
-          *ngFor="let orderCard of orderList"
+          *ngFor="let orderCard of allUngroupedOrders"
           cdkDragBoundary=".page-container"
           cdkDrag
           [orderId]="orderCard.orderId"
