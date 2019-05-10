@@ -14,6 +14,7 @@ export class OrderCardComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   onCardClick(event) {
     console.log(event);
   }
