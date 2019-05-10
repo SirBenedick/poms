@@ -11,63 +11,38 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
   }
-  groupedList=[
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+  groupedList = [
+    { orderId: "166", dueDate: "09.05.2019", priority: "hoch", },
+    { orderId: "16", dueDate: "09.05.2019", priority: "hoch", },
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
+    // {orderId: "166", dueDate: "09.05.2019", priority: "hoch",},
   ];
   orderList = [
-    {orderId: "1", dueDate: "09.05.2019", priority: "hoch",},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    {orderId: "2", dueDate: "09.05.2019", priority: "niedrig"},
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    { orderId: "1", dueDate: "09.05.2019", priority: "hoch", },
+    { orderId: "2", dueDate: "09.05.2019", priority: "niedrig" },
+
+  ];
+  allGroupedOrders = [
+    {
+      groupId: 1,
+      orderCardsByGroup: [
+        { orderId: "111", dueDate: "09.05.2019", priority: "niedrig" },
+        { orderId: "112", dueDate: "09.05.2019", priority: "niedrig" },
+      ]
+    },
+    {
+      groupId: 2,
+      orderCardsByGroup: [
+        { orderId: "222", dueDate: "09.05.2019", priority: "niedrig" },
+      ]
+    }
   ];
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -78,6 +53,7 @@ export class OrderComponent implements OnInit {
         event.previousIndex,
         event.currentIndex);
     }
+    console.log(event);
   }
 }
 
