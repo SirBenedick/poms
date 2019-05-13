@@ -1,8 +1,6 @@
 .flex-container {
-    height: 100vh;
-    margin: none;
+    height: auto;
     border-style: none;
-    padding: none;
     display: flex;
     background-color: DodgerBlue;
     justify-content: space-between;
@@ -11,7 +9,8 @@
 #Spalte-Links {
     display: flex;
     flex-direction: column;
-    width: 25px;
+    height: auto;
+    width: 60px;
     /* min-height: 100vh; */
     /* object-fit: contain; */
     background-color: #0faccb;
@@ -22,15 +21,108 @@
     transition: all 0.5s ease;
 }
 
+#Spalte-Links.toggled {
+  padding-right: 260px;
+}
+
+#expandet-collebs-left{
+  background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+  background-position: 14px center;
+  width: 260px;
+  height: 15%;
+  text-indent: -9999px;
+
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+#expandet-collebs-left:hover{
+  background-color:#94EAFF;
+  transition-duration: 0.6s;
+}
+
+.button-style {
+  background-position: 14px center;
+  left: 0;
+  width: 250px;
+  height: auto;
+  padding-top: 10px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+
+  object-fit: contain;
+  font-family: "Segoe UI";
+  font-weight: normal;
+  line-height: 1.33;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+
+
+  font-size: 16px;
+  color: #003549;
+}
+
+.button-style:focus {
+  font-family: "Segoe UI";
+  font-weight: bold;
+  border-left: 7px solid #003549;
+}
+
+.button-style:hover{
+  background-color:#94EAFF;
+  transition-duration: 0.4s;
+}
+
+#auftragsübersicht{
+  background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+}
+
+#gedruckte-aufträge{
+  background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+}
+
+#druckerverwaltung{
+  background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+
+}
+.transparent{
+  opacity: 0;
+}
+
+li {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+li:last-child{
+  vertical-align: bottom;
+}
+
+#hilfestellung{
+  background-image: url("../../../assets/png/Button_Hilfestellung/Button_Hilfestellung.png");
+
+}
+#einstellung{
+  background-image: url("../../../assets/png/Button_Einstellungen/Button_Einstellungen.png");
+}
+
+
 #Spalte-Links>div {
     /* Hier die Navigationsleiste anpassen
  
   */
 }
 
-#Spalte-Links.toggled {
-    padding-right: 260px;
-}
 
 #Spalte-Rechts {
     width: 310px;

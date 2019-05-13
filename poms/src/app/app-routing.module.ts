@@ -4,6 +4,7 @@ import { PrinterComponent } from './pages/printer/printer.component';
 import { OrderComponent } from './pages/order/order.component';
 import { PrintedordersComponent } from './pages/printedorders/printedorders.component';
 
+
 const routes: Routes = [
   {path: '', component: OrderComponent},
   {path: 'printer', component: PrinterComponent},
