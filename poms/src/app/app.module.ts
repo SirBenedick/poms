@@ -19,6 +19,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
+//Material selection
+import { MatIconModule} from '@angular/material/icon';
+
 
 registerLocaleData(de);
 @NgModule({
@@ -41,7 +44,8 @@ registerLocaleData(de);
     MatExpansionModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
