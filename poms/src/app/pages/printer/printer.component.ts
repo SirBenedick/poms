@@ -24,20 +24,20 @@ export class PrinterComponent implements OnInit {
   typiCodeUserData: IUserData;
   userDataSubscription: Subscription;
 
-  allPrinterData: Array<IPrinterData> = [];
+  allPrinters: Array<IPrinterData> = [];
   
   constructor(private backendService: BackendService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    //** First time page is loaded "this.backendService.allPrinterData" is still empty*/
-    if(this.allPrinterData.length == 0){
+    //** First time page is loaded "this.backendService.allPrinters" is still empty*/
+    if(this.allPrinters.length == 0){
       // setTimeout hat seinen eigenen scope und würde "this" anders zuordnen
       var that = this;
       setTimeout(function(){
-        that.allPrinterData = that.backendService.allPrinterData;
+        that.allPrinters = that.backendService.allPrinterData;
       }, 300);
     }
-    this.allPrinterData = this.backendService.allPrinterData;
+    this.allPrinters = this.backendService.allPrinterData;
   }
 
   ngOnDestroy(): void {
