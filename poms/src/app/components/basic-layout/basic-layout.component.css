@@ -128,7 +128,9 @@ background-image: url("../../../assets/png/Button_Einstellungen/Button_Einstellu
   width: 310px;
   height: 100vh;
   object-fit: contain;
-  background-color: #0faccb;
+  background-color: #f6f6f6;
+  max-width: 310px;
+  min-width: 310px;
 }
 
 #Kopfleiste {
@@ -136,22 +138,24 @@ background-image: url("../../../assets/png/Button_Einstellungen/Button_Einstellu
   height: 60px;
   object-fit: contain;
   opacity: 0.8;
-  background-color: #94eaff;
+  background-color: #0d0d0e;
   display: flex;
   justify-content: space-between;
 }
 
 .center-row {
   flex-grow: 2;
-  background-color: rgb(193, 207, 221);
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
+
+  /* max-width: 70vh; */
 }
 
 #suche {
   width: 10em;
-  border: 2px solid #0FACCB;
-  background-color: #94EAFF;
+  border: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
   border-radius: 0.5em;
   font-size: 1.2em;
   transition: width 0.5s ease-in-out;
@@ -159,4 +163,26 @@ background-image: url("../../../assets/png/Button_Einstellungen/Button_Einstellu
 
 .auftrag {
   width: 300px;
+}
+
+.progressbar{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin:5px;
+}
+.progressbar > * {
+  margin:5px;
+}
+
+#druckfortschritt{
+  font-size: 26px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
+  margin-top: 32px;
 }
