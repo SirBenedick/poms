@@ -1,0 +1,31 @@
+.page-container {
+  display: flex;
+  /* justify-content: space-between; */
+
+}
+
+.ordertitel {
+  display: flex;
+  justify-content: space-between;
+  }
+
+#Spalte-Links {
+  display: flex;
+  flex-direction: column;
+  width: 75vh;
+  background-color: #0faccb;
+}
+
+#Spalte-Rechts {
+  display: flex;
+  flex-direction: column;
+  width: 75vh;
+  object-fit: contain;
+  background-color: #6e3b4f;
+}
+
+.ordertypes{
+  display: flex;
+  width: 50vh;
+
+}

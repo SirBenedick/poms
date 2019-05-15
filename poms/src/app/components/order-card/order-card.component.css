@@ -2,8 +2,8 @@
     width: 149px;
     height: 149px;
     object-fit: contain;
-    background-image: url("../../../assets/png/Order-Card.png");
-    background-size: 149px;
+    /* background-image: url("../../../assets/png/Order-Card.png");
+    background-size: 149px; */
 }
 
 .Icon_Auftrag-1 {

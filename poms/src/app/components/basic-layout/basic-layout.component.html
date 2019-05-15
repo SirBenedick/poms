@@ -2,27 +2,32 @@
     <!-- Left sidebar -->
     <div id="Spalte-Links" [ngClass]="ref.click === true ? 'toggled' : ''">
         <button appSidebar #ref="appSidebar" type="button" class="" data-toggle="offcanvas">
-      >
-    </button>
+            >
+        </button>
 
         <div routerLink="order">
-            <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face" height="20" width="25"> Auftragsübersicht
+            <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face"
+                height="20" width="25"> Auftragsübersicht
         </div>
 
         <div routerLink="printedorders">
-            <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face" height="20" width="25"> gedruckte Aufträge
+            <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face"
+                height="20" width="25"> gedruckte Aufträge
         </div>
 
         <div routerLink="printer">
-            <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face" height="20" width="25"> Druckerverwaltung
+            <img src="../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png" alt="Smiley face"
+                height="20" width="25"> Druckerverwaltung
         </div>
 
         <div style="margin-top:auto">
-            <img src="../../../assets/png/Button_Hilfestellung/Button_Hilfestellung.png" alt="Smiley face" height="25" width="25"> Hilfestellung
+            <img src="../../../assets/png/Button_Hilfestellung/Button_Hilfestellung.png" alt="Smiley face" height="25"
+                width="25"> Hilfestellung
         </div>
 
         <div>
-            <img src="../../../assets/png/Button_Einstellungen/Button_Einstellungen.png" alt="Smiley face" height="20" width="25"> Einstellungen
+            <img src="../../../assets/png/Button_Einstellungen/Button_Einstellungen.png" alt="Smiley face" height="20"
+                width="25"> Einstellungen
         </div>
     </div>
     <!-- Middle Bar -->
@@ -30,12 +35,14 @@
         <nav class="nav" id="Kopfleiste">
             <div class="nav-link active" href="#">
                 <input type="search" id="suche" placeholder="Suche">
-                <button tpye="submit"><img src="../../../assets/png/Lupe/Lupe.png" alt="Smiley face" height="25" width="25">
-        </button>
+                <button tpye="submit"><img src="../../../assets/png/Lupe/Lupe.png" alt="Smiley face" height="25"
+                        width="25">
+                </button>
             </div>
 
-            <div class="nav-link active" href="#">
-                <img src="../../../assets/png/Plusbutton/Plusbutton.png" alt="Smiley face" height="30" width="30"> Neuen Auftrag anlegen
+            <div class="nav-link active" href="#" (click)="newOrder()">
+                <img src="../../../assets/png/Plusbutton/Plusbutton.png" alt="Smiley face" height="30" width="30">
+                Neuen Auftrag anlegen
             </div>
             <!--   <a class="nav-link disabled" href="#">Disabled</a>
    -->
@@ -45,5 +52,5 @@
         </div>
     </div>
     <!-- Right sidebar -->
-    <div id="Spalte-Rechts">aktuelle Aufträge</div>
+    <div id="Spalte-Rechts">Druckfortschritt </div>
 </div>

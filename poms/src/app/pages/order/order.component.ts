@@ -7,6 +7,9 @@ import {
   moveItemInArray,
   transferArrayItem
 } from "@angular/cdk/drag-drop";
+import { OrderCardComponent } from 'src/app/components/order-card/order-card.component';
+import { MatDialog } from '@angular/material';
+import { CreateNewOrderComponent } from 'src/app/components/create-new-order/create-new-order.component';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -16,7 +19,7 @@ export class OrderComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<any> = [];
 
-  constructor(private backendService: BackendService) {}
+  constructor(private backendService: BackendService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.backendService
@@ -65,4 +68,13 @@ export class OrderComponent implements OnInit {
       );
     }
   }
+  openDialog():void {
+    const dialogRef = this.dialog.open(CreateNewOrderComponent);
+
+     dialogRef.afterClosed().subscribe(result =>{
+      console.log("The dialog was closed");
+    });
+
+  }
+
 }

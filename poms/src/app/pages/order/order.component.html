@@ -28,9 +28,19 @@
           </app-order-card>
         </div>
       </mat-expansion-panel>
+
+      
+      <!-- TO-DO: Button on the right side -->
+
+
+      <div>
+        <button mat-raised-button (click)="openDialog()">Pick one</button>
+      </div>
+      
     </div>
     <div class="half-container">
       <b>Unzugeordnete Aufträge</b>, Aufträge: {{ allUngroupedOrders.length }}
+      
       <div
         class="draggable-card-container"
         cdkDropList
