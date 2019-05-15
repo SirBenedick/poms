@@ -13,4 +13,7 @@ export class BasicLayoutComponent implements OnInit {
     
   }
 
+  newOrder(){
+    console.log("function called");
+  }
 }
