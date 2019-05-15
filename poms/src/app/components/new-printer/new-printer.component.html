@@ -1,0 +1,25 @@
+<div class="page-container">
+  <form>
+
+    <h4>Name:
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput #message maxlength="256" placeholder="Druckername">
+        <mat-hint style="align-self: flex-end">{{message.value.length}} / 256</mat-hint>
+      </mat-form-field>
+      <br><button mat-raised-button color="primary" (click)="testClick()">
+        Speichern
+      </button>
+      <button mat-raised-button color="warn" (click)="abbruchClick()">
+        Abbrechen
+      </button>
+    </h4>
+
+
+
+
+
+
+  </form>
+</div>

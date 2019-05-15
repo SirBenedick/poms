@@ -1,0 +1,73 @@
+<div class="page-container">
+    <div class="half-container1">
+        <h3> Druckername:
+            {{printerName}}
+        </h3>
+    </div>
+        <div class="half-container">
+        <h3> Status:
+            {{druckerStatus}}
+        </h3>
+    </div>
+    <div class="half-container1">
+        <h3>
+            Füllstand:
+            <!-- <div style="display: block">
+                <canvas mdbChart
+                    [chartType]="chartType"
+                    [datasets]="chartDatasets"
+                    [colors]="chartColors"
+                    [options]="chartOptions"
+                    [legend]="true"
+                  >
+                </canvas>
+              </div>  -->
+       
+        </h3>
+    </div>
+    <div class="half-container">
+        <h3>
+            Druckfortschritt:
+            <mat-progress-bar [value]="druckFortschritt">
+            </mat-progress-bar>
+            {{ druckFortschritt }}
+        </h3>
+        <!--             <div *ngIf="printerData.printer_id != 666">
+  <h1>Die Restliche Druckzeit des Druckers {{ printerData.name }} beträgt:</h1>
+  <p>{{ printerData.name }}</p>
+  <p>{{ printerData.time_estimated }}</p>
+</div>  -->
+    </div>
+    <div class="half-container1">
+        <h4>
+            restliche Druckzeit:
+            {{ restlicheDruckzeit }}
+        </h4>
+    </div>
+
+    <div class="half-container">
+        <h3>
+            Druck gestartet:
+            {{ printStart }}
+        </h3>
+    </div>
+
+    <!-- <div class="half-container1">
+        <h3>
+            Temperatur
+            {{ temperatur }}
+        </h3>
+    </div> -->
+
+</div>
+<!--
+<div class="half-container">
+<h4 matInput>Lichtstärke</h4>
+<h4 style="align-self: center; color:green"> genug Flüssigkeit</h4>
+<h5 style="align-self: flex-end">Details</h5>
+</div>
+<div class="half-container">
+<h4 matInput>Motorgeschwindigkeit</h4>
+<h4 style="align-self: center; color:green"> genug Flüssigkeit</h4>
+<h5 style="align-self: flex-end">Details</h5>
+</div> -->

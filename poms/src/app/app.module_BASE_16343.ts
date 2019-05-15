@@ -18,21 +18,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatSliderModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
-import { CreateNewOrderComponent } from './components/create-new-order/create-new-order.component';
-import { MatOptionModule } from '@angular/material';
-import { MatSelectModule } from '@angular/material';
-import { MatDatepickerModule } from '@angular/material/';
-import { MatNativeDateModule } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
-import { StatusComponent } from './components/status/status.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { NewPrinterComponent } from './components/new-printer/new-printer.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-// import { ChartsModule } from 'ng2-charts';
-// import { Chart } from 'chart.js';
+import { MatInputModule } from '@angular/material';
 
 registerLocaleData(de);
 @NgModule({
@@ -43,10 +29,7 @@ registerLocaleData(de);
     SidebarDirective,
     OrderComponent,
     PrintedordersComponent,
-    OrderCardComponent,
-    CreateNewOrderComponent,
-    StatusComponent,
-    NewPrinterComponent
+    OrderCardComponent
   ],
   imports: [
     BrowserModule,
@@ -58,30 +41,9 @@ registerLocaleData(de);
     MatExpansionModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatDialogModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    MatProgressBarModule,
-    MatSliderModule,
-    MatButtonModule,
-    MatIconModule
-    // ChartsModule,
-    // Chart
+    MatInputModule
   ],
-
-    entryComponents:[
-      CreateNewOrderComponent,
-      NewPrinterComponent
-    ],
-
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-
