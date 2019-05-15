@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 
 #manually added
 idea/
 .idea/
 
+=======
+#manually added
+idea/
+.idea/
+>>>>>>> master
 # Logs
 logs
 *.log

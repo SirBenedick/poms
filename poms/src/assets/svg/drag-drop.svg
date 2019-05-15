@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.175" height="18.625" viewBox="0 0 11.175 18.625">
+    <defs>
+        <style>
+            .cls-1{fill:#003549;stroke:#003549}.cls-2{stroke:none}.cls-3{fill:none}
+        </style>
+    </defs>
+    <g id="Drag_Drop" data-name="Drag &amp; Drop" transform="translate(-608.16 -762.71)">
+        <g id="Ellipse_8" class="cls-1" data-name="Ellipse 8" transform="translate(608.16 762.71)">
+            <circle cx="1.863" cy="1.863" r="1.863" class="cls-2"/>
+            <circle cx="1.863" cy="1.863" r="1.363" class="cls-3"/>
+        </g>
+        <g id="Ellipse_9" class="cls-1" data-name="Ellipse 9" transform="translate(608.16 770.16)">
+            <circle cx="1.863" cy="1.863" r="1.863" class="cls-2"/>
+            <circle cx="1.863" cy="1.863" r="1.363" class="cls-3"/>
+        </g>
+        <g id="Ellipse_10" class="cls-1" data-name="Ellipse 10" transform="translate(608.16 777.61)">
+            <circle cx="1.863" cy="1.863" r="1.863" class="cls-2"/>
+            <circle cx="1.863" cy="1.863" r="1.363" class="cls-3"/>
+        </g>
+        <g id="Ellipse_11" class="cls-1" data-name="Ellipse 11" transform="translate(615.61 762.71)">
+            <circle cx="1.863" cy="1.863" r="1.863" class="cls-2"/>
+            <circle cx="1.863" cy="1.863" r="1.363" class="cls-3"/>
+        </g>
+        <g id="Ellipse_12" class="cls-1" data-name="Ellipse 12" transform="translate(615.61 770.16)">
+            <circle cx="1.863" cy="1.863" r="1.863" class="cls-2"/>
+            <circle cx="1.863" cy="1.863" r="1.363" class="cls-3"/>
+        </g>
+        <g id="Ellipse_13" class="cls-1" data-name="Ellipse 13" transform="translate(615.61 777.61)">
+            <circle cx="1.863" cy="1.863" r="1.863" class="cls-2"/>
+            <circle cx="1.863" cy="1.863" r="1.363" class="cls-3"/>
+        </g>
+    </g>
+</svg>

@@ -1,11 +1,30 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to POMS!
-  </h1>
+<div class="page-container">
+  <div class="verfuegbare-Drucker">Verfügbare Drucker</div>
+  <div class="newPrinter" (click)="openDialog()" style="justify-content: center">
+       <div class="neuen-Drucker-hinzufgen">neuen Drucker hinzufügen </div>
+  </div>
+  <br>
+  <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
+  <mat-expansion-panel *ngFor="let printer of allPrinters">
+    <mat-expansion-panel-header>
+      <!-- Ausgabe von allen verfügbaren Druckern -->
+      <mat-panel-title>
+        
+          <img src="../../../assets/svg/Pfad 141.svg" class="Pfad-141">
+        <div class="drucker" style="align-self: center"> {{printer.name}}  </div>
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+    <app-status [printerName]="printer.name" [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'" [fuellstand]="printer.max_layer"
+      [druckFortschritt]="printer.progress*100" [restlicheDruckzeit]="printer.time_estimated"
+      [printStart]="printer.print_start" ></app-status>
+      <!-- [temperatur]="printer.model_height" -->
+    <!-- <mat-progress-bar
+  [value]="printer.progress*100">
+  
+</mat-progress-bar> -->
+
+  </mat-expansion-panel>
+
 </div>
-<div *ngIf="printerData.printer_id != 666">
-<h1>Die Restliche Druckzeit des Druckers {{ printerData.name }} beträgt:</h1>
-  <p>{{ printerData.name }}</p>
-  <p>{{ printerData.time_estimated }}</p>
-</div>
-<br />
