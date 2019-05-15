@@ -22,11 +22,15 @@ export class OrderComponent implements OnInit {
   constructor(private backendService: BackendService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.backendService
-      .getAllOrders()
-      .then((allOrdersResponse: Array<IOrder>) => {
-        this.sortOrderLists(allOrdersResponse);
-      });
+    //** First time page is loaded "this.backendService.allUngroupedOrders" is still empty*/
+    if (this.allUngroupedOrders.length == 0 && this.allGroupedOrders.length == 0) {
+      // setTimeout hat seinen eigenen scope und würde "this" anders zuordnen
+      var that = this;
+      setTimeout(function() {
+        that.sortOrderLists(that.backendService.allUngroupedOrders);
+      }, 300);
+    }
+    this.sortOrderLists(this.backendService.allUngroupedOrders);
   }
 
   sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
