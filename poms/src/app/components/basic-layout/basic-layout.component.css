@@ -38,7 +38,8 @@ padding-right: 260px;
 }
 
 #expandet-collebs-left{
-  background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+  background-image: url("../../../assets/svg/menu-buttonleft.svg");
+  background-size: auto 30%;
   background-position: 14px center;
   width: 270px;
   height: 15%;
@@ -53,9 +54,11 @@ padding-right: 260px;
   margin-left: -10px;
 }
 
-#expandet-collebs-left:hover{
-background-color:#94EAFF;
-transition-duration: 0.6s;
+
+#expandet-collebs-left:focus{
+  background-image: url("../../../assets/svg/menu-buttonright.svg");
+
+
 }
 
 .button-style {
@@ -95,10 +98,6 @@ transition-duration: 0.6s;
 
 }
 
-.button-style:hover{
-background-color:#94EAFF;
-transition-duration: 0.4s;
-}
 
 #auftragsübersicht {
   background-image: url("../../../assets/svg/auftraguebersicht.svg");
