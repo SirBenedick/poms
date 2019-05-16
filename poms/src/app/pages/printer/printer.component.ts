@@ -41,17 +41,20 @@ export class PrinterComponent implements OnInit {
     this.allPrinters = this.backendService.allPrinterData;
   }
 
-  ngOnDestroy(): void {
+  //  ngOnDestroy(): void {
+   
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-  }
+  // }
 
   // newCreatePrinter(){
   //   console.log("New Printer is creating!")
   // }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(NewPrinterComponent);
+    const dialogRef = this.dialog.open(NewPrinterComponent, {
+      data: { newPrinter: this.newPrinter}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
@@ -59,3 +62,4 @@ export class PrinterComponent implements OnInit {
     });
   }
 }
+

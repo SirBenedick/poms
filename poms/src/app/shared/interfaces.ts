@@ -59,7 +59,3 @@ export interface IUserData {
     titel: String;
     Kategorie: String;
   }
-
-  export interface DialogData {
-    newPrinter: String;
-  }

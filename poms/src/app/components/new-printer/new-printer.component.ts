@@ -23,15 +23,15 @@ export class NewPrinterComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-
-  testClick() {
-    if (this.newPrinterForm) {
-      console.log("Form Submitted");
-      console.log(this.newPrinterForm.value);
-    } else {
-      console.log("New Printer save!");
-    }
-  }
+// Only for testing
+  // testClick() {
+  //   if (this.newPrinterForm) {
+  //     console.log("Form Submitted");
+  //     console.log(this.newPrinterForm.value);
+  //   } else {
+  //     console.log("New Printer save!");
+  //   }
+  // }
 
   abbruchClick() {
     this.dialogRef.close();
