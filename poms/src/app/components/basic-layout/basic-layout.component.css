@@ -83,8 +83,13 @@ background-color:#94EAFF;
 transition-duration: 0.4s;
 }
 
-#auftragsübersicht{
-background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+/* #auftragsübersicht{
+background-image: url("../../../assets/svg/Symbol\ 13\ –\ 2.svg");
+} */
+.Symbol-13-2 {
+  width: 33.7px;
+  height: 40.8px;
+  object-fit: contain;
 }
 
 #gedruckte-aufträge{
@@ -145,17 +150,15 @@ background-image: url("../../../assets/png/Button_Einstellungen/Button_Einstellu
 
 .center-row {
   flex-grow: 2;
-  background-color: #FFFFFF;
+  background-color: rgb(193, 207, 221);
   display: flex;
   flex-direction: column;
-
-  /* max-width: 70vh; */
 }
 
 #suche {
   width: 10em;
-  border: 2px solid #FFFFFF;
-  background-color: #FFFFFF;
+  border: 2px solid #0FACCB;
+  background-color: #94EAFF;
   border-radius: 0.5em;
   font-size: 1.2em;
   transition: width 0.5s ease-in-out;

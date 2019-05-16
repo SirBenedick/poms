@@ -80,5 +80,8 @@ export class OrderComponent implements OnInit {
     });
 
   }
+  onClick(): void {
+    console.log("New Order creating")
+}
 
 }
