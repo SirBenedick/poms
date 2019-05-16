@@ -3,9 +3,12 @@
   <div class="newPrinter" (click)="openDialog()" style="justify-content: center">
     <div class="neuen-Drucker-hinzufgen">neuen Drucker hinzufügen </div>
   </div>
+  <div *ngIf="newPrinter">
+    Neuer Drucker: {{newPrinter}}
+  </div>
   <br>
   <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-  <mat-expansion-panel *ngFor="let printer of allPrinters" >
+  <mat-expansion-panel *ngFor="let printer of allPrinters">
     <mat-expansion-panel-header class="expand-Collapse">
       <!-- Ausgabe von allen verfügbaren Druckern -->
       <mat-panel-title>
@@ -15,16 +18,16 @@
       </mat-panel-title>
 
     </mat-expansion-panel-header>
-    
-      <app-status [printerName]="printer.name" [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
-        [fuellstand]="printer.max_layer" [druckFortschritt]="printer.progress*100"
-        [restlicheDruckzeit]="printer.time_estimated" [printStart]="printer.print_start"></app-status>
-      <!-- [temperatur]="printer.model_height" -->
-      <!-- <mat-progress-bar
+
+    <app-status [printerName]="printer.name" [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
+      [fuellstand]="printer.max_layer" [druckFortschritt]="printer.progress*100"
+      [restlicheDruckzeit]="printer.time_estimated" [printStart]="printer.print_start"></app-status>
+    <!-- [temperatur]="printer.model_height" -->
+    <!-- <mat-progress-bar
   [value]="printer.progress*100">
   
 </mat-progress-bar> -->
-   
+
   </mat-expansion-panel>
 
 </div>
