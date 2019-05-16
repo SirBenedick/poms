@@ -8,7 +8,7 @@
         <input matInput #message formControlName="neuerDruckerName" maxlength="256">
         <mat-hint style="align-self: flex-end">{{message.value.length}} / 256</mat-hint>
       </mat-form-field>
-      <br><button mat-raised-button color="primary" (click)="testClick()">
+      <br><button mat-raised-button color="primary" [mat-dialog-close]="Printer.newPrinter" (click)="testClick()">
         Speichern
       </button>
       <button mat-raised-button color="warn" (click)="abbruchClick()">

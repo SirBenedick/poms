@@ -4,7 +4,8 @@ import { BackendService } from './../../services/backend.service';
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { IPrinterData } from 'src/app/shared/interfaces';
-
+import { MatDialog } from '@angular/material'
+import { CreateNewOrderComponent } from 'src/app/components/create-new-order/create-new-order.component';
 @Component({
   selector: 'app-basic-layout',
   templateUrl: './basic-layout.component.html',
@@ -14,7 +15,8 @@ export class BasicLayoutComponent implements OnInit {
 
   printerSubscription: Observable<Object>;
 
-  constructor(private backendService: BackendService) { 
+  constructor(private backendService: BackendService,
+  public dialog: MatDialog) { 
   }
   
   ngOnInit() {
@@ -35,5 +37,13 @@ export class BasicLayoutComponent implements OnInit {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     
+  }
+
+  openDialog():void {
+    const dialogRef = this.dialog.open(CreateNewOrderComponent);
+
+     dialogRef.afterClosed().subscribe(result =>{
+      console.log("The dialog was closed");
+    });
   }
 }

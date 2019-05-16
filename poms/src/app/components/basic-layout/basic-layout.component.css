@@ -98,14 +98,9 @@ padding-right: 260px;
 
 }
 
-
-#auftragsübersicht {
-  background-image: url("../../../assets/svg/auftraguebersicht.svg");
-  background-size: auto 90%;
+#auftragsübersicht{
+background-image: url("../../../assets/svg/auftraguebersicht.svg");
 }
-/* #auftragsübersicht{
-background-image: url("../../../assets/svg/Symbol\ 13\ –\ 2.svg");
-} */
 .Symbol-13-2 {
   width: 33.7px;
   height: 40.8px;

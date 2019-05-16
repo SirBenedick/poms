@@ -27,30 +27,33 @@
       </div>
 
 
-      <div style="margin-top: auto">
-
-           <nav routerLink="" class="button-style" id="hilfestellung">
-             <a class="transparent">Hilfestellung</a></nav>
-        </div>
-
-      <div>
-           <nav routerLink="" class="button-style" id="einstellung">
-             <a class="transparent">Einstellungen</a></nav>
-      </div>
-
+    <div style="margin-top: auto">
+      <nav routerLink="" class="button-style" id="hilfestellung">
+        <a class="transparent"></a>Hilfestellung
+      </nav>
     </div>
-
-
-    <!-- Middle Bar -->
-    <div class="center-row">
-        <nav class="nav" id="Kopfleiste">
-            <div class="nav-link active" href="#">
-                <input type="search" id="suche" placeholder="Suche">
-                <button tpye="submit"><img src="../../../assets/png/Lupe/Lupe.png" alt="Smiley face" height="25" width="25">
+    <div>
+      <nav routerLink="" class="button-style" id="einstellung">
+        <a class="transparent"></a>Einstellungen
+      </nav>
+    </div>
+  </div>
+  <!-- Middle Bar -->
+  <div class="center-row">
+    <nav class="nav" id="Kopfleiste">
+      <div class="nav-link active" href="#">
+        <input type="search" id="suche" placeholder="Suche" />
+        <button tpye="submit">
+          <img
+            src="../../../assets/png/Lupe/Lupe.png"
+            alt="Smiley face"
+            height="25"
+            width="25"
+          />
         </button>
       </div>
 
-      <div class="nav-link active" href="#">
+      <div class="nav-link active" href="#" (click)="openDialog()">
         <img
           src="../../../assets/png/Plusbutton/Plusbutton.png"
           alt="Smiley face"
