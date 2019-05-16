@@ -7,27 +7,30 @@
     Neuer Drucker: {{newPrinter}}
   </div>
   <br>
-  <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-  <mat-expansion-panel *ngFor="let printer of allPrinters">
-    <mat-expansion-panel-header class="expand-Collapse">
-      <!-- Ausgabe von allen verfügbaren Druckern -->
-      <mat-panel-title>
+  <div class="half-container">
+    <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
+    <mat-expansion-panel *ngFor="let printer of allPrinters">
+      <mat-expansion-panel-header class="expand-Collapse">
+        <!-- Ausgabe von allen verfügbaren Druckern -->
+        <mat-panel-title>
 
-        <img src="../../../assets/svg/Pfad 141.svg" class="Pfad-141">
-        <div class="drucker" style="align-self: center"> {{printer.name}} </div>
-      </mat-panel-title>
+          <img src="../../../assets/svg/Pfad 141.svg" class="Pfad-141">
+          <div class="drucker" style="align-self: center"> {{printer.name}} </div>
+        </mat-panel-title>
 
-    </mat-expansion-panel-header>
+      </mat-expansion-panel-header>
 
-    <app-status [printerName]="printer.name" [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
-      [fuellstand]="printer.max_layer" [druckFortschritt]="printer.progress*100"
-      [restlicheDruckzeit]="printer.time_estimated" [printStart]="printer.print_start"></app-status>
-    <!-- [temperatur]="printer.model_height" -->
-    <!-- <mat-progress-bar
+      <app-status style="overflow: auto" [printerName]="printer.name"
+        [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'" [fuellstand]="printer.max_layer"
+        [druckFortschritt]="printer.progress*100" [restlicheDruckzeit]="printer.time_estimated"
+        [printStart]="printer.print_start"></app-status>
+
+      <!-- [temperatur]="printer.model_height" -->
+      <!-- <mat-progress-bar
   [value]="printer.progress*100">
   
 </mat-progress-bar> -->
 
-  </mat-expansion-panel>
-
+    </mat-expansion-panel>
+  </div>
 </div>
