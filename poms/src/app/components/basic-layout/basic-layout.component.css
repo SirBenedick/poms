@@ -1,26 +1,23 @@
 .flex-container {
-    height: auto;
-    border-style: none;
-    display: flex;
+  height: auto;
+  border-style: none;
+  display: flex;
 
-    justify-content: space-between;
-
+  justify-content: space-between;
 }
 #Spalte-Links {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 60px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 60px;
   box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.16);
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   padding-left: 10px;
-
-
 }
-.small-bar-left{
+.small-bar-left {
   width: 10px;
   height: auto;
   object-fit: contain;
@@ -29,15 +26,15 @@
   position: sticky;
   z-index: 0;
 }
-body{
+body {
   background-color: #f6f6f6;
 }
 
 #Spalte-Links.toggled {
-padding-right: 260px;
+  padding-right: 260px;
 }
 
-#expandet-collebs-left{
+#expandet-collebs-left {
   background-image: url("../../../assets/svg/menu-buttonleft.svg");
   background-size: auto 30%;
   background-position: 14px center;
@@ -46,20 +43,17 @@ padding-right: 260px;
   text-indent: -9999px;
 
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   margin-left: -10px;
 }
 
-
-#expandet-collebs-left:focus{
+/* #expandet-collebs-left:focus {
   background-image: url("../../../assets/svg/menu-buttonright.svg");
-
-
-}
+} */
 
 .button-style {
   background-position: 14px center;
@@ -82,7 +76,6 @@ padding-right: 260px;
   font-stretch: normal;
   letter-spacing: normal;
 
-
   border-left: 10px solid transparent;
   font-size: 16px;
   color: #003549;
@@ -94,52 +87,46 @@ padding-right: 260px;
   font-family: "Segoe UI";
   font-weight: bold;
   border-left: 10px solid #003549;
-
-
 }
 
-#auftragsübersicht{
-background-image: url("../../../assets/svg/auftraguebersicht.svg");
+#auftragsübersicht {
+  background-image: url("../../../assets/svg/auftraguebersicht.svg");
+  background-size: auto 90%;
 }
-.Symbol-13-2 {
+/* .Symbol-13-2 {
   width: 33.7px;
   height: 40.8px;
   object-fit: contain;
-}
+  padding-left: 30px;
+} */
 
-#gedruckte-aufträge{
+#gedruckte-aufträge {
   background-image: url("../../../assets/svg/gedruckt-auftreage.svg");
   background-size: auto 90%;
 }
 
-#druckerverwaltung{
+#druckerverwaltung {
   background-image: url("../../../assets/svg/printer.svg");
   background-size: auto 90%;
-
 }
-.transparent{
+.transparent {
   padding-left: 30%;
 }
 
-
-
-#hilfestellung{
+#hilfestellung {
   background-image: url("../../../assets/svg/Button_Hilfestellung.svg");
   background-size: auto 90%;
-
 }
-#einstellung{
+#einstellung {
   background-image: url("../../../assets/svg/einstellung.svg");
   background-size: auto 90%;
 }
 
+/* #Spalte-Links>div {
+   Hier die Navigationsleiste anpassen
 
-#Spalte-Links>div {
-  /* Hier die Navigationsleiste anpassen
 
-*/
-}
-
+} */
 
 #Spalte-Rechts {
   width: 310px;
@@ -169,8 +156,8 @@ background-image: url("../../../assets/svg/auftraguebersicht.svg");
 
 #suche {
   width: 10em;
-  border: 2px solid #0FACCB;
-  background-color: #94EAFF;
+  border: 2px solid #0faccb;
+  background-color: #94eaff;
   border-radius: 0.5em;
   font-size: 1.2em;
   transition: width 0.5s ease-in-out;
@@ -180,17 +167,17 @@ background-image: url("../../../assets/svg/auftraguebersicht.svg");
   width: 300px;
 }
 
-.progressbar{
+.progressbar {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin:5px;
+  margin: 5px;
 }
 .progressbar > * {
-  margin:5px;
+  margin: 5px;
 }
 
-#druckfortschritt{
+#druckfortschritt {
   font-size: 26px;
   font-weight: bold;
   font-style: normal;
