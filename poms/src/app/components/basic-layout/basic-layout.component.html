@@ -1,10 +1,15 @@
-
 <div class="flex-container">
-    <!-- Left sidebar -->
-    <div id="Spalte-Links" [ngClass]="ref.click === true ? 'toggled' : ''">
-          <button appSidebar #ref="appSidebar" type="button" id="expandet-collebs-left" data-toggle="offcanvas">
-          >
-          </button>
+  <!-- Left sidebar -->
+  <div id="Spalte-Links" [ngClass]="ref.click === true ? 'toggled' : ''">
+    <button
+      appSidebar
+      #ref="appSidebar"
+      type="button"
+      id="expandet-collebs-left"
+      data-toggle="offcanvas"
+    >
+      >
+    </button>
 
       <div>
           <nav routerLink="order" class="button-style" id="auftragsübersicht">
@@ -19,38 +24,64 @@
           <a class="transparent">__________</a>Druckerverwaltung</nav>
     </div>
 
-      <div style="margin-top: auto">
-
-           <nav routerLink="" class="button-style" id="hilfestellung">
-             <a class="transparent">__________</a>Hilfestellung</nav>
-        </div>
-      <div>
-
-           <nav routerLink="" class="button-style" id="einstellung">
-             <a class="transparent">__________</a>Einstellungen</nav>
+    <div style="margin-top: auto">
+      <nav routerLink="" class="button-style" id="hilfestellung">
+        <a class="transparent">__________</a>Hilfestellung
+      </nav>
+    </div>
+    <div>
+      <nav routerLink="" class="button-style" id="einstellung">
+        <a class="transparent">__________</a>Einstellungen
+      </nav>
+    </div>
+  </div>
+  <!-- Middle Bar -->
+  <div class="center-row">
+    <nav class="nav" id="Kopfleiste">
+      <div class="nav-link active" href="#">
+        <input type="search" id="suche" placeholder="Suche" />
+        <button tpye="submit">
+          <img
+            src="../../../assets/png/Lupe/Lupe.png"
+            alt="Smiley face"
+            height="25"
+            width="25"
+          />
+        </button>
       </div>
 
-
-    </div>
-    <!-- Middle Bar -->
-    <div class="center-row">
-        <nav class="nav" id="Kopfleiste">
-            <div class="nav-link active" href="#">
-                <input type="search" id="suche" placeholder="Suche">
-                <button tpye="submit"><img src="../../../assets/png/Lupe/Lupe.png" alt="Smiley face" height="25" width="25">
-        </button>
-            </div>
-
-            <div class="nav-link active" href="#">
-                <img src="../../../assets/png/Plusbutton/Plusbutton.png" alt="Smiley face" height="30" width="30"> Neuen Auftrag anlegen
-            </div>
-            <!--   <a class="nav-link disabled" href="#">Disabled</a>
+      <div class="nav-link active" href="#">
+        <img
+          src="../../../assets/png/Plusbutton/Plusbutton.png"
+          alt="Smiley face"
+          height="30"
+          width="30"
+        />
+        Neuen Auftrag anlegen
+      </div>
+      <!--   <a class="nav-link disabled" href="#">Disabled</a>
    -->
-        </nav>
-        <div style="flex-grow: 1">
-            <ng-content></ng-content>
-        </div>
+    </nav>
+    <div style="flex-grow: 1">
+      <ng-content></ng-content>
     </div>
-    <!-- Right sidebar -->
-    <div id="Spalte-Rechts">aktuelle Aufträge</div>
+  </div>
+  <!-- Right sidebar -->
+  <div id="Spalte-Rechts">
+    <p id="druckfortschritt">Druckfortschritt</p>
+    <div *ngFor="let printer of printerSubscription | async">
+      <!-- <p>{{ printer | json }}</p> -->
+      <p>
+        <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
+      </p>
+      <div class="progressbar">
+        <mat-progress-bar  [value]="printer.progress * 100">
+        </mat-progress-bar>
+        <img src="../../../assets/svg/pause.svg" />
+        <img src="../../../assets/svg/abbrechen.svg" />
+      </div>
+      <p>Druckfortschritt bei: {{ printer.progress*100 | number:'1.0-0' }}%</p>
+      <hr/>
+    </div>
+  </div>
 </div>

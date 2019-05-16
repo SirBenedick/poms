@@ -7,26 +7,36 @@
 .half-container {
     max-height: 45vh;
     min-height: 45vh;
-    background-color: blueviolet;
-    border: 1px solid red;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
     overflow: auto;
+    margin: 2px;
+    object-fit: contain;
+    box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
+  
+  
 }
 
 .draggable-card-container {
      display: flex;
     min-height: 60px;
-    background-color: red;
+    background-color: #ffffff;
+    flex-wrap: wrap;
 }
 
+
 .expand-colapse {
-    width: 70%;
+    display: flex;
+    flex-grow: 2;
+    flex-wrap: wrap;
+    /* width: 400px; */
     margin: 0;
     padding: 30px;
     font-size: 8pt;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
-.expand-colapse1 {
+/* .expand-colapse1 {
     width: 70%;
     margin: 0;
     padding: 30px;
@@ -36,4 +46,51 @@
 
 .expand-colapse-inner {
     background-color: blue;
+} */
+.ueberschriften-Auftraege{
+    /* width: 250px; */
+    height: 35px;
+    object-fit: contain;
+    font-family: SegoeUI;
+    font-size: 26px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: #272f33;
 }
+.ueberschriften-Expand-Collapse{
+    /* width: 83px;*/
+  height: 24px; 
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
+}
+
+.neuer-Auftrag-anlegen {
+    width: 149px;
+    height: 149px;
+    border-color: #272f33;
+    /* margin: 1px; */
+    object-fit: contain;
+    opacity: 0.5;
+    box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
+    background-color: #ffffff;
+    border: 1px solid #272f33;
+  }
+  .plus-Button {
+    margin: 48px;
+    width: 47px;
+    height: 43px;
+    object-fit: contain;
+
+  }

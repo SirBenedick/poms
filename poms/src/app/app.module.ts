@@ -18,10 +18,23 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material';
-//Material selection
-import { MatIconModule} from '@angular/material/icon';
-
+import { MatInputModule, MatSliderModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateNewOrderComponent } from './components/create-new-order/create-new-order.component';
+import { MatOptionModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/';
+import { MatNativeDateModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StatusComponent } from './components/status/status.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NewPrinterComponent } from './components/new-printer/new-printer.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+// import { MatDialogRef } from '@angular/material/dialog';
+// import { BackendService } from './services/backend.service';
+// import { ChartsModule } from 'ng2-charts';
+// import { Chart } from 'chart.js';
 
 registerLocaleData(de);
 @NgModule({
@@ -32,7 +45,10 @@ registerLocaleData(de);
     SidebarDirective,
     OrderComponent,
     PrintedordersComponent,
-    OrderCardComponent
+    OrderCardComponent,
+    CreateNewOrderComponent,
+    StatusComponent,
+    NewPrinterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +61,30 @@ registerLocaleData(de);
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatIconModule
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatProgressBarModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatIconModule,
+    
+    // ChartsModule,
+    // Chart
   ],
+
+    entryComponents:[
+      CreateNewOrderComponent,
+      NewPrinterComponent
+    ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// BackendService, {provide: MatDialogRef, useValue: {}}
