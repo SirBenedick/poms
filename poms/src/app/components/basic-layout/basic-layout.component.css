@@ -100,10 +100,10 @@ background-color:#94EAFF;
 transition-duration: 0.4s;
 }
 
-#auftragsübersicht{
+#auftragsübersicht {
   background-image: url("../../../assets/svg/auftraguebersicht.svg");
   background-size: auto 90%;
-
+}
 /* #auftragsübersicht{
 background-image: url("../../../assets/svg/Symbol\ 13\ –\ 2.svg");
 } */
