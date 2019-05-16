@@ -1,3 +1,63 @@
+@import "https://i.icomoon.io/public/temp/9656e1f4b0/UntitledProject/style.css";
+/* icons import*/
+.icon-abbrechen:before {
+  content: "\e900";
+}
+.icon-Auftrag:before {
+  content: "\e901";
+}
+.icon-auftraguebersicht:before {
+  content: "\e902";
+}
+.icon-Button_Hilfestellung:before {
+  content: "\e903";
+}
+.icon-drag-drop:before {
+  content: "\e904";
+}
+.icon-einstellung:before {
+  content: "\e905";
+}
+.icon-gedruckt-auftreage:before {
+  content: "\e906";
+}
+.icon-Gruppe-454:before {
+  content: "\e90d";
+}
+.icon-icon-auftrag-1:before {
+  content: "\e90e";
+  color: #52b4ff;
+}
+.icon-lupe:before {
+  content: "\e907";
+  color: #000000;
+}
+.icon-menu-buttonleft:before {
+  content: "\e908";
+}
+.icon-menu-buttonright:before {
+  content: "\e90f";
+}
+.icon-pause:before {
+  content: "\e909";
+}
+.icon-Pfad-141:before {
+  content: "\e90a";
+}
+.icon-Plusbutton:before {
+  content: "\e90b";
+  color: #dae2df;
+}
+.icon-printer1:before {
+  content: "\e90c";
+}
+.icon-printer:before {
+  content: "\e954";
+}
+.icon-drawer:before {
+  content: "\e95c";
+}
+/*ab hier richtiges style*/
 .flex-container {
   height: auto;
   border-style: none;
@@ -138,29 +198,51 @@ body {
 }
 
 #Kopfleiste {
-  /* flex-grow: 0; */
-  height: 60px;
+  height: 8%;
   object-fit: contain;
   opacity: 0.8;
-  background-color: #0d0d0e;
+  background-color: #272f33;
   display: flex;
   justify-content: space-between;
 }
 
 .center-row {
   flex-grow: 2;
-  background-color: rgb(193, 207, 221);
+
   display: flex;
   flex-direction: column;
 }
 
+#search-box{
+  position: absolute;
+  width: 20%;
+  height: 5%;
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 1px;
+}
 #suche {
-  width: 10em;
-  border: 2px solid #0faccb;
-  background-color: #94eaff;
-  border-radius: 0.5em;
-  font-size: 1.2em;
-  transition: width 0.5s ease-in-out;
+  background-color: transparent;
+  color: black;
+  border: transparent;
+  font-weight: bold;
+  border-radius: 30%;
+  font-size: 100%;
+
+}
+#such-balken input[type=search]{
+  padding-left: 12%;
+  padding-top: 2%;
+}
+#such-balken {
+ position: relative;
+}
+#such-balken i{
+  position: absolute;
+  left: 0;
+  top: 0px;
+  background-size: auto;
+ padding: 2.8%;
 }
 
 .auftrag {

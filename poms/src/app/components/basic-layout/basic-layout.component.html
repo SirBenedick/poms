@@ -42,15 +42,12 @@
   <div class="center-row">
     <nav class="nav" id="Kopfleiste">
       <div class="nav-link active" href="#">
-        <input type="search" id="suche" placeholder="Suche" />
-        <button tpye="submit">
-          <img
-            src="../../../assets/png/Lupe/Lupe.png"
-            alt="Smiley face"
-            height="25"
-            width="25"
-          />
-        </button>
+        <div id ="search-box">
+           <div id ="such-balken">
+               <input type="search" id="suche" placeholder="Suche" />
+               <i class="icon-lupe" aria-hidden="true"></i>
+            </div>
+        </div>
       </div>
 
       <div class="nav-link active" href="#" (click)="openDialog()">
@@ -81,7 +78,7 @@
         <mat-progress-bar  [value]="printer.progress * 100">
         </mat-progress-bar>
         <img src="../../../assets/svg/pause.svg" />
-        <img src="../../../assets/svg/abbrechen.svg" />
+        <img src="../../../assets/fonts/abbrechen.svg" />
       </div>
       <p>Druckfortschritt bei: {{ printer.progress*100 | number:'1.0-0' }}%</p>
       <hr/>

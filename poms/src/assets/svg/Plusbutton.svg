@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <defs>
+        <style>
+            .cls-1{fill:#7fe2d2}.cls-2{fill:none;stroke:#272f33;stroke-width:2px}.cls-3{filter:url(#Pfad_87)}
+        </style>
+        <filter id="Pfad_87" width="48" height="48" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="Plusbutton" transform="translate(-1081 151)">
+        <g class="cls-3" transform="translate(1081 -151)">
+            <path id="Pfad_87-2" d="M15 0A15 15 0 1 1 0 15 15 15 0 0 1 15 0z" class="cls-1" data-name="Pfad 87" transform="translate(9 6)"/>
+        </g>
+        <g id="Gruppe_3" data-name="Gruppe 3" transform="translate(1099 -136)">
+            <path id="Linie_4" d="M0 0h12" class="cls-2" data-name="Linie 4" transform="translate(0 6)"/>
+            <path id="Linie_5" d="M0 0v12" class="cls-2" data-name="Linie 5" transform="translate(6)"/>
+        </g>
+    </g>
+</svg>
