@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-}
+} 
 
 .half-container {
   max-height: 45vh;
@@ -15,12 +15,12 @@
   box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
 }
 
-.draggable-card-container {
+ .draggable-card-container {
   display: flex;
   min-height: 60px;
   background-color: #ffffff;
   flex-wrap: wrap;
-}
+ }  
 
 
 .expand-colapse {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-
 import { BackendService } from "./../../services/backend.service";
 import { IOrder } from "src/app/shared/interfaces";
 import {
@@ -7,9 +6,10 @@ import {
   moveItemInArray,
   transferArrayItem
 } from "@angular/cdk/drag-drop";
-import { OrderCardComponent } from 'src/app/components/order-card/order-card.component';
-import { MatDialog } from '@angular/material';
-import { CreateNewOrderComponent } from 'src/app/components/create-new-order/create-new-order.component';
+import { MatDialog } from "@angular/material";
+import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
+
+
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -19,11 +19,17 @@ export class OrderComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<any> = [];
 
-  constructor(private backendService: BackendService, public dialog: MatDialog) {}
+  constructor(
+    private backendService: BackendService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     //** First time page is loaded "this.backendService.allUngroupedOrders" is still empty*/
-    if (this.allUngroupedOrders.length == 0 && this.allGroupedOrders.length == 0) {
+    if (
+      this.allUngroupedOrders.length == 0 &&
+      this.allGroupedOrders.length == 0
+    ) {
       // setTimeout hat seinen eigenen scope und würde "this" anders zuordnen
       var that = this;
       setTimeout(function() {
@@ -72,15 +78,14 @@ export class OrderComponent implements OnInit {
       );
     }
   }
-  openDialog():void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(CreateNewOrderComponent);
 
-     dialogRef.afterClosed().subscribe(result =>{
+    dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
     });
   }
   onClick(): void {
-    console.log("New Order creating")
-}
-
+    console.log("New Order creating");
+  }
 }
