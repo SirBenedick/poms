@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="10" viewBox="0 0 8 10">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{stroke:#272f33;stroke-width:2px}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h8v10H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Pause" class="cls-2">
+        <path id="Linie_84" d="M0 0v10" class="cls-3" data-name="Linie 84" transform="translate(1)"/>
+        <path id="Linie_85" d="M0 0v10" class="cls-3" data-name="Linie 85" transform="translate(7)"/>
+    </g>
+</svg>

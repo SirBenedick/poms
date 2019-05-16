@@ -8,11 +8,13 @@
     /* width: auto; */
     align-items: center;
     /* border-style: dotted; */
-    width: 1276px;
+    /* width: 1276px; */
     height: 60px;
     object-fit: contain;
     opacity: 0.5;
-    border: solid 1px black;
+    /* border: solid 1px black; */
+    border: dotted 1px black;
+    
     /* #272f33; */
   
 }
@@ -29,6 +31,7 @@
     letter-spacing: normal;
     text-align: left;
     color: #272f33;
+    
   }
    .neuen-Drucker-hinzufgen {
     /* width: 224px;
@@ -61,6 +64,14 @@
     color: #272f33;
     margin: 20px;
   }
+  
 
+  .expand-Collapse {
+    /* width: 1272px; */
+    height: 60px;
+    /* object-fit: contain; */
+    box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+    background-color: #ffffff;
+  }
 
 

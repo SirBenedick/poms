@@ -1,16 +1,24 @@
 .page-container {
   display: flex;
   flex-wrap: wrap;
-  height: auto;
+ 
+ 
 }
 .half-container {
   display: flex;
   flex-direction: column;
-  height: 20vh;
-  width: 300px;
-  background-color: blue;
-  border-style: dotted;
+  /* height: 20vh;
+  width: 300px; */
+  /* background-color: blue; */
+  /* border-style: dotted; */
   padding: 5vh;
+  width: 300px;
+  height: 120px;
+  object-fit: contain;
+  box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+  background-color: #ffffff;
+  margin: 5px;
+  
 }
 
 .half-container1 {
@@ -20,4 +28,19 @@
   width: 300px;
   border-style: double;
   background-color: #a53131;
+  
+}
+.allTitles {
+  width: 191px;
+  height: 24px;
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
 }

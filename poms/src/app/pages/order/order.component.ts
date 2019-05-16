@@ -78,7 +78,9 @@ export class OrderComponent implements OnInit {
      dialogRef.afterClosed().subscribe(result =>{
       console.log("The dialog was closed");
     });
-
   }
-
+ 
+  onClick():void{
+    console.log("Printer is printing");
+  }
 }

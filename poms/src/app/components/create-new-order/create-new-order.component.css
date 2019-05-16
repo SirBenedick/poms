@@ -12,20 +12,20 @@
 #Spalte-Links {
   display: flex;
   flex-direction: column;
-  width: 75vh;
+  /* width: 75vh; */
   background-color: #0faccb;
 }
 
 #Spalte-Rechts {
   display: flex;
   flex-direction: column;
-  width: 75vh;
+  /* width: 75vh; */
   object-fit: contain;
   background-color: #6e3b4f;
 }
 
 .ordertypes{
   display: flex;
-  width: 50vh;
+  /* width: 50vh; */
 
 }

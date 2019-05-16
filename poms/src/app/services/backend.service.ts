@@ -12,6 +12,7 @@ export class BackendService {
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
   allOrderDataSubscription: Subscription;
+  allPrinterDataObservable: Observable<Object>;
   allPrinterDataSubscription: Subscription;
   
   allUngroupedOrders: Array<IOrder> = [];
@@ -31,11 +32,12 @@ export class BackendService {
       });
 
     /** Starts observable and polls all PrinterData from Backend */
-    this.allPrinterDataSubscription = timer(0, 2000)
+    this.allPrinterDataObservable = timer(0, 2000)
       .pipe(
         switchMap((counter: number) => this.pollAllPrinterFromBackend()),
         catchError((err, caught) => caught)
       )
+      this.allPrinterDataSubscription = this.allPrinterDataObservable
       .subscribe((newPrinterData: Array<IPrinterData>) => {
         // console.log("Polling new Data", newPrinterData);
         this.allPrinterData = newPrinterData;

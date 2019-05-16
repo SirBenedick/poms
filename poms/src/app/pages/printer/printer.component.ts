@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog } from '@angular/material';
+import { MatDialog,MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import {
   tap,
@@ -21,11 +21,12 @@ import { NewPrinterComponent } from 'src/app/components/new-printer/new-printer.
   styleUrls: ["./printer.component.css"]
 })
 export class PrinterComponent implements OnInit {
+  
   typiCodeUserData: IUserData;
   userDataSubscription: Subscription;
 
   allPrinters: Array<IPrinterData> = [];
-  
+  newPrinter: String;
   constructor(private backendService: BackendService, public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -54,6 +55,7 @@ export class PrinterComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
+      this.newPrinter = result;
     });
   }
 }

@@ -2,6 +2,8 @@
     width: 149px;
     height: 149px;
     object-fit: contain;
+    display: flex;
+
     /* background-image: url("../../../assets/png/Order-Card.png");
     background-size: 149px; */
 }
@@ -9,10 +11,40 @@
 .Icon_Auftrag-1 {
     width: 44.7px;
     height: 44.7px;
-    object-fit: contain;
+    object-fit: contain; 
 }
 .Drag-Drop {
+    display: flex;
+    align-self: flex-end;
+    margin: 2px;
     width: 11.2px;
     height: 18.6px;
     object-fit: contain;
    }
+
+   .text-Im-Auftrag {
+    /* width: 96px; */
+    height: 17px;
+    object-fit: contain;
+    font-family: SegoeUI;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: left;
+    color: #272f33;
+    margin: 7px;
+  }
+  .auftrag-Name {
+      /* width: 1920px; */
+      /* height: 1079px; */
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        margin: 8px;
+        
+      
+  }
+  
