@@ -1,24 +1,36 @@
 .flex-container {
-  height: auto;
-  border-style: none;
-  display: flex;
-  background-color: DodgerBlue;
-  justify-content: space-between;
-}
+    height: auto;
+    border-style: none;
+    display: flex;
 
+    justify-content: space-between;
+
+}
 #Spalte-Links {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 60px;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  padding-left: 10px;
+
+
+}
+.small-bar-left{
+  width: 10px;
   height: auto;
-  width: 60px;
-  /* min-height: 100vh; */
-  /* object-fit: contain; */
-  background-color: #0faccb;
-  padding-left: 0;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  object-fit: contain;
+  padding-left: 10px;
+  background-image: linear-gradient(to bottom, #bef0e8, #62c6d6);
+  position: sticky;
+  z-index: 0;
+}
+body{
+  background-color: #f6f6f6;
 }
 
 #Spalte-Links.toggled {
@@ -26,18 +38,19 @@ padding-right: 260px;
 }
 
 #expandet-collebs-left{
-background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
-background-position: 14px center;
-width: 260px;
-height: 15%;
-text-indent: -9999px;
+  background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+  background-position: 14px center;
+  width: 270px;
+  height: 15%;
+  text-indent: -9999px;
 
-background-color: Transparent;
-background-repeat:no-repeat;
-border: none;
-cursor:pointer;
-overflow: hidden;
-outline:none;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  margin-left: -10px;
 }
 
 #expandet-collebs-left:hover{
@@ -46,42 +59,50 @@ transition-duration: 0.6s;
 }
 
 .button-style {
-background-position: 14px center;
-left: 0;
-width: 250px;
-height: auto;
-padding-top: 10px;
-background-color: Transparent;
-background-repeat: no-repeat;
-border: none;
-cursor: pointer;
-overflow: hidden;
-outline: none;
+  background-position: 14px center;
+  left: 0;
+  width: 270px;
+  height: auto;
+  padding-top: 10px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 
-object-fit: contain;
-font-family: "Segoe UI";
-font-weight: normal;
-line-height: 1.33;
-font-style: normal;
-font-stretch: normal;
-line-height: 1.33;
-letter-spacing: normal;
+  object-fit: contain;
+  font-family: "Segoe UI";
+  font-weight: normal;
+  line-height: 1.33;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
 
 
-font-size: 16px;
-color: #003549;
+  border-left: 10px solid transparent;
+  font-size: 16px;
+  color: #003549;
+  margin-left: -20px;
+  z-index: 1;
 }
 
 .button-style:focus {
-font-family: "Segoe UI";
-font-weight: bold;
-border-left: 7px solid #003549;
+  font-family: "Segoe UI";
+  font-weight: bold;
+  border-left: 10px solid #003549;
+
+
 }
 
 .button-style:hover{
 background-color:#94EAFF;
 transition-duration: 0.4s;
 }
+
+#auftragsübersicht{
+  background-image: url("../../../assets/svg/auftraguebersicht.svg");
+  background-size: auto 90%;
 
 /* #auftragsübersicht{
 background-image: url("../../../assets/svg/Symbol\ 13\ –\ 2.svg");
@@ -93,32 +114,29 @@ background-image: url("../../../assets/svg/Symbol\ 13\ –\ 2.svg");
 }
 
 #gedruckte-aufträge{
-background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+  background-image: url("../../../assets/svg/gedruckt-auftreage.svg");
+  background-size: auto 90%;
 }
 
 #druckerverwaltung{
-background-image: url("../../../assets/png/Button_Auftragsübersicht/Button_Auftragsübersicht.png");
+  background-image: url("../../../assets/svg/printer.svg");
+  background-size: auto 90%;
 
 }
 .transparent{
-opacity: 0;
+  padding-left: 30%;
 }
 
-li {
-list-style-type: none;
-overflow: hidden;
-}
 
-li:last-child{
-vertical-align: bottom;
-}
 
 #hilfestellung{
-background-image: url("../../../assets/png/Button_Hilfestellung/Button_Hilfestellung.png");
+  background-image: url("../../../assets/svg/Button_Hilfestellung.svg");
+  background-size: auto 90%;
 
 }
 #einstellung{
-background-image: url("../../../assets/png/Button_Einstellungen/Button_Einstellungen.png");
+  background-image: url("../../../assets/svg/einstellung.svg");
+  background-size: auto 90%;
 }
 
 
