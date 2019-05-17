@@ -9,6 +9,7 @@ import { switchMap, catchError } from "rxjs/operators";
 })
 export class BackendService {
   url = "http://192.168.56.101:8082/";
+  backendUrl ="http://141.19.113.166:8081/"
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
   allOrderDataSubscription: Subscription;
@@ -56,7 +57,8 @@ export class BackendService {
     //return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    return this.http.get(this.mockedURL + "allPrinter");
+    // return this.http.get(this.mockedURL + "allPrinter");
+    return this.http.get(this.backendUrl + "printer/get/all");
   }
 
 

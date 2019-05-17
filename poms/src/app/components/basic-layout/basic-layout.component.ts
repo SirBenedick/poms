@@ -20,7 +20,6 @@ export class BasicLayoutComponent implements OnInit {
   }
   
   ngOnInit() {
-    console.log("basic ngOnInit")
     this.printerSubscription = this.backendService.allPrinterDataObservable
     // .subscribe((newPrinterData: Array<IPrinterData>) => {
     //   console.log("Polling new Data", newPrinterData);
