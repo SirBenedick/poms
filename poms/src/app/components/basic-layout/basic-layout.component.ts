@@ -39,10 +39,13 @@ export class BasicLayoutComponent implements OnInit {
   }
 
   openDialog():void {
-    const dialogRef = this.dialog.open(CreateNewOrderComponent);
+    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
+      data: {newOrderForm: this.newOrder}
+    });
 
      dialogRef.afterClosed().subscribe(result =>{
       console.log("The dialog was closed");
+      this.newOrder = result;
     });
   }
 }
