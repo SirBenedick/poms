@@ -213,6 +213,8 @@ body {
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
+    background-color: #ffffff;
+  
 }
 
 #search-box {

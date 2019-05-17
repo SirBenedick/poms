@@ -17,7 +17,6 @@
 
  .draggable-card-container {
   display: flex;
-  min-height: 60px;
   background-color: #ffffff;
   flex-wrap: wrap;
  }  
