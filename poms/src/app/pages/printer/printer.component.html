@@ -1,36 +1,36 @@
 <div class="page-container">
-  <div class="verfuegbare-Drucker">Verfügbare Drucker</div>
-  <div class="newPrinter" (click)="openDialog()" style="justify-content: center">
-    <div class="neuen-Drucker-hinzufgen">neuen Drucker hinzufügen </div>
+  <div class="available-printer">Verfügbare Drucker</div>
+  <div
+    class="new-printer"
+    (click)="openDialog()"
+    style="justify-content: center"
+  >
+    <div class="add-new-printer">neuen Drucker hinzufügen</div>
   </div>
-  <div *ngIf="newPrinter">
-    Neuer Drucker: {{newPrinter}}
-  </div>
-  <br>
+  <div *ngIf="newPrinter">Neuer Drucker: {{ newPrinter }}</div>
+  <br />
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
     <mat-expansion-panel *ngFor="let printer of allPrinters">
-      <mat-expansion-panel-header class="expand-Collapse">
+      <mat-expansion-panel-header class="expand-collapse">
         <!-- Ausgabe von allen verfügbaren Druckern -->
         <mat-panel-title>
-
-          <img src="../../../assets/svg/Pfad 141.svg" class="Pfad-141">
-          <div class="drucker" style="align-self: center"> {{printer.name}} </div>
+          <img src="../../../assets/svg/Pfad 141.svg" class="Pfad-141" />
+          <div class="printer" style="align-self: center">
+            {{ printer.name }}
+          </div>
         </mat-panel-title>
-
       </mat-expansion-panel-header>
 
-      <app-status style="overflow: auto" [printerName]="printer.name"
-        [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'" [fuellstand]="printer.max_layer"
-        [druckFortschritt]="printer.progress*100" [restlicheDruckzeit]="printer.estimated_time_remaining"
-        [printStart]="printer.print_start"></app-status>
-
-      <!-- [temperatur]="printer.model_height" -->
-      <!-- <mat-progress-bar
-  [value]="printer.progress*100">
-  
-</mat-progress-bar> -->
-
+      <app-status
+        style="overflow: auto"
+        [printerName]="printer.name"
+        [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
+        [fuellstand]="printer.max_layer"
+        [druckFortschritt]="printer.progress | percent"
+        [restlicheDruckzeit]="printer.estimated_time_remaining"
+        [printStart]="printer.print_start"
+      ></app-status>
     </mat-expansion-panel>
   </div>
 </div>

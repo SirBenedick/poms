@@ -1,22 +1,21 @@
 .page-container {
   display: flex;
   /* justify-content: space-between; */
-
 }
 
-.ordertitel {
+.order-titel {
   display: flex;
   justify-content: space-between;
-  }
+}
 
-#Spalte-Links {
+#left-row {
   display: flex;
   flex-direction: column;
   /* width: 75vh; */
   background-color: #0faccb;
 }
 
-#Spalte-Rechts {
+#right-row {
   display: flex;
   flex-direction: column;
   /* width: 75vh; */
@@ -24,8 +23,7 @@
   background-color: #6e3b4f;
 }
 
-.ordertypes{
+.order-type {
   display: flex;
   /* width: 50vh; */
-
 }

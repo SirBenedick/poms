@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
 }
-.newPrinter{
+.new-printer{
     display: flex;
     /* width: auto; */
     align-items: center;
@@ -16,7 +16,7 @@
     /* #272f33; */
   
 }
-.drucker {
+.printer {
     /* width: 87px;
     height: 24px; */
     object-fit: contain;
@@ -31,7 +31,7 @@
     color: #272f33;
     
   }
-   .neuen-Drucker-hinzufgen {
+   .add-new-printer {
     /* width: 224px;
     height: 24px; */
     object-fit: contain;
@@ -47,7 +47,7 @@
     /* color: red; */
   } 
 
-  .verfuegbare-Drucker {
+  .available-printer {
     /* width: 250px;
     height: 35px; */
     object-fit: contain;
@@ -64,7 +64,7 @@
   }
   
 
-  .expand-Collapse {
+  .expand-collapse {
     /* width: 1272px; */
     height: 60px;
     /* object-fit: contain; */

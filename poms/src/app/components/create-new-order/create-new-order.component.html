@@ -1,20 +1,23 @@
 <form [formGroup]="newOrderForm">
   <div class="page-container" style="width: 150vh; height: 80vh;">
-    <div id="Spalte-Links">
-      <h3> Neuen Auftrag anlegen</h3>
-      <div id="ordertitel">
+    <div id="left-row">
+      <h3>Neuen Auftrag anlegen</h3>
+      <div id="order-titel">
         <mat-form-field>
-          <input matInput type="text" formControlName="auftragsTitel">
+          <input matInput type="text" formControlName="auftragsTitel" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="number" formControlName="auftragsNummer">
+          <input matInput type="number" formControlName="auftragsNummer" />
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <mat-select formControlName="kategorie">
-            <mat-option *ngFor="let category of orderCategories" [value]="category">{{category}}
+            <mat-option
+              *ngFor="let category of orderCategories"
+              [value]="category"
+              >{{ category }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -22,7 +25,8 @@
       <div>
         <mat-form-field>
           <mat-select formControlName="praxisName">
-            <mat-option *ngFor="let docs of docName" [value]="docs">{{docs}}
+            <mat-option *ngFor="let docs of docName" [value]="docs"
+              >{{ docs }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -30,44 +34,31 @@
       <div style="margin-top:auto">
         <mat-form-field>
           <mat-select formControlName="prioritaet">
-            <mat-option *ngFor="let prio of priority" [value]="prio">{{prio}}
+            <mat-option *ngFor="let prio of priority" [value]="prio"
+              >{{ prio }}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
-      <textarea formControlName="kommentar" cols="75" rows="4" style="resize:none"></textarea>
-
-
+      <textarea
+        formControlName="kommentar"
+        cols="75"
+        rows="4"
+        style="resize:none"
+      ></textarea>
     </div>
-    <div id="Spalte-Rechts">
-      <!-- <div formControlName="erstellt_am">
-        erstellt am: {{(newDate.getMonth()+1)}}/{{newDate.getDate()}}/{{newDate.getFullYear()}}
-      </div>
-
-      <div formControlName="faellig_am">fällig am:
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>  -->
+    <div id="right-row">
       <div>
         <mat-form-field>
-          <input matInput type="text" formControlName="namePatient">
+          <input matInput type="text" formControlName="namePatient" />
         </mat-form-field>
       </div>
 
-      <div class="ordertitel">
-        <mat-form-field class="ordertypes">
-          <input matInput type="text" formControlName="orderTypes">
+      <div class="order-titel">
+        <mat-form-field class="order-type">
+          <input matInput type="text" formControlName="orderTypes" />
         </mat-form-field>
       </div>
-
-      <!-- 
-      <div class="ordertitel">
-        
-        <input type="file" placeholder="Upload file">
-      </div> -->
 
       <div style="align-self: flex-end">
         <mat-dialog-actions>
@@ -79,11 +70,8 @@
       </div>
     </div>
 
-
     <p>
-      {{newOrderForm.value | json}}
+      {{ newOrderForm.value | json }}
     </p>
-
   </div>
 </form>
-

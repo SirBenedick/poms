@@ -1,73 +1,39 @@
 <div class="page-container">
-    <div class="half-container">
-        <div class="allTitles"> Druckername:
-            {{printerName}}
-        </div>
+  <div class="half-container">
+    <div class="card-title">
+      Druckername:
+      {{ printerName }}
     </div>
-        <div class="half-container">
-        <div class="allTitles"> Status:
-            {{druckerStatus}}
-        </div>
+  </div>
+  <div class="half-container">
+    <div class="card-title">
+      Status:
+      {{ druckerStatus }}
     </div>
-    <div class="half-container">
-        <div class="allTitles">
-            Füllstand:
-            <!-- <div style="display: block">
-                <canvas mdbChart
-                    [chartType]="chartType"
-                    [datasets]="chartDatasets"
-                    [colors]="chartColors"
-                    [options]="chartOptions"
-                    [legend]="true"
-                  >
-                </canvas>
-              </div>  -->
-       
-            </div>
+  </div>
+  <div class="half-container">
+    <div class="card-title">
+      Füllstand:
     </div>
-    <div class="half-container">
-        <div class="allTitles">
-            Druckfortschritt:
-            <mat-progress-bar [value]="druckFortschritt">
-            </mat-progress-bar>
-            {{ druckFortschritt }}
-        </div>
-        <!--             <div *ngIf="printerData.printer_id != 666">
-  <h1>Die Restliche Druckzeit des Druckers {{ printerData.name }} beträgt:</h1>
-  <p>{{ printerData.name }}</p>
-  <p>{{ printerData.time_estimated }}</p>
-</div>  -->
+  </div>
+  <div class="half-container">
+    <div class="card-title">
+      Druckfortschritt:
+      <mat-progress-bar [value]="druckFortschritt"> </mat-progress-bar>
+      {{ druckFortschritt }}
     </div>
-    <div class="half-container">
-        <div class="allTitles">
-            restliche Druckzeit:
-            {{ restlicheDruckzeit }}
-        </div>
+  </div>
+  <div class="half-container">
+    <div class="card-title">
+      restliche Druckzeit:
+      {{ restlicheDruckzeit }}
     </div>
+  </div>
 
-    <div class="half-container">
-        <div class="allTitles">
-            Druck gestartet:
-            {{ printStart }}
-        </div>
+  <div class="half-container">
+    <div class="card-title">
+      Druck gestartet:
+      {{ printStart }}
     </div>
-
-    <!-- <div class="half-container1">
-        <h3>
-            Temperatur
-            {{ temperatur }}
-        </h3>
-    </div> -->
-
+  </div>
 </div>
-<!--
-<div class="half-container">
-<h4 matInput>Lichtstärke</h4>
-<h4 style="align-self: center; color:green"> genug Flüssigkeit</h4>
-<h5 style="align-self: flex-end">Details</h5>
-</div>
-<div class="half-container">
-<h4 matInput>Motorgeschwindigkeit</h4>
-<h4 style="align-self: center; color:green"> genug Flüssigkeit</h4>
-<h5 style="align-self: flex-end">Details</h5>
-</div> -->

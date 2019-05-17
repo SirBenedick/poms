@@ -16,6 +16,6 @@ export class OrderCardComponent implements OnInit {
   }
   
   onCardClick(event) {
-    console.log(event);
+    console.log("orderCard clicked: ", event);
   }
 }

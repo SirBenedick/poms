@@ -11,7 +11,7 @@ import {
   take
 } from "rxjs/operators";
 import { interval, Observable, Subscription, timer } from "rxjs";
-import { IUserData, IPrinterData } from "../../shared/interfaces";
+import { IPrinterData } from "../../shared/interfaces";
 import { StatusComponent } from 'src/app/components/status/status.component';
 import { NewPrinterComponent } from 'src/app/components/new-printer/new-printer.component';
 
@@ -22,7 +22,6 @@ import { NewPrinterComponent } from 'src/app/components/new-printer/new-printer.
 })
 export class PrinterComponent implements OnInit {
   
-  typiCodeUserData: IUserData;
   userDataSubscription: Subscription;
 
   allPrinters: Array<IPrinterData> = [];
@@ -40,16 +39,6 @@ export class PrinterComponent implements OnInit {
     }
     this.allPrinters = this.backendService.allPrinterData;
   }
-
-  //  ngOnDestroy(): void {
-   
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-  // }
-
-  // newCreatePrinter(){
-  //   console.log("New Printer is creating!")
-  // }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewPrinterComponent, {

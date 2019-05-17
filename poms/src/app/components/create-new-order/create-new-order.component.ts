@@ -42,7 +42,6 @@ export class CreateNewOrderComponent implements OnInit {
     if(this.newOrderForm){
       console.log("Form Submitted");
       console.log(this.newOrderForm.value);
-      // this.newOrderForm.reset();
     }
   }
 

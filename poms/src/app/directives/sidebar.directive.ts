@@ -10,6 +10,5 @@ export class SidebarDirective {
 
   @HostListener("click") onClick() {
     this.click=!this.click;
-    console.log("Clicked", this.click);
   }
 }

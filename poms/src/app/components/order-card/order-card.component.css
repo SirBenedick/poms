@@ -3,17 +3,24 @@
     height: 149px;
     object-fit: contain;
     display: flex;
-
-    /* background-image: url("../../../assets/png/Order-Card.png");
+ 
+    /* BK
+    background-image: url("../../../assets/png/Order-Card.png");
     background-size: 149px; */
 }
+.card-inner {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px; 
+}
 
-.Icon_Auftrag-1 {
+.order-icon {
     width: 44.7px;
     height: 44.7px;
     object-fit: contain; 
 }
-.Drag-Drop {
+.drag-n-drop {
     display: flex;
     align-self: flex-end;
     margin: 2px;
@@ -22,7 +29,7 @@
     object-fit: contain;
    }
 
-   .text-Im-Auftrag {
+   .order-card-text {
     /* width: 96px; */
     height: 17px;
     object-fit: contain;
@@ -37,14 +44,3 @@
     color: #272f33;
     margin: 7px;
   }
-  .auftrag-Name {
-      /* width: 1920px; */
-      /* height: 1079px; */
-        background-color: #ffffff;
-        display: flex;
-        justify-content: space-between;
-        margin: 8px;
-        
-      
-  }
-  

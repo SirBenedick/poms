@@ -7,10 +7,6 @@
 .half-container {
   display: flex;
   flex-direction: column;
-  /* height: 20vh;
-  width: 300px; */
-  /* background-color: blue; */
-  /* border-style: dotted; */
   padding: 5vh;
   width: 300px;
   height: 120px;
@@ -22,16 +18,7 @@
   
 }
 
-.half-container1 {
-  display: flex;
-  height: 20vh;
-  padding: 5vh;
-  width: 300px;
-  border-style: double;
-  background-color: #a53131;
-  
-}
-.allTitles {
+.card-title {
   width: 191px;
   height: 24px;
   object-fit: contain;

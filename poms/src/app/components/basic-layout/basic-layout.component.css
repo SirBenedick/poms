@@ -57,15 +57,15 @@
 .icon-drawer:before {
   content: "\e95c";
 }
-/*ab hier richtiges style*/
+/* styling starts here*/
 .flex-container {
   height: auto;
   border-style: none;
   display: flex;
-
   justify-content: space-between;
 }
-#Spalte-Links {
+
+#left-row {
   display: flex;
   flex-direction: column;
   height: auto;
@@ -78,6 +78,11 @@
   transition: all 0.5s ease;
   padding-left: 10px;
 }
+
+#left-row.toggled {
+  padding-right: 260px;
+}
+
 .small-bar-left {
   width: 10px;
   height: auto;
@@ -87,22 +92,18 @@
   position: sticky;
   z-index: -4;
 }
+
 body {
   background-color: #f6f6f6;
 }
 
-#Spalte-Links.toggled {
-  padding-right: 260px;
-}
-
-#expandet-collebs-left {
+#expand-collapse-left {
   background-image: url("../../../assets/svg/menu-buttonleft.svg");
   background-size: auto 30%;
   background-position: 14px center;
   width: 270px;
   height: 15%;
   text-indent: -9999px;
-
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
@@ -111,10 +112,6 @@ body {
   outline: none;
   margin-left: -10px;
 }
-
-/* #expandet-collebs-left:focus {
-  background-image: url("../../../assets/svg/menu-buttonright.svg");
-} */
 
 .button-style {
   background-position: 14px center;
@@ -150,23 +147,17 @@ body {
   border-left: 10px solid #003549;
 }
 
-#auftragsübersicht {
+#order-overview {
   background-image: url("../../../assets/svg/auftraguebersicht.svg");
   background-size: auto 90%;
 }
-/* .Symbol-13-2 {
-  width: 33.7px;
-  height: 40.8px;
-  object-fit: contain;
-  padding-left: 30px;
-} */
 
-#gedruckte-aufträge {
+#printed-orders {
   background-image: url("../../../assets/svg/gedruckt-auftreage.svg");
   background-size: auto 90%;
 }
 
-#druckerverwaltung {
+#printer-management {
   background-image: url("../../../assets/svg/printer.svg");
   background-size: auto 90%;
 }
@@ -174,22 +165,16 @@ body {
   padding-left: 30%;
 }
 
-#hilfestellung {
+#help {
   background-image: url("../../../assets/svg/Button_Hilfestellung.svg");
   background-size: auto 90%;
 }
-#einstellung {
+#settings {
   background-image: url("../../../assets/svg/einstellung.svg");
   background-size: auto 90%;
 }
 
-/* #Spalte-Links>div {
-   Hier die Navigationsleiste anpassen
-
-
-} */
-
-#Spalte-Rechts {
+#right-row {
   width: 310px;
   height: 100vh;
   overflow: auto;
@@ -199,7 +184,7 @@ body {
   min-width: 310px;
 }
 
-#Kopfleiste {
+#page-header {
   height: 30px;
   object-fit: contain;
   opacity: 0.8;
@@ -213,8 +198,7 @@ body {
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
-    background-color: #ffffff;
-  
+  background-color: #ffffff;
 }
 
 #search-box {
@@ -228,11 +212,11 @@ body {
   flex-direction: row;
   justify-content: left;
 }
-#suche {
+#search-input {
   background-color: transparent;
   color: black;
- border: transparent;
-  font-weight: bold ;
+  border: transparent;
+  font-weight: bold;
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -242,11 +226,9 @@ body {
   padding-left: 23px;
   padding-top: 2%;
   min-width: 100%;
-
 }
 #such-balken {
   position: relative;
-
 }
 #such-balken i {
   position: absolute;
@@ -255,10 +237,6 @@ body {
   background-size: auto;
   padding: 2%;
   min-width: 50%;
-}
-
-.auftrag {
-  width: 300px;
 }
 
 .progressbar {
@@ -271,7 +249,7 @@ body {
   margin: 5px;
 }
 
-#druckfortschritt {
+#print-progress {
   font-size: 26px;
   font-weight: bold;
   font-style: normal;

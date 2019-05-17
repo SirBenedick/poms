@@ -110,12 +110,15 @@ export class OrderComponent implements OnInit {
       this.newOrder = result;
     });
   }
+
   onClick(): void {
     console.log("Files to Printer");
   }
+
   onDelete(): void {
     console.log("Delete");
   }
+
   newGroup(): void {
     console.log("New Group");
   }

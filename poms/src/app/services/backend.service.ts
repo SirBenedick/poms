@@ -9,16 +9,15 @@ import { switchMap, catchError } from "rxjs/operators";
 })
 export class BackendService {
   url = "http://192.168.56.101:8082/";
-  backendUrl ="http://141.19.113.166:8081/"
+  backendUrl = "http://141.19.113.166:8081/";
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
   allOrderDataSubscription: Subscription;
   allPrinterDataObservable: Observable<Object>;
   allPrinterDataSubscription: Subscription;
-  
+
   allUngroupedOrders: Array<IOrder> = [];
   allPrinterData: Array<IPrinterData> = [];
-
 
   constructor(private http: HttpClient) {
     /** Starts observable and polls all OrderData from Backend */
@@ -33,17 +32,18 @@ export class BackendService {
       });
 
     /** Starts observable and polls all PrinterData from Backend */
-    this.allPrinterDataObservable = timer(0, 2000)
-      .pipe(
-        switchMap((counter: number) => this.pollAllPrinterFromBackend()),
-        catchError((err, caught) => caught)
-      )
-      this.allPrinterDataSubscription = this.allPrinterDataObservable
-      .subscribe((newPrinterData: Array<IPrinterData>) => {
+    this.allPrinterDataObservable = timer(0, 2000).pipe(
+      switchMap((counter: number) => this.pollAllPrinterFromBackend()),
+      catchError((err, caught) => caught)
+    );
+    this.allPrinterDataSubscription = this.allPrinterDataObservable.subscribe(
+      (newPrinterData: Array<IPrinterData>) => {
         // console.log("Polling new Data", newPrinterData);
         this.allPrinterData = newPrinterData;
-      });
+      }
+    );
   }
+
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
     //return this.http.get(this.url + "echte/url/einfügen/");
@@ -59,53 +59,5 @@ export class BackendService {
     // console.log("pollAllPrinterFromBackend");
     return this.http.get(this.mockedURL + "allPrinter");
     // return this.http.get(this.backendUrl + "printer/get/all");
-  }
-
-
-
-  getUserData(id: number): Observable<Object> {
-    return this.http.get(this.url + String(id + 1));
-  }
-
-  testLog(): void {
-    console.log("Void");
-  }
-
-  printerGetAll(): Observable<Object> {
-    return this.http.get(this.url + "printer/get/all/");
-  }
-  printerGet(id: number): Observable<Object> {
-    return this.http.get(this.url + "printer/get/" + String(id));
-  }
-
-  /** Mocked Data */
-  getAllOrders(): Promise<Object> {
-    return new Promise(resolve => {
-      resolve([
-        { orderId: 1, groupId: 1, dueDate: "09.05.2019", priority: "hoch" },
-        { orderId: 2, groupId: 2, dueDate: "09.05.2019", priority: "niedrig" },
-        { orderId: 3, groupId: 5, dueDate: "09.05.2019", priority: "hoch" },
-        {
-          orderId: 4,
-          groupId: null,
-          dueDate: "09.05.2019",
-          priority: "niedrig"
-        },
-        { orderId: 5, groupId: null, dueDate: "09.05.2019", priority: "hoch" },
-        {
-          orderId: 6,
-          groupId: null,
-          dueDate: "09.05.2019",
-          priority: "niedrig"
-        },
-        { orderId: 7, groupId: null, dueDate: "09.05.2019", priority: "hoch" },
-        {
-          orderId: 8,
-          groupId: null,
-          dueDate: "09.05.2019",
-          priority: "niedrig"
-        }
-      ]);
-    });
   }
 }

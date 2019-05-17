@@ -1,65 +1,81 @@
 <div class="flex-container">
-    <!-- Left sidebar -->
+  <!-- Left sidebar -->
 
   <div class="small-bar-left"></div>
 
-    <div id="Spalte-Links" [ngClass]="ref.click === true ? 'toggled' : ''">
-      <div class="small-bar-left"></div>
-          <button appSidebar #ref="appSidebar" type="button" id="expandet-collebs-left" data-toggle="offcanvas">
-          >
-          </button>
+  <div id="left-row" [ngClass]="ref.click === true ? 'toggled' : ''">
+    <div class="small-bar-left"></div>
+    <button
+      appSidebar
+      #ref="appSidebar"
+      type="button"
+      id="expand-collapse-left"
+      data-toggle="offcanvas"
+    >
+      >
+    </button>
 
-      <div style="margin-bottom: auto">
+    <div style="margin-bottom: auto">
       <div>
-          <nav routerLink="order" class="button-style" id="auftragsübersicht" >
-            <a class="transparent">Auftragsübersicht</a></nav>
+        <nav routerLink="order" class="button-style" id="order-overview">
+          <a class="transparent">Auftragsübersicht</a>
+        </nav>
       </div>
 
       <div>
-        <nav routerLink="printedorders" class="button-style" id="gedruckte-aufträge">
-          <a class="transparent">gedruckte Aufträge</a></nav>
-        </div>
+        <nav
+          routerLink="printedorders"
+          class="button-style"
+          id="printed-orders"
+        >
+          <a class="transparent">gedruckte Aufträge</a>
+        </nav>
+      </div>
 
       <div>
-        <nav routerLink="printer" class="button-style" id="druckerverwaltung">
-          <a class="transparent">Druckerverwaltung</a></nav>
+        <nav routerLink="printer" class="button-style" id="printer-management">
+          <a class="transparent">Druckerverwaltung</a>
+        </nav>
+      </div>
     </div>
-      </div>
-
 
     <div style="margin-top: auto">
-      <nav routerLink="" class="button-style" id="hilfestellung">
+      <nav routerLink="" class="button-style" id="help">
         <a class="transparent"></a>Hilfestellung
       </nav>
     </div>
     <div>
-      <nav routerLink="" class="button-style" id="einstellung">
+      <nav routerLink="" class="button-style" id="settings">
         <a class="transparent"></a>Einstellungen
       </nav>
     </div>
   </div>
   <!-- Middle Bar -->
   <div class="center-row">
-    <nav class="nav" id="Kopfleiste">
+    <nav class="nav" id="page-header">
       <div style="padding-top: 5px; padding-left: 10px" href="#">
-
-        <div id ="search-box">
-           <div id ="such-balken">
-               <input type="search" id="suche" placeholder="Suche" />
-               <i class="icon-lupe" aria-hidden="true"></i>
-            </div>
+        <div id="search-box">
+          <div id="such-balken">
+            <input type="search" id="search-input" placeholder="Suche" />
+            <i class="icon-lupe" aria-hidden="true"></i>
+          </div>
         </div>
-
       </div>
 
-      <div style="padding-top: 3px; padding-right: 10px" href="#" (click)="openDialog()">
+      <div
+        style="padding-top: 3px; padding-right: 10px"
+        href="#"
+        (click)="openDialog()"
+      >
         <img
           src="../../../assets/png/Plusbutton/Plusbutton.png"
           alt="Smiley face"
           height="30"
           width="30"
         />
-        <b style="color: #ffffff; font-family: 'Segoe UI'">Neuen Auftrag anlegen</b>
+        <b style="color: #ffffff; font-family: 'Segoe UI'"
+          >Neuen Auftrag anlegen</b
+        >
       </div>
       <!--   <a class="nav-link disabled" href="#">Disabled</a>
    -->
@@ -69,21 +85,23 @@
     </div>
   </div>
   <!-- Right sidebar -->
-  <div id="Spalte-Rechts">
-    <p id="druckfortschritt">Druckfortschritt</p>
+  <div id="right-row">
+    <p id="print-progress">Druckfortschritt</p>
     <div *ngFor="let printer of printerSubscription | async">
       <!-- <p>{{ printer | json }}</p> -->
       <p>
         <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
       </p>
       <div class="progressbar">
-        <mat-progress-bar  [value]="printer.progress * 100">
+        <mat-progress-bar [value]="printer.progress | percent">
         </mat-progress-bar>
         <img src="../../../assets/svg/pause.svg" />
         <img src="../../../assets/fonts/abbrechen.svg" />
       </div>
-      <p>Druckfortschritt bei: {{ printer.progress*100 | number:'1.0-0' }}%</p>
-      <hr/>
+      <p>
+        Druckfortschritt bei: {{ printer.progress * 100 | number: "1.0-0" }}%
+      </p>
+      <hr />
     </div>
   </div>
 </div>

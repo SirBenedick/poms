@@ -2,42 +2,67 @@
 <div class="page-container">
   <div cdkDropListGroup>
     <div class="half-container">
-      <div class="ueberschriften-Auftraege">Gruppierte Aufträge
+      <div class="order-page-header">
+        Gruppierte Aufträge
         <button (click)="newGroup()">neue Gruppe anlegen</button>
       </div>
-      <mat-expansion-panel *ngFor="let group of allGroupedOrders" class="expand-colapse" cdkDropList
-        [cdkDropListData]="group.orderCardsByGroup" (cdkDropListDropped)="drop($event)">
+      <mat-expansion-panel
+        *ngFor="let group of allGroupedOrders"
+        class="expand-collapse"
+        cdkDropList
+        [cdkDropListData]="group.orderCardsByGroup"
+        (cdkDropListDropped)="drop($event)"
+      >
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <div class="ueberschriften-Expand-Collapse">Gruppe: {{ group.groupId }}, Aufträge:
-              {{ group.orderCardsByGroup.length}}
+            <div class="titel-expand-collapse">
+              Gruppe: {{ group.groupId }}, Aufträge:
+              {{ group.orderCardsByGroup.length }}
             </div>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div (click)="onDelete()">Löschen</div>
         <div class="draggable-card-container">
-          <app-order-card *ngFor="let orderCard of group.orderCardsByGroup" cdkDragBoundary=".page-container" cdkDrag
-            [orderId]="orderCard.orderId" [dueDate]="orderCard.dueDate" [priority]="orderCard.priority">
+          <app-order-card
+            *ngFor="let orderCard of group.orderCardsByGroup"
+            cdkDragBoundary=".page-container"
+            cdkDrag
+            [orderId]="orderCard.orderId"
+            [dueDate]="orderCard.dueDate"
+            [priority]="orderCard.priority"
+          >
           </app-order-card>
         </div>
       </mat-expansion-panel>
       <div (click)="onClick()" style="text-align: right">drucken</div>
     </div>
     <div class="half-container">
-      <div class="ueberschriften-Auftraege">Unzugeordnete Aufträge, Aufträge: {{ allUngroupedOrders.length }} </div>
+      <div>
+        Unzugeordnete Aufträge, Aufträge: {{ allUngroupedOrders.length }}
+      </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
-      <div class="draggable-card-container" cdkDropList [cdkDropListData]="allUngroupedOrders"
-        (cdkDropListDropped)="drop($event)">
+      <div
+        class="draggable-card-container"
+        cdkDropList
+        [cdkDropListData]="allUngroupedOrders"
+        (cdkDropListDropped)="drop($event)"
+      >
         <!-- Plus-Button to create a new Order -->
-        <div class="neuer-Auftrag-anlegen" (click)="openDialog()"><img src="../../../assets/svg/Gruppe 454.svg"
-            class="plus-Button">
+        <div class="create-new-order" (click)="openDialog()">
+          <img src="../../../assets/svg/Gruppe 454.svg" class="plus-button" />
         </div>
         <div *ngIf="newOrder">
           Neuer Auftrag: Test
         </div>
         <!-- Show all Order-Cards with Layout from Order-Card -->
-        <app-order-card *ngFor="let orderCard of allUngroupedOrders" cdkDragBoundary=".page-container" cdkDrag
-          [orderId]="orderCard.orderId" [dueDate]="orderCard.dueDate" [priority]="orderCard.priority">
+        <app-order-card
+          *ngFor="let orderCard of allUngroupedOrders"
+          cdkDragBoundary=".page-container"
+          cdkDrag
+          [orderId]="orderCard.orderId"
+          [dueDate]="orderCard.dueDate"
+          [priority]="orderCard.priority"
+        >
         </app-order-card>
       </div>
     </div>
