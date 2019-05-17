@@ -22,7 +22,7 @@
 
       <app-status style="overflow: auto" [printerName]="printer.name"
         [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'" [fuellstand]="printer.max_layer"
-        [druckFortschritt]="printer.progress*100" [restlicheDruckzeit]="printer.time_estimated"
+        [druckFortschritt]="printer.progress*100" [restlicheDruckzeit]="printer.estimated_time_remaining"
         [printStart]="printer.print_start"></app-status>
 
       <!-- [temperatur]="printer.model_height" -->

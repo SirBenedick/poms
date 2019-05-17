@@ -8,7 +8,7 @@ import {
 } from "@angular/cdk/drag-drop";
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-
+import { async } from "q";
 
 @Component({
   selector: "app-order",
@@ -18,6 +18,7 @@ import { CreateNewOrderComponent } from "src/app/components/create-new-order/cre
 export class OrderComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<any> = [];
+  newOrder: String;
 
   constructor(
     private backendService: BackendService,
@@ -63,29 +64,59 @@ export class OrderComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
+    let previousContainer = event.previousContainer;
+    let draggedOrder: IOrder = <IOrder>(
+      (<unknown>previousContainer.data[event.previousIndex])
+    );
+    let targetContainer = event.container;
+    let targetContainerNodeType =
+      targetContainer.element.nativeElement.nodeName;
+
+    if (previousContainer === targetContainer) {
       moveItemInArray(
-        event.container.data,
+        targetContainer.data,
         event.previousIndex,
         event.currentIndex
       );
-    } else {
+    } else if (targetContainerNodeType === "DIV") {
       transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
+        previousContainer.data,
+        targetContainer.data,
         event.previousIndex,
         event.currentIndex
       );
     }
+    //** Abglech ob Harzfarbe passt */
+    else if (targetContainer.data.length < 3) {
+      transferArrayItem(
+        previousContainer.data,
+        targetContainer.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      /** Fehler muss ersichtlich ausgegeben sein */
+      console.log("Blocked");
+    }
   }
+
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreateNewOrderComponent);
+    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
+      data: { newOrderForm: this.newOrder }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
+      this.newOrder = result;
     });
   }
   onClick(): void {
-    console.log("New Order creating");
+    console.log("Files to Printer");
+  }
+  onDelete(): void {
+    console.log("Delete");
+  }
+  newGroup(): void {
+    console.log("New Group");
   }
 }

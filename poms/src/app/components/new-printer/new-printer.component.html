@@ -5,10 +5,10 @@
 
 
       <mat-form-field class="example-full-width">
-        <input matInput #message formControlName="neuerDruckerName" maxlength="256" [(ngModel)]="data.newPrinter">
+        <input matInput #message formControlName="neuerDruckerName" maxlength="256" [(ngModel)]="neuerDruckerName">
         <mat-hint style="align-self: flex-end">{{message.value.length}} / 256</mat-hint>
       </mat-form-field>
-      <br><button mat-raised-button color="primary" [mat-dialog-close]="data.newPrinter">
+      <br><button mat-raised-button color="primary" [mat-dialog-close]="neuerDruckerName">
         Speichern
       </button>
       <button mat-raised-button color="warn" (click)="abbruchClick()">

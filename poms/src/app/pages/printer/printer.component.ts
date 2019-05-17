@@ -53,7 +53,7 @@ export class PrinterComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewPrinterComponent, {
-      data: { newPrinter: this.newPrinter}
+      data: { neuerDruckerName: this.newPrinter}
     });
 
     dialogRef.afterClosed().subscribe(result => {
