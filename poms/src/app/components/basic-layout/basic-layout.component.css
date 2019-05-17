@@ -85,7 +85,7 @@
   padding-left: 10px;
   background-image: linear-gradient(to bottom, #bef0e8, #62c6d6);
   position: sticky;
-  z-index: 0;
+  z-index: -4;
 }
 body {
   background-color: #f6f6f6;
@@ -192,6 +192,7 @@ body {
 #Spalte-Rechts {
   width: 310px;
   height: 100vh;
+  overflow: auto;
   object-fit: contain;
   background-color: #f6f6f6;
   max-width: 310px;
@@ -199,7 +200,7 @@ body {
 }
 
 #Kopfleiste {
-  height: 8%;
+  height: 30px;
   object-fit: contain;
   opacity: 0.8;
   background-color: #272f33;
@@ -216,33 +217,42 @@ body {
 
 #search-box {
   position: absolute;
-  width: 20%;
-  height: 5%;
+
+  width: 140px;
+  height: 20px;
   background: #ffffff;
   border-radius: 40px;
-  padding: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 #suche {
   background-color: transparent;
   color: black;
-  border: transparent;
-  font-weight: bold;
-  border-radius: 30%;
+ border: transparent;
+  font-weight: bold ;
+  height: 100%;
+  width: 100%;
   font-size: 100%;
 }
+
 #such-balken input[type="search"] {
-  padding-left: 12%;
+  padding-left: 23px;
   padding-top: 2%;
+  min-width: 100%;
+
 }
 #such-balken {
   position: relative;
+
 }
 #such-balken i {
   position: absolute;
   left: 0;
   top: 0px;
   background-size: auto;
-  padding: 2.8%;
+  padding: 2%;
+  min-width: 50%;
 }
 
 .auftrag {
