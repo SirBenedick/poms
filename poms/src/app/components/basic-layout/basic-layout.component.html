@@ -95,7 +95,7 @@
             <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
           </p>
           <div class="progressbar">
-            <mat-progress-bar [value]="printer.progress | percent">
+            <mat-progress-bar [value]="printer.progress * 100">
             </mat-progress-bar>
             <img src="../../../assets/svg/pause.svg" />
             <img src="../../../assets/fonts/abbrechen.svg" />

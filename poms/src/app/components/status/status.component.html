@@ -13,13 +13,13 @@
   </div>
   <div class="half-container">
     <div class="card-title">
-      Füllstand: {{ printer.resin_volume}}
+      Füllstand: {{ printer.resin_volume }}
     </div>
   </div>
   <div class="half-container">
     <div class="card-title">
       Druckfortschritt:
-      <mat-progress-bar [value]=printer.progress> </mat-progress-bar>
+      <mat-progress-bar [value]="printer.progress*100"> </mat-progress-bar>
       {{ printer.progress | percent }}
     </div>
   </div>

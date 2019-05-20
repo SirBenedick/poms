@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog,MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 
 import {
   tap,
@@ -12,8 +12,8 @@ import {
 } from "rxjs/operators";
 import { interval, Observable, Subscription, timer } from "rxjs";
 import { IPrinterData } from "../../shared/interfaces";
-import { StatusComponent } from 'src/app/components/status/status.component';
-import { NewPrinterComponent } from 'src/app/components/new-printer/new-printer.component';
+import { StatusComponent } from "src/app/components/status/status.component";
+import { NewPrinterComponent } from "src/app/components/new-printer/new-printer.component";
 
 @Component({
   selector: "app-printer",
@@ -21,19 +21,21 @@ import { NewPrinterComponent } from 'src/app/components/new-printer/new-printer.
   styleUrls: ["./printer.component.css"]
 })
 export class PrinterComponent implements OnInit {
-  
   userDataSubscription: Subscription;
 
   allPrinters: Array<IPrinterData> = [];
   newPrinter: String;
-  constructor(private backendService: BackendService, public dialog: MatDialog) {}
+  constructor(
+    private backendService: BackendService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     //** First time page is loaded "this.backendService.allPrinters" is still empty*/
-    if(this.allPrinters.length == 0){
+    if (this.allPrinters.length == 0) {
       // setTimeout hat seinen eigenen scope und würde "this" anders zuordnen
       var that = this;
-      setTimeout(function(){
+      setTimeout(function() {
         that.allPrinters = that.backendService.allPrinterData;
       }, 300);
     }
@@ -42,7 +44,7 @@ export class PrinterComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewPrinterComponent, {
-      data: { neuerDruckerName: this.newPrinter}
+      data: { neuerDruckerName: this.newPrinter }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -50,14 +52,13 @@ export class PrinterComponent implements OnInit {
       this.newPrinter = result;
     });
   }
-  startPrinter(id: Number){
+  startPrinter(id: Number) {
     this.backendService.startPrinter(id).subscribe(data => console.log(data));
   }
-  stopPrinter(id: Number){
+  stopPrinter(id: Number) {
     this.backendService.stopPrinter(id).subscribe(data => console.log(data));
   }
-  togglePrinter(id: Number){
+  togglePrinter(id: Number) {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
   }
 }
-
