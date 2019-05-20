@@ -6,10 +6,11 @@ import {
   moveItemInArray,
   transferArrayItem
 } from "@angular/cdk/drag-drop";
-import { MatDialog } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { async } from "q";
-
+import { filter } from 'rxjs/operators';
+import { group } from '@angular/animations';
+import { OrderCardComponent } from 'src/app/components/order-card/order-card.component';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -101,16 +102,16 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newOrderForm: this.newOrder }
-    });
+    openDialogCreateNewOrder(): void {
+      const dialogRef = this.dialog.open(CreateNewOrderComponent, {
+        data: { newOrderForm: this.newOrder }
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-      this.newOrder = result;
-    });
-  }
+      dialogRef.afterClosed().subscribe(result => {
+        console.log("The dialog was closed");
+        this.newOrder = result;
+      });
+    }
 
   onClick(): void {
     console.log("Files to Printer");
