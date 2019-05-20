@@ -24,6 +24,7 @@
 
       <app-status
         style="overflow: auto"
+        [printer] = "printer"
         [printerName]="printer.name"
         [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
         [fuellstand]="printer.max_layer"
@@ -32,5 +33,8 @@
         [printStart]="printer.print_start"
       ></app-status>
     </mat-expansion-panel>
+    <button (click)="startPrinter(23)">Druck Starten</button>
+    <button (click)="stopPrinter(23)">Druck Stop</button>
+    <button (click)="togglePrinter(23)">Pause toggeln</button>
   </div>
 </div>

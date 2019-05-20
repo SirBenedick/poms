@@ -88,20 +88,32 @@
   <div id="right-row">
     <p id="print-progress">Druckfortschritt</p>
     <div *ngFor="let printer of printerSubscription | async">
-      <!-- <p>{{ printer | json }}</p> -->
-      <p>
-        <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
-      </p>
-      <div class="progressbar">
-        <mat-progress-bar [value]="printer.progress | percent">
-        </mat-progress-bar>
-        <img src="../../../assets/svg/pause.svg" />
-        <img src="../../../assets/fonts/abbrechen.svg" />
+      <div *ngIf="printer.offline == 0">
+        <div *ngIf="printer.is_printing == 1">
+          <p>
+            <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
+          </p>
+          <div class="progressbar">
+            <mat-progress-bar [value]="printer.progress | percent">
+            </mat-progress-bar>
+            <img src="../../../assets/svg/pause.svg" />
+            <img src="../../../assets/fonts/abbrechen.svg" />
+          </div>
+          <div *ngIf="printer.paused == 1">
+            <p>
+              Druck <b>pausiert</b> bei:
+              {{ printer.progress * 100 | number: "1.0-0" }}%
+            </p>
+          </div>
+          <div *ngIf="printer.paused != 1">
+            <p>
+              Druckfortschritt bei:
+              {{ printer.progress * 100 | number: "1.0-0" }}%
+            </p>
+          </div>
+          <hr />
+        </div>
       </div>
-      <p>
-        Druckfortschritt bei: {{ printer.progress * 100 | number: "1.0-0" }}%
-      </p>
-      <hr />
     </div>
   </div>
 </div>

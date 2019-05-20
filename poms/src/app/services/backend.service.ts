@@ -57,7 +57,17 @@ export class BackendService {
     //return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    return this.http.get(this.mockedURL + "allPrinter");
-    // return this.http.get(this.backendUrl + "printer/get/all");
+    // return this.http.get(this.mockedURL + "allPrinter");
+    return this.http.get(this.backendUrl + "printer/get/all");
+  }
+
+  startPrinter(id: Number){
+    return this.http.get(this.backendUrl + "printer/action/start/" + id);
+  }
+  stopPrinter(id: Number){
+    return this.http.get(this.backendUrl + "printer/action/stop/" + id);
+  }
+  togglePrinter(id: Number){
+    return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
 }

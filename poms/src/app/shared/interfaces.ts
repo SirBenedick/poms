@@ -13,6 +13,7 @@ export interface IPrinterData {
   offline: Number;
   progress: Number;
   estimated_time_remaining: String;
+  resin_volume: Number;
 }
 
 export interface IOrder {
