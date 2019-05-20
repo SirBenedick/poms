@@ -31,6 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NewPrinterComponent } from './components/new-printer/new-printer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
 // import { MatDialogRef } from '@angular/material/dialog';
 // import { BackendService } from './services/backend.service';
 // import { ChartsModule } from 'ng2-charts';
@@ -71,7 +72,6 @@ registerLocaleData(de);
     MatSliderModule,
     MatButtonModule,
     MatIconModule,
-    
     // ChartsModule,
     // Chart
   ],

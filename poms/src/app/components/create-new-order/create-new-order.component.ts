@@ -1,7 +1,12 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { ICreateNewOrder } from "src/app/shared/interfaces";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ICreateNewOrder, IOrder } from "src/app/shared/interfaces";
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder
+} from "@angular/forms";
 
 @Component({
   selector: "app-create-new-order",
@@ -10,36 +15,45 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
-  orderCategories= ["Zahn", "Gebiss"];
-  docName=["Iterate&Generate", "SEP 2019"];
-  priority=["niedrig", "mittel", "hoch"];
-  newOrderForm = new FormGroup({
-    auftragsTitel: new FormControl('Auftragstitel', [Validators.minLength(2), Validators.required]),
-    auftragsNummer: new FormControl('', [Validators.minLength(1), Validators.required]),
-    kategorie: new FormControl('', [Validators.required]),
-    praxisName: new FormControl('',[Validators.required]),
-    prioritaet: new FormControl('',[Validators.required]),
-    kommentar: new FormControl(''),
-    erstellt_am: new FormControl('',[Validators.required]),
-    faellig_am: new FormControl('',[Validators.required]),
-    namePatient: new FormControl('',[Validators.required]),
-    orderTypes: new FormControl('',[Validators.required]),
-  });
-//   Muss hier noch ein Validator rein?
-//   , {
-//     validator: MustMatch('password', 'confirmPassword')
-// });
-
- 
+  newOrderForm: FormGroup;
 
   constructor(
+    private formBuilder : FormBuilder,
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ICreateNewOrder
+    @Inject(MAT_DIALOG_DATA) public data: IOrder
   ) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.newOrderForm = new FormGroup({
+      orderId: new FormControl(this.data.orderId ? this.data.orderId : '', [
+        Validators.minLength(1),
+        Validators.required
+      ]),
+      groupId: new FormControl(this.data.groupId ? this.data.groupId : '', [
+        Validators.minLength(1),
+        Validators.required
+      ]),
+      customer: new FormControl( this.data.customer ? this.data.customer : '', [Validators.required]),
+      laboratory: new FormControl(this.data.laboratory ? this.data.laboratory : '', [Validators.required]),
+      patient: new FormControl(this.data.patient ? this.data.patient : '', [Validators.required]),
+      dentalPrintType: new FormControl(this.data.dentalPrintType ? this.data.dentalPrintType : '', [Validators.required]),
+      harz: new FormControl(this.data.harz ? this.data.harz : '', [Validators.required]),
+      dueDate: new FormControl(this.data.dueDate ? this.data.dueDate : '', [Validators.required]),
+      priority: new FormControl(this.data.priority ? this.data.priority : '', [Validators.required]),
+      creationDate: new FormControl(this.data.creationDate ? this.data.creationDate : '', [Validators.required]),
+      comment: new FormControl(this.data.comment ? this.data.comment : ''),
+      fileScan: new FormControl(this.data.fileScan ? this.data.fileScan : '', [Validators.required]),
+      fileSolid: new FormControl(this.data.fileSolid ? this.data.fileSolid : '', [Validators.required])
+    });
+    console.log("Popup: ", this.data)
+   }
+   // MS - only for testing
+  //  onSubmit() {
+  //   console.log(this.newOrderForm.value);
+  // }
+  
 
-  onClick():void{
-    if(this.newOrderForm){
+  onClick(): void {
+    if (this.newOrderForm) {
       console.log("Form Submitted");
       console.log(this.newOrderForm.value);
     }
@@ -48,4 +62,6 @@ export class CreateNewOrderComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  
 }
+

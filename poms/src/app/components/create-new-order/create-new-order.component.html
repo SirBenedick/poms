@@ -1,77 +1,104 @@
 <form [formGroup]="newOrderForm">
-  <div class="page-container" style="width: 150vh; height: 80vh;">
+  <div class="page-container">
+    <div class="a">
+      <div class="newOrder">Neuen Auftrag anlegen </div>
+    </div>
+
     <div id="left-row">
-      <h3>Neuen Auftrag anlegen</h3>
-      <div id="order-titel">
+      <div class="order-titel">
         <mat-form-field>
-          <input matInput type="text" formControlName="auftragsTitel" />
+          <input class=" rechteck-eingabe" matInput type="number" formControlName="orderId" placeholder="OrderId" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="number" formControlName="auftragsNummer" />
+          <input class=" rechteck-eingabe" matInput type="number" formControlName="groupId" placeholder="GroupId" />
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
-          <mat-select formControlName="kategorie">
-            <mat-option
-              *ngFor="let category of orderCategories"
-              [value]="category"
-              >{{ category }}
-            </mat-option>
-          </mat-select>
+          <input class=" rechteck-eingabe" matInput type="text" formControlName="dentalPrintType"
+            placeholder="dentalPrintType" />
+          <!-- <mat-select formControlName="dentalPrintType" placeholder="dentalPrintType">
+              <mat-option *ngFor="let category of orderCategories" [value]="category">{{ category }}
+              </mat-option>
+            </mat-select> -->
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
-          <mat-select formControlName="praxisName">
-            <mat-option *ngFor="let docs of docName" [value]="docs"
-              >{{ docs }}
-            </mat-option>
-          </mat-select>
+          <input class=" rechteck-eingabe" matInput type="text" formControlName="laboratory" placeholder="Labor" />
+          <!-- <mat-select formControlName="laboratory" placeholder="laboratory">
+              <mat-option *ngFor="let docs of docName" [value]="docs">{{ docs }}
+              </mat-option>
+            </mat-select> -->
         </mat-form-field>
       </div>
       <div style="margin-top:auto">
         <mat-form-field>
-          <mat-select formControlName="prioritaet">
-            <mat-option *ngFor="let prio of priority" [value]="prio"
-              >{{ prio }}
-            </mat-option>
-          </mat-select>
+          <input class=" rechteck-eingabe" matInput type="text" formControlName="priority" placeholder="Priorität" />
+          <!-- <mat-select formControlName="priority" placeholder="priority">
+              <mat-option *ngFor="let prio of priority" [value]="prio">{{ prio }}
+              </mat-option>
+            </mat-select> -->
         </mat-form-field>
       </div>
-      <textarea
-        formControlName="kommentar"
-        cols="75"
-        rows="4"
-        style="resize:none"
-      ></textarea>
+       <textarea class=" rechteck-eingabe" formControlName="comment" rows="4" style="resize:none; width: 355px"
+        placeholder="Kommentar"></textarea> 
     </div>
     <div id="right-row">
+      <!-- dueDate -->
+      <!-- <input formControleName="dueDate" readonly> -->
+      erstellt am: {{(newDate.getMonth()+1)}}/{{newDate.getDate()}}/{{newDate.getFullYear()}}
+      <!-- erstellt am: {{newDate | date:"mediumDate"}} -->
+      <div>
+        fällig am:
+        <mat-form-field>
+          <input class=" rechteck-eingabe" matInput [matDatepicker]="searchDate" formControlName="creationDate"
+            placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
+          <mat-datepicker #searchDate></mat-datepicker>
+        </mat-form-field>
+      </div>
       <div>
         <mat-form-field>
-          <input matInput type="text" formControlName="namePatient" />
+          <input class=" rechteck-eingabe" matInput type="text" formControlName="patient" placeholder="Patient" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input class=" rechteck-eingabe" matInput type="text" formControlName="harz" placeholder="Harz" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input class=" rechteck-eingabe" matInput type="text" formControlName="customer" placeholder="Customer" />
         </mat-form-field>
       </div>
 
       <div class="order-titel">
-        <mat-form-field class="order-type">
-          <input matInput type="text" formControlName="orderTypes" />
-        </mat-form-field>
+        <!-- <mat-form-field class="order-type"> -->
+        <input class=" rechteck-eingabe" type="file" #fileInput formControlName="fileScan" placeholder="Scan" />
+        <!-- </mat-form-field> -->
+        <button md-raised-button color="primary" (click)="fileInput.click()"> Skin </button>
+      </div>
+      <div class="order-titel">
+        <!-- <mat-form-field class="order-type"> -->
+        <input class=" rechteck-eingabe" matInput type="text" formControlName="fileSolid" placeholder="Solid" />
+        <!-- </mat-form-field> -->
+        <button> Solid </button>
       </div>
 
       <div style="align-self: flex-end">
         <mat-dialog-actions>
-          <!-- Formular muss angezeigt werden in den Aufträgen -->
-          <button mat-button [mat-dialog-close]="newOrderForm">anlegen</button>
-          <button mat-button (click)="onClick()">JSON anzeigen</button>
-          <button mat-button (click)="onNoClick()">abbrechen</button>
+          <button class="send-button" mat-button [mat-dialog-close]="newOrderForm">anlegen</button>
+          <!-- <button mat-button (click)="onClick()">JSON anzeigen</button> -->
+          <button class="break-button" mat-button (click)="onNoClick()">abbrechen</button>
         </mat-dialog-actions>
       </div>
     </div>
-
-    <p>
+    <!-- <p>
       {{ newOrderForm.value | json }}
-    </p>
+    </p> -->
+
   </div>
 </form>
