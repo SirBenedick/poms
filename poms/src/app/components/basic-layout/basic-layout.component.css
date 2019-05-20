@@ -180,10 +180,10 @@ body {
 #search-box {
   position: absolute;
 
-  width: 140px;
+  width: 200px;
   height: 20px;
   background: #ffffff;
-  border-radius: 40px;
+  border-radius: 2px;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -192,7 +192,6 @@ body {
   background-color: transparent;
   color: black;
   border: transparent;
-  font-weight: bold;
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -213,6 +212,16 @@ body {
   background-size: auto;
   padding: 2%;
   min-width: 50%;
+}
+#new-assignment-box{
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  background: #62c6d6;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }
 
 .progressbar {
