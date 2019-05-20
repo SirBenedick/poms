@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PrinterComponent } from './pages/printer/printer.component';
 import { OrderComponent } from './pages/order/order.component';
 import { PrintedordersComponent } from './pages/printedorders/printedorders.component';
+import { FAQComponent } from './pages/faq/faq.component';
 
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'printer', component: PrinterComponent},
   //{path: '**', redirectTo: '/'},
   {path: 'order', component: OrderComponent},
-  {path: 'printedorders', component: PrintedordersComponent}
+  {path: 'printedorders', component: PrintedordersComponent},
+  {path: 'hilfestellung', component: FAQComponent}
 ];
 
 @NgModule({

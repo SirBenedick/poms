@@ -31,6 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NewPrinterComponent } from './components/new-printer/new-printer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FAQComponent } from './pages/faq/faq.component';
 
 // import { MatDialogRef } from '@angular/material/dialog';
 // import { BackendService } from './services/backend.service';
@@ -49,7 +50,8 @@ registerLocaleData(de);
     OrderCardComponent,
     CreateNewOrderComponent,
     StatusComponent,
-    NewPrinterComponent
+    NewPrinterComponent,
+    FAQComponent
   ],
   imports: [
     BrowserModule,
