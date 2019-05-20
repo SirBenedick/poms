@@ -1,0 +1,67 @@
+.page-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.half-container{
+max-height: 45vh;
+min-height: 45vh;
+overflow: auto;
+margin: 2px;
+object-fit: contain;
+/* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
+}
+
+.hilfe-nachbereitung {
+    /* width: 274px; */
+    height: 21px;
+    object-fit: contain;
+    font-family: SegoeUI;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: center;
+    color: #272f33;
+  }
+  .ueberschriften{
+    /* width: 328px; */
+    height: 35px;
+    object-fit: contain;
+    font-family: SegoeUI;
+    font-size: 26px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: #272f33;
+  }
+  .cards{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .filter-box {
+     width: 149px;
+    height: 38px;
+    border: solid 1px #62c6d6;
+    background-color: #ffffff;
+  }
+  .filter{
+       margin: 10px;
+        width: 34px;
+        height: 21px;
+        object-fit: contain;
+        font-family: SegoeUI;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.31;
+        letter-spacing: normal;
+        text-align: center;
+        color: #62c6d6;
+  }
