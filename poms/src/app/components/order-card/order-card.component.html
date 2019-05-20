@@ -1,9 +1,9 @@
 <div class="card" (click)="onCardClick(this)">
   <div class="card-inner">
     <img class="order-icon" src="../../../assets/svg/icon-auftrag-1.svg" />
-    Auftrag: #{{ orderId }}
+    Auftrag: #{{ order.orderId }}
   </div>
-  <div class="order-card-text">fällig am: {{ dueDate }}</div>
-  <div class="order-card-text">Priorität: {{ priority }}</div>
+  <div class="order-card-text">fällig am: {{ order.dueDate }}</div>
+  <div class="order-card-text">Priorität: {{ order.priority }}</div>
   <img class="drag-n-drop" src="../../../assets/svg/drag-drop.svg" />
 </div>
