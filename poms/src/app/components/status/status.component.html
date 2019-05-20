@@ -8,19 +8,19 @@
   <div class="half-container">
     <div class="card-title">
       Status:
-      {{ druckerStatus }}
+      {{ printerStatus }}
     </div>
   </div>
   <div class="half-container">
     <div class="card-title">
-      Füllstand:
+      Füllstand: {{ printer.resin_volume }}
     </div>
   </div>
   <div class="half-container">
     <div class="card-title">
       Druckfortschritt:
-      <mat-progress-bar [value]="druckFortschritt"> </mat-progress-bar>
-      {{ druckFortschritt }}
+      <mat-progress-bar [value]="printer.progress*100"> </mat-progress-bar>
+      {{ printer.progress | percent }}
     </div>
   </div>
   <div class="half-container">

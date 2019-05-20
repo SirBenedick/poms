@@ -5,7 +5,11 @@
     (click)="openDialog()"
     style="justify-content: center"
   >
-    <div class="add-new-printer"><h4 style="font-size: 16px; font-family: 'Segoe UI'; color: #272f33"><b>+</b>  neuen Drucker hinzufügen</h4> </div>
+    <div class="add-new-printer">
+      <h4 style="font-size: 16px; font-family: 'Segoe UI'; color: #272f33">
+        <b>+</b> neuen Drucker hinzufügen
+      </h4>
+    </div>
   </div>
   <div *ngIf="newPrinter">Neuer Drucker: {{ newPrinter }}</div>
   <br />
@@ -24,6 +28,7 @@
 
       <app-status
         style="overflow: auto"
+        [printer]="printer"
         [printerName]="printer.name"
         [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
         [fuellstand]="printer.max_layer"
@@ -32,5 +37,8 @@
         [printStart]="printer.print_start"
       ></app-status>
     </mat-expansion-panel>
+    <button (click)="startPrinter(23)">Druck Starten</button>
+    <button (click)="stopPrinter(23)">Druck Stop</button>
+    <button (click)="togglePrinter(23)">Pause toggeln</button>
   </div>
 </div>

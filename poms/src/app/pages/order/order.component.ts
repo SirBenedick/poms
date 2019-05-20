@@ -98,6 +98,7 @@ export class OrderComponent implements OnInit {
     } else {
       /** Fehler muss ersichtlich ausgegeben sein */
       console.log("Blocked");
+      alert("Es befinden sich bereits 3 Aufträge in der Gruppe!\n Bitte eine neue Gruppe anlegen.");
     }
   }
 
