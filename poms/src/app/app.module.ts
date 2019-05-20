@@ -32,7 +32,8 @@ import { NewPrinterComponent } from './components/new-printer/new-printer.compon
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FAQComponent } from './pages/faq/faq.component';
-
+import { EinstellungenComponent } from './pages/einstellungen/einstellungen.component';
+import { MatCardModule } from '@angular/material/card';
 // import { MatDialogRef } from '@angular/material/dialog';
 // import { BackendService } from './services/backend.service';
 // import { ChartsModule } from 'ng2-charts';
@@ -51,7 +52,8 @@ registerLocaleData(de);
     CreateNewOrderComponent,
     StatusComponent,
     NewPrinterComponent,
-    FAQComponent
+    FAQComponent,
+    EinstellungenComponent
   ],
   imports: [
     BrowserModule,
@@ -74,8 +76,7 @@ registerLocaleData(de);
     MatSliderModule,
     MatButtonModule,
     MatIconModule,
-    // ChartsModule,
-    // Chart
+    MatCardModule
   ],
 
     entryComponents:[

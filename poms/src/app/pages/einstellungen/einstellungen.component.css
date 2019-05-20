@@ -12,9 +12,8 @@ object-fit: contain;
 /* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
 }
 
-
-.hilfestellung {
-    width: 157px;
+.ueberschriften {
+    /* width: 124px; */
     height: 35px;
     object-fit: contain;
     font-family: SegoeUI;
@@ -27,8 +26,8 @@ object-fit: contain;
     text-align: left;
     color: #272f33;
   }
-  .ueberschriften {
-    width: 99px;
+  .unter-ueberschrift {
+    /* width: 109px; */
     height: 21px;
     object-fit: contain;
     font-family: SegoeUI;
@@ -41,18 +40,11 @@ object-fit: contain;
     text-align: left;
     color: #272f33;
   }
-  .unter-ueberschriften{
-    text-indent: 50px;
-    /* width: 351px; */
-    height: 21px;
+  .card-gruppen {
+    /* width: 1276px; */
+    height: 60px;
     object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.31;
-    letter-spacing: normal;
-    text-align: left;
-    color: #272f33;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+    background-color: #ffffff;
   }
