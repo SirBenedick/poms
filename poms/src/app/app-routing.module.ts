@@ -4,6 +4,7 @@ import { PrinterComponent } from './pages/printer/printer.component';
 import { OrderComponent } from './pages/order/order.component';
 import { PrintedordersComponent } from './pages/printedorders/printedorders.component';
 import { FAQComponent } from './pages/faq/faq.component';
+import { EinstellungenComponent } from './pages/einstellungen/einstellungen.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   //{path: '**', redirectTo: '/'},
   {path: 'order', component: OrderComponent},
   {path: 'printedorders', component: PrintedordersComponent},
-  {path: 'hilfestellung', component: FAQComponent}
+  {path: 'hilfestellung', component: FAQComponent},
+  {path: 'einstellungen', component: EinstellungenComponent}
 ];
 
 @NgModule({
