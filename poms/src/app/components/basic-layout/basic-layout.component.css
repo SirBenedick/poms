@@ -1,61 +1,35 @@
-@import "https://i.icomoon.io/public/temp/9656e1f4b0/UntitledProject/style.css";
+@import "https://i.icomoon.io/public/temp/0c8e35939f/UntitledProject/style.css";
 /* icons import*/
-.icon-abbrechen:before {
-  content: "\e900";
-}
-.icon-Auftrag:before {
+.icon-Gruppe-443:before {
   content: "\e901";
-}
-.icon-auftraguebersicht:before {
-  content: "\e902";
-}
-.icon-Button_Hilfestellung:before {
-  content: "\e903";
-}
-.icon-drag-drop:before {
-  content: "\e904";
-}
-.icon-einstellung:before {
-  content: "\e905";
-}
-.icon-gedruckt-auftreage:before {
-  content: "\e906";
-}
-.icon-Gruppe-454:before {
-  content: "\e90d";
-}
-.icon-icon-auftrag-1:before {
-  content: "\e90e";
-  color: #52b4ff;
-}
-.icon-lupe:before {
-  content: "\e907";
   color: #000000;
 }
-.icon-menu-buttonleft:before {
+.icon-Komponente-27--7:before {
+  content: "\e902";
+}
+.icon-Symbol-3:before {
+  content: "\e903";
+}
+.icon-Symbol-3-1:before {
+  content: "\e904";
+}
+.icon-Symbol-3-2:before {
+  content: "\e905";
+}
+.icon-Symbol-4:before {
+  content: "\e906";
+}
+.icon-Symbol-16--55:before {
+  content: "\e907";
+  color: #62c6d6;
+}
+.icon-Symbol-17--39:before {
   content: "\e908";
+  color: #62c6d6;
 }
-.icon-menu-buttonright:before {
-  content: "\e90f";
-}
-.icon-pause:before {
+.icon-Symbol-18--45:before {
   content: "\e909";
-}
-.icon-Pfad-141:before {
-  content: "\e90a";
-}
-.icon-Plusbutton:before {
-  content: "\e90b";
-  color: #dae2df;
-}
-.icon-printer1:before {
-  content: "\e90c";
-}
-.icon-printer:before {
-  content: "\e954";
-}
-.icon-drawer:before {
-  content: "\e95c";
+  color: #62c6d6;
 }
 /* styling starts here*/
 .flex-container {
@@ -64,7 +38,9 @@
   display: flex;
   justify-content: space-between;
 }
-
+.body{
+  background-color: red;
+}
 #left-row {
   display: flex;
   flex-direction: column;
@@ -99,10 +75,10 @@ body {
 
 #expand-collapse-left {
   background-image: url("../../../assets/svg/menu-buttonleft.svg");
-  background-size: auto 30%;
+  background-size: 25px;
   background-position: 14px center;
   width: 270px;
-  height: 15%;
+  height: 75px;
   text-indent: -9999px;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -149,17 +125,17 @@ body {
 
 #order-overview {
   background-image: url("../../../assets/svg/auftraguebersicht.svg");
-  background-size: auto 90%;
+  background-size: 25px;
 }
 
 #printed-orders {
   background-image: url("../../../assets/svg/gedruckt-auftreage.svg");
-  background-size: auto 90%;
+  background-size: 25px;
 }
 
 #printer-management {
   background-image: url("../../../assets/svg/printer.svg");
-  background-size: auto 90%;
+  background-size: 25px;
 }
 .transparent {
   padding-left: 30%;
@@ -171,11 +147,11 @@ body {
 }
 #settings {
   background-image: url("../../../assets/svg/einstellung.svg");
-  background-size: auto 90%;
+  background-size: 25px;
 }
 
 #right-row {
-  width: 310px;
+  width: 260px;
   height: 100vh;
   overflow: auto;
   object-fit: contain;
@@ -204,10 +180,10 @@ body {
 #search-box {
   position: absolute;
 
-  width: 140px;
+  width: 200px;
   height: 20px;
   background: #ffffff;
-  border-radius: 40px;
+  border-radius: 2px;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -216,7 +192,6 @@ body {
   background-color: transparent;
   color: black;
   border: transparent;
-  font-weight: bold;
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -237,6 +212,16 @@ body {
   background-size: auto;
   padding: 2%;
   min-width: 50%;
+}
+#new-assignment-box{
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  background: #62c6d6;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }
 
 .progressbar {
