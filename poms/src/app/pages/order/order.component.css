@@ -1,10 +1,11 @@
 .page-container {
   display: flex;
-   flex-wrap: wrap; 
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
 .half-container {
+
   max-height: 45vh;
   min-height: 45vh;
   background-color: #ffffff;
@@ -16,32 +17,31 @@
 }
 
 .half-half-container{
+
   display: flex;
   justify-content: space-between;
 }
 .draggable-card-container {
+
   display: flex;
   background-color: #ffffff;
   flex-wrap: wrap;
 }
 
- .expand-collapse { 
-   /* display: flex; */
-  flex-grow: 2;
+.expand-collapse {
+
   flex-wrap: wrap;
-  width: auto;
   /* padding: 30px;  */
-   font-size: 8pt;
-   /* height: 60px; */
+  font-size: 8pt;
+  /* height: 60px; */
   /* object-fit: contain; */
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  background-color: #ffffff;
+
   margin: 5px;
-}  
+}
 
 .order-page-header {
-  /* width: 250px; */
-  height: 35px;
+  height: 40px;
   object-fit: contain;
   font-family: SegoeUI;
   font-size: 26px;
@@ -53,8 +53,8 @@
   text-align: left;
   color: #272f33;
 }
- .titel-expand-collapse {
-  width: auto;
+.titel-expand-collapse {
+  position: absolute;
   height: 24px;
   object-fit: contain;
   font-family: SegoeUI;
@@ -66,7 +66,23 @@
   letter-spacing: normal;
   text-align: left;
   color: #272f33;
+
 }
+#button-space{
+
+  height: 40px;
+  width: 100%;
+  position: relative;
+  padding-right: 20px;
+  padding-top: 7px;
+;
+  float: right;
+}
+.button-position{
+  float: right;
+
+}
+
 
 .create-new-order {
   width: 149px;

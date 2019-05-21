@@ -7,31 +7,34 @@
         <button (click)="newGroup()">neue Gruppe anlegen</button>
       </div>
       <!-- <div class="half-half-container"> -->
-        <div class="expand-print">
-          <mat-expansion-panel *ngFor="let group of allGroupedOrders" class="expand-collapse" cdkDropList
-            [cdkDropListData]="group.orderCardsByGroup" (cdkDropListDropped)="drop($event)">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <div class="titel-expand-collapse">
-                  Gruppe: {{ group.groupId }}, Aufträge:
-                  {{ group.orderCardsByGroup.length }}
-                </div>
-              <!-- Not for 3.Review -->
-                <!-- <button (click)="onClick()">Drucken</button>
-                  <button (click)="onClick()">Herunteladen</button>
-                  <button (click)="onClick()">Hochladen</button> -->
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div (click)="onDelete()">Löschen</div>
-            <div class="draggable-card-container">
-              <app-order-card *ngFor="let orderCard of group.orderCardsByGroup" cdkDragBoundary=".page-container"
-                cdkDrag [order]="orderCard">
-              </app-order-card>
-            </div>
-          </mat-expansion-panel>
-        </div>
-          <!-- <button class="expand-collapse" (click)="onClick()">drucken</button>
-        </div> -->
+      <div class="expand-print">
+
+        <mat-expansion-panel *ngFor="let group of allGroupedOrders" class="expand-collapse" cdkDropList [cdkDropListData]="group.orderCardsByGroup" (cdkDropListDropped)="drop($event)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="titel-expand-collapse">
+                Gruppe: {{ group.groupId }}, Aufträge:
+                {{ group.orderCardsByGroup.length }}
+              </div>
+              <div id="button-space">
+                <!-- Not for 3.Review -->
+                <button  class="button-position"(click)="onClick()">Drucken</button>
+                <button class="button-position"(click)="onClick()">Herunteladen</button>
+                <button class="button-position"(click)="onClick()">Hochladen</button>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div (click)="onDelete()">Löschen</div>
+          <div class="draggable-card-container">
+            <app-order-card *ngFor="let orderCard of group.orderCardsByGroup" cdkDragBoundary=".page-container"
+                            cdkDrag [order]="orderCard">
+            </app-order-card>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <!-- <button class="expand-collapse" (click)="onClick()">drucken</button>
+    </div> -->
     </div>
     <div class="half-container">
       <div>
@@ -39,7 +42,7 @@
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
       <div class="draggable-card-container" cdkDropList [cdkDropListData]="allUngroupedOrders"
-        (cdkDropListDropped)="drop($event)">
+           (cdkDropListDropped)="drop($event)">
         <!-- Plus-Button to create a new Order -->
         <div class="create-new-order" (click)="openDialogCreateNewOrder()">
           <img src="../../../assets/svg/Gruppe 454.svg" class="plus-button" />
@@ -50,7 +53,7 @@
         </div>
         <!-- Show all Order-Cards with Layout from Order-Card -->
         <app-order-card *ngFor="let orderCard of allUngroupedOrders" cdkDragBoundary=".page-container" cdkDrag
-          [order]="orderCard">
+                        [order]="orderCard">
         </app-order-card>
       </div>
     </div>
