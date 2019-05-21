@@ -63,20 +63,12 @@
   height: 40px;
   margin-left: 3px;
 }
-.titel-expand-collapse {
-  position: absolute;
-  height: 24px;
-  object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 18px;
+#order-heading {
+  font-family: "Segoe UI";
+  font-size: 14px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #272f33;
-
+  padding-top: 15px;
+  position: relative;
 }
 #button-space{
 
@@ -84,8 +76,7 @@
   width: 100%;
   position: relative;
   padding-right: 20px;
-  padding-top: 7px;
-;
+  padding-top: 20px;
   float: right;
 }
 .button-style{
@@ -98,6 +89,7 @@
   border-radius: 3px;
   border: solid 1px #62c6d6;
   background-color: white;
+
 }
 .button-style:hover{
   background-color: #62c6d6;
