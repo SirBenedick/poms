@@ -4,11 +4,11 @@
   overflow: auto;
  
 }
-.half-container {
+.status-card-container {
   display: flex;
   flex-direction: column;
   padding: 5vh;
-  width: 300px;
+  width: 250px;
   height: 120px;
   object-fit: contain;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
