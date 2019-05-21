@@ -34,6 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FAQComponent } from './pages/faq/faq.component';
 import { EinstellungenComponent } from './pages/einstellungen/einstellungen.component';
 import { MatCardModule } from '@angular/material/card';
+import { LoginComponent } from './components/login/login.component';
+import { MatProgressSpinnerModule } from '@angular/material';
 // import { MatDialogRef } from '@angular/material/dialog';
 // import { BackendService } from './services/backend.service';
 // import { ChartsModule } from 'ng2-charts';
@@ -53,7 +55,8 @@ registerLocaleData(de);
     StatusComponent,
     NewPrinterComponent,
     FAQComponent,
-    EinstellungenComponent
+    EinstellungenComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ registerLocaleData(de);
     MatSliderModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
 
     entryComponents:[
