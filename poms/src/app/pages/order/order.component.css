@@ -40,18 +40,28 @@
   margin: 5px;
 }
 
-.order-page-header {
+#heading {
   height: 40px;
   object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 26px;
+ font-family: "Segoe UI";
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-top: 10px;
   line-height: 1.35;
   letter-spacing: normal;
   text-align: left;
   color: #272f33;
+}
+#new-group-button{
+  border-radius: 4px;
+  font-family: "Segoe UI";
+  font-size: 12px;
+  border: dotted 2px #bababa;
+  background-color: transparent;
+  width: 99%;
+  height: 40px;
+  margin-left: 3px;
 }
 .titel-expand-collapse {
   position: absolute;
@@ -78,9 +88,20 @@
 ;
   float: right;
 }
-.button-position{
+.button-style{
   float: right;
-
+  font-family: "Segoe UI";
+  width: 149px;
+  height: 30px;
+  margin: 2px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: solid 1px #62c6d6;
+  background-color: white;
+}
+.button-style:hover{
+  background-color: #62c6d6;
+  color: white;
 }
 
 
