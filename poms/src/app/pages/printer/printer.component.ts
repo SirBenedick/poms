@@ -14,6 +14,7 @@ import { interval, Observable, Subscription, timer } from "rxjs";
 import { IPrinterData } from "../../shared/interfaces";
 import { StatusComponent } from "src/app/components/status/status.component";
 import { NewPrinterComponent } from "src/app/components/new-printer/new-printer.component";
+import { CreateNewOrderComponent } from 'src/app/components/create-new-order/create-new-order.component';
 
 @Component({
   selector: "app-printer",
@@ -43,7 +44,7 @@ export class PrinterComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(NewPrinterComponent, {
+    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
       data: { neuerDruckerName: this.newPrinter }
     });
 

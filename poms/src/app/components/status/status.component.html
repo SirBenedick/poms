@@ -1,36 +1,36 @@
 <div class="page-container">
-  <div class="half-container">
+  <div class="status-card-container">
     <div class="card-title">
       Druckername:
       {{ printerName }}
     </div>
   </div>
-  <div class="half-container">
+  <div class="status-card-container">
     <div class="card-title">
       Status:
       {{ printerStatus }}
     </div>
   </div>
-  <div class="half-container">
+  <div class="status-card-container">
     <div class="card-title">
       Füllstand: {{ printer.resin_volume }}
     </div>
   </div>
-  <div class="half-container">
+  <div class="status-card-container">
     <div class="card-title">
       Druckfortschritt:
       <mat-progress-bar [value]="printer.progress*100"> </mat-progress-bar>
       {{ printer.progress | percent }}
     </div>
   </div>
-  <div class="half-container">
+  <div class="status-card-container">
     <div class="card-title">
       restliche Druckzeit:
       {{ restlicheDruckzeit }}
     </div>
   </div>
 
-  <div class="half-container">
+  <div class="status-card-container">
     <div class="card-title">
       Druck gestartet:
       {{ printStart }}
