@@ -46,7 +46,7 @@ export interface IGroupedOrders {
   groupId: Number;
   harz: String;
   creationDate: String;
-  slicedFile?: any; //REST-Url to file
+  fileSliced?: any; //REST-Url to file
   status: "preprint" | "printing" | "postprint";
 }
 

@@ -11,6 +11,7 @@ import { CreateNewOrderComponent } from "src/app/components/create-new-order/cre
 import { filter } from "rxjs/operators";
 import { group } from "@angular/animations";
 import { OrderCardComponent } from "src/app/components/order-card/order-card.component";
+import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -69,10 +70,10 @@ export class OrderComponent implements OnInit {
     });
   }
   filterParams: IFilterOrders = {
-    harz: "schwarz",
+    harz: null,
     priority: null,
-    dueDate: "22.08.2019",
-    customer: "Schmittlauch"
+    dueDate: {start: new Date("2019-04-22"), end: new Date("2019-05-25") },
+    customer: null
   };
 
   filterUngroupedOrders(parameter: IFilterOrders) {
@@ -80,9 +81,19 @@ export class OrderComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
-          order => order[key] == parameter[key]
-        );
+        if (key == "dueDate") {
+          this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
+            order => {
+              let orderDate = new Date(order[key]);
+              if(parameter[key].start <= orderDate && orderDate <= parameter[key].end)
+                return true;
+            }
+          );
+        }else{
+            this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
+              order => order[key] == parameter[key]
+            );
+        }
       }
     }
   }
@@ -138,7 +149,20 @@ export class OrderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
+
       this.newOrder = result;
+    });
+  }
+
+  openDialogFilterOrders(): void {
+    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
+      data: "{ newOrderForm: this.newOrder }"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The Filter dialog was closed");
+      console.log("Result: ", result);
+      this.filterUngroupedOrders(result.data);
     });
   }
 

@@ -52,9 +52,10 @@
     </div>
     <div class="half-container">
       <div>
-        Unzugeordnete Aufträge, Aufträge: {{ allUngroupedOrders.length }}
-        <button (click)="filterUngroupedOrders(filterParams)">Filter</button>
-        <button (click)="resetOrderFilter()">Reset</button>
+        Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}
+        <button class="button-style" (click)="filterUngroupedOrders(filterParams)">Filter</button>
+        <button class="button-style" (click)="openDialogFilterOrders()">Filter Pop</button>
+        <button class="button-style" (click)="resetOrderFilter()">Reset</button>
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
       <div
@@ -79,6 +80,7 @@
           [order]="orderCard"
         >
         </app-order-card>
+        <p *ngIf="filteredUngroupedOrders.length == 0">Es sind keine Aufträge mehr vorhanden oder keine treffen auf die Filterung zu.</p>
       </div>
     </div>
   </div>
