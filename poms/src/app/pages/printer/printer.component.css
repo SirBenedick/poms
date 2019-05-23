@@ -7,26 +7,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 99%;
+  height: 40px;
+  width: 98%;
   object-fit: contain;
   opacity: 0.5;
   background-color: #f6f6f6;
   border-radius: 4px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  margin-left: 5px;
+  margin-left: 8px;
+
+}
+#print-icon{
+  fill: #62c6d6;
+}
+#print-icon path{
+  fill: #62c6d6;
 }
 .printer {
-    object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 18px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #272f33;
+    font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 15px;
     
   }
    .add-new-printer {
@@ -51,7 +52,7 @@
     height: 35px; */
     object-fit: contain;
     font-family: SegoeUI;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -65,15 +66,21 @@
 
   .expand-collapse {
     /* width: 1272px; */
-    height: 60px;
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+    padding-left: 2px;
     /* object-fit: contain; */
-    box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+    box-shadow: 2px 4px 8px 0 rgba(39, 47, 51, 0.25);
     background-color: #ffffff;
+    border: #f3f3f3 0.02cm solid;
   }
   .half-container {
     max-height: 1px;
-    min-height: 390px;
+    min-height: 425px;
+    width: 98.2%;
     overflow: auto;
-    margin: 5px;
-    /* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
+    margin: 7px;
+
+
   }
