@@ -1,0 +1,43 @@
+<form [formGroup]="filterParamForm">
+  <div class="harz-container">
+    <div *ngFor="let harz of harzList">
+      <input
+        type="radio"
+        id="{{ harz.name }}"
+        name="harz"
+        value="{{ harz.name }}"
+        formControlName="harz"
+      />
+      <label for="{{ harz.name }}">{{ harz.name }}</label>
+    </div>
+  </div>
+  <h1>Fällig am:</h1>
+  <mat-form-field>
+    <input matInput [matDatepicker]="pickerStart" placeholder="Choose a date" formControlName="dueDateStart"/>
+    <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+    <mat-datepicker #pickerStart></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="pickerEnd" placeholder="Choose a date" formControlName="dueDateEnd"/>
+    <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+    <mat-datepicker #pickerEnd></mat-datepicker>
+  </mat-form-field>
+  <h1>Priorität:</h1>
+  <input type="radio" id="niedrig" name="priority" value="niedrig" formControlName="priority" />
+  <label for="niedrig">niedrig</label>
+  <input type="radio" id="mittel" name="priority" value="mittel" formControlName="priority" />
+  <label for="mittel">mittel</label>
+  <input type="radio" id="hoch" name="priority" value="hoch" formControlName="priority" />
+  <label for="hoch">hoch</label>
+  <h1>Kunde:</h1>
+  <mat-form-field>
+    <mat-label>Cars</mat-label>
+    <select matNativeControl required formControlName="customer">
+      <option value="Schmittlauch">Schmidttlauch</option>
+      <option value="Schmittlauch1">Schmidttlauch1</option>
+    </select>
+  </mat-form-field>
+</form>
+asdfasf
+{{ filterParamForm.value | json }}
+<button class="button-style" (click)="save()">Save</button>

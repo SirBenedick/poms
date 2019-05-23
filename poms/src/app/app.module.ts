@@ -36,6 +36,7 @@ import { EinstellungenComponent } from './pages/einstellungen/einstellungen.comp
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './components/login/login.component';
 import { MatProgressSpinnerModule } from '@angular/material';
+import { OrderFilterPopupComponent } from './components/order-filter-popup/order-filter-popup.component';
 // import { MatDialogRef } from '@angular/material/dialog';
 // import { BackendService } from './services/backend.service';
 // import { ChartsModule } from 'ng2-charts';
@@ -56,7 +57,8 @@ registerLocaleData(de);
     NewPrinterComponent,
     FAQComponent,
     EinstellungenComponent,
-    LoginComponent
+    LoginComponent,
+    OrderFilterPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ registerLocaleData(de);
 
     entryComponents:[
       CreateNewOrderComponent,
-      NewPrinterComponent
+      NewPrinterComponent,
+      OrderFilterPopupComponent
     ],
 
   providers: [],
