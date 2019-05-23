@@ -22,7 +22,7 @@
 }
 
 #left-row.toggled {
-  padding-right: 260px;
+  padding-right: 190px;
 }
 
 .small-bar-left {
@@ -43,7 +43,7 @@ body {
   background-image: url("../../../assets/svg/menu-buttonleft.svg");
   background-size: 25px;
   background-position: 14px center;
-  width: 270px;
+  width: 200px;
   height: 75px;
   text-indent: -9999px;
   background-color: Transparent;
@@ -77,10 +77,12 @@ body {
   letter-spacing: normal;
 
   border-left: 10px solid transparent;
-  font-size: 16px;
+  font-size: 14px;
   color: #003549;
   margin-left: -20px;
   z-index: 1;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .button-style:focus {
@@ -91,20 +93,20 @@ body {
 
 #order-overview {
   background-image: url("../../../assets/svg/auftraguebersicht.svg");
-  background-size: 25px;
+  background-size: 22px;
 }
 
 #printed-orders {
   background-image: url("../../../assets/svg/gedruckt-auftreage.svg");
-  background-size: 25px;
+  background-size: 22px;
 }
 
 #printer-management {
   background-image: url("../../../assets/svg/printer.svg");
-  background-size: 25px;
+  background-size: 22px;
 }
 .transparent {
-  padding-left: 30%;
+  padding-left: 25%;
 }
 
 #help {
@@ -117,13 +119,13 @@ body {
 }
 
 #right-row {
-  width: 260px;
+  width: 210px;
   height: 100vh;
   overflow: auto;
   object-fit: contain;
   background-color: #f6f6f6;
-  max-width: 310px;
-  min-width: 310px;
+  max-width: 210px;
+  min-width: 210px;
 }
 
 #page-header {
