@@ -109,20 +109,18 @@
   border: 1px solid #272f33;
 }
 
-.plus-button {
-  margin: 48px;
-  width: 47px;
-  height: 43px;
-  object-fit: contain;
-}
 .create-new-order {
-  width: 149px;
-  height: 149px;
-  border-color: #272f33;
-  /* margin: 1px; */
+  width: 100px;
+  height: 100px;
+ border: transparent 2px solid;
   object-fit: contain;
-  opacity: 0.5;
-  box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
   background-color: #ffffff;
-  border: 1px solid #272f33;
+  display: flex;
+  margin: 2px;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
 }
