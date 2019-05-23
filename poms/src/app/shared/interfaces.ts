@@ -54,3 +54,10 @@ export interface ICreateNewOrder {
   titel: String;
   Kategorie: String;
 }
+
+export interface IFilterOrders{
+  harz: String
+  priority: "hoch" | "mittel" | "niedrig";
+  dueDate: any;
+  customer: String;
+}
