@@ -12,8 +12,8 @@ export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
-  allOrderDataSubscription: Subscription;
-  allPrinterDataObservable: Observable<Object>;
+  allOrderData$: Observable<Object>;
+  allPrinterData$: Observable<Object>;
   allPrinterDataSubscription: Subscription;
 
   allUngroupedOrders: Array<IOrder> = [];
@@ -21,24 +21,21 @@ export class BackendService {
 
   constructor(private http: HttpClient) {
     /** Starts observable and polls all OrderData from Backend */
-    this.allOrderDataSubscription = timer(0, 2000)
-      .pipe(
-        switchMap((counter: number) => this.pollAllOrdersFromBackend()),
-        catchError((err, caught) => caught)
-      )
-      .subscribe((newOrderData: Array<IOrder>) => {
-        // console.log("Polling new Data", newOrderData);
-        this.allUngroupedOrders = newOrderData;
-      });
+    this.allOrderData$ = timer(0, 2000).pipe(
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      catchError((err, caught) => caught),
+    );
+    this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
+      this.allUngroupedOrders = allOrderData;
+    });
 
     /** Starts observable and polls all PrinterData from Backend */
-    this.allPrinterDataObservable = timer(0, 2000).pipe(
+    this.allPrinterData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllPrinterFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allPrinterDataSubscription = this.allPrinterDataObservable.subscribe(
+    this.allPrinterDataSubscription = this.allPrinterData$.subscribe(
       (newPrinterData: Array<IPrinterData>) => {
-        // console.log("Polling new Data", newPrinterData);
         this.allPrinterData = newPrinterData;
       }
     );
@@ -57,24 +54,24 @@ export class BackendService {
     //return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-     return this.http.get(this.mockedURL + "allPrinter");
-    //return this.http.get(this.backendUrl + "printer/get/all");
+    // return this.http.get(this.mockedURL + "allPrinter");
+    return this.http.get(this.backendUrl + "printer/get/all");
   }
 
-  startPrinter(id: Number){
+  startPrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/start/" + id);
   }
-  stopPrinter(id: Number){
+  stopPrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/stop/" + id);
   }
-  togglePrinter(id: Number){
+  togglePrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
-  
-  getAllResin(): Promise<Object>{
+
+  getAllResin(): Promise<Object> {
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
   }
-  createNewGroup(order: IOrder): Promise<Object>{
+  createNewGroup(order: IOrder): Promise<Object> {
     //example API-Call, URL not yet real
     return this.http.get(this.backendUrl + "group/create/").toPromise();
   }

@@ -14,7 +14,7 @@ import { interval, Observable, Subscription, timer } from "rxjs";
 import { IPrinterData } from "../../shared/interfaces";
 import { StatusComponent } from "src/app/components/status/status.component";
 import { NewPrinterComponent } from "src/app/components/new-printer/new-printer.component";
-import { CreateNewOrderComponent } from 'src/app/components/create-new-order/create-new-order.component';
+import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 
 @Component({
   selector: "app-printer",
@@ -26,6 +26,7 @@ export class PrinterComponent implements OnInit {
 
   allPrinters: Array<IPrinterData> = [];
   newPrinter: String;
+
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog
@@ -33,14 +34,16 @@ export class PrinterComponent implements OnInit {
 
   ngOnInit() {
     //** First time page is loaded "this.backendService.allPrinters" is still empty*/
-    if (this.allPrinters.length == 0) {
-      // setTimeout hat seinen eigenen scope und würde "this" anders zuordnen
-      var that = this;
-      setTimeout(function() {
-        that.allPrinters = that.backendService.allPrinterData;
-      }, 300);
+    if (this.backendService.allPrinterData.length == 0) {
+      this.backendService
+        .pollAllPrinterFromBackend()
+        .toPromise()
+        .then((allPrinterData: Array<IPrinterData>) => {
+          this.backendService.allPrinterData = allPrinterData;
+        });
+    } else {
+     this.allPrinters = this.backendService.allPrinterData;
     }
-    this.allPrinters = this.backendService.allPrinterData;
   }
 
   openDialog(): void {
