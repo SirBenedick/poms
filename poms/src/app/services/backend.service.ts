@@ -1,7 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, timer } from "rxjs";
-import { IOrder, IPrinterData } from "../shared/interfaces";
+import {
+  IOrder,
+  IPrinterData,
+  IHelpPageTopic,
+  IHelpPage,
+  IHelpPageSubtopic
+} from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
 @Injectable({
@@ -237,6 +243,70 @@ export class BackendService {
       resin_volume: 0.7
     }
   ];
+  mockedHelpPage: Array<IHelpPage> = [
+    {
+      pageTitel: "pageTitel 1",
+      topics: [
+        {
+          topicTitel: "topicTitel 11",
+          subtopics: [
+            {
+              subtopicTitel: "subtopicTitel 111",
+              subtopicContent: "subtopicContent 111"
+            },
+            {
+              subtopicTitel: "subtopicTitel 112",
+              subtopicContent: "subtopicContent 112"
+            }
+          ],
+        },
+        {
+          topicTitel: "topicTitel 12",
+          subtopics: [
+            {
+              subtopicTitel: "subtopicTitel 121",
+              subtopicContent: "subtopicContent 121"
+            },
+            {
+              subtopicTitel: "subtopicTitel 122",
+              subtopicContent: "subtopicContent 122"
+            }
+          ],
+        }
+      ]
+    },
+    {
+      pageTitel: "pageTitel 2",
+      topics: [
+        {
+          topicTitel: "topicTitel21",
+          subtopics: [
+            {
+              subtopicTitel: "subtopicTitel211",
+              subtopicContent: "subtopicContent211"
+            },
+            {
+              subtopicTitel: "subtopicTitel212",
+              subtopicContent: "subtopicContent212"
+            }
+          ],
+        },
+        {
+          topicTitel: "topicTitel22",
+          subtopics: [
+            {
+              subtopicTitel: "subtopicTitel221",
+              subtopicContent: "subtopicContent221"
+            },
+            {
+              subtopicTitel: "subtopicTitel222",
+              subtopicContent: "subtopicContent222"
+            }
+          ],
+        }
+      ]
+    }
+  ];
 
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
@@ -251,19 +321,20 @@ export class BackendService {
       switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allOrderData$.subscribe(
-      (allOrderData: Array<IOrder>) => (this.allUngroupedOrders = allOrderData)
-    );
+    this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
+      this.allUngroupedOrders = allOrderData;
+      // this.allUngroupedOrders = this.mockedOrderData;
+    });
 
     /** Starts observable and polls all PrinterData from Backend */
     this.allPrinterData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllPrinterFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allPrinterData$.subscribe(
-      (newPrinterData: Array<IPrinterData>) =>
-        (this.allPrinterData = newPrinterData)
-    );
+    this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
+      // this.allPrinterData = newPrinterData;
+      // this.allPrinterData = this.mockedPrinterData;
+    });
     //ENDE
   }
 
@@ -301,4 +372,32 @@ export class BackendService {
     //example API-Call, URL not yet real
     return this.http.get(this.backendUrl + "group/create/").toPromise();
   }
+
+  getAllHelpTopics(): Promise<Object> {
+    // return this.http.get(this.backendUrl + "help/all/").toPromise();
+    let promiseRes = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 200);
+      resolve(this.mockedHelpPage);
+    });
+    return promiseRes;
+  }
+
+  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic){
+    //Insert Backendcall here
+    console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  }
 }
+
+/**
+ * To-Do
+ * Frontend:
+ * "add Topic" Dialog gestalten
+ * auf subtopic in der faq seite draufklicken solle dialog öffnen mit inhalten des IHelpPageSubtopic-Objektes
+ * 
+ * Backend:
+ * createNewGroup()
+ * getAllHelpTopics()
+ * addNewSubtopic()
+ */
