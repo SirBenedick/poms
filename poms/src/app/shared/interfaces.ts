@@ -53,7 +53,7 @@ export interface IGroupedOrders {
 export interface ICreateNewOrder {
   titel: String;
   Kategorie: String;
-}
+} 
 
 export interface IFilterOrders{
   harz: String
