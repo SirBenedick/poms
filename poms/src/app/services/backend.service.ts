@@ -74,4 +74,8 @@ export class BackendService {
   getAllResin(): Promise<Object>{
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
   }
+  createNewGroup(order: IOrder): Promise<Object>{
+    //example API-Call, URL not yet real
+    return this.http.get(this.backendUrl + "group/create/").toPromise();
+  }
 }
