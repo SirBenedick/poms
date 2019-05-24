@@ -75,3 +75,7 @@ export interface IHelpPageContent{
     videoURL?: String;
   }
 }
+
+export interface IResinType{
+  resin_name: String;
+}
