@@ -91,7 +91,7 @@
     <div *ngFor="let printer of printerSubscription | async">
       <div *ngIf="printer.offline == 0">
         <div *ngIf="printer.is_printing == 1">
-          <p>
+          <p id="info-print-heading">
             <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
           </p>
           <div class="progressbar">
@@ -107,12 +107,12 @@
             </p>
           </div>
           <div *ngIf="printer.paused != 1">
-            <p>
-              Druckfortschritt bei:
+            <p id="print-prozess-info">
+              Druckfortschritt bei
               {{ printer.progress * 100 | number: "1.0-0" }}%
             </p>
           </div>
-          <hr />
+
         </div>
       </div>
     </div>
