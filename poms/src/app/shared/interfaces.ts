@@ -53,4 +53,4 @@ export interface IGroupedOrders {
 export interface ICreateNewOrder {
   titel: String;
   Kategorie: String;
-}
+} 
