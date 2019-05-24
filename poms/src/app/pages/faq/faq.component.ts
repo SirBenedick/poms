@@ -1,4 +1,4 @@
-import { IHelpPageTitels } from "./../../shared/interfaces";
+import { IHelpPage, IHelpPageTopic, IHelpPageSubtopic } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
 
@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./faq.component.css"]
 })
 export class FAQComponent implements OnInit {
-  allHelpTopics: Array<IHelpPageTitels>;
+  allHelpTopics: Array<IHelpPage>;
 
   constructor(private backendService: BackendService) {}
 
@@ -16,7 +16,7 @@ export class FAQComponent implements OnInit {
     this.backendService
       .getAllHelpTopics()
       .then(
-        (newHelpTopics: Array<IHelpPageTitels>) =>
+        (newHelpTopics: Array<IHelpPage>) =>
           (this.allHelpTopics = newHelpTopics)
       );
   }
@@ -26,5 +26,10 @@ export class FAQComponent implements OnInit {
     videoURL?: String;
   }) {
     console.log(subtopic);
+  }
+
+  addNewTopic(topic: IHelpPageTopic){
+    let newSubtopic: IHelpPageSubtopic = {subtopicTitel: "newSubTitel", subtopicContent: "newSubtopicContent"};
+    this.backendService.addNewSubtopic(topic, newSubtopic);
   }
 }

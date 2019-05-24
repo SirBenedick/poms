@@ -90,7 +90,7 @@
   <!-- Right sidebar -->
   <div id="right-row">
     <p id="print-progress">Druckfortschritt</p>
-    <!-- <div *ngFor="let printer of printerSubscription | async">
+    <div *ngFor="let printer of printerSubscription | async">
       <div *ngIf="printer.offline == 0">
         <div *ngIf="printer.is_printing == 1">
           <p id="info-print-heading">
@@ -124,6 +124,6 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>

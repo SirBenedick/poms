@@ -4,8 +4,9 @@ import { Observable, timer } from "rxjs";
 import {
   IOrder,
   IPrinterData,
-  IHelpPageContent,
-  IHelpPageTitels
+  IHelpPageTopic,
+  IHelpPage,
+  IHelpPageSubtopic
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -242,7 +243,7 @@ export class BackendService {
       resin_volume: 0.7
     }
   ];
-  mockedHelpPage: Array<IHelpPageTitels> = [
+  mockedHelpPage: Array<IHelpPage> = [
     {
       pageTitel: "pageTitel 1",
       topics: [
@@ -317,22 +318,22 @@ export class BackendService {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
-      // switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      // this.allUngroupedOrders = allOrderData;
-      this.allUngroupedOrders = this.mockedOrderData;
+      this.allUngroupedOrders = allOrderData;
+      // this.allUngroupedOrders = this.mockedOrderData;
     });
 
     /** Starts observable and polls all PrinterData from Backend */
     this.allPrinterData$ = timer(0, 2000).pipe(
-      // switchMap((counter: number) => this.pollAllPrinterFromBackend()),
+      switchMap((counter: number) => this.pollAllPrinterFromBackend()),
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       // this.allPrinterData = newPrinterData;
-      this.allPrinterData = this.mockedPrinterData;
+      // this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
   }
@@ -382,4 +383,21 @@ export class BackendService {
     });
     return promiseRes;
   }
+
+  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic){
+    //Insert Backendcall here
+    console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  }
 }
+
+/**
+ * To-Do
+ * Frontend:
+ * "add Topic" Dialog gestalten
+ * auf subtopic in der faq seite draufklicken solle dialog öffnen mit inhalten des IHelpPageSubtopic-Objektes
+ * 
+ * Backend:
+ * createNewGroup()
+ * getAllHelpTopics()
+ * addNewSubtopic()
+ */

@@ -62,18 +62,20 @@ export interface IFilterOrders {
   customer: String;
 }
 
-export interface IHelpPageTitels {
+export interface IHelpPage {
   pageTitel: String;
-  topics: Array<IHelpPageContent>;
+  topics: Array<IHelpPageTopic>;
 }
 
-export interface IHelpPageContent {
+export interface IHelpPageTopic {
   topicTitel: String;
-  subtopics: Array<{
-    subtopicTitel: String;
-    subtopicContent: String;
-    videoURL?: String;
-  }>
+  subtopics: Array<IHelpPageSubtopic>;
+}
+
+export interface IHelpPageSubtopic {
+  subtopicTitel: String;
+  subtopicContent: String;
+  videoURL?: String;
 }
 
 export interface IResinType {
