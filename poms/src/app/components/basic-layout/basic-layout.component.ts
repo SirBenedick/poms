@@ -1,9 +1,7 @@
-import { Subscription } from "rxjs";
-import { Observable, timer } from "rxjs";
+import { Observable } from "rxjs";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
-import { switchMap } from "rxjs/operators";
-import { IPrinterData } from "src/app/shared/interfaces";
+
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 @Component({
@@ -20,7 +18,7 @@ export class BasicLayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.printerSubscription = this.backendService.allPrinterDataObservable;
+    this.printerSubscription = this.backendService.allPrinterData$;
   }
 
   newOrder() {

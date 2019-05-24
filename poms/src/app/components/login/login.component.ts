@@ -50,7 +50,7 @@ onSubmit() {
      .subscribe(
          data => {
            //wenn Login richtig war, dann wird man auf diese Seite geleitet
-             this.router.navigate(['printer']);
+             this.router.navigate(['order']);
          },
              error => {
                  this.error = error;
