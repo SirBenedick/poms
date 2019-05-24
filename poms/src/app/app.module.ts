@@ -44,7 +44,7 @@ import { OrderFilterPopupComponent } from "./components/order-filter-popup/order
 import { BackendService } from "./services/backend.service";
 import { LoginService } from "./services/login.service";
 import { BenutzerService } from "./services/benutzer.service";
-import { TestbackendProvider } from './services/testbackend.service';
+import { TestbackendProvider } from "./services/testbackend.service";
 
 registerLocaleData(de);
 @NgModule({
@@ -86,7 +86,7 @@ registerLocaleData(de);
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatProgressSpinnerModule,
+    MatProgressSpinnerModule
   ],
 
   entryComponents: [
@@ -94,7 +94,7 @@ registerLocaleData(de);
     NewPrinterComponent,
     OrderFilterPopupComponent
   ],
-//alle Services einbinden
+  //alle Services einbinden
   providers: [
     BackendService,
     LoginService,
@@ -107,4 +107,3 @@ registerLocaleData(de);
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-

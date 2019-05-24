@@ -1,19 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-
-import {
-  tap,
-  startWith,
-  map,
-  switchMap,
-  catchError,
-  take
-} from "rxjs/operators";
-import { interval, Observable, Subscription, timer } from "rxjs";
+import { MatDialog } from "@angular/material";
 import { IPrinterData } from "../../shared/interfaces";
-import { StatusComponent } from "src/app/components/status/status.component";
-import { NewPrinterComponent } from "src/app/components/new-printer/new-printer.component";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 
 @Component({
@@ -22,10 +10,7 @@ import { CreateNewOrderComponent } from "src/app/components/create-new-order/cre
   styleUrls: ["./printer.component.css"]
 })
 export class PrinterComponent implements OnInit {
-  userDataSubscription: Subscription;
-
   allPrinters: Array<IPrinterData> = [];
-  newPrinter: String;
 
   constructor(
     private backendService: BackendService,
@@ -42,18 +27,17 @@ export class PrinterComponent implements OnInit {
           this.backendService.allPrinterData = allPrinterData;
         });
     } else {
-     this.allPrinters = this.backendService.allPrinterData;
+      this.allPrinters = this.backendService.allPrinterData;
     }
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { neuerDruckerName: this.newPrinter }
+      data: { key: "Example, maybe no data is needed" }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-      this.newPrinter = result;
+      console.log("The create new Printer Dialog was closed, result: ", result);
     });
   }
   startPrinter(id: Number) {

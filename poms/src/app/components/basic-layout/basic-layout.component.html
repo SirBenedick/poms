@@ -52,15 +52,18 @@
   </div>
   <!-- Middle Bar -->
   <div class="center-row">
-
     <nav class="nav" id="page-header">
       <div style="padding-top: 5px; padding-left: 10px" href="#">
-
-          <img src="../../../assets/svg/lupe.svg" alt="lupe" width="12" height="12" style="margin-top: -8px; margin-left: 5px; fill: #272f33" >
-          <div id="such-balken">
-            <input type="search" id="search-input" placeholder="Suchen..." />
-          </div>
-
+        <img
+          src="../../../assets/svg/lupe.svg"
+          alt="lupe"
+          width="12"
+          height="12"
+          style="margin-top: -8px; margin-left: 5px; fill: #272f33"
+        />
+        <div id="such-balken">
+          <input type="search" id="search-input" placeholder="Suchen..." />
+        </div>
       </div>
 
       <div
@@ -69,17 +72,16 @@
         (click)="openDialog()"
       >
         <div style="padding-top: 2px; padding-right: 200px" href="#">
-            <div id="new-assignment-box">
-              <p style="color: #ffffff; font-family: 'Segoe UI'; font-size:12px;margin-left: 30px;
-              margin-right: 30px;">
-                +   neuen Auftrag anlegen</p>
-            </div>
+          <div id="new-assignment-box">
+            <p
+              style="color: #ffffff; font-family: 'Segoe UI'; font-size:12px;margin-left: 30px;
+              margin-right: 30px;"
+            >
+              + neuen Auftrag anlegen
+            </p>
           </div>
-
+        </div>
       </div>
-      <!--   <a class="nav-link disabled" href="#">Disabled</a>
-   -->
-
     </nav>
     <div style="flex-grow: 1">
       <ng-content></ng-content>
@@ -97,8 +99,16 @@
           <div class="progressbar">
             <mat-progress-bar [value]="printer.progress * 100">
             </mat-progress-bar>
-            <img width="10px" height="10px" src="../../../assets/svg/pause.svg" />
-            <img width="10px" height="10px" src="../../../assets/fonts/abbrechen.svg" />
+            <img
+              width="10px"
+              height="10px"
+              src="../../../assets/svg/pause.svg"
+            />
+            <img
+              width="10px"
+              height="10px"
+              src="../../../assets/fonts/abbrechen.svg"
+            />
           </div>
           <div *ngIf="printer.paused == 1">
             <p>
@@ -112,7 +122,6 @@
               {{ printer.progress * 100 | number: "1.0-0" }}%
             </p>
           </div>
-
         </div>
       </div>
     </div>

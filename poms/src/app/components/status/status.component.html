@@ -2,7 +2,7 @@
   <div class="status-card-container">
     <div class="card-title">
       Druckername:
-      {{ printerName }}
+      {{ printer.name }}
     </div>
   </div>
   <div class="status-card-container">
@@ -26,14 +26,14 @@
   <div class="status-card-container">
     <div class="card-title">
       restliche Druckzeit:
-      {{ restlicheDruckzeit }}
+      {{ printer.estimated_time_remaining }}
     </div>
   </div>
 
   <div class="status-card-container">
     <div class="card-title">
       Druck gestartet:
-      {{ printStart }}
+      {{ printer.print_start }}
     </div>
   </div>
 </div>

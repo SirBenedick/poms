@@ -1,41 +1,29 @@
 <div class="page-container">
   <div class="available-printer">Verfügbare Drucker</div>
-  <div
-    class="new-printer"
-    (click)="openDialog()"
-    style="justify-content: center"
-  >
+  <div class="new-printer" (click)="openDialog()">
     <div class="add-new-printer">
-      <h4 style="font-size: 16px; font-family: 'Segoe UI'; color: #272f33">
-        <b>+</b> neuen Drucker hinzufügen
-      </h4>
+      <h4><b>+</b> neuen Drucker hinzufügen</h4>
     </div>
   </div>
-  <div *ngIf="newPrinter">Neuer Drucker: {{ newPrinter }}</div>
-  <br />
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
     <mat-expansion-panel *ngFor="let printer of allPrinters">
       <mat-expansion-panel-header class="expand-collapse">
         <!-- Ausgabe von allen verfügbaren Druckern -->
         <mat-panel-title>
-          <img height="35px" width="35px" src="../../../assets/svg/Pfad 141.svg" style="padding-left: 10px; height: 30px"  />
-          <div class="printer" style="align-self: center">
+          <img
+            height="35px"
+            width="35px"
+            src="../../../assets/svg/Pfad 141.svg"
+            style="padding-left: 10px; height: 30px"
+          />
+          <div class="printer">
             {{ printer.name }}
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <app-status
-        style="overflow: auto"
-        [printer]="printer"
-        [printerName]="printer.name"
-        [druckerStatus]="printer.is_printing ? 'Druckt' : 'Pause'"
-        [fuellstand]="printer.max_layer"
-        [druckFortschritt]="printer.progress | percent"
-        [restlicheDruckzeit]="printer.estimated_time_remaining"
-        [printStart]="printer.print_start"
-      ></app-status>
+      <app-status style="overflow: auto" [printer]="printer"></app-status>
     </mat-expansion-panel>
     <button (click)="startPrinter(23)">Druck Starten</button>
     <button (click)="stopPrinter(23)">Druck Stop</button>

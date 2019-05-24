@@ -1,18 +1,18 @@
 <div class="alert alert-info col">
-    <strong>Normal User</strong> - U: user P: user<br />
-    <strong>Administrator</strong> - U: admin P: admin
+  <strong>Normal User</strong> - U: user P: user<br />
+  <strong>Administrator</strong> - U: admin P: admin
 </div>
 <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" />    
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" formControlName="password"/>
-    </div>
-    <div>
-        <button [disabled]="loading" (click)="onLoginClick()">Login</button>
-    </div>
+  <div>
+    <label for="username">Username</label>
+    <input type="text" formControlName="username" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" />
+  </div>
+  <div>
+    <button [disabled]="loading" (click)="onLoginClick()">Login</button>
+  </div>
 </form>

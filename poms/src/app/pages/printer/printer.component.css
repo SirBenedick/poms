@@ -1,9 +1,9 @@
-.page-container{
+.page-container {
   display: flex;
   flex-direction: column;
-
 }
-.new-printer{
+
+.new-printer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,72 +15,79 @@
   border-radius: 4px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
   margin-left: 8px;
+}
 
-}
-#print-icon{
+#print-icon {
   fill: #62c6d6;
 }
-#print-icon path{
+
+#print-icon path {
   fill: #62c6d6;
 }
+
 .printer {
-    font-family: "Segoe UI";
+  font-family: "Segoe UI";
   font-size: 16px;
   font-weight: bold;
   padding-left: 15px;
-    
-  }
-   .add-new-printer {
-    /* width: 224px;
+  align-self: center;
+}
+
+.add-new-printer {
+  /* width: 224px;
     height: 24px; */
-    object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 18px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: center;
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
 
-    color: #272f33;
-    /* color: red; */
-  } 
+  color: #272f33;
+  /* color: red; */
+}
 
-  .available-printer {
-    /* width: 250px;
+.add-new-printer > h4 {
+  font-size: 16px;
+  font-family: "Segoe UI";
+  color: #272f33;
+}
+
+.available-printer {
+  /* width: 250px;
     height: 35px; */
-    object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 22px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color: #272f33;
-    margin: 20px;
-  }
-  
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
+  margin: 20px;
+}
 
-  .expand-collapse {
-    /* width: 1272px; */
-    height: 40px;
-    width: auto;
-    border-radius: 5px;
-    padding-left: 2px;
-    /* object-fit: contain; */
-    box-shadow: 2px 4px 8px 0 rgba(39, 47, 51, 0.25);
-    background-color: #ffffff;
-    border: #f3f3f3 0.02cm solid;
-  }
-  .half-container {
-    max-height: 1px;
-    min-height: 425px;
-    width: 98.2%;
-    overflow: auto;
-    margin: 7px;
+.expand-collapse {
+  /* width: 1272px; */
+  height: 40px;
+  width: auto;
+  border-radius: 5px;
+  padding-left: 2px;
+  /* object-fit: contain; */
+  box-shadow: 2px 4px 8px 0 rgba(39, 47, 51, 0.25);
+  background-color: #ffffff;
+  border: #f3f3f3 0.02cm solid;
+}
 
-
-  }
+.half-container {
+  max-height: 1px;
+  min-height: 425px;
+  width: 98.2%;
+  overflow: auto;
+  margin: 7px;
+}

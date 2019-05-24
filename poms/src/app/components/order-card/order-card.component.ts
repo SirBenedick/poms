@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { IOrder } from "src/app/shared/interfaces";
 import { CreateNewOrderComponent } from "../create-new-order/create-new-order.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
-import { filter } from "rxjs/operators";
 
 @Component({
   selector: "app-order-card",
@@ -21,7 +20,7 @@ export class OrderCardComponent implements OnInit {
       data: event.order
     });
 
-//  MS- Änderungen sollen gespeichert werden und auch angezeigt werden
+    //  MS- Änderungen sollen gespeichert werden und auch angezeigt werden
     // this.ordersNameDialogRef.afterClosed().pipe(
     // filter(result => result))
     // .subscribe(result =>{
@@ -36,5 +35,5 @@ export class OrderCardComponent implements OnInit {
     //       // this.newOrder = result;
     //       }
     //     });
-   }
+  }
 }

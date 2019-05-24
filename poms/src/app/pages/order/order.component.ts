@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BackendService } from "./../../services/backend.service";
+import { BackendService } from "../../services/backend.service";
 import { IOrder, IFilterOrders } from "src/app/shared/interfaces";
 import {
   CdkDragDrop,
