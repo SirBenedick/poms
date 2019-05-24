@@ -53,30 +53,30 @@ export interface IGroupedOrders {
 export interface ICreateNewOrder {
   titel: String;
   Kategorie: String;
-} 
+}
 
-export interface IFilterOrders{
-  harz: String
+export interface IFilterOrders {
+  harz: String;
   priority: "hoch" | "mittel" | "niedrig";
   dueDate: any;
   customer: String;
 }
 
-export interface IHelpPageTitels{
+export interface IHelpPageTitels {
   pageTitel: String;
   topics: Array<IHelpPageContent>;
 }
 
-export interface IHelpPageContent{
+export interface IHelpPageContent {
   topicTitel: String;
-  subtopics: {
+  subtopics: Array<{
     subtopicTitel: String;
     subtopicContent: String;
     videoURL?: String;
-  }
+  }>
 }
 
-export interface IResinType{
+export interface IResinType {
   resin_name: String;
 }
 
@@ -85,10 +85,9 @@ export class User {
   username: string;
   password: string;
   role: string;
- 
 }
 
 export enum Role {
-  User = 'User',
-  Admin = 'Admin'
+  User = "User",
+  Admin = "Admin"
 }
