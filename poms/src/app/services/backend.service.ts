@@ -57,8 +57,8 @@ export class BackendService {
     //return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    // return this.http.get(this.mockedURL + "allPrinter");
-    return this.http.get(this.backendUrl + "printer/get/all");
+     return this.http.get(this.mockedURL + "allPrinter");
+    //return this.http.get(this.backendUrl + "printer/get/all");
   }
 
   startPrinter(id: Number){
@@ -73,5 +73,9 @@ export class BackendService {
   
   getAllResin(): Promise<Object>{
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
+  }
+  createNewGroup(order: IOrder): Promise<Object>{
+    //example API-Call, URL not yet real
+    return this.http.get(this.backendUrl + "group/create/").toPromise();
   }
 }

@@ -3,7 +3,8 @@
   <div cdkDropListGroup>
     <div class="half-container">
       <h1 id="heading">Gruppierte Aufträge</h1>
-      <button id="new-group-button" (click)="newGroup()">
+      <button id="new-group-button" (click)="newGroup()" cdkDropList
+      (cdkDropListDropped)="dropNewGroup($event)">
         <b>+</b> Aufträge hierhinziehen um neue Gruppe zu erstellen
       </button>
       <div class="expand-print">

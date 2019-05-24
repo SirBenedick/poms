@@ -105,6 +105,23 @@ export class OrderComponent implements OnInit {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
   }
 
+  dropNewGroup(event: CdkDragDrop<string[]>) {
+    console.log("dropNewGroup");
+    let previousContainer = event.previousContainer;
+    let draggedOrder: IOrder = <IOrder>(
+      (<unknown>previousContainer.data[event.previousIndex])
+    );
+
+    //BAckend Call create new group with order
+    // BE Erhält call + order id --> muss groupId anpassen
+    //then refresh page
+
+    this.backendService.createNewGroup(draggedOrder).then(res => {
+      console.log("response:", res);
+      this.sortOrderLists(this.backendService.allUngroupedOrders);
+    });
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     let previousContainer = event.previousContainer;
     let draggedOrder: IOrder = <IOrder>(
