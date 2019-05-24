@@ -72,7 +72,7 @@ export class OrderComponent implements OnInit {
   filterParams: IFilterOrders = {
     harz: null,
     priority: null,
-    dueDate: {start: new Date("2019-04-22"), end: new Date("2019-05-25") },
+    dueDate: { start: new Date("2019-04-22"), end: new Date("2019-05-25") },
     customer: null
   };
 
@@ -85,14 +85,17 @@ export class OrderComponent implements OnInit {
           this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
             order => {
               let orderDate = new Date(order[key]);
-              if(parameter[key].start <= orderDate && orderDate <= parameter[key].end)
+              if (
+                parameter[key].start <= orderDate &&
+                orderDate <= parameter[key].end
+              )
                 return true;
             }
           );
-        }else{
-            this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
-              order => order[key] == parameter[key]
-            );
+        } else {
+          this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
+            order => order[key] == parameter[key]
+          );
         }
       }
     }
@@ -160,9 +163,7 @@ export class OrderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The Filter dialog was closed");
-      console.log("Result: ", result);
-      this.filterUngroupedOrders(result.data);
+      if (result) this.filterUngroupedOrders(result.data);
     });
   }
 

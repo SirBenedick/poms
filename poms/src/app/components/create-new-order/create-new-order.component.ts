@@ -1,3 +1,5 @@
+import { IResinType } from './../../shared/interfaces';
+import { BackendService } from './../../services/backend.service';
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { ICreateNewOrder, IOrder } from "src/app/shared/interfaces";
@@ -16,11 +18,13 @@ import {
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
   newOrderForm: FormGroup;
+  harzList: Array<IResinType>;
 
   constructor(
     private formBuilder : FormBuilder,
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IOrder
+    @Inject(MAT_DIALOG_DATA) public data: IOrder,
+    private backendService: BackendService
   ) {}
   ngOnInit() {
     this.newOrderForm = new FormGroup({
@@ -44,14 +48,13 @@ export class CreateNewOrderComponent implements OnInit {
       fileScan: new FormControl(this.data.fileScan ? this.data.fileScan : '', [Validators.required]),
       fileSolid: new FormControl(this.data.fileSolid ? this.data.fileSolid : '', [Validators.required])
     });
-    console.log("Popup: ", this.data)
+    this.backendService.getAllResin().then((res: Array<IResinType>) => {this.harzList = res; console.log(this.harzList)});
    }
    // MS - only for testing
   //  onSubmit() {
   //   console.log(this.newOrderForm.value);
   // }
   
-
   onClick(): void {
     if (this.newOrderForm) {
       console.log("Form Submitted");

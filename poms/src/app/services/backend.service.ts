@@ -70,4 +70,8 @@ export class BackendService {
   togglePrinter(id: Number){
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
+  
+  getAllResin(): Promise<Object>{
+    return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
+  }
 }
