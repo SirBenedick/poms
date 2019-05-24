@@ -61,3 +61,17 @@ export interface IFilterOrders{
   dueDate: any;
   customer: String;
 }
+
+export interface IHelpPageTitels{
+  pageTitel: String;
+  topics: Array<IHelpPageContent>;
+}
+
+export interface IHelpPageContent{
+  topicTitel: String;
+  subtopics: {
+    subtopicTitel: String;
+    subtopicContent: String;
+    videoURL?: String;
+  }
+}
