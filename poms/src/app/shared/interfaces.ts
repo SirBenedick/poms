@@ -53,7 +53,7 @@ export interface IGroupedOrders {
 export interface ICreateNewOrder {
   titel: String;
   Kategorie: String;
-}
+} 
 
 export interface IFilterOrders{
   harz: String
@@ -74,4 +74,8 @@ export interface IHelpPageContent{
     subtopicContent: String;
     videoURL?: String;
   }
+}
+
+export interface IResinType{
+  resin_name: String;
 }

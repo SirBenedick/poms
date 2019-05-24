@@ -3,12 +3,12 @@
     <div *ngFor="let harz of harzList">
       <input
         type="radio"
-        id="{{ harz.name }}"
+        id="{{ harz.resin_name }}"
         name="harz"
-        value="{{ harz.name }}"
+        value="{{ harz.resin_name }}"
         formControlName="harz"
       />
-      <label for="{{ harz.name }}">{{ harz.name }}</label>
+      <label for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
     </div>
   </div>
   <h1>Fällig am:</h1>
