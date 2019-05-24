@@ -11,6 +11,7 @@ export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
+  //** Mocked Data for offline use */
   mockedOrderData: Array<IOrder> = [
     {
       orderId: 1,
@@ -246,25 +247,23 @@ export class BackendService {
   constructor(private http: HttpClient) {
     /** Starts observable and polls all OrderData from Backend */
 
-    //START Ajust time and subscription, and switchMap
     this.allOrderData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      this.allUngroupedOrders = allOrderData;
-      // this.allUngroupedOrders = this.mockedOrderData;
-    });
+    this.allOrderData$.subscribe(
+      (allOrderData: Array<IOrder>) => (this.allUngroupedOrders = allOrderData)
+    );
 
     /** Starts observable and polls all PrinterData from Backend */
     this.allPrinterData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllPrinterFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-      this.allPrinterData = newPrinterData;
-      // this.allPrinterData = this.mockedPrinterData;
-    });
+    this.allPrinterData$.subscribe(
+      (newPrinterData: Array<IPrinterData>) =>
+        (this.allPrinterData = newPrinterData)
+    );
     //ENDE
   }
 
