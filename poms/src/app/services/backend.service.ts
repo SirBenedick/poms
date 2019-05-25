@@ -6,7 +6,9 @@ import {
   IPrinterData,
   IHelpPageTopic,
   IHelpPage,
-  IHelpPageSubtopic
+  IHelpPageSubtopic,
+  ISettingsPage,
+  ISettingsPageSubtopic
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -245,10 +247,10 @@ export class BackendService {
   ];
   mockedHelpPage: Array<IHelpPage> = [
     {
-      pageTitel: "pageTitel 1",
+      pageTitel: "Hilfestellung",
       topics: [
         {
-          topicTitel: "topicTitel 11",
+          topicTitel: " Vorbereitung",
           subtopics: [
             {
               subtopicTitel: "subtopicTitel 111",
@@ -261,7 +263,7 @@ export class BackendService {
           ],
         },
         {
-          topicTitel: "topicTitel 12",
+          topicTitel: "Druckprozess",
           subtopics: [
             {
               subtopicTitel: "subtopicTitel 121",
@@ -272,14 +274,31 @@ export class BackendService {
               subtopicContent: "subtopicContent 122"
             }
           ],
+        },
+        {
+          topicTitel: "Nachbereitung",
+          subtopics: [
+            {
+              subtopicTitel: "Wie reinige ich das Modell nach dem Drucken?",
+              subtopicContent: "subtopicContent 121"
+            },
+            {
+              subtopicTitel: "Wie härte ich das Modell nach dem Drucken nach?",
+              subtopicContent: "subtopicContent 122"
+            },
+            {
+              subtopicTitel: "Wie schließe ich den Auftrag endgültig ab?",
+              subtopicContent: "subtopicContent 122"
+            }
+          ],
         }
       ]
     },
     {
-      pageTitel: "pageTitel 2",
+      pageTitel: "Softwarebedienung",
       topics: [
         {
-          topicTitel: "topicTitel21",
+          topicTitel: "Wartung des Druckers",
           subtopics: [
             {
               subtopicTitel: "subtopicTitel211",
@@ -292,7 +311,7 @@ export class BackendService {
           ],
         },
         {
-          topicTitel: "topicTitel22",
+          topicTitel: "Funktionsweise des POMS",
           subtopics: [
             {
               subtopicTitel: "subtopicTitel221",
@@ -306,6 +325,75 @@ export class BackendService {
         }
       ]
     }
+  ];
+
+  
+  mockedSettingsPage: Array<ISettingsPage> = [
+    {
+      pageTitel: "Verwaltung",
+      topics: [
+        {
+          topicTitel: "Kunden verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Einen Kunden hinzufügen",
+              subtopicContent: "subtopicContent 111"
+            },
+            {
+              subtopicTitel: "Kundeninformation bearbeiten",
+              subtopicContent: "subtopicContent 112"
+            },
+            {
+              subtopicTitel: "Bestehende Kunden entfernen",
+              subtopicContent: "subtopicContent 112"
+            }
+          ],
+        },
+        {
+          topicTitel: "Kategorien verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Eine Kategorie hinzufügen",
+              subtopicContent: "subtopicContent 121"
+            },
+            {
+              subtopicTitel: "Kategorieinformation bearbeiten",
+              subtopicContent: "subtopicContent 122"
+            },
+            {
+              subtopicTitel: " Bestehende Kategorie entfernen",
+              subtopicContent: "subtopicContent 122"
+            }
+          ],
+        },
+        {
+          topicTitel: " Harze verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Ein Harz hinzufügen",
+              subtopicContent: "subtopicContent 121"
+            },
+            {
+              subtopicTitel: " Harzinformationen bearbeiten",
+              subtopicContent: "subtopicContent 122"
+            },
+            {
+              subtopicTitel: " Bestehende Harze entfernen",
+              subtopicContent: "subtopicContent 122"
+            }
+          ],
+        },
+        {
+          topicTitel: "Prioritäten verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Denn Zeitraum der Priorität ändern",
+              subtopicContent: "subtopicContent 121"
+            }
+          ],
+        }
+      ]
+    },
   ];
 
   allOrderData$: Observable<Object>;
@@ -388,7 +476,23 @@ export class BackendService {
     //Insert Backendcall here
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
+  getAllSettingTopics(): Promise<Object> {
+    // return this.http.get(this.backendUrl + "help/all/").toPromise();
+    let promiseRes = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 200);
+      resolve(this.mockedSettingsPage);
+    });
+    return promiseRes;
+  }
+
+  addNewSettingSubtopic(topic: ISettingsPage, newSubtopic: ISettingsPageSubtopic){
+    //Insert Backendcall here
+    console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  }
 }
+ 
 
 /**
  * To-Do

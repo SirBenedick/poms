@@ -3,9 +3,10 @@
     flex-direction: column;
 }
 
+
 .half-container{
-max-height: 45vh;
-min-height: 45vh;
+max-height: 85vh;
+min-height: 85vh; 
 overflow: auto;
 margin: 2px;
 object-fit: contain;
