@@ -1,4 +1,5 @@
-<div class="alert alert-info col">
+<div id="body">
+<div>
   <strong>Normal User</strong> - U: user P: user<br />
   <strong>Administrator</strong> - U: admin P: admin
 </div>
@@ -13,6 +14,7 @@
     <input type="password" formControlName="password" />
   </div>
   <div>
-    <button [disabled]="loading" (click)="onLoginClick()">Login</button>
+    <button [disabled]="loading">Login</button>
   </div>
 </form>
+</div>

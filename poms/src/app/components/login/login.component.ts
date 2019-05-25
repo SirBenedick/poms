@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Daten müssen aufjedenfall eingeben werden, wird hier überprüft
+
+    // Data must be entered in any case, will be checked here
     this.loginForm = this.formBuilder.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
@@ -40,30 +41,28 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
+    // stop here if form is invalid, if one of two is empty
     if (this.loginForm.invalid) {
+      alert("Bitte geben Sie einen Benutzernamen und Password ein!")
       return;
     }
-    //wird gepürft ob die Login Daten richtig waren und dann das entsprechende ausgeführt
+
+    //if login correct, then do this
     this.loading = true;
     this.authenticationService
       .login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
-          //wenn Login richtig war, dann wird man auf diese Seite geleitet
+          //if login is right, navigate to the page "order"
           this.router.navigate(["order"]);
         },
         error => {
           this.error = error;
           this.loading = false;
-          //wenn falsche Logindaten, wird immer wieder der Login ausgeführt
-          this.dialog.open(LoginComponent);
+          //if both false
+          alert("Benutzername oder Password falsch!")
         }
       );
-  }
-  //damit das Pop-Up Fenster zugeht wenn man sich angemeldet hat
-  onLoginClick(): void {
-    this.dialogRef.close();
   }
 }
