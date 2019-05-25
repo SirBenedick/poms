@@ -38,9 +38,9 @@ get f() { return this.loginForm.controls; }
 
 onSubmit() {
     this.submitted = true;
-
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      this.dialog.open(LoginComponent);
           return;
       }
       //wird gepürft ob die Login Daten richtig waren und dann das entsprechende ausgeführt
