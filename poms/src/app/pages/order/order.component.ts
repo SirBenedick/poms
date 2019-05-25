@@ -1,16 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { BackendService } from "./../../services/backend.service";
+import { BackendService } from "../../services/backend.service";
 import { IOrder, IFilterOrders } from "src/app/shared/interfaces";
 import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem
 } from "@angular/cdk/drag-drop";
-import { MatDialog, MatDialogRef } from "@angular/material";
+import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { filter } from "rxjs/operators";
-import { group } from "@angular/animations";
-import { OrderCardComponent } from "src/app/components/order-card/order-card.component";
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
 @Component({
   selector: "app-order",
@@ -30,21 +27,17 @@ export class OrderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //** First time page is loaded "this.backendService.allUngroupedOrders" is still empty*/
-    // BK erstmal stehen lassen, muss wahrscheinlich überarbeitet werden, ladend er orders nicht so schön gerade
-    // if (
-    //   this.allUngroupedOrders.length == 0 &&
-    //   this.allGroupedOrders.length == 0
-    // ) {
-    //   // setTimeout hat seinen eigenen scope und würde "this" anders zuordnen
-    //   var that = this;
-    //   setTimeout(function() {
-    //     that.sortOrderLists(that.backendService.allUngroupedOrders);
-    //
-    //   }, 300);
-    // }
-    this.sortOrderLists(this.backendService.allUngroupedOrders);
-    this.filteredUngroupedOrders = this.allUngroupedOrders;
+    //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
+    if (this.backendService.allUngroupedOrders.length == 0) {
+      this.backendService
+        .pollAllOrdersFromBackend()
+        .toPromise()
+        .then((allOrderData: Array<IOrder>) => {
+          this.sortOrderLists(allOrderData);
+        });
+    } else {
+      this.sortOrderLists(this.backendService.allUngroupedOrders);
+    }
   }
 
   sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
@@ -68,13 +61,8 @@ export class OrderComponent implements OnInit {
         this.allUngroupedOrders.push(singleOrder);
       }
     });
+    this.filteredUngroupedOrders = this.allUngroupedOrders;
   }
-  filterParams: IFilterOrders = {
-    harz: null,
-    priority: null,
-    dueDate: { start: new Date("2019-04-22"), end: new Date("2019-05-25") },
-    customer: null
-  };
 
   filterUngroupedOrders(parameter: IFilterOrders) {
     this.resetOrderFilter();
@@ -103,6 +91,40 @@ export class OrderComponent implements OnInit {
 
   resetOrderFilter() {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
+  }
+
+  openDialogCreateNewOrder(): void {
+    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
+      data: { newOrderForm: this.newOrder }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+
+      this.newOrder = result;
+    });
+  }
+
+  openDialogFilterOrders(): void {
+    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
+      data: "{ newOrderForm: this.newOrder }"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.filterUngroupedOrders(result.data);
+    });
+  }
+
+  onClick(): void {
+    console.log("Files to Printer");
+  }
+
+  onDelete(): void {
+    console.log("Delete");
+  }
+
+  newGroup(): void {
+    console.log("New Group");
   }
 
   dropNewGroup(event: CdkDragDrop<string[]>) {
@@ -160,39 +182,5 @@ export class OrderComponent implements OnInit {
         "Es befinden sich bereits 3 Aufträge in der Gruppe!\n Bitte eine neue Gruppe anlegen."
       );
     }
-  }
-
-  openDialogCreateNewOrder(): void {
-    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newOrderForm: this.newOrder }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-
-      this.newOrder = result;
-    });
-  }
-
-  openDialogFilterOrders(): void {
-    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
-      data: "{ newOrderForm: this.newOrder }"
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) this.filterUngroupedOrders(result.data);
-    });
-  }
-
-  onClick(): void {
-    console.log("Files to Printer");
-  }
-
-  onDelete(): void {
-    console.log("Delete");
-  }
-
-  newGroup(): void {
-    console.log("New Group");
   }
 }

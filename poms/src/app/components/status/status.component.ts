@@ -1,6 +1,5 @@
 import { IPrinterData } from 'src/app/shared/interfaces';
 import { Component, OnInit, Input } from "@angular/core";
-import { PrinterComponent } from 'src/app/pages/printer/printer.component';
 
 @Component({
   selector: "app-status",
@@ -8,14 +7,6 @@ import { PrinterComponent } from 'src/app/pages/printer/printer.component';
   styleUrls: ["./status.component.css"]
 })
 export class StatusComponent implements OnInit {
-  @Input() druckerStatus: String;
-  @Input() fuellstand: String;
-  @Input() details: String;
-  @Input() druckFortschritt: String;
-  @Input() restlicheDruckzeit: String;
-  @Input() printStart: String;
-  @Input() temperatur: String;
-  @Input() printerName: String;
   @Input() printer: IPrinterData;
 
   printerStatus;

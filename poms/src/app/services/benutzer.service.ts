@@ -8,7 +8,7 @@ import {
 
 import { LoginService } from "./login.service";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class BenutzerService implements CanActivate {
   constructor(
@@ -21,12 +21,14 @@ export class BenutzerService implements CanActivate {
     if (currentUser) {
       // check if route is restricted by role
       if (
-          //check both, otherwise both have no ok for the page
+        //check both, otherwise both have no ok for the page
         route.data.roles &&
         route.data.roles.indexOf(currentUser.role) === -1
       ) {
         // role not authorised so redirect to order page
-        alert("Du darfst nicht auf diese Seite, bitte wende dich an den Admin.");
+        alert(
+          "Du darfst nicht auf diese Seite, bitte wende dich an einen Administrator."
+        );
         this.router.navigate(["order"]);
         return false;
       }
@@ -36,7 +38,7 @@ export class BenutzerService implements CanActivate {
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate( ["login"] );
+    this.router.navigate(["login"]);
     return false;
   }
 }
