@@ -1,54 +1,25 @@
 <div class="page-container">
-  <div class="half-container">
-    <h1 class="heading">Allgemein</h1>
-    <div style="margin-left: -10px;">
-      <mat-card class="card-gruppen">
-        <div class="unter-ueberschrift">
-          <img class="icon-card" src="../../../assets/svg/Hilfestellung_Button.svg">
-          <h2 class="titel-card"> Sprache</h2> </div>
-      </mat-card>
+    <div class="half-container">
+      <div *ngFor="let page of allSettingsTopics">
+        <p>{{ page.pageTitel }}</p>
+        <mat-expansion-panel
+          style=" margin-left: -20px;"
+          *ngFor="let topic of page.topics"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title class="ueberschriften">
+              <img src="../../../assets/svg/Hilfestellung_Button.svg" />
+              {{ topic.topicTitel }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngFor="let subtopic of topic.subtopics">
+            <div class="unter-ueberschriften" (click)="onClick(subtopic)">
+              {{ subtopic.subtopicTitel }}
+            </div>
+            <br />
+          </div>
+          <button (click)="addNewTopic(topic)">add Topic</button>
+        </mat-expansion-panel>
+      </div>
     </div>
-    <div style="margin-left: -10px;">
-      <mat-card class="card-gruppen">
-        <div class="unter-ueberschrift">
-          <img class="icon-card" src="../../../assets/svg/Hilfestellung_Button.svg">
-          <h2 class="titel-card"> Nutzerprofil</h2></div>
-      </mat-card>
-    </div>
-<!--unter Häfte der Einstellungsseite-->
   </div>
-  <div class="half-container">
-    <h1 class="heading">Inhalte verändern</h1>
-    <div style="margin-left: -10px;">
-      <mat-card class="card-gruppen">
-        <div class="unter-ueberschrift">
-          <img class="icon-card" src="../../../assets/svg/Hilfestellung_Button.svg">
-         <h2 class="titel-card">Kundenstamm</h2> </div>
-      </mat-card>
-    </div>
-    <div style="margin-left: -10px;">
-      <mat-card class="card-gruppen">
-        <div class="unter-ueberschrift">
-          <img class="icon-card" src="../../../assets/svg/Hilfestellung_Button.svg">
-          <h2 class="titel-card"> Kategorien</h2></div>
-      </mat-card>
-    </div>
-    <div style="margin-left: -10px;">
-      <mat-card class="card-gruppen">
-        <div class="unter-ueberschrift">
-          <img class="icon-card" src="../../../assets/svg/Hilfestellung_Button.svg">
-          <h2 class="titel-card">Farbauswahl</h2></div>
-      </mat-card>
-    </div>
-    <div style="margin-left: -10px;">
-      <mat-card class="card-gruppen">
-        <div class="unter-ueberschrift">
-          <img class="icon-card" src="../../../assets/svg/Hilfestellung_Button.svg">
-          <h2 class="titel-card">Prioritäten</h2></div>
-      </mat-card>
-    </div>
-
-
-
-  </div>
-</div>

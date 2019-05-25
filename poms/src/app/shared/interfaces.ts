@@ -93,3 +93,16 @@ export enum Role {
   User = "User",
   Admin = "Admin"
 }
+export interface ISettingsPage{
+  pageTitel: String;
+  topics: Array<ISettingsPagetopic>;
+}
+
+export interface ISettingsPagetopic{
+  topicTitel: String;
+  subtopics: Array<ISettingsPageSubtopic>;
+}
+export interface ISettingsPageSubtopic{
+  subtopicTitel: String;
+  subtopicContent: String;
+}
