@@ -1,9 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { LoginComponent } from "./components/login/login.component";
-import { MatDialog } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material";
 import { LoginService } from "./services/login.service";
 import { User, Role } from "./shared/interfaces";
 import { Router } from "@angular/router";
+
+import { template } from '@angular/core/src/render3';
 
 @Component({
   selector: "app-root",
@@ -17,12 +19,13 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: LoginService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<LoginComponent>,
   ) {
     //Oberservable, x nimmt currentuser als neuen Wert an
     this.authService.currentUser.subscribe(x => (this.currentUser = x));
+    
   }
-
   ngOnInit() {
     //Login erscheint direkt wenn man auf das poms gehen will
     if ("!currentUser") {
