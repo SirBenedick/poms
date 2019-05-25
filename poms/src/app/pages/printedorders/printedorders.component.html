@@ -1,34 +1,29 @@
 <div class="page-container">
   <div class="half-container">
-    <div class="ueberschriften"> Nachbereitung ausstehend
-      Hilfe zur Nachbereitung findest du hier
+    <div> <b class="ueberschriften"> Nachbereitung ausstehend </b>
+      <a (click)="help()" class="ueberschriften1" >Hilfe zur Nachbereitung findest du hier </a>
+      <button class="button-style" (click)="resetOrderFilter()">Reset</button>
+      <button class="button-style" (click)="openDialogFilterOrders();filterUngroupedOrders(filterParams) ">
+        Filter </button>
     </div>
-    <div class="filter-box">
-      <div class="filter">Filter</div>
-    </div>
+    <!-- with filter -->
     <div class="cards">
-      <!-- <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card> -->
+      <app-order-card *ngFor="let orderCard of filteredUngroupedOrders" [order]="orderCard">
+      </app-order-card>
     </div>
-
-
-
+    <!-- no filter -->
+    <!-- <div class="cards">
+      <app-order-card
+      *ngFor="let orderCard of allUngroupedOrders"
+      [order]="orderCard">
+    </app-order-card>     
+    </div>  -->
   </div>
   <div class="half-container">
     <div class="ueberschriften"> Abgeschlossene Aufträge</div>
     <div class="cards">
-      <!-- <app-order-card></app-order-card>
-      <app-order-card></app-order-card>
-      <app-order-card></app-order-card> -->
-
+      <app-order-card *ngFor="let orderCard of allReadyOrders" [order]="orderCard">
+      </app-order-card>
     </div>
   </div>
-
-
-
-
-
-
-
 </div>

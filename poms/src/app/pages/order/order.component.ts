@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import { IOrder, IFilterOrders } from "src/app/shared/interfaces";
 import {
@@ -99,15 +99,13 @@ export class OrderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-
       this.newOrder = result;
     });
   }
 
   openDialogFilterOrders(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
-      data: "{ newOrderForm: this.newOrder }"
+      data: { newOrderForm: this.newOrder }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -122,7 +120,8 @@ export class OrderComponent implements OnInit {
   onDelete(): void {
     console.log("Delete");
   }
-
+  //Bitte lesen:
+  //Kann ja dann eigentlich weg oder? Wird ja per Drag&Drop gemacht??
   newGroup(): void {
     console.log("New Group");
   }

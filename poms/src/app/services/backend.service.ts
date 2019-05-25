@@ -32,32 +32,32 @@ export class BackendService {
       creationDate: "2019-05-19",
       status: "created"
     },
-    {
-      orderId: 2,
-      groupId: 2,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
-      priority: "hoch",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 3,
-      groupId: 3,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
-      priority: "hoch",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
+     {
+       orderId: 2,
+       groupId: 2,
+       customer: "Schmittlauch",
+       laboratory: "testlabor",
+       patient: "Maximum Lauch",
+       dentalPrintType: "Schiene",
+       priority: "hoch",
+       harz: "schwarz",
+       dueDate: "2019-05-19",
+       creationDate: "2019-05-19",
+       status: "postPrint"
+     },
+     {
+       orderId: 3,
+       groupId: 3,
+       customer: "Schmittlauch",
+       laboratory: "testlabor",
+       patient: "Maximum Lauch",
+       dentalPrintType: "Schiene",
+       priority: "hoch",
+       harz: "schwarz",
+       dueDate: "2019-05-19",
+       creationDate: "2019-05-19",
+       status: "postPrint"
+     },
     {
       orderId: 4,
       customer: "Schmittlauch1",
@@ -107,7 +107,7 @@ export class BackendService {
       harz: "schwarz",
       dueDate: "2019-05-19",
       creationDate: "2019-05-19",
-      status: "created"
+      status: "sent"
     },
     {
       orderId: 8,
@@ -170,7 +170,7 @@ export class BackendService {
       harz: "schwarz",
       dueDate: "2019-05-19",
       creationDate: "2019-05-19",
-      status: "created"
+      status: "cleaned"
     }
   ];
   mockedPrinterData: Array<IPrinterData> = [
@@ -322,8 +322,8 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      this.allUngroupedOrders = allOrderData;
-      // this.allUngroupedOrders = this.mockedOrderData;
+     //this.allUngroupedOrders = allOrderData;
+      this.allUngroupedOrders = this.mockedOrderData;
     });
 
     /** Starts observable and polls all PrinterData from Backend */

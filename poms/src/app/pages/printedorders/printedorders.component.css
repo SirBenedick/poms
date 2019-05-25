@@ -40,6 +40,20 @@ object-fit: contain;
     text-align: left;
     color: #272f33;
   }
+  .ueberschriften1{
+    /* width: 328px; */
+    height: 35px;
+    object-fit: contain;
+    font-family: SegoeUI;
+    font-size: 16px;
+    /* font-weight: bold; */
+    /* font-style: normal; */
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: #272f33;
+  }
   .cards{
       display: flex;
       flex-wrap: wrap;
@@ -50,18 +64,15 @@ object-fit: contain;
     border: solid 1px #62c6d6;
     background-color: #ffffff;
   }
-  .filter{
-       margin: 10px;
-        width: 34px;
-        height: 21px;
-        object-fit: contain;
-        font-family: SegoeUI;
-        font-size: 16px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.31;
-        letter-spacing: normal;
-        text-align: center;
-        color: #62c6d6;
+
+  .button-style{
+    float: right;
+    font-family: "Segoe UI";
+    width: 100px;
+    height: 30px;
+    margin: 2px;
+    object-fit: contain;
+    border-radius: 3px;
+    border: solid 1px #62c6d6;
+    background-color: white;
   }
