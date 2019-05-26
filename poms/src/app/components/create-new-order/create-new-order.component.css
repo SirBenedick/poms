@@ -1,11 +1,12 @@
 .page-container {
-   /* display: flex;
-  width: 120vh;
-  flex-grow:3;  */
+   display: flex;
+  width: 100vh;;
+  flex-direction: column;
+  /* flex-grow:3;  */
   /* width: 60px; */
   /* justify-content: space-between; */
-   display: grid;
-  grid-template-columns: 1fr 1fr; 
+   /* display: grid;
+  grid-template-columns: 1fr 1fr;  */
 }
 
 .a{
@@ -22,7 +23,8 @@
   font-stretch: normal;
   line-height: 1.35;
   letter-spacing: normal;
-  text-align: center;
+  /* text-align: center; */
+  text-align: left;
   color: #272f33;
 }
 .b{
@@ -56,8 +58,8 @@
 }
 
 .rechteck-eingabe {
-  width: 1156px;
-  /* height: 960px; */
+  width: 250px;
+  height: 38px; 
   object-fit: contain;
   box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
