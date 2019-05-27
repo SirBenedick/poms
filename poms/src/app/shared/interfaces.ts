@@ -47,6 +47,7 @@ export interface IGroupedOrders {
   harz: String;
   creationDate: String;
   fileSliced?: any; //REST-Url to file
+  orders?: Array<IOrder>;
   status: "preprint" | "printing" | "postprint";
 }
 
