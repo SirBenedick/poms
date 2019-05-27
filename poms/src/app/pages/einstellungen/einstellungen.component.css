@@ -13,48 +13,36 @@ object-fit: contain;
 /* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
 }
 
-.heading{
-  font-family: "Segoe UI";
-  font-size: 18px;
+#titel{
   font-weight: bold;
-  padding-top: 15px;
+  font-size: 20px;
   padding-left: 10px;
-  margin-bottom: 15px;
+  margin-top: 20px;
 }
-  .unter-ueberschrift {
-    font-family: "Segoe UI";
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: -10px;
-    position: relative;
-    background-color: transparent;
-    margin-top: 50px;
-    left: -5px;
-
-  }
-  .card-gruppen {
-    /* width: 1276px; */
-    height: 40px;
-    width: 97.5%;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-    background-color: #ffffff;
-    margin-left: 17px;
-    margin-bottom: 8px;
-    margin-top: 8px;
-
-  }
-.titel-card{
-  font-size: 14px;
+#heading {
   font-family: "Segoe UI";
-  margin-top: -27px;
-  padding-left: 45px;
+  font-size: 14px;
   font-weight: bold;
-
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
+  color: #272f33;
 }
-.icon-card{
-  width: 25px;
-  height: auto;
-  margin-top: -18px;
+#sub-titel{
+  text-align: left;
+  font-size: 12px;
+  padding-left: 35px;
+}
+
+#button-style{
+  border-radius: 4px;
+  background-color: transparent;
+  color: #62c6d6;
+  border: #62c6d6 solid 1px;
+  text-align: center;
+  justify-items: right;
+}
+
+#button-space{
+  float: right;
 }

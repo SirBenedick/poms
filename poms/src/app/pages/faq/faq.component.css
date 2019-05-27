@@ -2,10 +2,15 @@
     display: flex;
     flex-direction: column;
 }
-
+#titel{
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 10px;
+  margin-top: 20px;
+}
 .half-container{
 max-height: 85vh;
-min-height: 85vh; 
+min-height: 85vh;
 overflow: auto;
 margin: 2px;
 object-fit: contain;
@@ -27,32 +32,29 @@ object-fit: contain;
     text-align: left;
     color: #272f33;
   }
-  .ueberschriften {
-    width: 99px;
-    height: 21px;
-    object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 16px;
+  #heading {
+    font-family: "Segoe UI";
+    font-size: 14px;
     font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.31;
-    letter-spacing: normal;
     text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
     color: #272f33;
   }
-  .unter-ueberschriften{
-    text-indent: 50px;
-    /* width: 351px; */
-    height: 21px;
-    object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.31;
-    letter-spacing: normal;
+  #sub-titel{
     text-align: left;
-    color: #272f33;
+    font-size: 12px;
+    padding-left: 35px;
   }
+#button-style{
+  border-radius: 4px;
+  background-color: transparent;
+  color: #62c6d6;
+  border: #62c6d6 solid 1px;
+  text-align: center;
+  justify-items: right;
+}
+
+#button-space{
+ float: right;
+}
