@@ -454,7 +454,7 @@ export class BackendService {
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       // this.allPrinterData = newPrinterData;
-      // this.allPrinterData = this.mockedPrinterData;
+      this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
 
