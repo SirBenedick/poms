@@ -1,24 +1,27 @@
 <div class="page-container">
     <div class="half-container">
       <div *ngFor="let page of allSettingsTopics">
-        <p>{{ page.pageTitel }}</p>
+        <h1 id="titel">{{ page.pageTitel }}</h1>
         <mat-expansion-panel
           style=" margin-left: -20px;"
           *ngFor="let topic of page.topics"
         >
           <mat-expansion-panel-header>
             <mat-panel-title class="ueberschriften">
-              <img src="../../../assets/svg/Hilfestellung_Button.svg" />
-              {{ topic.topicTitel }}
+              <img style="width: 25px" src="../../../assets/svg/Hilfestellung_Button.svg" />
+              <h1 id="heading">{{ topic.topicTitel }}</h1>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div *ngFor="let subtopic of topic.subtopics">
-            <div class="unter-ueberschriften" (click)="onClick(subtopic)">
+            <div id="sub-titel" (click)="onClick(subtopic)">
               {{ subtopic.subtopicTitel }}
             </div>
             <br />
           </div>
-          <button (click)="addNewTopic(topic)">add Topic</button>
+
+      <div id="button-space">
+        <button id="button-style" (click)="addNewTopic(topic)">add Topic</button>
+      </div>
         </mat-expansion-panel>
       </div>
     </div>
