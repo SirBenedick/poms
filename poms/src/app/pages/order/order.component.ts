@@ -32,17 +32,11 @@ export class OrderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // sehr unschön kann zu problemen führen, muss noch getestet werden
-    this.backendService.allGroupData = [];
-    console.log("this all groueped pre", this.allGroupedOrders);
-    //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
-    if (this.backendService.allGroupData.length == 0) {
-      this.backendService
-        .getAllGroups()
-        .then((res: Array<IGroupedOrders>) => (this.allGroupedOrders = res));
-    } else {
-      this.allGroupedOrders = this.backendService.allGroupData;
-    }
+    this.backendService.getAllGroups().then((resopnse: Array<IGroupedOrders>) => {
+      this.allGroupedOrders = resopnse;
+      this.filteredGroupData = this.allGroupedOrders;
+    });
+
     //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
     if (this.backendService.allUngroupedOrders.length == 0) {
       this.backendService
@@ -69,11 +63,7 @@ export class OrderComponent implements OnInit {
         if (foundGroupObject) {
           foundGroupObject.orders.push(singleOrder);
         } else {
-          console.log("Keine Gruppe vorhanden: ", foundGroupObject);
-          // this.allGroupedOrders.push({
-          //   groupId: singleOrder.groupId,
-          //   orders: [singleOrder]
-          // });
+          // console.log("Keine Gruppe vorhanden: ", foundGroupObject);
         }
       } else {
         this.allUngroupedOrders.push(singleOrder);
@@ -202,7 +192,6 @@ export class OrderComponent implements OnInit {
       targetContainer.element.nativeElement.nodeName;
 
     // console.log("draggedOrder", draggedOrder);
-    console.log("targetContainer,", targetDataLink);
     if (previousContainer === targetContainer) {
       moveItemInArray(
         targetContainer.data,

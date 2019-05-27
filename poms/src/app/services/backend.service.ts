@@ -518,6 +518,9 @@ export class BackendService {
     });
     return promiseRes;
   }
+  getAllGroupData(): Array<IGroupedOrders>{
+    return this.allGroupData;
+  }
 
   addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
     //Insert Backendcall here
