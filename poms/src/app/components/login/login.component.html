@@ -1,20 +1,33 @@
-<div id="body">
-<div>
-  <strong>Normal User</strong> - U: user P: user<br />
-  <strong>Administrator</strong> - U: admin P: admin
-</div>
-<h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" formControlName="username" />
+<div id="container">
+
+  <div id="heading">
+    Login
+  <img src="../../../assets/svg/printer.svg">
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" formControlName="password" />
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div id ="login-input">
+
+  <div class ="input-container">
+
+     <h3 class="subheading"><label for="username">Username </label></h3>
+    <input class="input-box" type="text" formControlName="username" placeholder="Benutzername..." />
   </div>
-  <div>
-    <button [disabled]="loading">Login</button>
+
+  <div class="input-container">
+    <h3 class="subheading"><label for="password">Password  </label></h3>
+    <input class="input-box" type="password" formControlName="password" placeholder="Passwort..." />
   </div>
+
+      </div>
+
+  <div>
+    <button id="button-style" [disabled]="loading">Login</button>
+  </div>
+      <div id ="login-info">
+        <strong>Anmeldeinfos:</strong><br/>
+        <strong>Normal User</strong> -> U: user P: user<br />
+        <strong>Administrator</strong> -> U: admin P: admin
+      </div>
 </form>
 </div>
