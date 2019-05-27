@@ -29,7 +29,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Schienen für Halterungsposition',
       priority: "hoch",
       harz: "weiß",
       dueDate: "2019-05-19",
@@ -67,7 +67,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Backenzaehne',
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-23",
@@ -80,7 +80,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Weichgewebe',
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -93,7 +93,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Implantat',
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -106,7 +106,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Justierung der Zaehne',
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -118,7 +118,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Modelle und Implantatmodelle',
       priority: "mittel",
       harz: "weiß",
       dueDate: "2019-05-19",
@@ -131,7 +131,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Provisorische Kronen und Bruecken',
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -144,7 +144,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Zaehne',
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -157,7 +157,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Zaehne',
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -169,7 +169,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Implantat',
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -454,7 +454,7 @@ export class BackendService {
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       // this.allPrinterData = newPrinterData;
-      // this.allPrinterData = this.mockedPrinterData;
+      this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
 
@@ -517,6 +517,9 @@ export class BackendService {
       resolve(this.mockedGroupData);
     });
     return promiseRes;
+  }
+  getAllGroupData(): Array<IGroupedOrders>{
+    return this.allGroupData;
   }
 
   addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {

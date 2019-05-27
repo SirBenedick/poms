@@ -24,7 +24,7 @@ export class PrinterComponent implements OnInit {
         .pollAllPrinterFromBackend()
         .toPromise()
         .then((allPrinterData: Array<IPrinterData>) => {
-          this.backendService.allPrinterData = allPrinterData;
+          this.allPrinters = allPrinterData;
         });
     } else {
       this.allPrinters = this.backendService.allPrinterData;

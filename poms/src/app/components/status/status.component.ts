@@ -24,4 +24,7 @@ export class StatusComponent implements OnInit {
       this.printerStatus = "offline";
     }
   }
+  onDetailedView(){
+    console.log("Detailed view clicked")
+  }
 }
