@@ -29,14 +29,9 @@ object-fit: contain;
   .ueberschriften{
     /* width: 328px; */
     height: 35px;
-    object-fit: contain;
-    font-family: SegoeUI;
-    font-size: 26px;
+    font-family: "Segoe UI";
+    font-size: 20px;
     font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
     text-align: left;
     color: #272f33;
   }
