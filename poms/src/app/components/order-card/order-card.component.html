@@ -3,12 +3,13 @@
     <div [ngSwitch]="order.dentalPrintType">
       <div *ngSwitchCase="'Schienen für Halterungsposition'">
         <!-- Bracket Position Splints -->
-        <img src="../../../assets/svg/Schiene.svg" width="25px" height="25px">
+        <img class="icon-card" src="../../../assets/svg/Schiene.svg">
       </div>
       <div *ngSwitchCase="'Kundenspezifische Anpassung'">
         Custom Trays
       </div>
       <div *ngSwitchCase="'Gießbare Teile'">
+
         Castable Parts
       </div>
       <div *ngSwitchCase="'Backenzaehne'">
@@ -28,14 +29,14 @@
       </div>
       <div *ngSwitchCase="'Provisorische Kronen und Bruecken'">
         <!-- Provisional Crowns and Bridges -->
-        <img src="../../../assets/svg/Krone.svg" width="25px" height="25px">
+        <img class="icon-card" src="../../../assets/svg/Krone.svg">
       </div>
       <div *ngSwitchCase="'Zaehne'">
         <!-- Testeneers -->
-        <img src="../../../assets/svg/Zahn.svg" width="25px" height="25px">
+        <img class="icon-card" src="../../../assets/svg/Zahn.svg">
       </div>
       <div *ngSwitchDefault>
-        "Leider kein Bild vorhanden"
+        NP
       </div>
     </div>
     

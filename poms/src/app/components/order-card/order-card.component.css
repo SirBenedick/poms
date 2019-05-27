@@ -10,18 +10,17 @@ margin: 2px;
     background-color: #ffffff;
   width: 100px;
   height: 100px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   flex-direction: column;
   border: transparent;
   box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.16);
 }
 
-.order-icon {
-  margin: 7px;
-  height: 30px;
-  width: 30px;
-
+.icon-card{
+  width: 35px;
+  height: 35px;
+  margin: 5px;
 }
 .drag-n-drop {
     display: flex;
