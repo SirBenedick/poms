@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
- 
 }
 .status-card-container {
   display: flex;
@@ -19,6 +18,7 @@
   align-content: flex-start;
   justify-items: left;
   justify-content: left;
+  position: relative;
 }
 
 .card-title {
@@ -29,15 +29,14 @@
   padding-top: 10px;
   height: 20px;
   width: 95%;
-
 }
-.print-info{
+.print-info {
   font-family: "Segoe UI";
   font-size: 25px;
   padding-top: 15px;
   padding-left: 15px;
 }
-#print-progress{
+#print-progress {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -45,9 +44,16 @@
   height: 20px;
   padding-left: 10px;
   padding-top: 10px;
-
 }
 #print-progress > * {
   margin-left: 5px;
 }
 
+.detailansicht {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
