@@ -1,26 +1,20 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form class="example-form">
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-        <td><mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-        </mat-form-field></td>
-      </tr></table>
-    </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="login()">Login</button>
-  </mat-card-actions>
-</mat-card>
+<div id="body">
+<div>
+  <strong>Normal User</strong> - U: user P: user<br />
+  <strong>Administrator</strong> - U: admin P: admin
+</div>
+<h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username</label>
+    <input type="text" formControlName="username" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" />
+  </div>
+  <div>
+    <button [disabled]="loading">Login</button>
+  </div>
+</form>
+</div>

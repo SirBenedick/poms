@@ -1,3 +1,9 @@
-<app-basic-layout>
+<!-- Wenn User nicht angemeldet ist, muss er sich zuerst anmelden -->
+<div *ngIf="!currentUser">
+  <app-login></app-login>
+</div>
+<!-- Wenn der User angemeldet ist, wird er erst auf die Seiten geleitet -->
+<app-basic-layout *ngIf="currentUser">
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
   <router-outlet></router-outlet>
 </app-basic-layout>
