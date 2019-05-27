@@ -5,10 +5,8 @@
 }
 
 .half-container {
-
   max-height: 45vh;
   min-height: 45vh;
-  background-color: #ffffff;
   border: 1px solid #ffffff;
   overflow: auto;
   margin: 2px;
@@ -17,7 +15,6 @@
 }
 
 .half-half-container{
-
   display: flex;
   justify-content: space-between;
 }
@@ -29,10 +26,8 @@
 }
 
 .expand-collapse {
-
   flex-wrap: wrap;
-  /* padding: 30px;  */
-  font-size: 8pt;
+  font-size: 8px;
   /* height: 60px; */
   /* object-fit: contain; */
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
@@ -40,8 +35,17 @@
   margin: 5px;
 }
 
-#heading {
+.button-space{
+  padding-right: 5px;
+  width: 100%;
   height: 40px;
+  margin-top: -35px;
+
+}
+
+.heading {
+  height: 40px;
+  width: 70%;
   object-fit: contain;
  font-family: "Segoe UI";
   font-weight: bold;
@@ -68,19 +72,24 @@
   font-size: 14px;
   font-weight: bold;
   position: relative;
+  height: 30px;
+  width: 100%;
+}
+.titel-expand-collapse{
+  margin-top: 5px;
 }
 #button-space{
   height: 40px;
   width: 100%;
   position: relative;
   padding-right: 20px;
-  padding-top: 20px;
+  padding-top: 10px;
   float: right;
 }
 .button-style{
   float: right;
   font-family: "Segoe UI";
-  width: 149px;
+  width: 130px;
   height: 30px;
   margin: 2px;
   object-fit: contain;
@@ -93,7 +102,23 @@
   background-color: #62c6d6;
   color: white;
 }
-
+.button-style-group{
+  float: right;
+  font-family: "Segoe UI";
+  width: 70px;
+  height: 20px;
+  margin: 2px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: solid 1px #62c6d6;
+  background-color: white;
+  text-align: center;
+  font-size: 12px;
+}
+.button-style-group:hover{
+  background-color: #62c6d6;
+  color: white;
+}
 
 .create-new-order {
   width: 149px;
