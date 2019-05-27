@@ -1,9 +1,9 @@
 <div class="card" (click)="onCardClick(this)">
   <div class="card-inner">
     <img class="order-icon" src="../../../assets/svg/icon-auftrag-1.svg" />
-<!-- Order ID fünfstellig mit führede Nullen machen-->
-    <h1 id="order-heading"> #{{ order.orderId }}</h1>
-  <div class="order-card-text">{{ order.creationDate }}</div>
-  <img class="drag-n-drop" src="../../../assets/svg/drag-drop.svg" />
+    <!-- Order ID fünfstellig mit führede Nullen machen-->
+    <h1 id="order-heading">#{{ order.orderId }}</h1>
+    <div class="order-card-text">{{ order.creationDate }}</div>
+    <img class="drag-n-drop" src="../../../assets/svg/drag-drop.svg" />
   </div>
 </div>

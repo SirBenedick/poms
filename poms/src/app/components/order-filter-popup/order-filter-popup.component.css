@@ -1,15 +1,15 @@
-.harz-container{
-    display: flex;
+.harz-container {
+  display: flex;
 }
-.button-style{
-    float: right;
-    font-family: "Segoe UI";
-    width: 149px;
-    height: 30px;
-    margin: 2px;
-    object-fit: contain;
-    border-radius: 3px;
-    border: solid 1px #62c6d6;
-    background-color: white;
-  
-  }
+
+.button-style {
+  float: right;
+  font-family: "Segoe UI";
+  width: 149px;
+  height: 30px;
+  margin: 2px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: solid 1px #62c6d6;
+  background-color: white;
+}

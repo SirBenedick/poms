@@ -1,9 +1,8 @@
 import { BackendService } from "./../../services/backend.service";
-import { PrintedordersComponent } from "./../../pages/printedorders/printedorders.component";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { IFilterOrders, IResinType } from "src/app/shared/interfaces";
-import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-order-filter-popup",
@@ -15,7 +14,6 @@ export class OrderFilterPopupComponent implements OnInit {
   filterParamForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<OrderFilterPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IFilterOrders,
     private backendService: BackendService
@@ -38,7 +36,7 @@ export class OrderFilterPopupComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  save() {
+  saveInFilterFormate() {
     let startDate = this.filterParamForm.value.dueDateStart;
     let endDate = this.filterParamForm.value.dueDateEnd;
     let maxTimeForDateCreation = 8640000000000000;

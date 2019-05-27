@@ -53,29 +53,56 @@ export interface IGroupedOrders {
 export interface ICreateNewOrder {
   titel: String;
   Kategorie: String;
-} 
+}
 
-export interface IFilterOrders{
-  harz: String
+export interface IFilterOrders {
+  harz: String;
   priority: "hoch" | "mittel" | "niedrig";
   dueDate: any;
   customer: String;
 }
 
-export interface IHelpPageTitels{
+export interface IHelpPage {
   pageTitel: String;
-  topics: Array<IHelpPageContent>;
+  topics: Array<IHelpPageTopic>;
 }
 
-export interface IHelpPageContent{
+export interface IHelpPageTopic {
   topicTitel: String;
-  subtopics: {
-    subtopicTitel: String;
-    subtopicContent: String;
-    videoURL?: String;
-  }
+  subtopics: Array<IHelpPageSubtopic>;
 }
 
-export interface IResinType{
+export interface IHelpPageSubtopic {
+  subtopicTitel: String;
+  subtopicContent: String;
+  videoURL?: String;
+}
+
+export interface IResinType {
   resin_name: String;
+}
+
+export class User {
+  id: number;
+  username: string;
+  password: string;
+  role: string;
+}
+
+export enum Role {
+  User = "User",
+  Admin = "Admin"
+}
+export interface ISettingsPage{
+  pageTitel: String;
+  topics: Array<ISettingsPagetopic>;
+}
+
+export interface ISettingsPagetopic{
+  topicTitel: String;
+  subtopics: Array<ISettingsPageSubtopic>;
+}
+export interface ISettingsPageSubtopic{
+  subtopicTitel: String;
+  subtopicContent: String;
 }
