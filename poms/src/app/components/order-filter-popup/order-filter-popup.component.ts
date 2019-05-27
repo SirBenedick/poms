@@ -10,7 +10,7 @@ import { FormGroup, FormControl } from "@angular/forms";
   styleUrls: ["./order-filter-popup.component.css"]
 })
 export class OrderFilterPopupComponent implements OnInit {
-  harzList: Array<IResinType>;
+  harzList: Array<IResinType> = this.backendService.resineData;
   filterParamForm: FormGroup;
 
   constructor(
@@ -27,10 +27,6 @@ export class OrderFilterPopupComponent implements OnInit {
       priority: new FormControl(),
       customer: new FormControl()
     });
-
-    this.backendService
-      .getAllResin()
-      .then((res: Array<IResinType>) => (this.harzList = res));
   }
 
   onNoClick(): void {
