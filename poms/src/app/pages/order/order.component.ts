@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { IOrder, IFilterOrders } from "src/app/shared/interfaces";
+import {
+  IOrder,
+  IFilterOrders,
+  IGroupedOrders
+} from "src/app/shared/interfaces";
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -16,10 +20,11 @@ import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup
 })
 export class OrderComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
-  allGroupedOrders: Array<any> = [];
-  newOrder: String;
+  allGroupedOrders: Array<IGroupedOrders> = [];
+  newOrder: String; //no data use ATM
 
   filteredUngroupedOrders: Array<IOrder> = [];
+  filteredGroupData: Array<IGroupedOrders> = [];
 
   constructor(
     private backendService: BackendService,
@@ -27,6 +32,17 @@ export class OrderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // sehr unschön kann zu problemen führen, muss noch getestet werden
+    this.backendService.allGroupData = [];
+    console.log("this all groueped pre", this.allGroupedOrders);
+    //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
+    if (this.backendService.allGroupData.length == 0) {
+      this.backendService
+        .getAllGroups()
+        .then((res: Array<IGroupedOrders>) => (this.allGroupedOrders = res));
+    } else {
+      this.allGroupedOrders = this.backendService.allGroupData;
+    }
     //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
     if (this.backendService.allUngroupedOrders.length == 0) {
       this.backendService
@@ -34,6 +50,7 @@ export class OrderComponent implements OnInit {
         .toPromise()
         .then((allOrderData: Array<IOrder>) => {
           this.sortOrderLists(allOrderData);
+          // this.sortOrderLists(this.backendService.allUngroupedOrders);
         });
     } else {
       this.sortOrderLists(this.backendService.allUngroupedOrders);
@@ -50,18 +67,20 @@ export class OrderComponent implements OnInit {
         );
         //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
         if (foundGroupObject) {
-          foundGroupObject.orderCardsByGroup.push(singleOrder);
+          foundGroupObject.orders.push(singleOrder);
         } else {
-          this.allGroupedOrders.push({
-            groupId: singleOrder.groupId,
-            orderCardsByGroup: [singleOrder]
-          });
+          console.log("Keine Gruppe vorhanden: ", foundGroupObject);
+          // this.allGroupedOrders.push({
+          //   groupId: singleOrder.groupId,
+          //   orders: [singleOrder]
+          // });
         }
       } else {
         this.allUngroupedOrders.push(singleOrder);
       }
     });
     this.filteredUngroupedOrders = this.allUngroupedOrders;
+    this.filteredGroupData = this.allGroupedOrders;
   }
 
   filterUngroupedOrders(parameter: IFilterOrders) {
@@ -88,9 +107,27 @@ export class OrderComponent implements OnInit {
       }
     }
   }
+  filterGroupData(parameter: IFilterOrders) {
+    this.resetGroupFilter();
+
+    for (let key in parameter) {
+      if (parameter[key]) {
+        if (key == "dueDate") {
+          // console.log("Filter DueDate, does nothing");
+        } else {
+          this.filteredGroupData = this.filteredGroupData.filter(
+            order => order[key] == parameter[key]
+          );
+        }
+      }
+    }
+  }
 
   resetOrderFilter() {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
+  }
+  resetGroupFilter() {
+    this.filteredGroupData = this.allGroupedOrders;
   }
 
   openDialogCreateNewOrder(): void {
@@ -110,6 +147,15 @@ export class OrderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) this.filterUngroupedOrders(result.data);
+    });
+  }
+  openDialogFilterGroups(): void {
+    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
+      data: { newOrderForm: this.newOrder }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.filterGroupData(result.data);
     });
   }
 
@@ -149,9 +195,14 @@ export class OrderComponent implements OnInit {
       (<unknown>previousContainer.data[event.previousIndex])
     );
     let targetContainer = event.container;
+    let targetDataLink: Array<IOrder> = <Array<IOrder>>(
+      (<unknown>targetContainer.data)
+    );
     let targetContainerNodeType =
       targetContainer.element.nativeElement.nodeName;
 
+    // console.log("draggedOrder", draggedOrder);
+    console.log("targetContainer,", targetDataLink);
     if (previousContainer === targetContainer) {
       moveItemInArray(
         targetContainer.data,
@@ -167,7 +218,7 @@ export class OrderComponent implements OnInit {
       );
     }
     //** Abglech ob Harzfarbe passt */
-    else if (targetContainer.data.length < 3) {
+    else if (targetDataLink[0].harz === draggedOrder.harz) {
       transferArrayItem(
         previousContainer.data,
         targetContainer.data,
@@ -176,9 +227,11 @@ export class OrderComponent implements OnInit {
       );
     } else {
       /** Fehler muss ersichtlich ausgegeben sein */
-      console.log("Blocked");
       alert(
-        "Es befinden sich bereits 3 Aufträge in der Gruppe!\n Bitte eine neue Gruppe anlegen."
+        `Der Auftrag #${draggedOrder.orderId} hat den Harztyp: ${
+          draggedOrder.harz
+        }.
+Die Gruppe jedoch ${targetDataLink[0].harz}`
       );
     }
   }

@@ -8,7 +8,9 @@ import {
   IHelpPage,
   IHelpPageSubtopic,
   ISettingsPage,
-  ISettingsPageSubtopic
+  ISettingsPageSubtopic,
+  IGroupedOrders,
+  IResinType
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -29,37 +31,37 @@ export class BackendService {
       patient: "Maximum Lauch",
       dentalPrintType: "Schiene",
       priority: "hoch",
-      harz: "schwarz",
+      harz: "weiß",
       dueDate: "2019-05-19",
       creationDate: "2019-05-19",
       status: "created"
     },
-     {
-       orderId: 2,
-       groupId: 2,
-       customer: "Schmittlauch",
-       laboratory: "testlabor",
-       patient: "Maximum Lauch",
-       dentalPrintType: "Schiene",
-       priority: "hoch",
-       harz: "schwarz",
-       dueDate: "2019-05-19",
-       creationDate: "2019-05-19",
-       status: "postPrint"
-     },
-     {
-       orderId: 3,
-       groupId: 3,
-       customer: "Schmittlauch",
-       laboratory: "testlabor",
-       patient: "Maximum Lauch",
-       dentalPrintType: "Schiene",
-       priority: "hoch",
-       harz: "schwarz",
-       dueDate: "2019-05-19",
-       creationDate: "2019-05-19",
-       status: "postPrint"
-     },
+    {
+      orderId: 2,
+      groupId: 2,
+      customer: "Schmittlauch",
+      laboratory: "testlabor",
+      patient: "Maximum Lauch",
+      dentalPrintType: "Schiene",
+      priority: "hoch",
+      harz: "schwarz",
+      dueDate: "2019-05-19",
+      creationDate: "2019-05-19",
+      status: "postPrint"
+    },
+    {
+      orderId: 3,
+      groupId: 3,
+      customer: "Schmittlauch",
+      laboratory: "testlabor",
+      patient: "Maximum Lauch",
+      dentalPrintType: "Schiene",
+      priority: "hoch",
+      harz: "schwarz",
+      dueDate: "2019-05-19",
+      creationDate: "2019-05-19",
+      status: "postPrint"
+    },
     {
       orderId: 4,
       customer: "Schmittlauch1",
@@ -118,7 +120,7 @@ export class BackendService {
       patient: "Maximum Lauch",
       dentalPrintType: "Schiene",
       priority: "mittel",
-      harz: "schwarz",
+      harz: "weiß",
       dueDate: "2019-05-19",
       creationDate: "2019-05-19",
       status: "created"
@@ -260,7 +262,7 @@ export class BackendService {
               subtopicTitel: "subtopicTitel 112",
               subtopicContent: "subtopicContent 112"
             }
-          ],
+          ]
         },
         {
           topicTitel: "Druckprozess",
@@ -273,7 +275,7 @@ export class BackendService {
               subtopicTitel: "subtopicTitel 122",
               subtopicContent: "subtopicContent 122"
             }
-          ],
+          ]
         },
         {
           topicTitel: "Nachbereitung",
@@ -290,7 +292,7 @@ export class BackendService {
               subtopicTitel: "Wie schließe ich den Auftrag endgültig ab?",
               subtopicContent: "subtopicContent 122"
             }
-          ],
+          ]
         }
       ]
     },
@@ -308,7 +310,7 @@ export class BackendService {
               subtopicTitel: "subtopicTitel212",
               subtopicContent: "subtopicContent212"
             }
-          ],
+          ]
         },
         {
           topicTitel: "Funktionsweise des POMS",
@@ -321,13 +323,11 @@ export class BackendService {
               subtopicTitel: "subtopicTitel222",
               subtopicContent: "subtopicContent222"
             }
-          ],
+          ]
         }
       ]
     }
   ];
-
-  
   mockedSettingsPage: Array<ISettingsPage> = [
     {
       pageTitel: "Verwaltung",
@@ -347,7 +347,7 @@ export class BackendService {
               subtopicTitel: "Bestehende Kunden entfernen",
               subtopicContent: "subtopicContent 112"
             }
-          ],
+          ]
         },
         {
           topicTitel: "Kategorien verwalten",
@@ -364,7 +364,7 @@ export class BackendService {
               subtopicTitel: " Bestehende Kategorie entfernen",
               subtopicContent: "subtopicContent 122"
             }
-          ],
+          ]
         },
         {
           topicTitel: " Harze verwalten",
@@ -381,7 +381,7 @@ export class BackendService {
               subtopicTitel: " Bestehende Harze entfernen",
               subtopicContent: "subtopicContent 122"
             }
-          ],
+          ]
         },
         {
           topicTitel: "Prioritäten verwalten",
@@ -390,29 +390,62 @@ export class BackendService {
               subtopicTitel: "Denn Zeitraum der Priorität ändern",
               subtopicContent: "subtopicContent 121"
             }
-          ],
+          ]
         }
       ]
+    }
+  ];
+  mockedGroupData: Array<IGroupedOrders> = [
+    {
+      groupId: 1,
+      harz: "Vanille",
+      creationDate: "5/1/2019",
+      fileSliced: null,
+      orders: [],
+      status: "preprint"
     },
+    {
+      groupId: 2,
+      harz: "Mettiges Mettharz aus Mettmann",
+      creationDate: "5/1/2019",
+      fileSliced: null,
+      orders: [],
+      status: "preprint"
+    },
+    {
+      groupId: 3,
+      harz: "Vanille",
+      creationDate: "5/1/2019",
+      fileSliced: null,
+      orders: [],
+      status: "preprint"
+    }
   ];
 
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
 
   allUngroupedOrders: Array<IOrder> = [];
+  allGroupData: Array<IGroupedOrders> = [];
   allPrinterData: Array<IPrinterData> = [];
+
+  resineData: Array<IResinType>;
 
   constructor(private http: HttpClient) {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
-      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      // switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-     //this.allUngroupedOrders = allOrderData;
+      //this.allUngroupedOrders = allOrderData;
       this.allUngroupedOrders = this.mockedOrderData;
     });
+
+    this.getAllGroups().then(
+      (res: Array<IGroupedOrders>) => (this.allGroupData = res)
+    );
 
     /** Starts observable and polls all PrinterData from Backend */
     this.allPrinterData$ = timer(0, 2000).pipe(
@@ -424,11 +457,15 @@ export class BackendService {
       // this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
+
+    this.getAllResin().then(
+      (harzData: Array<IResinType>) => (this.resineData = harzData)
+    );
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-     //return this.http.get(this.url + "echte/url/einfügen/");
+    //return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
     return this.http.get(this.mockedURL + "allOrders");
@@ -471,8 +508,18 @@ export class BackendService {
     });
     return promiseRes;
   }
+  getAllGroups(): Promise<Object> {
+    // return this.http.get(this.backendUrl + "groups/all").toPromise();
+    let promiseRes = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 200);
+      resolve(this.mockedGroupData);
+    });
+    return promiseRes;
+  }
 
-  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic){
+  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
     //Insert Backendcall here
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
@@ -487,19 +534,21 @@ export class BackendService {
     return promiseRes;
   }
 
-  addNewSettingSubtopic(topic: ISettingsPage, newSubtopic: ISettingsPageSubtopic){
+  addNewSettingSubtopic(
+    topic: ISettingsPage,
+    newSubtopic: ISettingsPageSubtopic
+  ) {
     //Insert Backendcall here
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 }
- 
 
 /**
  * To-Do
  * Frontend:
  * "add Topic" Dialog gestalten
  * auf subtopic in der faq seite draufklicken solle dialog öffnen mit inhalten des IHelpPageSubtopic-Objektes
- * 
+ *
  * Backend:
  * createNewGroup()
  * getAllHelpTopics()
