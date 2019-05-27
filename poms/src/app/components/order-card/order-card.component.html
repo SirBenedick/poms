@@ -1,6 +1,44 @@
-<div class="card" (click)="onCardClick(this)">
+<div class="card">
   <div class="card-inner">
-    <img class="order-icon" src="../../../assets/svg/icon-auftrag-1.svg" />
+    <div [ngSwitch]="order.dentalPrintType">
+      <div *ngSwitchCase="'Schienen für Halterungsposition'">
+        <!-- Bracket Position Splints -->
+        <img src="../../../assets/svg/Schiene.svg" width="25px" height="25px">
+      </div>
+      <div *ngSwitchCase="'Kundenspezifische Anpassung'">
+        Custom Trays
+      </div>
+      <div *ngSwitchCase="'Gießbare Teile'">
+        Castable Parts
+      </div>
+      <div *ngSwitchCase="'Backenzaehne'">
+        True Color Dies
+      </div>
+      <div *ngSwitchCase="'Weichgewebe'">
+        Soft Tissue
+      </div>
+      <div *ngSwitchCase="'Implantat'">
+        Implant Jigs
+      </div>
+      <div *ngSwitchCase="'Justierung der Zaehne'">
+        Aligners
+      </div>
+      <div *ngSwitchCase="'Modelle und Implantatmodelle'">
+        Models and Implantat Models
+      </div>
+      <div *ngSwitchCase="'Provisorische Kronen und Bruecken'">
+        <!-- Provisional Crowns and Bridges -->
+        <img src="../../../assets/svg/Krone.svg" width="25px" height="25px">
+      </div>
+      <div *ngSwitchCase="'Zaehne'">
+        <!-- Testeneers -->
+        <img src="../../../assets/svg/Zahn.svg" width="25px" height="25px">
+      </div>
+      <div *ngSwitchDefault>
+        "Leider kein Bild vorhanden"
+      </div>
+    </div>
+    
     <!-- Order ID fünfstellig mit führede Nullen machen-->
     <h1 id="order-heading">#{{ order.orderId }}</h1>
     <div class="order-card-text">{{ order.creationDate }}</div>
