@@ -2,11 +2,14 @@
 <div class="page-container">
   <div cdkDropListGroup>
     <div class="half-container">
-      <h1 id="heading">Gruppierte Aufträge</h1>
-      <button class="button-style" (click)="openDialogFilterGroups()">
-        Filter Pop
+
+      <h1 class="heading">Gruppierte Aufträge</h1>
+      <div class="button-space">
+      <button class="button-style-group" (click)="openDialogFilterGroups()">
+        Filter
       </button>
-      <button class="button-style" (click)="resetGroupFilter()">Reset</button>
+      <button class="button-style-group" (click)="resetGroupFilter()">Reset</button>
+      </div>
       <button
         id="new-group-button"
         (click)="newGroup()"
@@ -23,6 +26,7 @@
           [cdkDropListData]="group.orders"
           (cdkDropListDropped)="drop($event)"
         >
+
           <mat-expansion-panel-header>
             <mat-panel-title>
               <div class="titel-expand-collapse">
@@ -53,11 +57,13 @@
     </div>
     <div class="half-container">
       <div>
-        Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}
-        <button class="button-style" (click)="openDialogFilterOrders()">
-          Filter Pop
+        <h1 class="heading">Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}</h1>
+        <div class="button-space">
+        <button class="button-style-group" (click)="openDialogFilterOrders()">
+          Filter
         </button>
-        <button class="button-style" (click)="resetOrderFilter()">Reset</button>
+        <button class="button-style-group" (click)="resetOrderFilter()">Reset</button>
+      </div>
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
       <div
