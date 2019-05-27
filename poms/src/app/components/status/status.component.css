@@ -7,28 +7,47 @@
 .status-card-container {
   display: flex;
   flex-direction: column;
-  padding: 5vh;
   width: 250px;
   height: 120px;
   object-fit: contain;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+  border-radius: 4px;
   background-color: #ffffff;
   margin: 5px;
   overflow: hidden;
-  
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-items: left;
+  justify-content: left;
 }
 
 .card-title {
-  width: 191px;
-  height: 24px;
-  object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 18px;
+  font-family: "Segoe UI";
+  font-size: 14px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #272f33;
+  padding-left: 15px;
+  padding-top: 10px;
+  height: 20px;
+  width: 95%;
+
 }
+.print-info{
+  font-family: "Segoe UI";
+  font-size: 25px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+#print-progress{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 220px;
+  height: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+
+}
+#print-progress > * {
+  margin-left: 5px;
+}
+

@@ -1,39 +1,46 @@
 <div class="page-container">
   <div class="status-card-container">
-    <div class="card-title">
-      Druckername:
-      {{ printer.name }}
-    </div>
+    <h1 class="card-title">
+      Druckername </h1>
+      <h2 class="print-info">{{ printer.name }}</h2>
+
   </div>
   <div class="status-card-container">
-    <div class="card-title">
-      Status:
-      {{ printerStatus }}
-    </div>
+    <h1 class="card-title">
+      Status </h1>
+     <h2 class="print-info"> {{ printerStatus }}</h2>
+
   </div>
   <div class="status-card-container">
-    <div class="card-title">
-      Füllstand: {{ printer.resin_volume | percent }}
-    </div>
+    <h1 class="card-title">Füllstand</h1>
+    <h2 class="print-info"> {{ printer.resin_volume | percent }} </h2>
+
   </div>
   <div class="status-card-container">
-    <div class="card-title">
-      Druckfortschritt:
-      <mat-progress-bar [value]="printer.progress * 100"> </mat-progress-bar>
-      {{ printer.progress | percent }}
+
+    <h1 class="card-title">
+      Druckfortschritt</h1>
+    <div id="print-progress">
+      <mat-progress-bar [value]="printer.progress*100">
+      </mat-progress-bar>
+      <img src="../../../assets/svg/pause.svg"/>
+      <img src="../../../assets/fonts/abbrechen.svg" />
     </div>
+
+    <h2 class="print-info">{{ printer.progress | percent }} </h2>
   </div>
   <div class="status-card-container">
-    <div class="card-title">
-      restliche Druckzeit:
-      {{ printer.estimated_time_remaining }}
-    </div>
+
+    <h1 class="card-title">
+      restliche Druckzeit
+      {{ printer.estimated_time_remaining  }}
+    </h1>
   </div>
 
   <div class="status-card-container">
-    <div class="card-title">
-      Druck gestartet:
-      {{ printer.print_start }}
-    </div>
+    <h1 class="card-title">
+      Druck gestartet</h1>
+    <h2 class="print-info">{{ printer.print_start }} Uhr</h2>
   </div>
+
 </div>

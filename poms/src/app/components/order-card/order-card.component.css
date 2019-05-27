@@ -18,28 +18,27 @@ margin: 2px;
 }
 
 .order-icon {
-    object-fit: contain;
-  justify-items: center;
-  padding-top: 10px;
+  margin: 7px;
+  height: 30px;
+  width: 30px;
 
 }
 .drag-n-drop {
     display: flex;
     align-self: flex-end;
     object-fit: contain;
-  padding-right: 2px;
-  padding-bottom: 5px;
+  margin-right: 5px;
+  width: 7px;
    }
 
    .order-card-text {
    font-family: "Segoe UI";
      font-weight: lighter;
-     font-size: 15px;
+     font-size: 12px;
      margin-top: -5px;
   }
 #order-heading{
   font-family: "Segoe UI";
   font-weight: bold;
-  font-size: 18px;
-  padding-top: 10px;
+  font-size: 14px;
 }
