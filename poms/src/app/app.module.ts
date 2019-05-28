@@ -46,6 +46,7 @@ import { LoginService } from "./services/login.service";
 import { BenutzerService } from "./services/benutzer.service";
 import { TestbackendProvider } from "./services/testbackend.service";
 import { PopUpNeuerDruckerComponent } from './components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { FilterButtonActivatedDirective } from './directives/filter-button-activated.directive';
 
 registerLocaleData(de);
 @NgModule({
@@ -64,7 +65,8 @@ registerLocaleData(de);
     EinstellungenComponent,
     LoginComponent,
     OrderFilterPopupComponent,
-    PopUpNeuerDruckerComponent
+    PopUpNeuerDruckerComponent,
+    FilterButtonActivatedDirective
   ],
   imports: [
     BrowserModule,
