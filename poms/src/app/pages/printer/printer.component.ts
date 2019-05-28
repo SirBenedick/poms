@@ -3,6 +3,7 @@ import { BackendService } from "../../services/backend.service";
 import { MatDialog } from "@angular/material";
 import { IPrinterData } from "../../shared/interfaces";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
+import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 
 @Component({
   selector: "app-printer",
@@ -31,13 +32,24 @@ export class PrinterComponent implements OnInit {
     }
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { key: "Example, maybe no data is needed" }
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(CreateNewOrderComponent, {
+  //     data: { key: "Example, maybe no data is needed" }
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log("The create new Printer Dialog was closed, result: ", result);
+  //   });
+  // }
+  openDialogPopUpDrucker(): void {
+    const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
+      // data: { newOrderForm: this.newOrder }
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The create new Printer Dialog was closed, result: ", result);
+      console.log("Dialog was closed")
+      // if (result) this.filterGroupData(result.data);
     });
   }
   startPrinter(id: Number) {

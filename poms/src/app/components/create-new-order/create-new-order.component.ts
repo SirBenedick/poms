@@ -17,6 +17,7 @@ export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
   newOrderForm: FormGroup;
   harzList: Array<IResinType>;
+  categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
 
   constructor(
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
@@ -89,16 +90,4 @@ export class CreateNewOrderComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  mockedCategoryData: Array<ICategory> = [
-    {category_name: 'Schienen für Halterungsposition'},
-    {category_name: 'Kundenspezifische Anpassung'},
-    {category_name: 'Gießbare Teile'},
-    {category_name: 'Backenzaehne'},
-    {category_name: 'Weichgewebe'},
-    {category_name: 'Implantat'},
-    {category_name: 'Justierung der Zaehne'},
-    {category_name: 'Modelle und Implantatmodelle'},
-    {category_name: 'Provisorische Kronen und Bruecken'},
-    {category_name: 'Zaehne'},
-  ];
 }

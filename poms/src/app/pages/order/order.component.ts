@@ -13,6 +13,7 @@ import {
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
+import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
