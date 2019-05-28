@@ -11,9 +11,6 @@ import { IDrucken } from 'src/app/shared/interfaces';
 })
 export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
-  fileToUpload: File = null;
-  fileToDownload: File= null;
-  fileToPrinter: File= null;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: IDrucken,
@@ -30,7 +27,7 @@ export class PopUpDruckenComponent implements OnInit {
     //     this.data.upload ? this.data.upload : "",
     //     [Validators.minLength(1), Validators.required]
     //   ),
-    //   zumDruckerDrucken: new FormControl(
+    //   drucker: new FormControl(
     //     this.data.print ? this.data.print : "",
     //     [Validators.minLength(1), Validators.required]
     //   ),
@@ -38,7 +35,7 @@ export class PopUpDruckenComponent implements OnInit {
     // Kann in der Regel auch leer sein
       hochladen: new FormControl(),
       herunterladen: new FormControl(),
-      zumDruckerDrucken: new FormControl(),
+      drucker: new FormControl(),
     });
   }
 
@@ -46,15 +43,6 @@ export class PopUpDruckenComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  handleFileUpload(files: IDrucken){
-    this.fileToUpload = files.upload;
-  }
-  handleFileDownload(files: IDrucken){
-    this.fileToDownload = files.download;
-  }
-  drucken(files: IDrucken){
-    this.fileToPrinter = files.print;
-  }
   onButtonClick():void{
     console.log("Button is clicked")
   }

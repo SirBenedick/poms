@@ -1,0 +1,31 @@
+.fileinputs{
+    position: relative;
+    width: 472px;
+    height: 38px;
+    object-fit: contain;
+    border-radius: 4px;
+    border: solid 1px #62c6d6;
+    background-color: #62c6d6;
+}
+.fakefile{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    
+}
+.file{
+    position: relative;
+    text-align: right;
+    opacity: 0;
+    z-index: 2;
+}
+.drucker{
+  position: relative;
+  width: 472px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: solid 1px #62c6d6;
+  background-color: #ffffff;
+}
