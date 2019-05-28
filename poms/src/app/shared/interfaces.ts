@@ -111,3 +111,9 @@ export interface ISettingsPageSubtopic{
 export interface ICategory{
   category_name: String;
 }
+
+export interface IPrinter{
+  printerId: number;
+  printerName: String;
+  
+}

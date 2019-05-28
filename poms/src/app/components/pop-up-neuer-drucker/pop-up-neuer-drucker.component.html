@@ -1,0 +1,19 @@
+<form [formGroup]="newPrinterForm">
+  <div class="page-container">
+    <div>
+      <div>Neuen Drucker anlegen</div>
+    </div>
+    <br>
+    <div>
+      <div>Druckername</div>
+      <input class=" rechteck-eingabe" formControlName="printerName" placeholder="Druckername angeben" />
+    </div>
+    <br>
+    <div>
+      <div>Printernummer</div>
+      <input class=" rechteck-eingabe" formControlName="printerId" placeholder="Printer ID angeben" />
+    </div>
+    <button (click)="onSaveButton()">Speichern</button>
+    <button (click)="onBreakButton()">Abbrechen</button>
+  </div>
+</form>

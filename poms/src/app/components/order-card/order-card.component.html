@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="onCardClick(this)">
   <div class="card-inner">
     <div [ngSwitch]="order.dentalPrintType">
       <div *ngSwitchCase="'Schienen für Halterungsposition'">

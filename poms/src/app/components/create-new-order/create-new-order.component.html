@@ -1,13 +1,12 @@
 <form [formGroup]="newOrderForm">
   <div class="page-container">
     <div class="a">
-      <div class="newOrder" *ngIf="customer">Neuen Auftrag erstellen</div>
+      <div class="newOrder" *ngIf="!data.customer">Neuen Auftrag erstellen</div>
+      <div class="newOrder" *ngIf="data.customer">Auftrag: #{{data.orderId}}</div>
     </div>
-
     <div>
       <div>Kunde</div>
-      <mat-select formControlName="customer" placeholder="Kunde auswählen"
-        class=" rechteck-eingabe">
+      <mat-select formControlName="customer" placeholder="Kunde auswählen" class=" rechteck-eingabe">
         <mat-option value="Schmittlauch">Schmidttlauch</mat-option>
         <mat-option value="Schmittlauch1">Schmidttlauch1</mat-option>
       </mat-select>
@@ -32,8 +31,8 @@
     <div>
       <div> Kategorie </div>
       <mat-select formControlName="dentalPrintType" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let allCategorys of mockedCategoryData" value="{{allCategorys.category_name}}">
-          {{ allCategorys.category_name }}
+        <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
+          {{ oneCategory.category_name }}
         </mat-option>
       </mat-select>
     </div>
