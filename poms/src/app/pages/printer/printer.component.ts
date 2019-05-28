@@ -1,8 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material";
 import { IPrinterData } from "../../shared/interfaces";
-import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 
 @Component({
@@ -12,7 +11,8 @@ import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-druc
 })
 export class PrinterComponent implements OnInit {
   allPrinters: Array<IPrinterData> = [];
-
+  newPrinter: String;
+  printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog
@@ -43,15 +43,20 @@ export class PrinterComponent implements OnInit {
   // }
   openDialogPopUpDrucker(): void {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
-      // data: { newOrderForm: this.newOrder }
+      data: { newPrinterForm: this.newPrinter }
     });
-
-
     dialogRef.afterClosed().subscribe(result => {
       console.log("Dialog was closed")
+      this.newPrinter = result;
       // if (result) this.filterGroupData(result.data);
     });
   }
+  onPrinterClick(event){
+    this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent,{
+      data: event.printer
+    });
+  }
+
   startPrinter(id: Number) {
     this.backendService.startPrinter(id).subscribe(data => console.log(data));
   }
