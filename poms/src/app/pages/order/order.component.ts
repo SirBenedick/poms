@@ -13,7 +13,8 @@ import {
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
-import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
+import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { PopUpDruckenComponent } from 'src/app/components/pop-up-drucken/pop-up-drucken.component';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -132,7 +133,7 @@ export class OrderComponent implements OnInit {
 
   openDialogCreateNewOrder(): void {
     const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newOrderForm: this.newOrder }
+      data: { newPrinterForm: this.newOrder }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -186,8 +187,14 @@ export class OrderComponent implements OnInit {
     }
     return setParamters;
   }
-  onClick(): void {
-    console.log("Files to Printer");
+  onPrintClick(): void {
+    const dialogRef = this.dialog.open(PopUpDruckenComponent, {
+      data: { newOrderForm: this.newOrder }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.filterGroupData(result.data);
+    });
   }
 
   onDelete(): void {

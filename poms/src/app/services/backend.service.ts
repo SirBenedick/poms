@@ -43,7 +43,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Kundenspezifische Anpassung',
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -56,7 +56,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: "Schiene",
+      dentalPrintType: 'Gießbare Teile',
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -466,7 +466,7 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-      // this.allPrinterData = newPrinterData;
+       //this.allPrinterData = newPrinterData;
       this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
@@ -478,7 +478,7 @@ export class BackendService {
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-    //return this.http.get(this.url + "echte/url/einfügen/");
+    //return this.http.get(this.backendUrl + "order/get/all");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
     return this.http.get(this.mockedURL + "allOrders");
@@ -489,8 +489,8 @@ export class BackendService {
     //return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    return this.http.get(this.mockedURL + "allPrinter");
-     //return this.http.get(this.backendUrl + "printer/get/all");
+    //return this.http.get(this.mockedURL + "allPrinter");
+    return this.http.get(this.backendUrl + "printer/get/all");
   }
 
   startPrinter(id: Number) {

@@ -14,9 +14,6 @@
             ({{ isGroupFilterSet }}) X
           </div>
         </div>
-        <button class="button-style-group" (click)="resetGroupFilter()">
-          Reset
-        </button>
       </div>
       <button
         id="new-group-button"
@@ -44,7 +41,7 @@
               </div>
             </mat-panel-title>
             <div id="button-space">
-              <button class="button-style" (click)="onClick()">Drucken</button>
+              <button class="button-style" (click)="onPrintClick()">Drucken</button>
             </div>
           </mat-expansion-panel-header>
           <div (click)="onDelete()">Löschen</div>
@@ -78,9 +75,6 @@
             ({{ isOrderFilterSet }}) X
           </div>
         </div>
-          <button class="button-style-group" (click)="resetOrderFilter()">
-            Reset
-          </button>
         </div>
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->

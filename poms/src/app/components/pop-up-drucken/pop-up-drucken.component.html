@@ -1,0 +1,50 @@
+<form [formGroup]="newPrinterForm">
+  <div class="page-container">
+    <h1>
+      Gruppe drucken
+    </h1>
+    <h3>
+      Dateien vorbereiten
+    </h3>
+    <div class="fileinputs" >
+      <input type="file" class="file" [(ngModel)]="Skin" [ngModelOptions]="{standalone: true}" />
+      <div class="fakefile" >
+        <input placeholder="Skin-Datei herunterladen" formControlName="hochladen" [(ngModel)]="Skin"/>
+      </div>
+    </div>
+    <br>
+    <div class="fileinputs" >
+        <input type="file" class="file" [(ngModel)]="Solid" [ngModelOptions]="{standalone: true}" />
+        <div class="fakefile">
+          <input placeholder="Solid-Datei hochladen" formControlName="herunterladen" [(ngModel)]="Solid"/>
+        </div>
+      </div>
+    <div>
+      <h3>Drucker</h3>
+      <div class="drucker" >
+          <input type="file" class="file" [(ngModel)]="drucker" [ngModelOptions]="{standalone: true}" />
+          <div class="fakefile" >
+            <input placeholder="Drucker auswählen" formControlName="drucker" [(ngModel)]="drucker"/>
+          </div>
+        </div>
+    </div>
+    <br>
+    <h3> Benachrichtigung
+    </h3>
+    <input type="text" style="width: 250px" placeholder="E-Mail Adresse hinterlegen" />
+    <div>
+      Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe fertig gedruckt ist, oder
+      falls ein Problem mit dem Druck auftauchen sollte.
+    </div>
+    <div>
+      <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="newFaqForm">
+          drucken
+        </button>
+        <button mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</form>

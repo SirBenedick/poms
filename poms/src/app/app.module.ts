@@ -32,7 +32,6 @@ import { MatNativeDateModule } from "@angular/material";
 import { ReactiveFormsModule } from "@angular/forms";
 import { StatusComponent } from "./components/status/status.component";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { NewPrinterComponent } from "./components/new-printer/new-printer.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { FAQComponent } from "./pages/faq/faq.component";
@@ -47,6 +46,8 @@ import { BenutzerService } from "./services/benutzer.service";
 import { TestbackendProvider } from "./services/testbackend.service";
 import { PopUpNeuerDruckerComponent } from './components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 import { FilterButtonActivatedDirective } from './directives/filter-button-activated.directive';
+import { PopUpFAQComponent } from './components/pop-up-faq/pop-up-faq.component';
+import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucken.component';
 
 registerLocaleData(de);
 @NgModule({
@@ -60,13 +61,14 @@ registerLocaleData(de);
     OrderCardComponent,
     CreateNewOrderComponent,
     StatusComponent,
-    NewPrinterComponent,
     FAQComponent,
     EinstellungenComponent,
     LoginComponent,
     OrderFilterPopupComponent,
     PopUpNeuerDruckerComponent,
-    FilterButtonActivatedDirective
+    FilterButtonActivatedDirective,
+    PopUpFAQComponent,
+    PopUpDruckenComponent
   ],
   imports: [
     BrowserModule,
@@ -90,14 +92,16 @@ registerLocaleData(de);
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
 
   entryComponents: [
     CreateNewOrderComponent,
-    NewPrinterComponent,
     OrderFilterPopupComponent,
     PopUpNeuerDruckerComponent,
+    PopUpFAQComponent,
+    PopUpDruckenComponent,
   ],
   //alle Services einbinden
   providers: [

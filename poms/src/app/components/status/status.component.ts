@@ -1,5 +1,7 @@
 import { IPrinterData } from 'src/app/shared/interfaces';
 import { Component, OnInit, Input } from "@angular/core";
+import { MatDialogRef } from '@angular/material';
+import { PopUpNeuerDruckerComponent } from '../pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 
 @Component({
   selector: "app-status",
@@ -8,8 +10,9 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class StatusComponent implements OnInit {
   @Input() printer: IPrinterData;
-
+  printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   printerStatus;
+  dialog: any;
 
   constructor() {}
 
@@ -27,4 +30,11 @@ export class StatusComponent implements OnInit {
   onDetailedView(){
     console.log("Detailed view clicked")
   }
-}
+  //Klick damit man Informationen erhält: bisher noch nicht in HTML verbaut
+  onPrinterName(event){
+      this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent,{
+        data: event.printer
+      });
+    }
+  }
+

@@ -79,14 +79,6 @@ export class CreateNewOrderComponent implements OnInit {
   //  onSubmit() {
   //   console.log(this.newOrderForm.value);
   // }
-
-  onClick(): void {
-    if (this.newOrderForm) {
-      console.log("Form Submitted");
-      console.log(this.newOrderForm.value);
-    }
-  }
-
   onNoClick(): void {
     this.dialogRef.close();
   }

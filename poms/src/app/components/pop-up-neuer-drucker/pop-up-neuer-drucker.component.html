@@ -6,14 +6,22 @@
     <br>
     <div>
       <div>Druckername</div>
-      <input class=" rechteck-eingabe" formControlName="printerName" placeholder="Druckername angeben" />
+      <input formControlName="printerName" placeholder="Druckername angeben" />
     </div>
     <br>
     <div>
       <div>Printernummer</div>
-      <input class=" rechteck-eingabe" formControlName="printerId" placeholder="Printer ID angeben" />
+      <input formControlName="printerId" placeholder="Printer ID angeben" />
     </div>
-    <button (click)="onSaveButton()">Speichern</button>
-    <button (click)="onBreakButton()">Abbrechen</button>
+    <div>
+      <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="newPrinterForm">
+          Speichern
+        </button>
+        <button mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
+      </mat-dialog-actions>
+    </div>
   </div>
 </form>

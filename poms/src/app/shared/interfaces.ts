@@ -112,8 +112,8 @@ export interface ICategory{
   category_name: String;
 }
 
-export interface IPrinter{
-  printerId: number;
-  printerName: String;
-  
+export interface IDrucken{
+  upload: File;
+  download: File;
+  print: File;
 }
