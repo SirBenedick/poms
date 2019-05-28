@@ -25,8 +25,15 @@
 
       <app-status style="overflow: auto" [printer]="printer"></app-status>
     </mat-expansion-panel>
+    <div *ngIf="newPrinter">
+      <div (click)="onPrinterClick(this)">
+      Test Drucker
+      </div>
+    </div>
     <button (click)="startPrinter(23)">Druck Starten</button>
     <button (click)="stopPrinter(23)">Druck Stop</button>
     <button (click)="togglePrinter(23)">Pause toggeln</button>
   </div>
+ 
+
 </div>

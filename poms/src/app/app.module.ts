@@ -32,7 +32,6 @@ import { MatNativeDateModule } from "@angular/material";
 import { ReactiveFormsModule } from "@angular/forms";
 import { StatusComponent } from "./components/status/status.component";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { NewPrinterComponent } from "./components/new-printer/new-printer.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { FAQComponent } from "./pages/faq/faq.component";
@@ -59,7 +58,6 @@ registerLocaleData(de);
     OrderCardComponent,
     CreateNewOrderComponent,
     StatusComponent,
-    NewPrinterComponent,
     FAQComponent,
     EinstellungenComponent,
     LoginComponent,
@@ -93,7 +91,6 @@ registerLocaleData(de);
 
   entryComponents: [
     CreateNewOrderComponent,
-    NewPrinterComponent,
     OrderFilterPopupComponent,
     PopUpNeuerDruckerComponent,
   ],

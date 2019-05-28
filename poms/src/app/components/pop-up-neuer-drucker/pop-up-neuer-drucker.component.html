@@ -13,7 +13,17 @@
       <div>Printernummer</div>
       <input class=" rechteck-eingabe" formControlName="printerId" placeholder="Printer ID angeben" />
     </div>
-    <button (click)="onSaveButton()">Speichern</button>
-    <button (click)="onBreakButton()">Abbrechen</button>
+    <div>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="newPrinterForm">
+        Speichern
+      </button>
+        <button mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
+      </mat-dialog-actions>
+    </div>
+    <!-- <button [mat-dialog-close]="newOrderForm">Speichern</button> -->
+    <!-- <button (click)="onBreakButton()">Abbrechen</button> -->
   </div>
 </form>
