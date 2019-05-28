@@ -1,0 +1,48 @@
+<form [formGroup]="newPrinterForm">
+  <div class="page-container">
+    <h1>
+      Gruppe drucken
+    </h1>
+      <h3>
+        Dateien vorbereiten
+      </h3>
+      <div>
+      <!-- <div>Hochladen</div> -->
+      <input type="file" id="file" (change)="handleFileUpload($event.target.files)">
+      <button (click)="onButtonClick()">Solid Hochladen</button>
+    </div>
+    <br>
+    <div>
+     <!-- Testing, brauchen wir vielleicht nachher noch -->
+      <!-- <label for="file">Download</label> -->
+      <!-- <div> Download</div> -->
+      <input type="file" id="file" (change)="handleFileDownload($event.target.files)">
+      <button (click)="onButtonClick()"> Skin Herunterladen</button>
+    </div>
+    <br>
+    <div>
+      <h3>Drucker</h3>
+      <!-- <input formControlName="zumDruckerDrucken" placeholder="Datei drucken" /> -->
+      <input type="file" id="file" (change)="drucken($event.target.files)">
+      <!-- <button (click)="onButtonClick()">Drucken</button> -->
+    </div>
+    <br>
+    <h3> Benachrichtigung
+    </h3>
+    <input type="text" style="width: 250px" placeholder="E-Mail Adresse hinterlegen"/>
+    <div>
+      Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe fertig gedruckt ist, oder
+      falls ein Problem mit dem Druck auftauchen sollte.
+    </div>
+    <div>
+      <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="newFaqForm">
+          drucken
+        </button>
+        <button mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</form>
