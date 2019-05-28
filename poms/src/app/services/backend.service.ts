@@ -10,7 +10,8 @@ import {
   ISettingsPage,
   ISettingsPageSubtopic,
   IGroupedOrders,
-  IResinType
+  IResinType,
+  ICategory
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -421,7 +422,19 @@ export class BackendService {
       status: "preprint"
     }
   ];
-
+  mockedCategoryData: Array<ICategory> = [
+    {category_name: 'Schienen für Halterungsposition'},
+    {category_name: 'Kundenspezifische Anpassung'},
+    {category_name: 'Gießbare Teile'},
+    {category_name: 'Backenzaehne'},
+    {category_name: 'Weichgewebe'},
+    {category_name: 'Implantat'},
+    {category_name: 'Justierung der Zaehne'},
+    {category_name: 'Modelle und Implantatmodelle'},
+    {category_name: 'Provisorische Kronen und Bruecken'},
+    {category_name: 'Zaehne'},
+  ];
+  
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
 

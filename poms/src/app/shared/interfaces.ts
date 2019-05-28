@@ -107,3 +107,7 @@ export interface ISettingsPageSubtopic{
   subtopicTitel: String;
   subtopicContent: String;
 }
+
+export interface ICategory{
+  category_name: String;
+}

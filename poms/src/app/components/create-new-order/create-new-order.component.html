@@ -1,13 +1,16 @@
 <form [formGroup]="newOrderForm">
   <div class="page-container">
     <div class="a">
-      <div class="newOrder">Neuen Auftrag erstellen</div>
+      <div class="newOrder" *ngIf="customer">Neuen Auftrag erstellen</div>
     </div>
 
     <div>
-      <div> Auftragstitel </div>
-      <!-- Welcher formContralName ist dies? -->
-      <input class=" rechteck-eingabe" type="text" formControlName="priority" placeholder="Auftragstitel eintragen" />
+      <div>Kunde</div>
+      <mat-select formControlName="customer" placeholder="Kunde auswählen"
+        class=" rechteck-eingabe">
+        <mat-option value="Schmittlauch">Schmidttlauch</mat-option>
+        <mat-option value="Schmittlauch1">Schmidttlauch1</mat-option>
+      </mat-select>
     </div>
     <br>
     <div>
@@ -19,13 +22,20 @@
     </div>
     <br>
     <div>
-      <div> Kategorie </div>
-      <input class=" rechteck-eingabe" type="text" formControlName="dentalPrintType" placeholder="Kategorie auswählen" />
+      <div>Harzfarbe</div>
+      <mat-select formControlName="harz" placeholder="Harzfarbe auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let harzfarbe of harzList" value="{{harzfarbe.resin_name}}">{{ harzfarbe.resin_name }}
+        </mat-option>
+      </mat-select>
     </div>
     <br>
     <div>
-      <div>Kunde</div>
-      <input class="rechteck-eingabe" type="text" formControlName="patient" placeholder="Kunden auswählen" />
+      <div> Kategorie </div>
+      <mat-select formControlName="dentalPrintType" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let allCategorys of mockedCategoryData" value="{{allCategorys.category_name}}">
+          {{ allCategorys.category_name }}
+        </mat-option>
+      </mat-select>
     </div>
     <br>
     <div>
@@ -33,9 +43,6 @@
       <textarea class=" rechteck-eingabe" formControlName="comment" rows="4"
         style="resize:none; width: 250px;height: auto" placeholder="Anmerkung"></textarea>
     </div>
-
-
-
     <div style="align-self: flex-end">
       <mat-dialog-actions>
         <button class="break-button" mat-button (click)="onNoClick()">
