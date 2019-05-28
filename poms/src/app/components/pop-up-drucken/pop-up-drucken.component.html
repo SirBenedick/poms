@@ -3,33 +3,35 @@
     <h1>
       Gruppe drucken
     </h1>
-      <h3>
-        Dateien vorbereiten
-      </h3>
-      <div>
-      <!-- <div>Hochladen</div> -->
-      <input type="file" id="file" (change)="handleFileUpload($event.target.files)">
-      <button (click)="onButtonClick()">Solid Hochladen</button>
+    <h3>
+      Dateien vorbereiten
+    </h3>
+    <div class="fileinputs" >
+      <input type="file" class="file" [(ngModel)]="Skin" [ngModelOptions]="{standalone: true}" />
+      <div class="fakefile" >
+        <input placeholder="Skin-Datei herunterladen" formControlName="hochladen" [(ngModel)]="Skin"/>
+      </div>
     </div>
     <br>
-    <div>
-     <!-- Testing, brauchen wir vielleicht nachher noch -->
-      <!-- <label for="file">Download</label> -->
-      <!-- <div> Download</div> -->
-      <input type="file" id="file" (change)="handleFileDownload($event.target.files)">
-      <button (click)="onButtonClick()"> Skin Herunterladen</button>
-    </div>
-    <br>
+    <div class="fileinputs" >
+        <input type="file" class="file" [(ngModel)]="Solid" [ngModelOptions]="{standalone: true}" />
+        <div class="fakefile">
+          <input placeholder="Solid-Datei hochladen" formControlName="herunterladen" [(ngModel)]="Solid"/>
+        </div>
+      </div>
     <div>
       <h3>Drucker</h3>
-      <!-- <input formControlName="zumDruckerDrucken" placeholder="Datei drucken" /> -->
-      <input type="file" id="file" (change)="drucken($event.target.files)">
-      <!-- <button (click)="onButtonClick()">Drucken</button> -->
+      <div class="drucker" >
+          <input type="file" class="file" [(ngModel)]="drucker" [ngModelOptions]="{standalone: true}" />
+          <div class="fakefile" >
+            <input placeholder="Drucker auswählen" formControlName="drucker" [(ngModel)]="drucker"/>
+          </div>
+        </div>
     </div>
     <br>
     <h3> Benachrichtigung
     </h3>
-    <input type="text" style="width: 250px" placeholder="E-Mail Adresse hinterlegen"/>
+    <input type="text" style="width: 250px" placeholder="E-Mail Adresse hinterlegen" />
     <div>
       Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe fertig gedruckt ist, oder
       falls ein Problem mit dem Druck auftauchen sollte.
