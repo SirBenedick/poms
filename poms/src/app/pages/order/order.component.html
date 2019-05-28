@@ -2,13 +2,18 @@
 <div class="page-container">
   <div cdkDropListGroup>
     <div class="half-container">
-
       <h1 class="heading">Gruppierte Aufträge</h1>
       <div class="button-space">
-      <button class="button-style-group" (click)="openDialogFilterGroups()">
-        Filter
-      </button>
-      <button class="button-style-group" (click)="resetGroupFilter()">Reset</button>
+        <div
+          class="button-style-group"
+          (click)="openDialogFilterGroups()"
+          [appFilterButtonActivated]="isGroupFilterSet"
+        >
+          Filter
+          <div style="color:black;" *ngIf="isGroupFilterSet != 0" (click)="resetGroupFilter($event)">
+            ({{ isGroupFilterSet }}) X
+          </div>
+        </div>
       </div>
       <button
         id="new-group-button"
@@ -26,7 +31,6 @@
           [cdkDropListData]="group.orders"
           (cdkDropListDropped)="drop($event)"
         >
-
           <mat-expansion-panel-header>
             <mat-panel-title>
               <div class="titel-expand-collapse">
@@ -37,7 +41,7 @@
               </div>
             </mat-panel-title>
             <div id="button-space">
-              <button class="button-style" (click)="onPrinterClick()">Drucken</button>
+              <button class="button-style" (click)="onPrintClick()">Drucken</button>
             </div>
           </mat-expansion-panel-header>
           <div (click)="onDelete()">Löschen</div>
@@ -57,13 +61,21 @@
     </div>
     <div class="half-container">
       <div>
-        <h1 class="heading">Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}</h1>
+        <h1 class="heading">
+          Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}
+        </h1>
         <div class="button-space">
-        <button class="button-style-group" (click)="openDialogFilterOrders()">
+          <div
+          class="button-style-group"
+          (click)="openDialogFilterOrders()"
+          [appFilterButtonActivated]="isOrderFilterSet"
+        >
           Filter
-        </button>
-        <button class="button-style-group" (click)="resetOrderFilter()">Reset</button>
-      </div>
+          <div style="color:black;" *ngIf="isOrderFilterSet != 0" (click)="resetOrderFilter($event)">
+            ({{ isOrderFilterSet }}) X
+          </div>
+        </div>
+        </div>
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
       <div

@@ -28,16 +28,21 @@ export class OrderComponent implements OnInit {
   filteredUngroupedOrders: Array<IOrder> = [];
   filteredGroupData: Array<IGroupedOrders> = [];
 
+  isOrderFilterSet: number = 0;
+  isGroupFilterSet: number = 0;
+
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit() {
-    this.backendService.getAllGroups().then((resopnse: Array<IGroupedOrders>) => {
-      this.allGroupedOrders = resopnse;
-      this.filteredGroupData = this.allGroupedOrders;
-    });
+    this.backendService
+      .getAllGroups()
+      .then((resopnse: Array<IGroupedOrders>) => {
+        this.allGroupedOrders = resopnse;
+        this.filteredGroupData = this.allGroupedOrders;
+      });
 
     //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
     if (this.backendService.allUngroupedOrders.length == 0) {
@@ -117,9 +122,13 @@ export class OrderComponent implements OnInit {
 
   resetOrderFilter() {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
+    this.isOrderFilterSet = 0;
+    event.stopPropagation();
   }
   resetGroupFilter() {
     this.filteredGroupData = this.allGroupedOrders;
+    this.isGroupFilterSet = 0;
+    event.stopPropagation();
   }
 
   openDialogCreateNewOrder(): void {
@@ -138,7 +147,10 @@ export class OrderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.filterUngroupedOrders(result.data);
+      if (result) {
+        this.filterUngroupedOrders(result.data);
+        this.isOrderFilterSet = this.numberOfFilterParameters(result.data);
+      }
     });
   }
   openDialogFilterGroups(): void {
@@ -147,11 +159,35 @@ export class OrderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.filterGroupData(result.data);
+      if (result) {
+        this.filterGroupData(result.data);
+        
+        this.isGroupFilterSet = this.numberOfFilterParameters(result.data);
+      }
     });
   }
 
-  onPrinterClick(): void {
+  numberOfFilterParameters(parameter: IFilterOrders): number{
+    let setParamters: number = 0;
+    let maxTimeForDateCreation = 8640000000000000;
+
+    for (let key in parameter) {
+      if (parameter[key]) {
+        if (key == "dueDate") {
+          if(new Date("2019-01-01") < parameter[key].start ){
+            setParamters++;
+          }
+          if(parameter[key].end < new Date(maxTimeForDateCreation)){
+            setParamters++;
+          }
+        } else {
+          setParamters++;
+        }
+      }
+    }
+    return setParamters;
+  }
+  onPrintClick(): void {
     const dialogRef = this.dialog.open(PopUpDruckenComponent, {
       data: { newOrderForm: this.newOrder }
     });
