@@ -1,4 +1,4 @@
-import { IResinType, IOrder } from "./../../shared/interfaces";
+import { IResinType, IOrder, ICategory } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
@@ -89,4 +89,16 @@ export class CreateNewOrderComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  mockedCategoryData: Array<ICategory> = [
+    {category_name: 'Schienen für Halterungsposition'},
+    {category_name: 'Kundenspezifische Anpassung'},
+    {category_name: 'Gießbare Teile'},
+    {category_name: 'Backenzaehne'},
+    {category_name: 'Weichgewebe'},
+    {category_name: 'Implantat'},
+    {category_name: 'Justierung der Zaehne'},
+    {category_name: 'Modelle und Implantatmodelle'},
+    {category_name: 'Provisorische Kronen und Bruecken'},
+    {category_name: 'Zaehne'},
+  ];
 }
