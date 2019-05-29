@@ -47,6 +47,7 @@ import { TestbackendProvider } from "./services/testbackend.service";
 import { PopUpNeuerDruckerComponent } from './components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 import { PopUpFAQComponent } from './components/pop-up-faq/pop-up-faq.component';
 import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucken.component';
+import { PopUpVanikComponent } from './components/pop-up-vanik/pop-up-vanik.component';
 
 registerLocaleData(de);
 @NgModule({
@@ -66,7 +67,8 @@ registerLocaleData(de);
     OrderFilterPopupComponent,
     PopUpNeuerDruckerComponent,
     PopUpFAQComponent,
-    PopUpDruckenComponent
+    PopUpDruckenComponent,
+    PopUpVanikComponent
   ],
   imports: [
     BrowserModule,
@@ -100,6 +102,7 @@ registerLocaleData(de);
     PopUpNeuerDruckerComponent,
     PopUpFAQComponent,
     PopUpDruckenComponent,
+    PopUpVanikComponent,
   ],
   //alle Services einbinden
   providers: [
