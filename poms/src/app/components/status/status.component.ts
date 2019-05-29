@@ -37,8 +37,10 @@ export class StatusComponent implements OnInit {
     });
   }
 
-  onDetailedView(): void {
-    const dialogRef = this.dialog.open(PopUpVanikComponent);
+  onDetailedView(detail: any): void {
+    const dialogRef = this.dialog.open(PopUpVanikComponent, {
+      data: detail
+    });
 
      dialogRef.afterClosed().subscribe(result => {
        result;
