@@ -11,9 +11,12 @@ import {
   ISettingsPageSubtopic,
   IGroupedOrders,
   IResinType,
-  ICategory
+  ICategory,
+  ICustomer,
+  IOrderCreateNew
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
+import { ConverterService } from './converter.service';
 
 @Injectable({
   providedIn: "root"
@@ -30,7 +33,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Schienen für Halterungsposition',
+      dentalPrintType: "Schienen für Halterungsposition",
       priority: "hoch",
       harz: "weiß",
       dueDate: "2019-05-19",
@@ -43,7 +46,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Kundenspezifische Anpassung',
+      dentalPrintType: "Kundenspezifische Anpassung",
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -56,7 +59,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Gießbare Teile',
+      dentalPrintType: "Gießbare Teile",
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -68,7 +71,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Backenzaehne',
+      dentalPrintType: "Backenzaehne",
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-23",
@@ -81,7 +84,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Weichgewebe',
+      dentalPrintType: "Weichgewebe",
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -94,7 +97,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Implantat',
+      dentalPrintType: "Implantat",
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -107,7 +110,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Justierung der Zaehne',
+      dentalPrintType: "Justierung der Zaehne",
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -119,7 +122,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Modelle und Implantatmodelle',
+      dentalPrintType: "Modelle und Implantatmodelle",
       priority: "mittel",
       harz: "weiß",
       dueDate: "2019-05-19",
@@ -132,7 +135,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Provisorische Kronen und Bruecken',
+      dentalPrintType: "Provisorische Kronen und Bruecken",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -145,7 +148,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Zaehne',
+      dentalPrintType: "Zaehne",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -158,7 +161,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Zaehne',
+      dentalPrintType: "Zaehne",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -170,7 +173,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Implantat',
+      dentalPrintType: "Implantat",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -423,18 +426,18 @@ export class BackendService {
     }
   ];
   mockedCategoryData: Array<ICategory> = [
-    {category_name: 'Schienen für Halterungsposition'},
-    {category_name: 'Kundenspezifische Anpassung'},
-    {category_name: 'Gießbare Teile'},
-    {category_name: 'Backenzaehne'},
-    {category_name: 'Weichgewebe'},
-    {category_name: 'Implantat'},
-    {category_name: 'Justierung der Zaehne'},
-    {category_name: 'Modelle und Implantatmodelle'},
-    {category_name: 'Provisorische Kronen und Bruecken'},
-    {category_name: 'Zaehne'},
+    { category_name: "Schienen für Halterungsposition" },
+    { category_name: "Kundenspezifische Anpassung" },
+    { category_name: "Gießbare Teile" },
+    { category_name: "Backenzaehne" },
+    { category_name: "Weichgewebe" },
+    { category_name: "Implantat" },
+    { category_name: "Justierung der Zaehne" },
+    { category_name: "Modelle und Implantatmodelle" },
+    { category_name: "Provisorische Kronen und Bruecken" },
+    { category_name: "Zaehne" }
   ];
-  
+
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
 
@@ -443,16 +446,17 @@ export class BackendService {
   allPrinterData: Array<IPrinterData> = [];
 
   resineData: Array<IResinType>;
+  customerData: Array<ICustomer>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private converter: ConverterService) {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
-      // switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      //this.allUngroupedOrders = allOrderData;
+    this.allOrderData$.subscribe((allOrderData: Array<any>) => {
+      // this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
       this.allUngroupedOrders = this.mockedOrderData;
     });
 
@@ -466,7 +470,7 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-       //this.allPrinterData = newPrinterData;
+      //this.allPrinterData = newPrinterData;
       this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
@@ -474,11 +478,15 @@ export class BackendService {
     this.getAllResin().then(
       (harzData: Array<IResinType>) => (this.resineData = harzData)
     );
+
+    this.getAllCustomer().then(
+      (customerData: Array<ICustomer>) => (this.customerData = customerData)
+    );
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-    //return this.http.get(this.backendUrl + "order/get/all");
+    // return this.http.get(this.backendUrl + "order/get/all");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
     return this.http.get(this.mockedURL + "allOrders");
@@ -503,12 +511,13 @@ export class BackendService {
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
 
+  //Get
   getAllResin(): Promise<Object> {
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
   }
-  createNewGroup(order: IOrder): Promise<Object> {
-    //example API-Call, URL not yet real
-    return this.http.get(this.backendUrl + "group/create/").toPromise();
+
+  getAllCustomer(): Promise<Object> {
+    return this.http.get(this.backendUrl + "customer/get/all/").toPromise();
   }
 
   getAllHelpTopics(): Promise<Object> {
@@ -521,6 +530,7 @@ export class BackendService {
     });
     return promiseRes;
   }
+
   getAllGroups(): Promise<Object> {
     // return this.http.get(this.backendUrl + "groups/all").toPromise();
     let promiseRes = new Promise((resolve, reject) => {
@@ -531,14 +541,11 @@ export class BackendService {
     });
     return promiseRes;
   }
-  getAllGroupData(): Array<IGroupedOrders>{
+
+  getAllGroupData(): Array<IGroupedOrders> {
     return this.allGroupData;
   }
 
-  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
-    //Insert Backendcall here
-    console.log("Adding new Subtopic to topic", newSubtopic, topic);
-  }
   getAllSettingTopics(): Promise<Object> {
     // return this.http.get(this.backendUrl + "help/all/").toPromise();
     let promiseRes = new Promise((resolve, reject) => {
@@ -550,10 +557,28 @@ export class BackendService {
     return promiseRes;
   }
 
+  //Create
+  createNewGroup(order: IOrder): Promise<Object> {
+    //example API-Call, URL not yet real
+    return this.http.get(this.backendUrl + "group/create/").toPromise();
+  }
+
+  createNewOrder(newOrder: IOrderCreateNew): Promise<Object> {
+    console.log("createNewOrder Backend", newOrder);
+    return this.http
+      .post(this.backendUrl + "order/create/", newOrder)
+      .toPromise();
+  }
+
   addNewSettingSubtopic(
     topic: ISettingsPage,
     newSubtopic: ISettingsPageSubtopic
   ) {
+    //Insert Backendcall here
+    console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  }
+
+  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
     //Insert Backendcall here
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }

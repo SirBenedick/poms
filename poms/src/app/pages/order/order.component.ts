@@ -1,3 +1,5 @@
+import { ConverterService } from './../../services/converter.service';
+import { IOrderCreateNew } from "./../../shared/interfaces";
 import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import {
@@ -13,8 +15,8 @@ import {
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
-import { PopUpDruckenComponent } from 'src/app/components/pop-up-drucken/pop-up-drucken.component';
-import { group } from '@angular/animations';
+import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
+import { PopUpDruckenComponent } from "src/app/components/pop-up-drucken/pop-up-drucken.component";
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -32,7 +34,8 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private backendService: BackendService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private converter: ConverterService
   ) {}
 
   ngOnInit() {
@@ -49,8 +52,10 @@ export class OrderComponent implements OnInit {
         .pollAllOrdersFromBackend()
         .toPromise()
         .then((allOrderData: Array<IOrder>) => {
-          this.sortOrderLists(allOrderData);
+          // let convertedOrders: Array<IOrder> = this.converter.ordersBackendToFrontend(allOrderData);
+          // this.sortOrderLists(convertedOrders);
           // this.sortOrderLists(this.backendService.allUngroupedOrders);
+          this.sortOrderLists(allOrderData);
         });
     } else {
       this.sortOrderLists(this.backendService.allUngroupedOrders);
@@ -68,8 +73,9 @@ export class OrderComponent implements OnInit {
         //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
         if (foundGroupObject) {
           foundGroupObject.orders.push(singleOrder);
+          console.log("pushed group")
         } else {
-          // console.log("Keine Gruppe vorhanden: ", foundGroupObject);
+          console.log("Keine Gruppe vorhanden: ", foundGroupObject);
         }
       } else {
         this.allUngroupedOrders.push(singleOrder);
@@ -136,7 +142,24 @@ export class OrderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.newOrder = result;
+      if (result) {
+        if (result.value) {
+          let order = result.value;
+          let newOrder: IOrderCreateNew = {
+            customer_id: parseInt(order.customer),
+            patient: order.patient,
+            dental_print_type: order.dentalPrintType,
+            resin_name: order.harz,
+            due_date: order.dueDate,
+            comment: order.comment,
+            status: "created",
+            scan_file: null
+          };
+          this.backendService
+            .createNewOrder(newOrder)
+            .then(res => console.log(res));
+        }
+      }
     });
   }
 
@@ -160,23 +183,23 @@ export class OrderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.filterGroupData(result.data);
-        
+
         this.isGroupFilterSet = this.numberOfFilterParameters(result.data);
       }
     });
   }
 
-  numberOfFilterParameters(parameter: IFilterOrders): number{
+  numberOfFilterParameters(parameter: IFilterOrders): number {
     let setParamters: number = 0;
     let maxTimeForDateCreation = 8640000000000000;
 
     for (let key in parameter) {
       if (parameter[key]) {
         if (key == "dueDate") {
-          if(new Date("2019-01-01") < parameter[key].start ){
+          if (new Date("2019-01-01") < parameter[key].start) {
             setParamters++;
           }
-          if(parameter[key].end < new Date(maxTimeForDateCreation)){
+          if (parameter[key].end < new Date(maxTimeForDateCreation)) {
             setParamters++;
           }
         } else {

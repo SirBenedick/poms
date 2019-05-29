@@ -1,12 +1,13 @@
-import { IResinType, IOrder, ICategory } from "./../../shared/interfaces";
+import {
+  IResinType,
+  IOrder,
+  ICategory,
+  ICustomer
+} from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import {
-  FormControl,
-  FormGroup,
-  Validators
-} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-create-new-order",
@@ -16,8 +17,9 @@ import {
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
   newOrderForm: FormGroup;
-  harzList: Array<IResinType>;
   categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
+  harzList: Array<IResinType> = this.backendService.resineData;
+  customerData: Array<ICustomer> = this.backendService.customerData;
 
   constructor(
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
@@ -70,10 +72,11 @@ export class CreateNewOrderComponent implements OnInit {
         [Validators.required]
       )
     });
-    this.backendService.getAllResin().then((res: Array<IResinType>) => {
-      this.harzList = res;
-      console.log(this.harzList);
-    });
+    // this.backendService.getAllResin().then((res: Array<IResinType>) => {
+    //   this.harzList = res;
+    //   console.log(this.harzList);
+    // });
+    console.log(this.data)
   }
   // MS - only for testing
   //  onSubmit() {
