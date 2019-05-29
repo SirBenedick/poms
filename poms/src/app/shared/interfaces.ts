@@ -42,6 +42,17 @@ export interface IOrder {
     | "sent";
 }
 
+export interface IOrderCreateNew {
+  customer_id: number;
+  patient: String;
+  dental_print_type: String;
+  resin_name: String;
+  due_date: String;
+  comment: String;
+  status: String;
+  scan_file: any;
+}
+
 export interface IGroupedOrders {
   groupId: Number;
   harz: String;
@@ -116,4 +127,9 @@ export interface IDrucken{
   upload: File;
   download: File;
   print: File;
+}
+
+export interface ICustomer{
+  customer_id: number;
+  name: String;
 }
