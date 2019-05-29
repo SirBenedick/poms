@@ -4,6 +4,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
+import { IOrderCreateNew } from "src/app/shared/interfaces";
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
@@ -25,14 +26,30 @@ export class BasicLayoutComponent implements OnInit {
     console.log("function called");
   }
 
-  openDialog(): void {
+  openDialogCreateNewOrder(): void {
     const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newOrderForm: this.newOrder }
+      data: { newPrinterForm: this.newOrder }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-      this.newOrder = result;
+      if (result) {
+        if (result.value) {
+          let order = result.value;
+          let newOrder: IOrderCreateNew = {
+            customer_id: parseInt(order.customer),
+            patient: order.patient,
+            dental_print_type: order.dentalPrintType,
+            resin_name: order.harz,
+            due_date: order.dueDate,
+            comment: order.comment,
+            status: "created",
+            scan_file: null
+          };
+          this.backendService
+            .createNewOrder(newOrder)
+            .then(res => console.log(res));
+        }
+      }
     });
   }
 }

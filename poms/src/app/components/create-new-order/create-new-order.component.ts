@@ -1,12 +1,13 @@
-import { IResinType, IOrder, ICategory, ICustomer } from "./../../shared/interfaces";
+import {
+  IResinType,
+  IOrder,
+  ICategory,
+  ICustomer
+} from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import {
-  FormControl,
-  FormGroup,
-  Validators
-} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-create-new-order",

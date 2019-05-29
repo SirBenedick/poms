@@ -7,13 +7,20 @@
     <div>
       <div>Kunde</div>
       <mat-select formControlName="customer" placeholder="Kunde auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let customer of customerData" value="{{ customer.name}}">{{ customer.name }}</mat-option>
+        <mat-option *ngFor="let customer of customerData" value="{{ customer.customer_id}}">{{ customer.name }}</mat-option>
       </mat-select>
     </div>
     <br>
     <div>
+      <div>Patient</div>
+      <mat-form-field class="example-full-width">
+        <textarea matInput formControlName="patient"></textarea>
+      </mat-form-field>
+    </div>
+    <br>
+    <div>
       <div> Fälligkeit </div>
-      <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="creationDate"
+      <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="dueDate"
         placeholder="Fälligkeitsdatum auswählen" />
       <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
       <mat-datepicker #searchDate></mat-datepicker>

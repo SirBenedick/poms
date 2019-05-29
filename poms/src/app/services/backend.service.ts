@@ -12,7 +12,8 @@ import {
   IGroupedOrders,
   IResinType,
   ICategory,
-  ICustomer
+  ICustomer,
+  IOrderCreateNew
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -31,7 +32,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Schienen für Halterungsposition',
+      dentalPrintType: "Schienen für Halterungsposition",
       priority: "hoch",
       harz: "weiß",
       dueDate: "2019-05-19",
@@ -44,7 +45,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Kundenspezifische Anpassung',
+      dentalPrintType: "Kundenspezifische Anpassung",
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -57,7 +58,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Gießbare Teile',
+      dentalPrintType: "Gießbare Teile",
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -69,7 +70,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Backenzaehne',
+      dentalPrintType: "Backenzaehne",
       priority: "hoch",
       harz: "schwarz",
       dueDate: "2019-05-23",
@@ -82,7 +83,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Weichgewebe',
+      dentalPrintType: "Weichgewebe",
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -95,7 +96,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Implantat',
+      dentalPrintType: "Implantat",
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -108,7 +109,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Justierung der Zaehne',
+      dentalPrintType: "Justierung der Zaehne",
       priority: "mittel",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -120,7 +121,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Modelle und Implantatmodelle',
+      dentalPrintType: "Modelle und Implantatmodelle",
       priority: "mittel",
       harz: "weiß",
       dueDate: "2019-05-19",
@@ -133,7 +134,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Provisorische Kronen und Bruecken',
+      dentalPrintType: "Provisorische Kronen und Bruecken",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -146,7 +147,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Zaehne',
+      dentalPrintType: "Zaehne",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -159,7 +160,7 @@ export class BackendService {
       customer: "Schmittlauch",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Zaehne',
+      dentalPrintType: "Zaehne",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -171,7 +172,7 @@ export class BackendService {
       customer: "Schmittlauch1",
       laboratory: "testlabor",
       patient: "Maximum Lauch",
-      dentalPrintType: 'Implantat',
+      dentalPrintType: "Implantat",
       priority: "niedrig",
       harz: "schwarz",
       dueDate: "2019-05-19",
@@ -424,18 +425,18 @@ export class BackendService {
     }
   ];
   mockedCategoryData: Array<ICategory> = [
-    {category_name: 'Schienen für Halterungsposition'},
-    {category_name: 'Kundenspezifische Anpassung'},
-    {category_name: 'Gießbare Teile'},
-    {category_name: 'Backenzaehne'},
-    {category_name: 'Weichgewebe'},
-    {category_name: 'Implantat'},
-    {category_name: 'Justierung der Zaehne'},
-    {category_name: 'Modelle und Implantatmodelle'},
-    {category_name: 'Provisorische Kronen und Bruecken'},
-    {category_name: 'Zaehne'},
+    { category_name: "Schienen für Halterungsposition" },
+    { category_name: "Kundenspezifische Anpassung" },
+    { category_name: "Gießbare Teile" },
+    { category_name: "Backenzaehne" },
+    { category_name: "Weichgewebe" },
+    { category_name: "Implantat" },
+    { category_name: "Justierung der Zaehne" },
+    { category_name: "Modelle und Implantatmodelle" },
+    { category_name: "Provisorische Kronen und Bruecken" },
+    { category_name: "Zaehne" }
   ];
-  
+
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
 
@@ -444,7 +445,7 @@ export class BackendService {
   allPrinterData: Array<IPrinterData> = [];
 
   resineData: Array<IResinType>;
-  customerData: Array<ICustomer>
+  customerData: Array<ICustomer>;
 
   constructor(private http: HttpClient) {
     /** Starts observable and polls all OrderData from Backend */
@@ -468,7 +469,7 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-       //this.allPrinterData = newPrinterData;
+      //this.allPrinterData = newPrinterData;
       this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
@@ -519,6 +520,12 @@ export class BackendService {
     //example API-Call, URL not yet real
     return this.http.get(this.backendUrl + "group/create/").toPromise();
   }
+  createNewOrder(newOrder: IOrderCreateNew): Promise<Object> {
+    console.log("createNewOrder Backend", newOrder);
+    return this.http
+      .post(this.backendUrl + "order/create/", newOrder)
+      .toPromise();
+  }
 
   getAllHelpTopics(): Promise<Object> {
     // return this.http.get(this.backendUrl + "help/all/").toPromise();
@@ -540,7 +547,7 @@ export class BackendService {
     });
     return promiseRes;
   }
-  getAllGroupData(): Array<IGroupedOrders>{
+  getAllGroupData(): Array<IGroupedOrders> {
     return this.allGroupData;
   }
 
