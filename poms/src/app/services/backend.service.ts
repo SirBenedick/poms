@@ -451,12 +451,12 @@ export class BackendService {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
-      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      // switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      this.allUngroupedOrders = allOrderData;
-      // this.allUngroupedOrders = this.mockedOrderData;
+      // this.allUngroupedOrders = allOrderData;
+      this.allUngroupedOrders = this.mockedOrderData;
     });
 
     this.getAllGroups().then(
@@ -485,10 +485,10 @@ export class BackendService {
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-    return this.http.get(this.backendUrl + "order/get/all");
+    // return this.http.get(this.backendUrl + "order/get/all");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
-    // return this.http.get(this.mockedURL + "allOrders");
+    return this.http.get(this.mockedURL + "allOrders");
   }
 
   pollAllPrinterFromBackend(): Observable<Object> {
