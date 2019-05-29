@@ -288,6 +288,12 @@ export class OrderComponent implements OnInit {
         }.
 Die Gruppe jedoch ${targetDataLink[0].harz}`
       );
-    } 
+    }
+     // Hier die Abfrage ob die Gruppe leer ist und dann wird sie gelöscht
+     if(event.previousIndex == 0){
+      // this.filteredGroupData.pop()
+      console.log("Letzte Gruppe wurde gelöscht")
+     console.log(event.previousContainer)
+       }   
   }
 }
