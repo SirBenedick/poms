@@ -1,3 +1,4 @@
+import { ConverterService } from './../../services/converter.service';
 import { IOrderCreateNew } from "./../../shared/interfaces";
 import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
@@ -34,7 +35,8 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private backendService: BackendService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private converter: ConverterService
   ) {}
 
   ngOnInit() {
@@ -51,7 +53,8 @@ export class OrderComponent implements OnInit {
         .pollAllOrdersFromBackend()
         .toPromise()
         .then((allOrderData: Array<IOrder>) => {
-          this.sortOrderLists(allOrderData);
+          let convertedOrders: Array<IOrder> = this.converter.ordersBackendToFrontend(allOrderData);
+          this.sortOrderLists(convertedOrders);
           // this.sortOrderLists(this.backendService.allUngroupedOrders);
         });
     } else {

@@ -20,7 +20,7 @@ export interface IOrder {
   orderId: Number;
   groupId?: Number;
   customer: String; //DB has list of all customers
-  laboratory: String; //DB has list of all laboratories
+  laboratory?: String; //DB has list of all laboratories
   patient: String; //DB has list of all patients
   dentalPrintType: String; //DB has list of all dentalPrintTypes
   harz: String; //DB has list of all "harzes"

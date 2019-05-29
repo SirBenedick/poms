@@ -16,6 +16,7 @@ import {
   IOrderCreateNew
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
+import { ConverterService } from './converter.service';
 
 @Injectable({
   providedIn: "root"
@@ -447,16 +448,16 @@ export class BackendService {
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private converter: ConverterService) {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
-      // switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      // this.allUngroupedOrders = allOrderData;
-      this.allUngroupedOrders = this.mockedOrderData;
+    this.allOrderData$.subscribe((allOrderData: Array<any>) => {
+      this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
+      // this.allUngroupedOrders = this.mockedOrderData;
     });
 
     this.getAllGroups().then(
@@ -485,10 +486,10 @@ export class BackendService {
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-    // return this.http.get(this.backendUrl + "order/get/all");
+    return this.http.get(this.backendUrl + "order/get/all");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
-    return this.http.get(this.mockedURL + "allOrders");
+    // return this.http.get(this.mockedURL + "allOrders");
   }
 
   pollAllPrinterFromBackend(): Observable<Object> {
@@ -555,6 +556,7 @@ export class BackendService {
     });
     return promiseRes;
   }
+  
   //Create
   createNewGroup(order: IOrder): Promise<Object> {
     //example API-Call, URL not yet real
