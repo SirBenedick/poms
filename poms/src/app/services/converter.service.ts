@@ -9,6 +9,6 @@ export class ConverterService {
   constructor() { }
 
   ordersBackendToFrontend(backendOrders: Array<any>): Array<IOrder>{
-
+    return null;
   }
 }
