@@ -451,12 +451,12 @@ export class BackendService {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
-      // switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<IOrder>) => {
-      //this.allUngroupedOrders = allOrderData;
-      this.allUngroupedOrders = this.mockedOrderData;
+      this.allUngroupedOrders = allOrderData;
+      // this.allUngroupedOrders = this.mockedOrderData;
     });
 
     this.getAllGroups().then(
@@ -485,10 +485,10 @@ export class BackendService {
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-    //return this.http.get(this.backendUrl + "order/get/all");
+    return this.http.get(this.backendUrl + "order/get/all");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
-    return this.http.get(this.mockedURL + "allOrders");
+    // return this.http.get(this.mockedURL + "allOrders");
   }
 
   pollAllPrinterFromBackend(): Observable<Object> {
@@ -510,21 +510,13 @@ export class BackendService {
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
 
+  //Get
   getAllResin(): Promise<Object> {
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
   }
+
   getAllCustomer(): Promise<Object> {
     return this.http.get(this.backendUrl + "customer/get/all/").toPromise();
-  }
-  createNewGroup(order: IOrder): Promise<Object> {
-    //example API-Call, URL not yet real
-    return this.http.get(this.backendUrl + "group/create/").toPromise();
-  }
-  createNewOrder(newOrder: IOrderCreateNew): Promise<Object> {
-    console.log("createNewOrder Backend", newOrder);
-    return this.http
-      .post(this.backendUrl + "order/create/", newOrder)
-      .toPromise();
   }
 
   getAllHelpTopics(): Promise<Object> {
@@ -537,6 +529,7 @@ export class BackendService {
     });
     return promiseRes;
   }
+
   getAllGroups(): Promise<Object> {
     // return this.http.get(this.backendUrl + "groups/all").toPromise();
     let promiseRes = new Promise((resolve, reject) => {
@@ -547,14 +540,11 @@ export class BackendService {
     });
     return promiseRes;
   }
+
   getAllGroupData(): Array<IGroupedOrders> {
     return this.allGroupData;
   }
 
-  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
-    //Insert Backendcall here
-    console.log("Adding new Subtopic to topic", newSubtopic, topic);
-  }
   getAllSettingTopics(): Promise<Object> {
     // return this.http.get(this.backendUrl + "help/all/").toPromise();
     let promiseRes = new Promise((resolve, reject) => {
@@ -565,11 +555,28 @@ export class BackendService {
     });
     return promiseRes;
   }
+  //Create
+  createNewGroup(order: IOrder): Promise<Object> {
+    //example API-Call, URL not yet real
+    return this.http.get(this.backendUrl + "group/create/").toPromise();
+  }
+
+  createNewOrder(newOrder: IOrderCreateNew): Promise<Object> {
+    console.log("createNewOrder Backend", newOrder);
+    return this.http
+      .post(this.backendUrl + "order/create/", newOrder)
+      .toPromise();
+  }
 
   addNewSettingSubtopic(
     topic: ISettingsPage,
     newSubtopic: ISettingsPageSubtopic
   ) {
+    //Insert Backendcall here
+    console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  }
+
+  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
     //Insert Backendcall here
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
