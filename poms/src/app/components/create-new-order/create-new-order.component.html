@@ -7,8 +7,7 @@
     <div>
       <div>Kunde</div>
       <mat-select formControlName="customer" placeholder="Kunde auswählen" class=" rechteck-eingabe">
-        <mat-option value="Schmittlauch">Schmidttlauch</mat-option>
-        <mat-option value="Schmittlauch1">Schmidttlauch1</mat-option>
+        <mat-option *ngFor="let customer of customerData" value="{{ customer.name}}">{{ customer.name }}</mat-option>
       </mat-select>
     </div>
     <br>

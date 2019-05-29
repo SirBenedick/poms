@@ -117,3 +117,8 @@ export interface IDrucken{
   download: File;
   print: File;
 }
+
+export interface ICustomer{
+  customer_id: number;
+  name: String;
+}

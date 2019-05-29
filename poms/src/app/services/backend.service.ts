@@ -11,7 +11,8 @@ import {
   ISettingsPageSubtopic,
   IGroupedOrders,
   IResinType,
-  ICategory
+  ICategory,
+  ICustomer
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -443,6 +444,7 @@ export class BackendService {
   allPrinterData: Array<IPrinterData> = [];
 
   resineData: Array<IResinType>;
+  customerData: Array<ICustomer>
 
   constructor(private http: HttpClient) {
     /** Starts observable and polls all OrderData from Backend */
@@ -473,6 +475,10 @@ export class BackendService {
 
     this.getAllResin().then(
       (harzData: Array<IResinType>) => (this.resineData = harzData)
+    );
+
+    this.getAllCustomer().then(
+      (customerData: Array<ICustomer>) => (this.customerData = customerData)
     );
   }
 
@@ -505,6 +511,9 @@ export class BackendService {
 
   getAllResin(): Promise<Object> {
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
+  }
+  getAllCustomer(): Promise<Object> {
+    return this.http.get(this.backendUrl + "customer/get/all/").toPromise();
   }
   createNewGroup(order: IOrder): Promise<Object> {
     //example API-Call, URL not yet real
