@@ -53,9 +53,10 @@ export class OrderComponent implements OnInit {
         .pollAllOrdersFromBackend()
         .toPromise()
         .then((allOrderData: Array<IOrder>) => {
-          let convertedOrders: Array<IOrder> = this.converter.ordersBackendToFrontend(allOrderData);
-          this.sortOrderLists(convertedOrders);
+          // let convertedOrders: Array<IOrder> = this.converter.ordersBackendToFrontend(allOrderData);
+          // this.sortOrderLists(convertedOrders);
           // this.sortOrderLists(this.backendService.allUngroupedOrders);
+          this.sortOrderLists(allOrderData);
         });
     } else {
       this.sortOrderLists(this.backendService.allUngroupedOrders);
@@ -73,8 +74,9 @@ export class OrderComponent implements OnInit {
         //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
         if (foundGroupObject) {
           foundGroupObject.orders.push(singleOrder);
+          console.log("pushed group")
         } else {
-          // console.log("Keine Gruppe vorhanden: ", foundGroupObject);
+          console.log("Keine Gruppe vorhanden: ", foundGroupObject);
         }
       } else {
         this.allUngroupedOrders.push(singleOrder);
