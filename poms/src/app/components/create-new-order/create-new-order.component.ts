@@ -76,6 +76,7 @@ export class CreateNewOrderComponent implements OnInit {
     //   this.harzList = res;
     //   console.log(this.harzList);
     // });
+    console.log(this.data)
   }
   // MS - only for testing
   //  onSubmit() {
