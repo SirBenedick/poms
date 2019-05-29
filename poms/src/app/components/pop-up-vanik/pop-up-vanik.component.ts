@@ -10,7 +10,10 @@ import { IPrinterData } from 'src/app/shared/interfaces';
   styleUrls: ['./pop-up-vanik.component.css']
 })
 export class PopUpVanikComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<StatusComponent>) { }
+  constructor(
+    public dialogRef: MatDialogRef<StatusComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) { }
 
   ngOnInit() {
   }
@@ -18,4 +21,5 @@ export class PopUpVanikComponent implements OnInit {
   onBreakButton():void{
     this.dialogRef.close();
   }
+
 }

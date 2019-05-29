@@ -4,19 +4,19 @@
       Druckername
     </h1>
     <h2 class="print-info"> {{ printer.name }}</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView()" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printer.name)" />
   </div>
   <div class="status-card-container">
     <h1 class="card-title">
       Status
     </h1>
     <h2 class="print-info">{{ printerStatus }}</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView()" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printerStatus)" />
   </div>
   <div class="status-card-container">
     <h1 class="card-title">Füllstand</h1>
     <h2 class="print-info">{{ printer.resin_volume | percent }}</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView()" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printer.resin_volume*100)" />
   </div>
   <div class="status-card-container">
     <h1 class="card-title">
@@ -28,14 +28,14 @@
       <img src="../../../assets/fonts/abbrechen.svg" />
     </div>
     <h2 class="print-info">{{ printer.progress | percent }}</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView()" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printer.progress*100)" />
   </div>
   <div class="status-card-container">
     <h1 class="card-title">
       restliche Druckzeit
       {{ printer.estimated_time_remaining }}
     </h1>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView()" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printer.estimated_time_remaining)" />
   </div>
 
   <div class="status-card-container">
@@ -43,6 +43,6 @@
       Druck gestartet
     </h1>
     <h2 class="print-info">{{ printer.print_start }} Uhr</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView()" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printer.print_start)" />
   </div>
 </div>
