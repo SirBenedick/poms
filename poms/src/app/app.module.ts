@@ -45,6 +45,7 @@ import { LoginService } from "./services/login.service";
 import { BenutzerService } from "./services/benutzer.service";
 import { TestbackendProvider } from "./services/testbackend.service";
 import { PopUpNeuerDruckerComponent } from './components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { FilterButtonActivatedDirective } from './directives/filter-button-activated.directive';
 import { PopUpFAQComponent } from './components/pop-up-faq/pop-up-faq.component';
 import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucken.component';
 import { PopUpVanikComponent } from './components/pop-up-vanik/pop-up-vanik.component';
@@ -66,6 +67,7 @@ registerLocaleData(de);
     LoginComponent,
     OrderFilterPopupComponent,
     PopUpNeuerDruckerComponent,
+    FilterButtonActivatedDirective,
     PopUpFAQComponent,
     PopUpDruckenComponent,
     PopUpVanikComponent
