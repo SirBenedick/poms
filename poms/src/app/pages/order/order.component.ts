@@ -13,8 +13,8 @@ import {
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
-import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 import { PopUpDruckenComponent } from 'src/app/components/pop-up-drucken/pop-up-drucken.component';
+import { group } from '@angular/animations';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -24,10 +24,9 @@ export class OrderComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
   newOrder: String; //no data use ATM
-
   filteredUngroupedOrders: Array<IOrder> = [];
   filteredGroupData: Array<IGroupedOrders> = [];
-
+  group=[];
   isOrderFilterSet: number = 0;
   isGroupFilterSet: number = 0;
 
@@ -266,6 +265,6 @@ export class OrderComponent implements OnInit {
         }.
 Die Gruppe jedoch ${targetDataLink[0].harz}`
       );
-    }
+    } 
   }
 }
