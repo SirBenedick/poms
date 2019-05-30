@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from "@angular/material";
 import { LoginService } from "./services/login.service";
 import { User, Role } from "./shared/interfaces";
 import { Router } from "@angular/router";
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 @Component({
@@ -14,7 +15,6 @@ import { Router } from "@angular/router";
 export class AppComponent implements OnInit {
   currentUser: User;
   title = "poms";
-
   constructor(
     private authService: LoginService,
     public dialog: MatDialog,
@@ -28,9 +28,5 @@ export class AppComponent implements OnInit {
 //wird geprüft ob der Admin angemeldet ist
   get isAdmin() {
     return this.currentUser && this.currentUser.role === Role.Admin;
-  }
-  //wenn man sich ausloggt, wird wieder die Login Seite aufgerufen und man kann sich wieder einloggen
-  logout() {
-    this.authService.logout();
   }
 }

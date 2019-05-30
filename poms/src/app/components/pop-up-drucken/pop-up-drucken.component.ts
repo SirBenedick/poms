@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { OrderComponent } from 'src/app/pages/order/order.component';
-import { IDrucken } from 'src/app/shared/interfaces';
+import { IDrucken, IPrinterData } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-pop-up-drucken',
@@ -11,6 +11,7 @@ import { IDrucken } from 'src/app/shared/interfaces';
 })
 export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
+  allPrinters: Array<IPrinterData> = [];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: IDrucken,

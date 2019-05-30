@@ -1,4 +1,4 @@
-import { ConverterService } from './../../services/converter.service';
+import { ConverterService } from "./../../services/converter.service";
 import { IOrderCreateNew } from "./../../shared/interfaces";
 import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
@@ -17,6 +17,8 @@ import { CreateNewOrderComponent } from "src/app/components/create-new-order/cre
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { PopUpDruckenComponent } from "src/app/components/pop-up-drucken/pop-up-drucken.component";
+import { LoginComponent } from 'src/app/components/login/login.component';
+import { ErrorPopUpComponent } from 'src/app/components/error-pop-up/error-pop-up.component';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -28,7 +30,6 @@ export class OrderComponent implements OnInit {
   newOrder: String; //no data use ATM
   filteredUngroupedOrders: Array<IOrder> = [];
   filteredGroupData: Array<IGroupedOrders> = [];
-  group=[];
   isOrderFilterSet: number = 0;
   isGroupFilterSet: number = 0;
 
@@ -73,7 +74,7 @@ export class OrderComponent implements OnInit {
         //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
         if (foundGroupObject) {
           foundGroupObject.orders.push(singleOrder);
-          console.log("pushed group")
+          console.log("pushed group");
         } else {
           console.log("Keine Gruppe vorhanden: ", foundGroupObject);
         }
@@ -282,18 +283,23 @@ export class OrderComponent implements OnInit {
       );
     } else {
       /** Fehler muss ersichtlich ausgegeben sein */
-      alert(
-        `Der Auftrag #${draggedOrder.orderId} hat den Harztyp: ${
-          draggedOrder.harz
-        }.
-Die Gruppe jedoch ${targetDataLink[0].harz}`
-      );
+      this.dialog.open(ErrorPopUpComponent)
+      // alert(
+        //     `Der Auftrag #${draggedOrder.orderId} hat den Harztyp: ${
+        //           draggedOrder.harz
+        //         }.
+        // Die Gruppe jedoch ${targetDataLink[0].harz}`
+      // );
     }
-     // Hier die Abfrage ob die Gruppe leer ist und dann wird sie gelöscht
-     if(event.previousIndex == 0){
+    // Hier die Abfrage ob die Gruppe leer ist und dann wird sie gelöscht
+    if (event.previousIndex == 0) {
       // this.filteredGroupData.pop()
-      console.log("Letzte Gruppe wurde gelöscht")
-     console.log(event.previousContainer)
-       }   
+      console.log("Letzte Gruppe wurde gelöscht");
+      console.log(event.previousContainer);
+    }
+  }
+  //Funtkion für den Gruppenfilter
+  groupFilter(){
+    console.log("Group Filter aktiviert")
   }
 }

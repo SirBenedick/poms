@@ -49,6 +49,8 @@ import { FilterButtonActivatedDirective } from './directives/filter-button-activ
 import { PopUpFAQComponent } from './components/pop-up-faq/pop-up-faq.component';
 import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucken.component';
 import { PopUpVanikComponent } from './components/pop-up-vanik/pop-up-vanik.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.component';
 
 registerLocaleData(de);
 @NgModule({
@@ -70,7 +72,9 @@ registerLocaleData(de);
     FilterButtonActivatedDirective,
     PopUpFAQComponent,
     PopUpDruckenComponent,
-    PopUpVanikComponent
+    PopUpVanikComponent,
+    LogoutComponent,
+    ErrorPopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +109,8 @@ registerLocaleData(de);
     PopUpFAQComponent,
     PopUpDruckenComponent,
     PopUpVanikComponent,
+    LogoutComponent,
+    ErrorPopUpComponent
   ],
   //alle Services einbinden
   providers: [

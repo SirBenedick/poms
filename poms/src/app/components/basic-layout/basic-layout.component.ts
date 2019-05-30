@@ -4,18 +4,22 @@ import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { IOrderCreateNew } from "src/app/shared/interfaces";
+import { IOrderCreateNew, User } from "src/app/shared/interfaces";
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
   styleUrls: ["./basic-layout.component.css"]
 })
 export class BasicLayoutComponent implements OnInit {
+  currentUser: User;
   printerSubscription: Observable<Object>;
 
   constructor(
     private backendService: BackendService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private authService: LoginService,
+    
   ) {}
 
   ngOnInit() {
@@ -51,5 +55,8 @@ export class BasicLayoutComponent implements OnInit {
         }
       }
     });
+  }
+  logout() {
+    this.authService.logout();
   }
 }
