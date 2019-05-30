@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { PopUpNeuerDruckerComponent } from "../pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { PopUpVanikComponent } from '../pop-up-vanik/pop-up-vanik.component';
+import { PopUpFAQComponent } from '../pop-up-faq/pop-up-faq.component';
+import { PopUpDruckenComponent } from '../pop-up-drucken/pop-up-drucken.component';
 
 @Component({
   selector: "app-status",
@@ -37,13 +39,13 @@ export class StatusComponent implements OnInit {
     });
   }
 
-  onDetailedView(detail: any): void {
-    const dialogRef = this.dialog.open(PopUpVanikComponent, {
-      data: detail
-    });
-
-     dialogRef.afterClosed().subscribe(result => {
-       result;
+   onDetailedView(detail: any): void {
+     const dialogRef = this.dialog.open(PopUpVanikComponent, {
+       data: detail
      });
-  }
+
+      dialogRef.afterClosed().subscribe(result => {
+        result;
+      });
+    }
 }

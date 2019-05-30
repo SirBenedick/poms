@@ -6,6 +6,7 @@ import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { IOrderCreateNew, User } from "src/app/shared/interfaces";
 import { LoginService } from 'src/app/services/login.service';
+import { LogoutComponent } from '../logout/logout.component';
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
@@ -58,5 +59,6 @@ export class BasicLayoutComponent implements OnInit {
   }
   logout() {
     this.authService.logout();
+    this.dialog.open(LogoutComponent)
   }
 }

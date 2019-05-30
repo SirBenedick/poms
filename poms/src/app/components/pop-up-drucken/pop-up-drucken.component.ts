@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { OrderComponent } from 'src/app/pages/order/order.component';
 import { IDrucken, IPrinterData } from 'src/app/shared/interfaces';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-pop-up-drucken',
@@ -11,11 +12,12 @@ import { IDrucken, IPrinterData } from 'src/app/shared/interfaces';
 })
 export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
-  allPrinters: Array<IPrinterData> = [];
+  printerData: Array<IPrinterData> = this.backendService.mockedPrinterData;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: IDrucken,
-    public dialogRef: MatDialogRef<OrderComponent>
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<OrderComponent>,
+    private backendService: BackendService
   ) {}
 
   ngOnInit() {
@@ -37,6 +39,10 @@ export class PopUpDruckenComponent implements OnInit {
       hochladen: new FormControl(),
       herunterladen: new FormControl(),
       drucker: new FormControl(),
+      EMail: new FormControl(
+        this.data.EMail ? this.data.EMail: "",
+        [Validators.minLength(1), Validators.required]
+      ),
     });
   }
 

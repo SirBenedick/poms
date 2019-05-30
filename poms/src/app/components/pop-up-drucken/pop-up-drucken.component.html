@@ -9,23 +9,23 @@
     <div class="fileinputs" >
       <input type="file" class="file" [(ngModel)]="Skin" [ngModelOptions]="{standalone: true}" />
       <div class="fakefile" >
-        <input placeholder="Skin-Datei herunterladen" formControlName="hochladen" [(ngModel)]="Skin"/>
+        <input placeholder="Skin-Datei herunterladen" class="fileinputs" formControlName="hochladen" [(ngModel)]="Skin"/>
       </div>
     </div>
     <br>
-    <div class="fileinputs" >
+    <div class="fileinputs">
         <input type="file" class="file" [(ngModel)]="Solid" [ngModelOptions]="{standalone: true}" />
         <div class="fakefile">
-          <input placeholder="Solid-Datei hochladen" formControlName="herunterladen" [(ngModel)]="Solid"/>
+          <input placeholder="Solid-Datei hochladen" class="fileinputs" formControlName="herunterladen" [(ngModel)]="Solid"/>
         </div>
       </div>
     <div>
       <h3>Drucker</h3>
-      <div class="drucker" >
-              <select formControlName="drucker">
-                <!-- For Schleife um alle Drucker anzuzeigen, wie vorhanden sind -->
-                <option value="Schmittlauch">Drucker 1</option> -->
-                <option value="Schmittlauch1">Drucker 2</option>
+      <div>
+              <select formControlName="drucker" class="drucker">
+                <option *ngFor="let printer of printerData" value="{{ printer.name }}">
+                  {{ printer.name }}
+                </option>
               </select>
         
         </div>
@@ -33,7 +33,9 @@
     <br>
     <h3> Benachrichtigung
     </h3>
-    <input type="text" style="width: 250px" placeholder="E-Mail Adresse hinterlegen" />
+    <mat-form-field style="width: 472px" >
+    <input matInput type="text" placeholder="E-Mail Adresse hinterlegen" formControlName="EMail"/>
+  </mat-form-field>
     <div>
       Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe fertig gedruckt ist, oder
       falls ein Problem mit dem Druck auftauchen sollte.

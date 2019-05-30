@@ -127,6 +127,7 @@ export interface IDrucken{
   upload: File;
   download: File;
   print: File;
+  EMail: String;
 }
 
 export interface ICustomer{
