@@ -117,6 +117,10 @@ body {
   background-image: url("../../../assets/svg/einstellung.svg");
   background-size: 25px;
 }
+#logout{
+  background-image: url("../../../assets/svg/Logout.svg");
+  background-size: 25px;
+}
 
 #right-row {
   width: 210px;
