@@ -15,8 +15,8 @@
           </div>
         </div>
         <!-- Hier die Funktion für den Auftragsfilter einfügen -->
-        <div class="button-style-group" (click)="groupFilter()">
-          Auftragsfilter
+        <div class="copy-filter" (click)="copyOrderFilterToGroup()">
+          Auftragsfilter übernehmen
         </div>
       </div>
       <button id="new-group-button" (click)="newGroup()" cdkDropList (cdkDropListDropped)="dropNewGroup($event)">
@@ -38,7 +38,6 @@
               <button class="button-style" (click)="onPrintClick()">Drucken</button>
             </div>
           </mat-expansion-panel-header>
-          <div (click)="onDelete()">Löschen</div>
           <div class="draggable-card-container">
             <app-order-card *ngFor="let orderCard of group.orders" cdkDragBoundary=".page-container" cdkDrag
               [order]="orderCard">
@@ -63,8 +62,8 @@
             </div>
           </div>
           <!-- Hier die Funktion für den Gruppenfilter einfügen -->
-          <div class="button-style-group" (click)="groupFilter()">
-            Gruppenfilter
+          <div class="copy-filter" (click)="copyGroupFilterToOrder()">
+            Gruppenfilter übernehmen
           </div>
         </div>
       </div>

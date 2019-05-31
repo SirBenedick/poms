@@ -1,6 +1,6 @@
 import { ConverterService } from "./../../services/converter.service";
 import { IOrderCreateNew } from "./../../shared/interfaces";
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import {
   IOrder,
@@ -15,10 +15,8 @@ import {
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
-import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { PopUpDruckenComponent } from "src/app/components/pop-up-drucken/pop-up-drucken.component";
-import { LoginComponent } from 'src/app/components/login/login.component';
-import { ErrorPopUpComponent } from 'src/app/components/error-pop-up/error-pop-up.component';
+import { ErrorPopUpComponent } from "src/app/components/error-pop-up/error-pop-up.component";
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -28,10 +26,13 @@ export class OrderComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
   newOrder: String; //no data use ATM
+
   filteredUngroupedOrders: Array<IOrder> = [];
   filteredGroupData: Array<IGroupedOrders> = [];
   isOrderFilterSet: number = 0;
   isGroupFilterSet: number = 0;
+  filterParameterOrder: IFilterOrders;
+  filterParameterGroup: IFilterOrders;
 
   constructor(
     private backendService: BackendService,
@@ -126,15 +127,41 @@ export class OrderComponent implements OnInit {
     }
   }
 
+
+  numberOfFilterParameters(parameter: IFilterOrders): number {
+    let setParamters: number = 0;
+    let maxTimeForDateCreation = 8640000000000000;
+
+    for (let key in parameter) {
+      if (parameter[key]) {
+        if (key == "dueDate") {
+          if (new Date("2019-01-01") < parameter[key].start) {
+            setParamters++;
+          }
+          if (parameter[key].end < new Date(maxTimeForDateCreation)) {
+            setParamters++;
+          }
+        } else {
+          setParamters++;
+        }
+      }
+    }
+    return setParamters;
+  }
+
+  /** Event functions */
   resetOrderFilter() {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
     this.isOrderFilterSet = 0;
     event.stopPropagation();
+    this.filterParameterOrder = null;
   }
+
   resetGroupFilter() {
     this.filteredGroupData = this.allGroupedOrders;
     this.isGroupFilterSet = 0;
     event.stopPropagation();
+    this.filterParameterGroup = null;
   }
 
   openDialogCreateNewOrder(): void {
@@ -163,16 +190,17 @@ export class OrderComponent implements OnInit {
       }
     });
   }
-
   openDialogFilterOrders(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
       data: { newOrderForm: this.newOrder }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: { data: IFilterOrders }) => {
       if (result) {
-        this.filterUngroupedOrders(result.data);
-        this.isOrderFilterSet = this.numberOfFilterParameters(result.data);
+        let filterParamter = result.data;
+        this.filterUngroupedOrders(filterParamter);
+        this.isOrderFilterSet = this.numberOfFilterParameters(filterParamter);
+        this.filterParameterOrder = filterParamter;
       }
     });
   }
@@ -181,35 +209,16 @@ export class OrderComponent implements OnInit {
       data: { newOrderForm: this.newOrder }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: { data: IFilterOrders }) => {
       if (result) {
-        this.filterGroupData(result.data);
-
-        this.isGroupFilterSet = this.numberOfFilterParameters(result.data);
+        let filterParamter = result.data;
+        this.filterGroupData(filterParamter);
+        this.isGroupFilterSet = this.numberOfFilterParameters(filterParamter);
+        this.filterParameterGroup = filterParamter;
       }
     });
   }
 
-  numberOfFilterParameters(parameter: IFilterOrders): number {
-    let setParamters: number = 0;
-    let maxTimeForDateCreation = 8640000000000000;
-
-    for (let key in parameter) {
-      if (parameter[key]) {
-        if (key == "dueDate") {
-          if (new Date("2019-01-01") < parameter[key].start) {
-            setParamters++;
-          }
-          if (parameter[key].end < new Date(maxTimeForDateCreation)) {
-            setParamters++;
-          }
-        } else {
-          setParamters++;
-        }
-      }
-    }
-    return setParamters;
-  }
   onPrintClick(): void {
     const dialogRef = this.dialog.open(PopUpDruckenComponent, {
       data: { newOrderForm: this.newOrder }
@@ -220,13 +229,18 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  onDelete(): void {
-    console.log("Delete");
+  copyOrderFilterToGroup(): void {
+    this.filterGroupData(this.filterParameterOrder);
+    this.isGroupFilterSet = this.numberOfFilterParameters(
+      this.filterParameterOrder
+    );
   }
-  //Bitte lesen:
-  //Kann ja dann eigentlich weg oder? Wird ja per Drag&Drop gemacht??
-  newGroup(): void {
-    console.log("New Group");
+
+  copyGroupFilterToOrder(): void {
+    this.filterUngroupedOrders(this.filterParameterGroup);
+    this.isOrderFilterSet = this.numberOfFilterParameters(
+      this.filterParameterGroup
+    );
   }
 
   dropNewGroup(event: CdkDragDrop<string[]>) {
@@ -283,12 +297,12 @@ export class OrderComponent implements OnInit {
       );
     } else {
       /** Fehler muss ersichtlich ausgegeben sein */
-      this.dialog.open(ErrorPopUpComponent)
+      this.dialog.open(ErrorPopUpComponent);
       // alert(
-        //     `Der Auftrag #${draggedOrder.orderId} hat den Harztyp: ${
-        //           draggedOrder.harz
-        //         }.
-        // Die Gruppe jedoch ${targetDataLink[0].harz}`
+      //     `Der Auftrag #${draggedOrder.orderId} hat den Harztyp: ${
+      //           draggedOrder.harz
+      //         }.
+      // Die Gruppe jedoch ${targetDataLink[0].harz}`
       // );
     }
     // Hier die Abfrage ob die Gruppe leer ist und dann wird sie gelöscht
@@ -297,9 +311,5 @@ export class OrderComponent implements OnInit {
       console.log("Letzte Gruppe wurde gelöscht");
       console.log(event.previousContainer);
     }
-  }
-  //Funtkion für den Gruppenfilter
-  groupFilter(){
-    console.log("Group Filter aktiviert")
   }
 }
