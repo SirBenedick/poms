@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { IPrinterData } from "../../shared/interfaces";
-import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 
 @Component({
   selector: "app-printer",
@@ -11,7 +11,7 @@ import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-druc
 })
 export class PrinterComponent implements OnInit {
   allPrinters: Array<IPrinterData> = [];
-  newPrinter: String;
+
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
     private backendService: BackendService,
@@ -41,18 +41,24 @@ export class PrinterComponent implements OnInit {
   //     console.log("The create new Printer Dialog was closed, result: ", result);
   //   });
   // }
-  openDialogPopUpDrucker(): void {
+  openDialogNewDrucker(): void {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
-      data: { newPrinterForm: this.newPrinter }
+      data: {}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialog was closed")
-      this.newPrinter = result;
-      // if (result) this.filterGroupData(result.data);
+      if (result) {
+        if (result.value) {
+          console.log("Dialog was closed", result.value);
+          this.backendService.addNewPrinter(result.value).then((res: any) => {
+            if (res.error)
+              alert("Drucker konnte nicht hinzugefügt werden: \n" + res.error);
+          });
+        }
+      }
     });
   }
-  onPrinterClick(event){
-    this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent,{
+  onPrinterClick(event) {
+    this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
       data: event.printer
     });
   }

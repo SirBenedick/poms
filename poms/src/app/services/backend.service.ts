@@ -13,10 +13,11 @@ import {
   IResinType,
   ICategory,
   ICustomer,
-  IOrderCreateNew
+  IOrderCreateNew,
+  IPrinterNew
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
-import { ConverterService } from './converter.service';
+import { ConverterService } from "./converter.service";
 
 @Injectable({
   providedIn: "root"
@@ -568,6 +569,12 @@ export class BackendService {
     console.log("createNewOrder Backend", newOrder);
     return this.http
       .post(this.backendUrl + "order/create/", newOrder)
+      .toPromise();
+  }
+
+  addNewPrinter(newPrinter: IPrinterNew): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "printer/create", newPrinter)
       .toPromise();
   }
 

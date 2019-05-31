@@ -105,32 +105,38 @@ export enum Role {
   User = "User",
   Admin = "Admin"
 }
-export interface ISettingsPage{
+export interface ISettingsPage {
   pageTitel: String;
   topics: Array<ISettingsPagetopic>;
 }
 
-export interface ISettingsPagetopic{
+export interface ISettingsPagetopic {
   topicTitel: String;
   subtopics: Array<ISettingsPageSubtopic>;
 }
-export interface ISettingsPageSubtopic{
+export interface ISettingsPageSubtopic {
   subtopicTitel: String;
   subtopicContent: String;
 }
 
-export interface ICategory{
+export interface ICategory {
   category_name: String;
 }
 
-export interface IDrucken{
+export interface IDrucken {
   upload: File;
   download: File;
   print: File;
   EMail: String;
 }
 
-export interface ICustomer{
+export interface ICustomer {
   customer_id: number;
   name: String;
+}
+
+export interface IPrinterNew {
+  name: String;
+  host: String;
+  port: String;
 }

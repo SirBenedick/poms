@@ -18,7 +18,7 @@ export class PopUpNeuerDruckerComponent implements OnInit {
 
   ngOnInit() {
     this.newPrinterForm = new FormGroup({
-      printerName: new FormControl("", [
+      name: new FormControl("", [
         Validators.minLength(1),
         Validators.required
       ]),
