@@ -50,9 +50,14 @@ export class BasicLayoutComponent implements OnInit {
             status: "created",
             scan_file: null
           };
-          this.backendService
-            .createNewOrder(newOrder)
-            .then(res => console.log(res));
+          this.backendService.createNewOrder(newOrder).then((res: any) => {
+            if (res.error) {
+              alert(res.error);
+              console.log(res.error);
+            }
+            //ggf müssen hier alle aufträge neugeladen/angezeigt werden
+            //bei in order.ts und basic-layout.ts
+          });
         }
       }
     });
