@@ -166,7 +166,7 @@ export class OrderComponent implements OnInit {
 
   openDialogCreateNewOrder(): void {
     const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newPrinterForm: this.newOrder }
+      data: { newPrinterForm: "Keine Auswahl getroffen" }
     });
 
     dialogRef.afterClosed().subscribe(result => {

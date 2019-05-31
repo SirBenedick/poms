@@ -564,6 +564,7 @@ export class BackendService {
   }
 
   createNewOrder(newOrder: IOrderCreateNew): Promise<Object> {
+    console.log("createNewOrder Errorhandling implementieren");
     console.log("createNewOrder Backend", newOrder);
     return this.http
       .post(this.backendUrl + "order/create/", newOrder)
