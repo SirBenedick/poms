@@ -3,6 +3,7 @@ import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from '@angular/material';
 import { PopUpFAQComponent } from 'src/app/components/pop-up-faq/pop-up-faq.component';
+import { FAQPopUpComponent } from 'src/app/components/faqpop-up/faqpop-up.component';
 
 @Component({
   selector: "app-faq",
@@ -47,4 +48,9 @@ export class FAQComponent implements OnInit {
       if (result) this.addNewTopic(result.data);
     });
   }
-}
+  openFAQPopUp(): void {
+    const dialogRef = this.dialog.open(FAQPopUpComponent)
+     console.log("PopUp Hilfestellung")
+    };
+
+  }
