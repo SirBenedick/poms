@@ -51,6 +51,7 @@ import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucke
 import { PopUpVanikComponent } from './components/pop-up-vanik/pop-up-vanik.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.component';
+import { FAQPopUpComponent } from './components/faqpop-up/faqpop-up.component';
 
 registerLocaleData(de);
 @NgModule({
@@ -74,7 +75,8 @@ registerLocaleData(de);
     PopUpDruckenComponent,
     PopUpVanikComponent,
     LogoutComponent,
-    ErrorPopUpComponent
+    ErrorPopUpComponent,
+    FAQPopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +112,8 @@ registerLocaleData(de);
     PopUpDruckenComponent,
     PopUpVanikComponent,
     LogoutComponent,
-    ErrorPopUpComponent
+    ErrorPopUpComponent,
+    FAQPopUpComponent
   ],
   //alle Services einbinden
   providers: [
