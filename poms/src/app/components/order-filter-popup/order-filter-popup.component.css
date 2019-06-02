@@ -1,3 +1,7 @@
+.page-container{
+  display: flex;
+  flex-direction: column
+}
 .harz-container {
   display: flex;
 }
@@ -6,10 +10,43 @@
   float: right;
   font-family: "Segoe UI";
   width: 149px;
-  height: 30px;
+  height: auto;
   margin: 2px;
   object-fit: contain;
   border-radius: 3px;
   border: solid 1px #62c6d6;
   background-color: white;
+}
+.boxen{
+  width: 472px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  border: solid 1px #62c6d6;
+  background-color: #ffffff;
+}
+#boxenPrio{
+  width: 149px;
+  height: auto;
+  object-fit: contain;
+  border: solid 1px #62c6d6;
+  background-color: #ffffff;
+}
+.prio{
+  display: flex;
+  justify-content: space-between
+}
+.schrift-boxen{
+  width: 50px;
+  height: 21px;
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: center;
+  color: #62c6d6;
 }
