@@ -14,7 +14,9 @@
         </mat-expansion-panel-header>
         <div *ngFor="let subtopic of topic.subtopics">
           <!-- <div id="sub-titel" (click)="onClick(subtopic)"> -->
-          <div id="sub-titel" (click)="openFAQPopUp()">
+          <!-- <div id="sub-titel" (click)="openFAQPopUp()"> -->
+          <div id="sub-titel" (click)="openUrlTextPopUp()">
+
             {{ subtopic.subtopicTitel }}
           </div>
           <br />
