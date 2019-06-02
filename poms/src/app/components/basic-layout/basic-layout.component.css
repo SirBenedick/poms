@@ -234,3 +234,17 @@ body {
   border-radius: 5px;
   height: 200%;
 }
+.poms{
+  width: 105px;
+  height: 40px;
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #62c6d6;
+}
