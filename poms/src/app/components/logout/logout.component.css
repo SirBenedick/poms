@@ -1,6 +1,6 @@
 #container{
   background-image: linear-gradient(to bottom, #bef0e8, #62c6d6);
-  height: 100vh;
+  height: auto;
   width: auto;
   text-align: center;
   display: flex;
@@ -9,6 +9,8 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 #heading{
