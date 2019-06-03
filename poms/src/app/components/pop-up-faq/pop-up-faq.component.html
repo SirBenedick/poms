@@ -1,30 +1,29 @@
 <form [formGroup]="newFaqForm">
   <div class="page-container">
     <div>
-      <div>Neues Subtopic anlegen</div>
+      <h1>Neues Subtopic anlegen</h1>
     </div>
-    <br>
-    <div>
-      <div>Subtopic Name</div>
-      <input formControlName="subtopicTitel" placeholder="Subtopic angeben" />
+    <div class ="input-container">
+      <h2>Subtopic Name</h2>
+      <input type="text" formControlName="subtopicTitel" placeholder="Subtopic angeben..." />
     </div>
-    <br>
-    <div>
-      <div>Subtopic Content</div>
-      <input formControlName="subtopicContent" placeholder="Content angeben" />
+    <div class ="input-container">
+      <h2>Subtopic Video</h2>
+      <input type="text" formControlName="videoURL" placeholder="Viedeo angeben..." />
     </div>
-    <br>
-    <div>
-      <div>Subtopic Video</div>
-      <input formControlName="videoURL" placeholder="Viedeo angeben" />
+    <div class ="input-container">
+      <h2>Subtopic Content</h2>
+      <textarea type="text" class=" rechteck-eingabe" formControlName="comment" rows="6" placeholder="Content angeben..."></textarea>
     </div>
-    <div>
+
+
+    <div style="float: right">
       <mat-dialog-actions>
-        <button mat-button [mat-dialog-close]="newFaqForm">
-          Speichern
-        </button>
-        <button mat-button (click)="onBreakButton()">
+        <button id="button-abbruch" mat-button (click)="onBreakButton()">
           Abbrechen
+        </button>
+        <button id="button-save" mat-button [mat-dialog-close]="newFaqForm">
+          Speichern
         </button>
       </mat-dialog-actions>
     </div>

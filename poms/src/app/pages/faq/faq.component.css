@@ -3,16 +3,12 @@
     flex-direction: column;
 }
 #titel{
-  width: 226px;
-  height: 35px;
   object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 26px;
+  font-family: "Segoe UI";
+  padding-left: 5px;
+  font-size: 24px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.35;
-  letter-spacing: normal;
   text-align: left;
   color: #272f33;
 }
@@ -22,7 +18,6 @@ min-height: 85vh;
 overflow: auto;
 margin: 2px;
 object-fit: contain;
-/* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
 }
 
 
@@ -30,13 +25,10 @@ object-fit: contain;
     width: 157px;
     height: 35px;
     object-fit: contain;
-    font-family: SegoeUI;
+    font-family: "Segoe UI";
     font-size: 26px;
     font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.35;
-    letter-spacing: normal;
     text-align: left;
     color: #272f33;
   }
@@ -45,38 +37,35 @@ object-fit: contain;
     padding-top: 5px;
     height: 21px;
     object-fit: contain;
-    font-family: "SegoeUI";
+    font-family: "Segoe UI";
     font-size: 16px;
     font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.31;
-    letter-spacing: normal;
     text-align: left;
     color: #272f33;
   }
   #sub-titel{
     padding-left: 35px;
-    width: 351px;
-    height: 21px;
     object-fit: contain;
-    font-family: "SegoeUI";
+    font-family: "Segoe UI";
     font-size: 14px;
     font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.31;
-    letter-spacing: normal;
     text-align: left;
     color: #272f33;
   }
 #button-style{
   border-radius: 4px;
-  background-color: transparent;
+  background-color: white;
   color: #62c6d6;
   border: #62c6d6 solid 1px;
   text-align: center;
   justify-items: right;
+  font-size: 14px;
+}
+#button-style:hover{
+  background-color: #62c6d6;
+  color: white;
 }
 
 #button-space{

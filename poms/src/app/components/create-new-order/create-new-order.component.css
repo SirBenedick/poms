@@ -1,6 +1,6 @@
 .page-container {
    display: flex;
-  width: 800px;
+  width: 750px;
   height: 570px;
   flex-direction: column;
   padding: 18px;
@@ -10,7 +10,10 @@ background-color: transparent;
 .a{
   grid-column: auto / span 2;
 }
-
+.input-container{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .title{
   font-family: "Segoe UI";
   font-weight: bold;
@@ -57,10 +60,9 @@ background-color: transparent;
 }
 
 .rechteck-eingabe {
-  width: 250px;
-  height: 38px; 
+  width: 350px;
+  height: auto;
   object-fit: contain;
-  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
   border-radius: 4px;
   border: solid 1px #62c6d6;
@@ -74,6 +76,7 @@ background-color: transparent;
 .send-button {
   width: 149px;
   height: 38px;
+  color: white;
   object-fit: contain;
   border: solid 1px #62c6d6;
   background-color: #62c6d6;
@@ -84,15 +87,42 @@ background-color: transparent;
     height: 38px;
     object-fit: contain;
     border: solid 1px #62c6d6;
+  color: #62c6d6;
     background-color: #ffffff;
 }
-.fileinputs{
-  position: relative;
-  width: 472px;
-  height: 38px;
-  object-fit: contain;
-  border-radius: 4px;
-  border: solid 1px #62c6d6;
-  background-color: #62c6d6;
-  text-align: center
+.inputfile{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  font-style: normal;
+  font-family: "Segoe UI";
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
+label{
+  width: 350px;
+  color: white;
+  font-family: "Segoe UI";
+  justify-items: center;
+  align-items: center;
+  background-color: #62c6d6;
+  border-radius: 4px;
+}
+.inputfile  {
+
+  border-radius: 4px;
+  background-color: #62c6d6;
+  display: inline-block;
+}
+.inputfile + label:hover {
+
+  cursor: pointer;
+}
+
+::placeholder{
+  font-style: italic;
+  color: #62c6d6;
+  padding-left: 5px;
+}
+

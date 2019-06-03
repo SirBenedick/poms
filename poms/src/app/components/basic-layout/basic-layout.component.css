@@ -136,8 +136,8 @@ body {
 #page-header {
   height: 30px;
   object-fit: contain;
-  opacity: 0.8;
-  background-color: #272f33;
+  opacity: 0.99;
+  background-color: #1f282c;
   display: flex;
   justify-content: space-between;
 }
