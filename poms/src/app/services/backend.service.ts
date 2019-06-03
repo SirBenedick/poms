@@ -392,7 +392,7 @@ export class BackendService {
           topicTitel: "Prioritäten verwalten",
           subtopics: [
             {
-              subtopicTitel: "Denn Zeitraum der Priorität ändern",
+              subtopicTitel: "Den Zeitraum der Priorität ändern",
               subtopicContent: "subtopicContent 121"
             }
           ]
