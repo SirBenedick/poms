@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
 import {
   IOrder,
   IFilterOrders,
@@ -33,24 +32,23 @@ export class PrintedordersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.backendService
-      .getAllGroups()
-      .then((resopnse: Array<IGroupedOrders>) => {
-        // this.allGroupedOrders = resopnse;
-        // this.filteredGroupData = this.allGroupedOrders;
-        this.allGroupedOrders = resopnse;
-        this.filteredGroupData = this.allReadyOrders;
-      });
+
     if (this.backendService.allUngroupedOrders.length == 0) {
-      this.backendService
-        .pollAllOrdersFromBackend()
-        .toPromise()
-        .then((allOrderData: Array<IOrder>) => {
-          this.readyOrders(allOrderData);
-        });
+      this.loadOrderData();
     } else {
       this.readyOrders(this.backendService.allUngroupedOrders);
     }
+  }
+  loadOrderData() {
+    console.log("loadOrderData");
+    this.backendService
+      .pollAllOrdersFromBackend()
+      .toPromise()
+      .then((allOrderData: Array<IOrder>) => {
+        this.allUngroupedOrders = [];
+        this.readyOrders(allOrderData);
+        this.backendService.allUngroupedOrders = allOrderData;
+      });
   }
   //show all ReadyOrders
   readyOrders(allReadyUnsorted: Array<IOrder>) {
@@ -105,7 +103,7 @@ export class PrintedordersComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
             order => {
               let orderDate = new Date(order[key]);
@@ -129,7 +127,7 @@ export class PrintedordersComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           this.allReadyOrders = this.allReadyOrders.filter(order => {
             let orderDate = new Date(order[key]);
             if (

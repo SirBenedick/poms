@@ -17,16 +17,16 @@ export interface IPrinterData {
 }
 
 export interface IOrder {
-  orderId: Number;
-  groupId?: Number;
+  order_id: number;
+  group_id?: number;
   customer: String; //DB has list of all customers
   laboratory?: String; //DB has list of all laboratories
   patient: String; //DB has list of all patients
-  dentalPrintType: String; //DB has list of all dentalPrintTypes
-  harz: String; //DB has list of all "harzes"
+  dental_print_type: String; //DB has list of all dental_print_types
+  resin_name: String; //DB has list of all "harzes"
   dueDate: String;
   priority: String;
-  creationDate: String;
+  creation_date: string;
   comment?: String;
   fileScan?: String; //REST-Url to file
   fileSolid?: String; //REST-Url to file
@@ -54,8 +54,8 @@ export interface IOrderCreateNew {
 }
 
 export interface IGroupedOrders {
-  groupId: Number;
-  harz: String;
+  group_id: number;
+  resin_name: string;
   creationDate: String;
   fileSliced?: any; //REST-Url to file
   orders?: Array<IOrder>;
@@ -68,10 +68,10 @@ export interface ICreateNewOrder {
 }
 
 export interface IFilterOrders {
-  harz: String;
+  resin_name: String;
   priority: "hoch" | "mittel" | "niedrig";
-  dueDate: any;
-  customer: String;
+  due_date: any;
+  customer_id: string;
 }
 
 export interface IHelpPage {

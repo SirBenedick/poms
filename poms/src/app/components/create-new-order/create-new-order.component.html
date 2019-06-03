@@ -3,7 +3,7 @@
     <div class="a">
       <h1 class="heading" *ngIf="!data.customer">Neuen Auftrag erstellen</h1>
       <h1 class="heading" *ngIf="data.customer">
-        Auftrag: #{{ data.orderId }}
+        Auftrag: #{{ data.order_id }}
       </h1>
     </div>
 
@@ -64,14 +64,11 @@
     <div class ="input-container">
       <h1 class="title">Kategorie</h1>
       <mat-select
-        formControlName="dentalPrintType"
+        formControlName="dental_print_type"
         placeholder="Kategorie auswählen"
         class=" rechteck-eingabe"
       >
-        <mat-option
-          *ngFor="let oneCategory of categoryData"
-          value="{{ oneCategory.category_name }}"
-        >
+        <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
           {{ oneCategory.category_name }}
         </mat-option>
       </mat-select>
@@ -126,7 +123,7 @@
             class=" rechteck-eingabe"
             matInput
             type="number"
-            formControlName="orderId"
+            formControlName="order_id"
             placeholder="OrderId"
           />
         </mat-form-field> -->
@@ -136,7 +133,7 @@
             class=" rechteck-eingabe"
             matInput
             type="number"
-            formControlName="groupId"
+            formControlName="group_id"
             placeholder="GroupId"
           />
         </mat-form-field> -->
@@ -155,10 +152,10 @@
             class=" rechteck-eingabe"
             matInput
             type="text"
-            formControlName="dentalPrintType"
-            placeholder="dentalPrintType"
+            formControlName="dental_print_type"
+            placeholder="dental_print_type"
           /> -->
-<!-- <mat-select formControlName="dentalPrintType" placeholder="dentalPrintType">
+<!-- <mat-select formControlName="dental_print_type" placeholder="dental_print_type">
               <mat-option *ngFor="let category of orderCategories" [value]="category">{{ category }}
               </mat-option>
             </mat-select> -->

@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from "@angular/core";
 import { IOrder } from "src/app/shared/interfaces";
 import { CreateNewOrderComponent } from "../create-new-order/create-new-order.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
-import { BackendService } from "src/app/services/backend.service";
 
 @Component({
   selector: "app-order-card",
@@ -11,14 +10,21 @@ import { BackendService } from "src/app/services/backend.service";
 })
 export class OrderCardComponent implements OnInit {
   @Input() order: IOrder;
+  dateForFrontendView: string;
   allUngroupedOrders: Array<IOrder> = [];
   ordersNameDialogRef: MatDialogRef<CreateNewOrderComponent>;
-  constructor(
-    private dialog: MatDialog,
-    private backendService: BackendService
-  ) {}
 
-  ngOnInit() { }
+  constructor(private dialog: MatDialog) {}
+
+  ngOnInit() {
+    let oldDateFormat = new Date(this.order.creation_date);
+    this.dateForFrontendView =
+      oldDateFormat.getFullYear() +
+      "-" +
+      (oldDateFormat.getMonth() + 1) +
+      "-" +
+      oldDateFormat.getDate();
+  }
 
   onCardClick(event) {
     this.ordersNameDialogRef = this.dialog.open(CreateNewOrderComponent, {
@@ -33,7 +39,7 @@ export class OrderCardComponent implements OnInit {
     // });
     //   console.log(result.order)
     //   if(event){
-    //    result.findIndex(o => o.groupId == result.groupId);
+    //    result.findIndex(o => o.group_id == result.group_id);
     // }
     // else{
     // console.log("Test")

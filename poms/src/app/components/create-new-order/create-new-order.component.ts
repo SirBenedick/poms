@@ -35,11 +35,11 @@ export class CreateNewOrderComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.newOrderForm = new FormGroup({
-      orderId: new FormControl(this.data.orderId ? this.data.orderId : "", [
+      order_id: new FormControl(this.data.order_id ? this.data.order_id : "", [
         Validators.minLength(1),
         Validators.required
       ]),
-      groupId: new FormControl(this.data.groupId ? this.data.groupId : "", [
+      group_id: new FormControl(this.data.group_id ? this.data.group_id : "", [
         Validators.minLength(1),
         Validators.required
       ]),
@@ -53,11 +53,11 @@ export class CreateNewOrderComponent implements OnInit {
       patient: new FormControl(this.data.patient ? this.data.patient : "", [
         Validators.required
       ]),
-      dentalPrintType: new FormControl(
-        this.data.dentalPrintType ? this.data.dentalPrintType : "",
+      dental_print_type: new FormControl(
+        this.data.dental_print_type ? this.data.dental_print_type : "Bitte auswählen",
         [Validators.required]
       ),
-      harz: new FormControl(this.data.harz ? this.data.harz : "", [
+      harz: new FormControl(this.data.resin_name ? this.data.resin_name : "", [
         Validators.required
       ]),
       dueDate: new FormControl(this.data.dueDate ? this.data.dueDate : "", [
@@ -67,7 +67,7 @@ export class CreateNewOrderComponent implements OnInit {
         Validators.required
       ]),
       creationDate: new FormControl(
-        this.data.creationDate ? this.data.creationDate : "",
+        this.data.creation_date ? this.data.creation_date : "",
         [Validators.required]
       ),
       comment: new FormControl(this.data.comment ? this.data.comment : ""),

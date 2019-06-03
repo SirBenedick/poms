@@ -10,18 +10,18 @@ export class ConverterService {
 
   ordersBackendToFrontend(backendOrderFormat: Array<any>): Array<IOrder>{
     let frontendOrderFormat: Array<IOrder> = [];
-
+    console.log("incoming: ", backendOrderFormat )
     backendOrderFormat.forEach(order => {
       frontendOrderFormat.push({
-        orderId: order.order_id,
-        groupId: order.group_id,
+        order_id: order.order_id,
+        group_id: order.group_id,
         customer: order.customer_id,
         patient: order.patient,
-        dentalPrintType: order.dental_print_type,
-        harz: order.resin_name,
+        dental_print_type: order.dental_print_type,
+        resin_name: order.resin_name,
         dueDate: order.due_date,
         priority: "hoch",
-        creationDate: order.creation_date,
+        creation_date: order.creation_date,
         comment: order.comment,
         fileScan: order.file_scan_name,
         fileSolid: order.file_solid_name,
@@ -29,6 +29,7 @@ export class ConverterService {
       });
       
     });
+    console.log("going: ", frontendOrderFormat );
     return frontendOrderFormat;
   }
 }
