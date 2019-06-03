@@ -1,0 +1,57 @@
+.page-container{
+  width: 700px;
+}
+h1{
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: bold;
+}
+h2{
+  font-family: "Segoe UI";
+  font-size: 15px;
+  font-weight: bold;
+}
+#button-abbruch{
+
+  border-radius: 4px;
+  float: right;
+  color: #62c6d6;
+  background-color: white;
+  border: 1px solid #62c6d6;
+  font-size: 14px;
+}
+#button-save{
+  border-radius: 4px;
+  float: right;
+  color: white;
+  background-color: #62c6d6;
+  font-size: 14px;
+}
+input{
+  width: 480px;
+  border-radius: 4px;
+  border: 1px solid #62c6d6;
+  font-family: "Segoe UI";
+  font-style: normal;
+}
+input[type="text"] {
+ padding-left: 5px;
+}
+.rechteck-eingabe {
+  resize:none;
+  width: 480px;
+  height: 240px;
+  object-fit: contain;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: solid 1px #62c6d6;
+}
+.rechteck-eingabe[type="text"] {
+  padding-left: 5px;
+}
+::placeholder{
+  font-style: italic;
+}
+.input-container{
+  margin-top: 10px;
+}
