@@ -205,14 +205,14 @@ body {
   padding-bottom: 5px;
   border: transparent;
 }
-#info-print-heading{
+.info-print-heading{
   font-family: "Segoe UI";
   font-size: 11px;
-  border-top: solid 1px #a2a2a2;
+  border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
   margin-right: 10px;
-  padding-top: 5px;
-  margin-top: -15px;
+  padding-bottom: 4px;
+  font-style: italic;
 }
 #print-prozess-info{
   font-family: "Segoe UI";
@@ -222,24 +222,13 @@ body {
   padding-top: 2px;
 }
 
-::ng-deep .mat-progress-bar-fill::after {
-  background-color: #62c6d6;
-}
-
-::ng-deep .mat-progress-bar-buffer {
-  background: #d7d7d7;
-}
-
-::ng-deep .mat-progress-bar {
-  border-radius: 5px;
-  height: 200%;
-}
 .poms{
   width: 105px;
   height: 40px;
   object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 30px;
+  font-family: "Segoe UI";
+  font-size: 25px;
+  margin-top: -3px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
