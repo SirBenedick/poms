@@ -1,17 +1,24 @@
-
 <div id="flex-container">
-<h1>Hier kann IHR FAQ stehen!</h1>
-<img src="../../../assets/png/FAQ_temp_pic.jpg"/>
+  <div *ngIf="!bearbeitenAktiv">
+    {{subtopicTitel}}
+    <img src="{{videoURL}}" />
 
-<div id="text" >
-  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-  et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-  Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-  dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</div>
+    <div id="text">
+      {{ subtopicContent }}
+    </div>
+  </div>
+  <div id="text" *ngIf="bearbeitenAktiv">
+    <h1><textarea cols="51" rows="2" style="resize:none;">Hier kann IHR FAQ stehen!</textarea></h1>
+    <img src="{{videoURL}}" />
+
+    <textarea cols="90" rows="8" style="resize:none;" [(ngModel)]="subtopicContent">
+  {{ subtopicContent }}
+</textarea>
+
+  </div>
   <div>
-<button (click)="onBreakButton()">Schließen</button>
+    <button (click)="onBreakButton()">Schließen</button>
+    <button (click)="saveButton()" *ngIf="bearbeitenAktiv">Speichern</button>
+    <button (click)="bearbeitenButton()" *ngIf="!bearbeitenAktiv">bearbeiten</button>
   </div>
 </div>
