@@ -23,11 +23,12 @@ export class OrderCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (!this.order.orderId) {
-      this.order = this.converterService.ordersBackendToFrontend([
-        <any>this.order
-      ])[0];
-    }
+    // if (!this.order.order_id) {
+    //   this.order = this.converterService.ordersBackendToFrontend([
+    //     <any>this.order
+    //   ])[0];
+    // }
+    // console.log("this card: ", this.order)
   }
 
   onCardClick(event) {
@@ -43,7 +44,7 @@ export class OrderCardComponent implements OnInit {
     // });
     //   console.log(result.order)
     //   if(event){
-    //    result.findIndex(o => o.groupId == result.groupId);
+    //    result.findIndex(o => o.group_id == result.group_id);
     // }
     // else{
     // console.log("Test")

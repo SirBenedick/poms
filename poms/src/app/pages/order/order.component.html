@@ -68,7 +68,7 @@
         </div>
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
-      <div class="draggable-card-container" cdkDropList [cdkDropListData]="allUngroupedOrders"
+      <div class="draggable-card-container" cdkDropList [cdkDropListData]="filteredUngroupedOrders"
         (cdkDropListDropped)="drop($event)">
         <!-- Plus-Button to create a new Order -->
         <div class="create-new-order" (click)="openDialogCreateNewOrder()">

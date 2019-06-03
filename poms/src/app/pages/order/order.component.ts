@@ -43,9 +43,10 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this.backendService
       .getAllGroups()
-      .then((resopnse: Array<IGroupedOrders>) => {
-        this.allGroupedOrders = resopnse;
+      .then((response: Array<IGroupedOrders>) => {
+        this.allGroupedOrders = response;
         this.filteredGroupData = this.allGroupedOrders;
+        console.log("Groups: ", response);
       });
 
     //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
@@ -54,13 +55,15 @@ export class OrderComponent implements OnInit {
         .pollAllOrdersFromBackend()
         .toPromise()
         .then((allOrderData: Array<IOrder>) => {
-          let convertedOrders: Array<
-            IOrder
-          > = this.converter.ordersBackendToFrontend(allOrderData);
-          this.sortOrderLists(convertedOrders);
-          this.backendService.allUngroupedOrders = convertedOrders;
+          // let convertedOrders: Array<
+          //   IOrder
+          // > = this.converter.ordersBackendToFrontend(allOrderData);
+          // this.sortOrderLists(convertedOrders);
+          this.sortOrderLists(allOrderData);
+          this.backendService.allUngroupedOrders = allOrderData;
           // this.sortOrderLists(this.backendService.allUngroupedOrders);
           // this.sortOrderLists(allOrderData);
+          console.log("orders: ", allOrderData);
         });
     } else {
       this.sortOrderLists(this.backendService.allUngroupedOrders);
@@ -68,14 +71,13 @@ export class OrderComponent implements OnInit {
   }
 
   sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
-    console.log("sortOrderLists");
     //old version, first we filtered the grouped orders out
     // allOrdersUnsorted.forEach(singleOrder => {
-    //   //check if groupId exists
-    //   if (singleOrder.groupId) {
-    //     //returns item with corresponding singleOrder.groupId or undefinded
+    //   //check if group_id exists
+    //   if (singleOrder.group_id) {
+    //     //returns item with corresponding singleOrder.group_id or undefinded
     //     let foundGroupObject = this.allGroupedOrders.find(
-    //       item => item.groupId === singleOrder.groupId
+    //       item => item.group_id === singleOrder.group_id
     //     );
     //     //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
     //     if (foundGroupObject) {
@@ -89,7 +91,7 @@ export class OrderComponent implements OnInit {
     //   }
     // });
     allOrdersUnsorted.forEach(singleOrder => {
-      if (singleOrder.groupId == 0 || singleOrder.groupId == null) {
+      if (singleOrder.group_id == 0 || singleOrder.group_id == null) {
         if (
           singleOrder.status == "created" ||
           singleOrder.status == "isSolid"
@@ -103,26 +105,39 @@ export class OrderComponent implements OnInit {
   }
 
   filterUngroupedOrders(parameter: IFilterOrders) {
+    console.log("Filter params: ", parameter);
+    console.log("filteredUngrouped", this.filteredUngroupedOrders);
     this.resetOrderFilter();
 
     for (let key in parameter) {
+      console.log(key);
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
             order => {
               let orderDate = new Date(order[key]);
+              console.log(order[key]);
               if (
                 parameter[key].start <= orderDate &&
                 orderDate <= parameter[key].end
-              )
+              ) {
+                console.log("time", order);
                 return true;
+              }
             }
           );
         } else {
           this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
-            order => order[key] == parameter[key]
+            order => {
+              console.log(order[key] == parameter[key]);
+              return order[key] == parameter[key];
+            }
           );
         }
+        console.log(
+          "after key: ",
+          key + ":" + this.filteredUngroupedOrders.length
+        );
       }
     }
   }
@@ -131,7 +146,7 @@ export class OrderComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           // console.log("Filter DueDate, does nothing");
         } else {
           this.filteredGroupData = this.filteredGroupData.filter(
@@ -148,7 +163,7 @@ export class OrderComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           if (new Date("2019-01-01") < parameter[key].start) {
             setParamters++;
           }
@@ -274,7 +289,7 @@ export class OrderComponent implements OnInit {
     );
 
     //BAckend Call create new group with order
-    // BE Erhält call + order id --> muss groupId anpassen
+    // BE Erhält call + order id --> muss group_id anpassen
     //then refresh page
 
     this.backendService.createNewGroup(draggedOrder).then(res => {
@@ -295,8 +310,11 @@ export class OrderComponent implements OnInit {
     let firstItemFromGroup: any = targetDataLink[0];
     let targetContainerNodeType =
       targetContainer.element.nativeElement.nodeName;
-
-    // console.log("draggedOrder", draggedOrder);
+    let noGroup: number = 0;
+    
+    console.log("previous index: ", event.previousIndex)
+    console.log("previous container: ", previousContainer.data)
+    console.log("draggedOrder", draggedOrder);
     if (previousContainer === targetContainer) {
       moveItemInArray(
         targetContainer.data,
@@ -312,11 +330,11 @@ export class OrderComponent implements OnInit {
       );
       console.log(draggedOrder);
       this.backendService
-        .assignOrderToGroup(draggedOrder.order_id, 0)
+        .assignOrderToGroup(draggedOrder.order_id, noGroup)
         .then(res => console.log(res));
     }
     //** Abglech ob Harzfarbe passt */
-    else if (firstItemFromGroup.resin_name === draggedOrder.harz) {
+    else if (firstItemFromGroup.resin_name === draggedOrder.resin_name) {
       transferArrayItem(
         previousContainer.data,
         targetContainer.data,
@@ -324,13 +342,20 @@ export class OrderComponent implements OnInit {
         event.currentIndex
       );
 
-      this.backendService
-        .assignOrderToGroup(draggedOrder.orderId, firstItemFromGroup.group_id);
+      this.backendService.assignOrderToGroup(
+        draggedOrder.order_id,
+        firstItemFromGroup.group_id
+      );
     } else {
+      console.log(
+        "firstItemFromGroup.resin_name: ",
+        firstItemFromGroup.resin_name
+      );
+      console.log("draggedOrder.resin_name: ", draggedOrder);
       /** Fehler muss ersichtlich ausgegeben sein */
       this.dialog.open(ErrorPopUpComponent);
       // alert(
-      //     `Der Auftrag #${draggedOrder.orderId} hat den Harztyp: ${
+      //     `Der Auftrag #${draggedOrder.order_id} hat den Harztyp: ${
       //           draggedOrder.harz
       //         }.
       // Die Gruppe jedoch ${targetDataLink[0].harz}`
@@ -341,7 +366,8 @@ export class OrderComponent implements OnInit {
   }
   deleteEmptyGroup() {
     this.allGroupedOrders.forEach(group => {
-      if(group.orders.length == 0) this.backendService.removeGroupById(group.group_id);
-    })
+      if (group.orders.length == 0)
+        this.backendService.removeGroupById(group.group_id);
+    });
   }
 }

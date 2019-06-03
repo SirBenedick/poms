@@ -28,161 +28,161 @@ export class BackendService {
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
   //** Mocked Data for offline use */
-  mockedOrderData: Array<IOrder> = [
-    {
-      orderId: 1,
-      groupId: 1,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Schienen für Halterungsposition",
-      priority: "hoch",
-      harz: "weiß",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 2,
-      groupId: 2,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Kundenspezifische Anpassung",
-      priority: "hoch",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "postPrint"
-    },
-    {
-      orderId: 3,
-      groupId: 3,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Gießbare Teile",
-      priority: "hoch",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "postPrint"
-    },
-    {
-      orderId: 4,
-      customer: "Schmittlauch1",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Backenzaehne",
-      priority: "hoch",
-      harz: "schwarz",
-      dueDate: "2019-05-23",
-      creationDate: "2019-05-22",
-      status: "created"
-    },
-    {
-      orderId: 5,
-      groupId: 1,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Weichgewebe",
-      priority: "mittel",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 6,
-      groupId: 2,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Implantat",
-      priority: "mittel",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 7,
-      groupId: 3,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Justierung der Zaehne",
-      priority: "mittel",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "sent"
-    },
-    {
-      orderId: 8,
-      customer: "Schmittlauch1",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Modelle und Implantatmodelle",
-      priority: "mittel",
-      harz: "weiß",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 9,
-      groupId: 1,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Provisorische Kronen und Bruecken",
-      priority: "niedrig",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 10,
-      groupId: 2,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Zaehne",
-      priority: "niedrig",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 11,
-      groupId: 3,
-      customer: "Schmittlauch",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Zaehne",
-      priority: "niedrig",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "created"
-    },
-    {
-      orderId: 12,
-      customer: "Schmittlauch1",
-      laboratory: "testlabor",
-      patient: "Maximum Lauch",
-      dentalPrintType: "Implantat",
-      priority: "niedrig",
-      harz: "schwarz",
-      dueDate: "2019-05-19",
-      creationDate: "2019-05-19",
-      status: "cleaned"
-    }
-  ];
+  // mockedOrderData: Array<IOrder> = [
+  //   {
+  //     order_id: 1,
+  //     group_id: 1,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Schienen für Halterungsposition",
+  //     priority: "hoch",
+  //     harz: "weiß",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 2,
+  //     group_id: 2,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Kundenspezifische Anpassung",
+  //     priority: "hoch",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "postPrint"
+  //   },
+  //   {
+  //     order_id: 3,
+  //     group_id: 3,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Gießbare Teile",
+  //     priority: "hoch",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "postPrint"
+  //   },
+  //   {
+  //     order_id: 4,
+  //     customer: "Schmittlauch1",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Backenzaehne",
+  //     priority: "hoch",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-23",
+  //     creationDate: "2019-05-22",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 5,
+  //     group_id: 1,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Weichgewebe",
+  //     priority: "mittel",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 6,
+  //     group_id: 2,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Implantat",
+  //     priority: "mittel",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 7,
+  //     group_id: 3,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Justierung der Zaehne",
+  //     priority: "mittel",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "sent"
+  //   },
+  //   {
+  //     order_id: 8,
+  //     customer: "Schmittlauch1",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Modelle und Implantatmodelle",
+  //     priority: "mittel",
+  //     harz: "weiß",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 9,
+  //     group_id: 1,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Provisorische Kronen und Bruecken",
+  //     priority: "niedrig",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 10,
+  //     group_id: 2,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Zaehne",
+  //     priority: "niedrig",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 11,
+  //     group_id: 3,
+  //     customer: "Schmittlauch",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Zaehne",
+  //     priority: "niedrig",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "created"
+  //   },
+  //   {
+  //     order_id: 12,
+  //     customer: "Schmittlauch1",
+  //     laboratory: "testlabor",
+  //     patient: "Maximum Lauch",
+  //     dentalPrintType: "Implantat",
+  //     priority: "niedrig",
+  //     harz: "schwarz",
+  //     dueDate: "2019-05-19",
+  //     creationDate: "2019-05-19",
+  //     status: "cleaned"
+  //   }
+  // ];
   mockedPrinterData: Array<IPrinterData> = [
     {
       printer_id: 23,
@@ -403,7 +403,7 @@ export class BackendService {
   ];
   mockedGroupData: Array<IGroupedOrders> = [
     {
-      groupId: 1,
+      group_id: 1,
       harz: "Vanille",
       creationDate: "5/1/2019",
       fileSliced: null,
@@ -411,7 +411,7 @@ export class BackendService {
       status: "preprint"
     },
     {
-      groupId: 2,
+      group_id: 2,
       harz: "Mettiges Mettharz aus Mettmann",
       creationDate: "5/1/2019",
       fileSliced: null,
@@ -419,7 +419,7 @@ export class BackendService {
       status: "preprint"
     },
     {
-      groupId: 3,
+      group_id: 3,
       harz: "Vanille",
       creationDate: "5/1/2019",
       fileSliced: null,
@@ -462,7 +462,8 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<any>) => {
-      this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
+      // this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
+      this.allUngroupedOrders = allOrderData;
       // this.allUngroupedOrders = this.mockedOrderData;
     });
 
@@ -566,7 +567,7 @@ export class BackendService {
   //Create
   createNewGroup(order: IOrder): Promise<Object> {
     //example API-Call, URL not yet real
-    return this.http.post(this.backendUrl + "group/create/", {order_id: order.orderId}).toPromise();
+    return this.http.post(this.backendUrl + "group/create/", {order_id: order.order_id}).toPromise();
   }
 
   createNewOrder_Backup(newOrder: IOrderCreateNew): Promise<Object> {
@@ -603,8 +604,8 @@ export class BackendService {
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 
-  assignOrderToGroup(orderId: number, groupId: number): Promise<Object>{
-    return this.http.get(this.backendUrl + "order/assign/" + orderId + "/to/" + groupId ).toPromise();
+  assignOrderToGroup(order_id: number, group_id: number): Promise<Object>{
+    return this.http.get(this.backendUrl + "order/assign/" + order_id + "/to/" + group_id ).toPromise();
   }
   removeGroupById(id: number): Promise<Object>{
     return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();

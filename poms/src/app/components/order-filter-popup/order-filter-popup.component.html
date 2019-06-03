@@ -5,7 +5,7 @@
   <!-- Wird gebraucht, wenn Backend komplett steht -->
   <div class="harz-container">
     <div *ngFor="let harz of harzList">
-      <input type="radio" id="{{ harz.resin_name }}" name="harz" value="{{ harz.resin_name }}" formControlName="harz" />
+      <input type="radio" id="{{ harz.resin_name }}" name="resin_name" value="{{ harz.resin_name }}" formControlName="resin_name" />
       <label for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
     </div>
   </div>

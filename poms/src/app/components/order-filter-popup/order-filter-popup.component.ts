@@ -1,7 +1,13 @@
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { IFilterOrders, IResinType, IOrder, ICategory, IGroupedOrders } from "src/app/shared/interfaces";
+import {
+  IFilterOrders,
+  IResinType,
+  IOrder,
+  ICategory,
+  IGroupedOrders
+} from "src/app/shared/interfaces";
 import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
@@ -13,7 +19,7 @@ export class OrderFilterPopupComponent implements OnInit {
   harzList: Array<IResinType> = this.backendService.resineData;
 
   filterParamForm: FormGroup;
-  customerData: Array<IOrder> = this.backendService.mockedOrderData;
+  customerData: Array<IOrder> = null; //ANPASSEN!
   categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
 
   constructor(
@@ -24,16 +30,16 @@ export class OrderFilterPopupComponent implements OnInit {
 
   ngOnInit() {
     this.filterParamForm = new FormGroup({
-      harz: new FormControl(),
+      resin_name: new FormControl(),
       dueDateStart: new FormControl(),
       dueDateEnd: new FormControl(),
       priority: new FormControl(),
       customer: new FormControl(),
-      dentalPrintType: new FormControl(),
+      dentalPrintType: new FormControl()
     });
   }
-  onClick():void{
-    console.log("Priorität wurde ausgewählt!")
+  onClick(): void {
+    console.log("Priorität wurde ausgewählt!");
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -42,7 +48,7 @@ export class OrderFilterPopupComponent implements OnInit {
     let startDate = this.filterParamForm.value.dueDateStart;
     let endDate = this.filterParamForm.value.dueDateEnd;
     let maxTimeForDateCreation = 8640000000000000;
-    let dueDate = {
+    let due_date = {
       start: startDate ? startDate : new Date("2019-01-01"),
       end: endDate ? endDate : new Date(maxTimeForDateCreation)
     };
@@ -51,9 +57,8 @@ export class OrderFilterPopupComponent implements OnInit {
     delete data.dueDateStart;
     delete data.dueDateEnd;
 
-    data.dueDate = dueDate;
+    data.due_date = due_date;
 
-    if (data.dueDate)
-      this.dialogRef.close({ data: this.filterParamForm.value });
+    this.dialogRef.close({ data: this.filterParamForm.value });
   }
 }

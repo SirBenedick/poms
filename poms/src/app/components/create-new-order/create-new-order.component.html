@@ -3,7 +3,7 @@
     <div class="a">
       <h1 class="heading" *ngIf="!data.customer">Neuen Auftrag erstellen</h1>
       <h1 class="heading" *ngIf="data.customer">
-        Auftrag: #{{ data.orderId }}
+        Auftrag: #{{ data.order_id }}
       </h1>
     </div>
     <div class="small-bar-left"></div>
@@ -128,7 +128,7 @@
             class=" rechteck-eingabe"
             matInput
             type="number"
-            formControlName="orderId"
+            formControlName="order_id"
             placeholder="OrderId"
           />
         </mat-form-field> -->
@@ -138,7 +138,7 @@
             class=" rechteck-eingabe"
             matInput
             type="number"
-            formControlName="groupId"
+            formControlName="group_id"
             placeholder="GroupId"
           />
         </mat-form-field> -->
