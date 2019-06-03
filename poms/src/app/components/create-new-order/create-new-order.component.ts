@@ -7,12 +7,16 @@ import {
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  FormControl,
+  FormGroup,
+  Validators
+} from "@angular/forms";
 
 @Component({
   selector: "app-create-new-order",
   templateUrl: "./create-new-order.component.html",
-  styleUrls: ["./create-new-order.component.css"]
+  styleUrls: ["./create-new-order.component.css"],
 })
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();

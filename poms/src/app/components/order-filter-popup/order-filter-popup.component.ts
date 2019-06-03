@@ -11,7 +11,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class OrderFilterPopupComponent implements OnInit {
   harzList: Array<IResinType> = this.backendService.resineData;
-  harzList1: Array<IGroupedOrders> = this.backendService.mockedGroupData;
+
   filterParamForm: FormGroup;
   customerData: Array<IOrder> = this.backendService.mockedOrderData;
   categoryData: Array<ICategory> = this.backendService.mockedCategoryData;

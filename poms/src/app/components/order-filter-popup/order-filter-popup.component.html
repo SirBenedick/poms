@@ -1,21 +1,14 @@
 <form [formGroup]="filterParamForm" class="page-container">
 
   <h3>Filteroptionen</h3>
-  <div>
-    <h4> Harz </h4>
-    <mat-select matNativeControl required formControlName="harz" placeholder="Harz auswählen" class="boxen">
-      <mat-option *ngFor="let harz of harzList1" value="{{harz.harz}}">
-        {{ harz.harz }}
-      </mat-option>
-    </mat-select>
-  </div>
+
   <!-- Wird gebraucht, wenn Backend komplett steht -->
-  <!-- <div class="harz-container">
+  <div class="harz-container">
     <div *ngFor="let harz of harzList">
       <input type="radio" id="{{ harz.resin_name }}" name="harz" value="{{ harz.resin_name }}" formControlName="harz" />
       <label for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
     </div>
-  </div> -->
+  </div>
 
   <h4>Fällig am:</h4>
   <mat-form-field>
