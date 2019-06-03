@@ -6,9 +6,8 @@
         Auftrag: #{{ data.orderId }}
       </h1>
     </div>
-    <div class="small-bar-left"></div>
 
-    <div>
+    <div class ="input-container">
       <h1 class="title">Zahnarzt</h1>
       <mat-select
         formControlName="customer"
@@ -22,15 +21,15 @@
         </mat-option>
       </mat-select>
     </div>
-    <br />
-    <div id="patitent-titel">
+
+    <div class ="input-container">
       <h1 class="title">Patient/Titel</h1>
-      <mat-form-field class="example-full-width" style="margin-top: -10px">
+      <mat-form-field class="example-full-width" style="margin-top: -20px">
         <input matInput formControlName="patient" />
       </mat-form-field>
     </div>
-    <br />
-    <div style="margin-top: -10px">
+
+    <div class ="input-container" style="margin-top: -20px">
       <h1 class="title">Fälligkeit</h1>
       <input
         class=" rechteck-eingabe"
@@ -45,9 +44,8 @@
       <mat-datepicker #searchDate></mat-datepicker>
     </div>
 
-    <br />
 
-    <div>
+    <div class ="input-container">
       <h1 class="title">Harzfarbe</h1>
       <mat-select
         formControlName="harz"
@@ -62,9 +60,8 @@
       </mat-select>
     </div>
 
-    <br />
 
-    <div>
+    <div class ="input-container">
       <h1 class="title">Kategorie</h1>
       <mat-select
         formControlName="dentalPrintType"
@@ -79,24 +76,25 @@
         </mat-option>
       </mat-select>
     </div>
+    <img src="../../../assets/svg/icon-downlode.svg" style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px">
     <div class="fakefile">
       <input
-        placeholder="Scan-Datei hochladen"
-        class="fileinputs"
+        id="file" class="inputfile"
         formControlName="hochladen"
         #fileInputScan
         type="file"
       />
+      <label for="file"><h1 class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">Choose a file..</h1></label>
       <div class="file-input-symbole" (click)="uploadScan()">Oralscan‚ Hochladen</div>
     </div>
-    <br />
-    <div>
+
+    <div class ="input-container">
       <h1 class="title">Sonstige Informationen</h1>
       <textarea
         class=" rechteck-eingabe"
         formControlName="comment"
         rows="4"
-        style="resize:none; width: 250px;height: auto"
+        style="resize:none; width: 350px;height: 80px"
         placeholder="Anmerkung"
       ></textarea>
     </div>

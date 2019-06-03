@@ -51,6 +51,7 @@ input[type="text"] {
 }
 ::placeholder{
   font-style: italic;
+  color: #62c6d6;
 }
 .input-container{
   margin-top: 10px;

@@ -67,6 +67,16 @@ mat-dialog-container{
 }
 .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{background-color: #62c6d6
 }
+.mat-datepicker-content.mat-accent .mat-calendar-body-selected{background-color: #62c6d6;color:rgba(0,0,0,.87)}
+.mat-datepicker-content.mat-accent .mat-calendar-body-disabled>.mat-calendar-body-selected{background-color: rgba(98, 198, 214, 0.4)
+}
+.mat-calendar-body-selected{background-color: #62c6d6;color:#fff}
+.mat-calendar-body-disabled>.mat-calendar-body-selected{background-color: rgba(98, 198, 214, 0.4)
+}
+.mat-datepicker-toggle-active{color: #62c6d6
+}
+.mat-datepicker-toggle-active.mat-accent{color: #62c6d6
+}
 ::-webkit-scrollbar{
   background-color: #d1d1d1;
   width: 5px;
@@ -77,3 +87,19 @@ mat-dialog-container{
   width: 5px;
   border-radius: 4px;
 }
+
+.mat-select-trigger,.mat-selected,.mat-select-arrow{
+  color: #62c6d6;
+}
+.mat-select-disabled{
+  color: #62c6d6;
+}
+.mat-select-invalid{
+  color: #62c6d6;
+}
+.mat-select-placeholder{
+  font-style: italic;
+  color: #62c6d6;
+  padding-left: 5px;
+}
+
