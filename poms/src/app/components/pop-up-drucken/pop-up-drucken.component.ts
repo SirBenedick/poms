@@ -8,7 +8,6 @@ import { BackendService } from "src/app/services/backend.service";
 import { map } from "rxjs/operators";
 import { HttpEventType } from "@angular/common/http";
 
-
 @Component({
   selector: "app-pop-up-drucken",
   templateUrl: "./pop-up-drucken.component.html",
@@ -65,36 +64,11 @@ export class PopUpDruckenComponent implements OnInit {
 
     if (fi.files && fi.files[0]) {
       let fileToUpload = fi.files[0];
-      // this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
-      //   console.log(res);
-      // });
-      this.uploadService
-        .uploadScan(fileToUpload, 17)
-        .pipe(
-          map(event => {
-            switch (event.type) {
-              case HttpEventType.UploadProgress:
-                const progress = Math.round((100 * event.loaded) / event.total);
-                return { status: "progress", message: progress };
-
-              case HttpEventType.Response:
-                return event.body;
-              default:
-                return `Unhandled event: ${event.type}`;
-            }
-          })
-        )
-        .subscribe(res => {
-          console.log(res);
-        });
+      this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
+        console.log(res);
+      });
     }
-    
-    // let testData:FormData = new FormData();
-    // testData.append('file_upload', this.file, this.file.name);
-    // this.http.post('https://url', testData).subscribe(response => {
-      //     console.log(response);
-      // });
-    }
-    downloadSkin(){}
-    uploadSolid(){}
+  }
+  downloadSkin() {}
+  uploadSolid() {}
 }
