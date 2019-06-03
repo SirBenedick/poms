@@ -32,16 +32,16 @@
     </mat-select>
   </div>
   <h4>Priorität:</h4>
-  <!-- <input type="radio" id="niedrig" name="priority" value="niedrig" formControlName="priority" class="boxenPrio" />
-  <label for="niedrig">niedrig</label>
-  <input type="radio" id="mittel" name="priority" value="mittel" formControlName="priority" class="boxenPrio" />
-  <label for="mittel">mittel</label>
-  <input type="radio" id="hoch" name="priority" value="hoch" formControlName="priority" class="boxenPrio" />
-  <label for="hoch">hoch</label> -->
   <div class="prio" required>
-    <div id="boxenPrio" class="schrift-boxen" (click)="onClick()"> niedrig</div>
-    <div id="boxenPrio" class="schrift-boxen" (click)="onClick()"> mittel </div>
-    <div id="boxenPrio" class="schrift-boxen" (click)="onClick()"> hoch </div>
+  <input type="radio" id="niedrig" name="priority" value="niedrig" formControlName="priority" class="boxenPrio" />
+  <label for="niedrig" class="schrift_boxen">niedrig</label>
+  <input type="radio" id="mittel" name="priority" value="mittel" formControlName="priority" class="boxenPrio" />
+  <label for="mittel" class="schrift_boxen">mittel</label>
+  <input type="radio" id="hoch" name="priority" value="hoch" formControlName="priority" class="boxenPrio" />
+  <label for="hoch" class="schrift_boxen">hoch</label>
+    <!-- <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> niedrig</div>
+    <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> mittel </div>
+    <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> hoch </div> -->
   </div>
   <h4>Kunde:</h4>
   <mat-form-field>
