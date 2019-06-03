@@ -211,7 +211,7 @@ export class BackendService {
       print_start: "11:58:31",
       time_estimated: "01:06:51",
       model_height: 18,
-      paused: 0,
+      paused: 1,
       offline: 0,
       progress: 0.5568181818181818,
       estimated_time_remaining: "12h",
