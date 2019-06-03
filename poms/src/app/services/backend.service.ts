@@ -606,6 +606,9 @@ export class BackendService {
   assignOrderToGroup(orderId: number, groupId: number): Promise<Object>{
     return this.http.get(this.backendUrl + "order/assign/" + orderId + "/to/" + groupId ).toPromise();
   }
+  removeGroupById(id: number): Promise<Object>{
+    return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
+  }
 }
 
 /**

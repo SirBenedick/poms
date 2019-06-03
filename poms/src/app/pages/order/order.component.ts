@@ -310,6 +310,10 @@ export class OrderComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      console.log(draggedOrder);
+      this.backendService
+        .assignOrderToGroup(draggedOrder.order_id, 0)
+        .then(res => console.log(res));
     }
     //** Abglech ob Harzfarbe passt */
     else if (firstItemFromGroup.resin_name === draggedOrder.harz) {
@@ -321,8 +325,7 @@ export class OrderComponent implements OnInit {
       );
 
       this.backendService
-        .assignOrderToGroup(draggedOrder.orderId, firstItemFromGroup.group_id)
-        .then(res => console.log(res));
+        .assignOrderToGroup(draggedOrder.orderId, firstItemFromGroup.group_id);
     } else {
       /** Fehler muss ersichtlich ausgegeben sein */
       this.dialog.open(ErrorPopUpComponent);
@@ -334,10 +337,11 @@ export class OrderComponent implements OnInit {
       // );
     }
     // Hier die Abfrage ob die Gruppe leer ist und dann wird sie gelöscht
-    if (event.previousIndex == 0) {
-      // this.filteredGroupData.pop()
-      console.log("Letzte Gruppe wurde gelöscht");
-      console.log(event.previousContainer);
-    }
+    this.deleteEmptyGroup();
+  }
+  deleteEmptyGroup() {
+    this.allGroupedOrders.forEach(group => {
+      if(group.orders.length == 0) this.backendService.removeGroupById(group.group_id);
+    })
   }
 }

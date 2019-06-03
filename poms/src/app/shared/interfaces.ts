@@ -18,7 +18,8 @@ export interface IPrinterData {
 
 export interface IOrder {
   orderId: number;
-  groupId?: Number;
+  order_id?: number;
+  groupId?: number;
   customer: String; //DB has list of all customers
   laboratory?: String; //DB has list of all laboratories
   patient: String; //DB has list of all patients
@@ -54,7 +55,8 @@ export interface IOrderCreateNew {
 }
 
 export interface IGroupedOrders {
-  groupId: Number;
+  groupId: number;
+  group_id?: number;
   harz: String;
   creationDate: String;
   fileSliced?: any; //REST-Url to file
