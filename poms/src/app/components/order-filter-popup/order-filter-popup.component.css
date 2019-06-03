@@ -36,7 +36,7 @@
   display: flex;
   justify-content: space-between
 }
-.schrift-boxen{
+.schrift_boxen{
   width: 50px;
   height: 21px;
   object-fit: contain;

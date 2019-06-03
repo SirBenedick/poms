@@ -3,7 +3,7 @@
     <div> <b class="ueberschriften"> Nachbereitung ausstehend </b>
       <a (click)="help()" class="ueberschriften1" >Hilfe zur Nachbereitung findest du hier </a>
       <!-- <button class="button-style" (click)="resetOrderFilter()">Reset</button> -->
-      <button class="button-style" (click)="openDialogFilterOrders();filterUngroupedOrders(filterParams) ">
+      <button class="button-style" (click)="openPostProcessing()">
         Filter </button>
     </div>
     <!-- with filter -->
@@ -21,7 +21,7 @@
   </div>
   <div class="half-container">
     <div class="ueberschriften"> Abgeschlossene Aufträge</div>
-    <button class="button-style" (click)="openDialogFilterOrders();filterUngroupedOrders(filterParams) ">
+    <button class="button-style" (click)="openFinishedFilter()">
         Filter </button>
     <div class="cards">
       <app-order-card *ngFor="let orderCard of allReadyOrders" [order]="orderCard">
