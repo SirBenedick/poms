@@ -104,7 +104,7 @@
 
           <div *ngIf="printer.paused == 1">
             <div class="progressbar">
-            <mat-progress-bar [value]="printer.progress * 100">
+            <mat-progress-bar [value]="printer.progress * 100" color="warn">
             </mat-progress-bar>
             <img
               width="20px"
