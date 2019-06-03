@@ -172,6 +172,7 @@ export class OrderComponent implements OnInit {
       if (result) {
         if (result.value) {
           let order = result.value;
+          console.log(result.value)
           let newOrder: IOrderCreateNew = {
             customer_id: parseInt(order.customer),
             patient: order.patient,
@@ -180,12 +181,15 @@ export class OrderComponent implements OnInit {
             due_date: order.dueDate,
             comment: order.comment,
             status: "created",
-            scan_file: null
+            scan_file: order.hochladen.files[0]
           };
-          this.backendService.createNewOrder(newOrder).then((res: any) => {
+          console.log(newOrder)
+          this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
               console.log(res.error);
+            }else{
+              console.log(res)
             }
             //ggf müssen hier alle aufträge neugeladen/angezeigt werden
             //bei in order.ts und basic-layout.ts
