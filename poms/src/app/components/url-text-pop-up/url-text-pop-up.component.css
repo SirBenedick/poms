@@ -1,0 +1,37 @@
+#flex-container{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+
+}
+img{
+  width: 400px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+h1{
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: bold;
+}
+#text{
+  font-family: "Segoe UI";
+  font-size: 12px;
+}
+button{
+  float: right;
+  font-family: "Segoe UI";
+  width: 100px;
+  height: 30px;
+  margin: 2px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: solid 1px #62c6d6;
+  background-color: white;
+}
+button:hover{
+  color: white;
+  background-color: #62c6d6;
+}
+
