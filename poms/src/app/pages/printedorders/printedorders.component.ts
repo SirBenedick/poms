@@ -1,10 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-import { IOrder, IFilterOrders } from "src/app/shared/interfaces";
+import {
+  IOrder,
+  IFilterOrders,
+  IGroupedOrders
+} from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
-import { MatDialog } from '@angular/material';
-import { OrderFilterPopupComponent } from 'src/app/components/order-filter-popup/order-filter-popup.component';
-import { FAQComponent } from '../faq/faq.component';
+import { MatDialog } from "@angular/material";
+import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
+import { FAQComponent } from "../faq/faq.component";
 
 @Component({
   selector: "app-printedorders",
@@ -13,15 +17,30 @@ import { FAQComponent } from '../faq/faq.component';
 })
 export class PrintedordersComponent implements OnInit {
   allUngroupedOrders: Array<IOrder> = [];
+  allGroupedOrders: Array<IGroupedOrders> = [];
   allReadyOrders: Array<any> = [];
   filteredUngroupedOrders: Array<IOrder> = [];
+  filteredGroupData: Array<IGroupedOrders> = [];
   newOrder: String;
+  filterParameterOrder: IFilterOrders;
+  filterParameterGroup: IFilterOrders;
+  isOrderFilterSet: number = 0;
+  isGroupFilterSet: number = 0;
 
   constructor(
     private backendService: BackendService,
-    public dialog: MatDialog) {}
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
+    this.backendService
+      .getAllGroups()
+      .then((resopnse: Array<IGroupedOrders>) => {
+        // this.allGroupedOrders = resopnse;
+        // this.filteredGroupData = this.allGroupedOrders;
+        this.allGroupedOrders = resopnse;
+        this.filteredGroupData = this.allReadyOrders;
+      });
     if (this.backendService.allUngroupedOrders.length == 0) {
       this.backendService
         .pollAllOrdersFromBackend()
@@ -35,9 +54,9 @@ export class PrintedordersComponent implements OnInit {
   }
   //show all ReadyOrders
   readyOrders(allReadyUnsorted: Array<IOrder>) {
-//Search all Orders
+    //Search all Orders
     allReadyUnsorted.forEach(singleReady => {
-     //If Status===created, push the singleReady into the array
+      //If Status===created, push the singleReady into the array
       if (singleReady.status === "created") {
         this.allUngroupedOrders.push(singleReady);
       } else {
@@ -47,10 +66,41 @@ export class PrintedordersComponent implements OnInit {
     });
     //for filter, with this the filter is accept
     this.filteredUngroupedOrders = this.allUngroupedOrders;
-    
+    this.filteredGroupData = this.allReadyOrders;
   }
 
-filterUngroupedOrders(parameter: IFilterOrders) {
+  openPostProcessing(): void {
+    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
+      data: { newOrderForm: this.newOrder }
+    });
+
+    dialogRef.afterClosed().subscribe((result: { data: IFilterOrders }) => {
+      if (result) {
+        let filterParamter = result.data;
+        this.filterPostProcessing(filterParamter);
+        // Anzeige wie viele Filter aktiv sind
+        // this.isOrderFilterSet = this.numberOfFilterParameters(filterParamter);
+        // this.filterParameterOrder = filterParamter;
+      }
+    });
+  }
+
+  openFinishedFilter(): void {
+    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
+      data: { newOrderForm: this.newOrder }
+    });
+
+    dialogRef.afterClosed().subscribe((result: { data: IFilterOrders }) => {
+      if (result) {
+        let filterParamter = result.data;
+        this.filterFinishedData(filterParamter);
+        // Anzeige wie viele Filter aktiv sind
+        // this.isGroupFilterSet = this.numberOfFilterParameters(filterParamter);
+        // this.filterParameterGroup = filterParamter;
+      }
+    });
+  }
+  filterPostProcessing(parameter: IFilterOrders) {
     this.resetOrderFilter();
 
     for (let key in parameter) {
@@ -74,21 +124,65 @@ filterUngroupedOrders(parameter: IFilterOrders) {
       }
     }
   }
+  filterFinishedData(parameter: IFilterOrders) {
+    this.resetFinishedFilter();
+
+    for (let key in parameter) {
+      if (parameter[key]) {
+        if (key == "dueDate") {
+          this.allReadyOrders = this.allReadyOrders.filter(order => {
+            let orderDate = new Date(order[key]);
+            if (
+              parameter[key].start <= orderDate &&
+              orderDate <= parameter[key].end
+            )
+              return true;
+          });
+        } else {
+          this.allReadyOrders = this.allReadyOrders.filter(
+            order => order[key] == parameter[key]
+          );
+        }
+      }
+    }
+  }
+  // Anzahl der Filter berechnen, wie viele Aktiv sind
+  // numberOfFilterParameters(parameter: IFilterOrders): number {
+  //   let setParamters: number = 0;
+  //   let maxTimeForDateCreation = 8640000000000000;
+
+  //   for (let key in parameter) {
+  //     if (parameter[key]) {
+  //       if (key == "dueDate") {
+  //         if (new Date("2019-01-01") < parameter[key].start) {
+  //           setParamters++;
+  //         }
+  //         if (parameter[key].end < new Date(maxTimeForDateCreation)) {
+  //           setParamters++;
+  //         }
+  //       } else {
+  //         setParamters++;
+  //       }
+  //     }
+  //   }
+  //   return setParamters;
+  // }
 
   resetOrderFilter() {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
-  }
-  openDialogFilterOrders(): void {
-    const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
-      data: { newOrderForm: this.newOrder }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) this.filterUngroupedOrders(result.data);
-    });
+    this.isOrderFilterSet = 0;
+    event.stopPropagation();
+    this.filterParameterOrder = null;
   }
 
-  help():void{
+  resetFinishedFilter() {
+    this.allReadyOrders = this.filteredGroupData;
+    this.isGroupFilterSet = 0;
+    event.stopPropagation();
+    this.filterParameterGroup = null;
+  }
+
+  help(): void {
     this.dialog.open(FAQComponent);
   }
 }
