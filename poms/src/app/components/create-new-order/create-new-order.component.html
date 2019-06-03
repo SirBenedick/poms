@@ -1,35 +1,52 @@
 <form [formGroup]="newOrderForm">
   <div class="page-container">
-    <div class="a">
-      <h1 class="heading" *ngIf="!data.customer">Neuen Auftrag erstellen</h1>
-      <h1 class="heading" *ngIf="data.customer">
-        Auftrag: #{{ data.order_id }}
-      </h1>
-    </div>
+    <div id="data-ist-nicht-vorhanden" *ngIf="!data.customer_id">
+      <div class="a">
+        <h1 class="heading" *ngIf="!data.customer_id">
+          Neuen Auftrag erstellen
+        </h1>
+      </div>
 
-    <div class ="input-container">
-      <h1 class="title">Zahnarzt</h1>
-      <mat-select
-        formControlName="customer"
-        placeholder="Name auswählen"
-        class=" rechteck-eingabe"
-      >
-        <mat-option
-          *ngFor="let doctor of customerData"
-          value="{{ doctor.customer_id }}"
-          >{{ doctor.name }}
-        </mat-option>
-      </mat-select>
+      <div class="input-container" *ngIf="!data.customer_id">
+        <h1 class="title">Zahnarzt</h1>
+        <mat-select
+          formControlName="customer_id"
+          placeholder="Name auswählen"
+          class=" rechteck-eingabee"
+        >
+          <mat-option
+            *ngFor="let doctor of customerData"
+            value="{{ doctor.customer_id }}"
+            >{{ doctor.name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="input-container">
+        <h1 class="title">Patient/Titel</h1>
+        <mat-form-field class="example-full-width" style="margin-top: -20px">
+          <input matInput formControlName="patient" />
+        </mat-form-field>
+      </div>
+      <div class="input-container">
+        <h1 class="title">Patient/Titel</h1>
+        <mat-form-field class="example-full-width" style="margin-top: -20px">
+          <input matInput formControlName="patient" />
+        </mat-form-field>
+      </div>
     </div>
-
-    <div class ="input-container">
-      <h1 class="title">Patient/Titel</h1>
-      <mat-form-field class="example-full-width" style="margin-top: -20px">
-        <input matInput formControlName="patient" />
-      </mat-form-field>
+    <div id="data-ist-vorhanden" *ngIf="data.customer_id">
+      <div class="a">
+        <h1 class="heading" *ngIf="data.customer_id">
+          Auftrag: #{{ data.order_id }}
+        </h1>
+      </div>
+      <p>{{ customer_name }}</p>
+      <div class="input-container">
+        <h1 class="title">Patient/Titel</h1>
+        <p>{{ data.patient }}</p>
+      </div>
     </div>
-
-    <div class ="input-container" style="margin-top: -20px">
+    <div class="input-container" style="margin-top: -20px">
       <h1 class="title">Fälligkeit</h1>
       <input
         class=" rechteck-eingabe"
@@ -44,8 +61,7 @@
       <mat-datepicker #searchDate></mat-datepicker>
     </div>
 
-
-    <div class ="input-container">
+    <div class="input-container">
       <h1 class="title">Harzfarbe</h1>
       <mat-select
         formControlName="harz"
@@ -60,32 +76,47 @@
       </mat-select>
     </div>
 
-
-    <div class ="input-container">
+    <div class="input-container">
       <h1 class="title">Kategorie</h1>
       <mat-select
         formControlName="dental_print_type"
         placeholder="Kategorie auswählen"
         class=" rechteck-eingabe"
       >
-        <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
+        <mat-option
+          *ngFor="let oneCategory of categoryData"
+          value="{{ oneCategory.category_name }}"
+        >
           {{ oneCategory.category_name }}
         </mat-option>
       </mat-select>
     </div>
-    <img src="../../../assets/svg/icon-downlode.svg" style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px">
+    <img
+      src="../../../assets/svg/icon-downlode.svg"
+      style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
+    />
     <div class="fakefile">
       <input
-        id="file" class="inputfile"
+        id="file"
+        class="inputfile"
         formControlName="hochladen"
         #fileInputScan
         type="file"
       />
-      <label for="file"><h1 class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">Choose a file..</h1></label>
-      <div class="file-input-symbole" (click)="uploadScan()">Oralscan‚ Hochladen</div>
+      <label for="file"
+        ><h1
+          class="title"
+          style="padding-left: 35%;padding-top: 5px;font-weight: normal"
+        >
+          Choose a file..
+        </h1></label
+      >
+      <div class="file-input-symbole" (click)="uploadScan()">
+        Oralscan‚ Hochladen
+      </div>
     </div>
 
-    <div class ="input-container">
+    <div class="input-container">
       <h1 class="title">Sonstige Informationen</h1>
       <textarea
         class=" rechteck-eingabe"

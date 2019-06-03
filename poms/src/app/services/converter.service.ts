@@ -15,7 +15,7 @@ export class ConverterService {
       frontendOrderFormat.push({
         order_id: order.order_id,
         group_id: order.group_id,
-        customer: order.customer_id,
+        customer_id: order.customer_id,
         patient: order.patient,
         dental_print_type: order.dental_print_type,
         resin_name: order.resin_name,

@@ -19,7 +19,7 @@ export interface IPrinterData {
 export interface IOrder {
   order_id: number;
   group_id?: number;
-  customer: String; //DB has list of all customers
+  customer_id: number; //DB has list of all customers
   laboratory?: String; //DB has list of all laboratories
   patient: String; //DB has list of all patients
   dental_print_type: String; //DB has list of all dental_print_types
@@ -132,7 +132,7 @@ export interface IDrucken {
 
 export interface ICustomer {
   customer_id: number;
-  name: String;
+  name: string;
 }
 
 export interface IPrinterNew {

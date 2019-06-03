@@ -1,4 +1,4 @@
-import { UploadService } from './../../services/upload.service';
+import { UploadService } from "./../../services/upload.service";
 import {
   IResinType,
   IOrder,
@@ -8,16 +8,12 @@ import {
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import {
-  FormControl,
-  FormGroup,
-  Validators
-} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-create-new-order",
   templateUrl: "./create-new-order.component.html",
-  styleUrls: ["./create-new-order.component.css"],
+  styleUrls: ["./create-new-order.component.css"]
 })
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
@@ -26,7 +22,7 @@ export class CreateNewOrderComponent implements OnInit {
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
   @ViewChild("fileInputScan") fileInputScan;
-  
+  customer_name: string;
   constructor(
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IOrder,
@@ -43,9 +39,14 @@ export class CreateNewOrderComponent implements OnInit {
         Validators.minLength(1),
         Validators.required
       ]),
-      customer: new FormControl(this.data.customer ? this.data.customer : "", [
-        Validators.required
-      ]),
+      customer_id: new FormControl(
+        this.data.customer_id
+          ? this.customerData.find(
+              customer => customer.customer_id == this.data.customer_id
+            )
+          : "",
+        [Validators.required]
+      ),
       laboratory: new FormControl(
         this.data.laboratory ? this.data.laboratory : "",
         [Validators.required]
@@ -54,7 +55,9 @@ export class CreateNewOrderComponent implements OnInit {
         Validators.required
       ]),
       dental_print_type: new FormControl(
-        this.data.dental_print_type ? this.data.dental_print_type : "Bitte auswählen",
+        this.data.dental_print_type
+          ? this.data.dental_print_type
+          : "Bitte auswählen",
         [Validators.required]
       ),
       harz: new FormControl(this.data.resin_name ? this.data.resin_name : "", [
@@ -79,10 +82,19 @@ export class CreateNewOrderComponent implements OnInit {
         [Validators.required]
       ),
       hochladen: new FormControl(
-        this.fileInputScan.nativeElement ? this.fileInputScan.nativeElement : null,
+        this.fileInputScan.nativeElement
+          ? this.fileInputScan.nativeElement
+          : null,
         [Validators.required]
-      ),
+      )
     });
+    console.log("card Data:", this.data);
+    if (this.data.customer_id)
+      this.customer_name = this.customerData.find(
+        customer => customer.customer_id == this.data.customer_id
+      ).name;
+      // this.newOrderForm.controls["dueDate"].setValue(this.data.dueDate)
+    // this.newOrderForm.controls["customer_id"].setValue(this.data.customer_id);
     // this.backendService.getAllResin().then((res: Array<IResinType>) => {
     //   this.harzList = res;
     //   console.log(this.harzList);
@@ -95,8 +107,8 @@ export class CreateNewOrderComponent implements OnInit {
   onQuit(): void {
     this.dialogRef.close();
   }
-  uploadScan(){
-    console.log("uploadScan")
+  uploadScan() {
+    console.log("uploadScan");
 
     // if (fi.files && fi.files[0]) {
     //   let fileToUpload = fi.files[0];
