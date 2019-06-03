@@ -6,30 +6,18 @@
       <h1 class="heading" *ngIf="data.customer">Auftrag: #{{data.orderId}}</h1>
     </div>
     <div class="small-bar-left"></div>
-    <div>
-      <h1 class ="title">Patient/Titel</h1>
-      <mat-select formControlName="customer" placeholder="Kunde auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let customer of customerData" value="{{ customer.customer_id}}">{{ customer.name }}</mat-option>
-      </mat-select>
-    </div>
-
     <br>
 
     <div>
-<<<<<<< HEAD
-      <h1 class ="title"> Fälligkeit </h1>
-      <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="creationDate"
-=======
-      <div>Patient</div>
+      <h1 class="title">Patient/Titel</h1>
       <mat-form-field class="example-full-width">
         <textarea matInput formControlName="patient"></textarea>
       </mat-form-field>
     </div>
     <br>
     <div>
-      <div> Fälligkeit </div>
+      <h1 class ="title"> Fälligkeit </h1>
       <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="dueDate"
->>>>>>> develop
         placeholder="Fälligkeitsdatum auswählen" />
       <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
       <mat-datepicker #searchDate></mat-datepicker>
