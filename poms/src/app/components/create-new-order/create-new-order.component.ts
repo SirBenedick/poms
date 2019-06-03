@@ -7,11 +7,13 @@ import {
   FormGroup,
   Validators
 } from "@angular/forms";
+import {style} from "@angular/animations";
+import {hasI18nAttrs} from "@angular/compiler/src/render3/view/i18n/util";
 
 @Component({
   selector: "app-create-new-order",
   templateUrl: "./create-new-order.component.html",
-  styleUrls: ["./create-new-order.component.css"]
+  styleUrls: ["./create-new-order.component.css"],
 })
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();

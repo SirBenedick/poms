@@ -1,47 +1,58 @@
 <form [formGroup]="newOrderForm">
   <div class="page-container">
+
     <div class="a">
-      <div class="newOrder" *ngIf="!data.customer">Neuen Auftrag erstellen</div>
-      <div class="newOrder" *ngIf="data.customer">Auftrag: #{{data.orderId}}</div>
+      <h1 class="heading"*ngIf="!data.customer">Neuen Auftrag erstellen</h1>
+      <h1 class="heading" *ngIf="data.customer">Auftrag: #{{data.orderId}}</h1>
     </div>
+    <div class="small-bar-left"></div>
     <div>
-      <div>Kunde</div>
+      <h1 class ="title">Patient/Titel</h1>
       <mat-select formControlName="customer" placeholder="Kunde auswählen" class=" rechteck-eingabe">
         <mat-option value="Schmittlauch">Schmidttlauch</mat-option>
         <mat-option value="Schmittlauch1">Schmidttlauch1</mat-option>
       </mat-select>
     </div>
+
     <br>
+
     <div>
-      <div> Fälligkeit </div>
+      <h1 class ="title"> Fälligkeit </h1>
       <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="creationDate"
         placeholder="Fälligkeitsdatum auswählen" />
       <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
       <mat-datepicker #searchDate></mat-datepicker>
     </div>
+
     <br>
+
     <div>
-      <div>Harzfarbe</div>
+      <h1 class ="title">Harzfarbe</h1>
       <mat-select formControlName="harz" placeholder="Harzfarbe auswählen" class=" rechteck-eingabe">
         <mat-option *ngFor="let harzfarbe of harzList" value="{{harzfarbe.resin_name}}">{{ harzfarbe.resin_name }}
         </mat-option>
       </mat-select>
     </div>
+
     <br>
+
     <div>
-      <div> Kategorie </div>
+      <h1 class ="title"> Kategorie </h1>
       <mat-select formControlName="dentalPrintType" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
         <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
           {{ oneCategory.category_name }}
         </mat-option>
       </mat-select>
     </div>
+
     <br>
+
     <div>
-      <div>Sonstige Informationen</div>
+      <h1 class ="title">Sonstige Informationen</h1>
       <textarea class=" rechteck-eingabe" formControlName="comment" rows="4"
         style="resize:none; width: 250px;height: auto" placeholder="Anmerkung"></textarea>
     </div>
+
     <div style="align-self: flex-end">
       <mat-dialog-actions>
         <button class="break-button" mat-button (click)="onNoClick()">
@@ -52,6 +63,7 @@
         </button>
       </mat-dialog-actions>
     </div>
+
   </div>
 
 </form>

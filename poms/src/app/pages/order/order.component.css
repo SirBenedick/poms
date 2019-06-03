@@ -14,6 +14,7 @@
   box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
 }
 
+
 .half-half-container{
   display: flex;
   justify-content: space-between;
@@ -101,6 +102,7 @@
 .button-style:hover{
   background-color: #62c6d6;
   color: white;
+  border: transparent;
 }
 .button-style-group{
   float: right;
