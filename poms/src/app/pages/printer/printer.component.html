@@ -1,6 +1,6 @@
 <div class="page-container">
-  <div class="available-printer">Verfügbare Drucker</div>
-  <div class="new-printer" (click)="openDialogPopUpDrucker()">
+  <div class="available-printer">Druckerverwaltung</div>
+  <div class="new-printer" (click)="openDialogNewDrucker()">
     <div class="add-new-printer">
       <h4><b>+</b> neuen Drucker hinzufügen</h4>
     </div>
@@ -17,7 +17,7 @@
             src="../../../assets/svg/Pfad 141.svg"
             style="padding-left: 10px; height: 30px"
           />
-          <div class="printer">
+          <div class="printer" >
             {{ printer.name }}
           </div>
         </mat-panel-title>
@@ -29,4 +29,6 @@
     <button (click)="stopPrinter(23)">Druck Stop</button>
     <button (click)="togglePrinter(23)">Pause toggeln</button>
   </div>
+ 
+
 </div>

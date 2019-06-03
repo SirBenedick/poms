@@ -1,9 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material";
 import { IPrinterData } from "../../shared/interfaces";
-import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 
 @Component({
   selector: "app-printer",
@@ -13,6 +12,7 @@ import { PopUpNeuerDruckerComponent } from 'src/app/components/pop-up-neuer-druc
 export class PrinterComponent implements OnInit {
   allPrinters: Array<IPrinterData> = [];
 
+  printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog
@@ -41,17 +41,28 @@ export class PrinterComponent implements OnInit {
   //     console.log("The create new Printer Dialog was closed, result: ", result);
   //   });
   // }
-  openDialogPopUpDrucker(): void {
+  openDialogNewDrucker(): void {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
-      // data: { newOrderForm: this.newOrder }
+      data: {}
     });
-
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialog was closed")
-      // if (result) this.filterGroupData(result.data);
+      if (result) {
+        if (result.value) {
+          console.log("Dialog was closed", result.value);
+          this.backendService.addNewPrinter(result.value).then((res: any) => {
+            if (res.error)
+              alert("Drucker konnte nicht hinzugefügt werden: \n" + res.error);
+          });
+        }
+      }
     });
   }
+  onPrinterClick(event) {
+    this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
+      data: event.printer
+    });
+  }
+
   startPrinter(id: Number) {
     this.backendService.startPrinter(id).subscribe(data => console.log(data));
   }

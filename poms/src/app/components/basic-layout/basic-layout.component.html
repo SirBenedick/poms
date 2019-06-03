@@ -28,7 +28,7 @@
           class="button-style"
           id="printed-orders"
         >
-          <a class="transparent">gedruckte Aufträge</a>
+          <a class="transparent">Gedruckte Aufträge</a>
         </nav>
       </div>
 
@@ -46,9 +46,14 @@
     </div>
     <div>
       <nav routerLink="einstellungen" class="button-style" id="settings">
-        <a class="transparent"></a>Einstellungen
+        <a class="transparent"></a>Verwaltung
       </nav>
     </div>
+    <div>
+        <nav routerLink="logout" class="button-style" id="logout" (click)="logout()">
+          <a class="transparent"></a>Logout
+        </nav>
+      </div>
   </div>
   <!-- Middle Bar -->
   <div class="center-row">
@@ -66,10 +71,13 @@
         </div>
       </div>
 
+      <div class="poms" style="text-align: center">
+        P.O.M.S
+      </div>
       <div
         style="padding-top: 3px; padding-right: 10px"
         href="#"
-        (click)="openDialog()"
+        (click)="openDialogCreateNewOrder()"
       >
         <div style="padding-top: 2px; padding-right: 200px" href="#">
           <div id="new-assignment-box">

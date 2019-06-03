@@ -20,7 +20,7 @@ export interface IOrder {
   orderId: Number;
   groupId?: Number;
   customer: String; //DB has list of all customers
-  laboratory: String; //DB has list of all laboratories
+  laboratory?: String; //DB has list of all laboratories
   patient: String; //DB has list of all patients
   dentalPrintType: String; //DB has list of all dentalPrintTypes
   harz: String; //DB has list of all "harzes"
@@ -40,6 +40,17 @@ export interface IOrder {
     | "cleaned"
     | "postExposure"
     | "sent";
+}
+
+export interface IOrderCreateNew {
+  customer_id: number;
+  patient: String;
+  dental_print_type: String;
+  resin_name: String;
+  due_date: String;
+  comment: String;
+  status: String;
+  scan_file: any;
 }
 
 export interface IGroupedOrders {
@@ -94,26 +105,38 @@ export enum Role {
   User = "User",
   Admin = "Admin"
 }
-export interface ISettingsPage{
+export interface ISettingsPage {
   pageTitel: String;
   topics: Array<ISettingsPagetopic>;
 }
 
-export interface ISettingsPagetopic{
+export interface ISettingsPagetopic {
   topicTitel: String;
   subtopics: Array<ISettingsPageSubtopic>;
 }
-export interface ISettingsPageSubtopic{
+export interface ISettingsPageSubtopic {
   subtopicTitel: String;
   subtopicContent: String;
 }
 
-export interface ICategory{
+export interface ICategory {
   category_name: String;
 }
 
-export interface IPrinter{
-  printerId: number;
-  printerName: String;
-  
+export interface IDrucken {
+  upload: File;
+  download: File;
+  print: File;
+  EMail: String;
+}
+
+export interface ICustomer {
+  customer_id: number;
+  name: String;
+}
+
+export interface IPrinterNew {
+  name: String;
+  host: String;
+  port: String;
 }

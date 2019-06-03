@@ -3,17 +3,31 @@
     <div>
       <div>Neuen Drucker anlegen</div>
     </div>
-    <br>
+    <br />
     <div>
       <div>Druckername</div>
-      <input class=" rechteck-eingabe" formControlName="printerName" placeholder="Druckername angeben" />
+      <input formControlName="name" placeholder="Druckername angeben" />
     </div>
-    <br>
+    <br />
     <div>
-      <div>Printernummer</div>
-      <input class=" rechteck-eingabe" formControlName="printerId" placeholder="Printer ID angeben" />
+      <div>IP Adresse</div>
+      <input formControlName="host" placeholder="141.222.227.101" />
     </div>
-    <button (click)="onSaveButton()">Speichern</button>
-    <button (click)="onBreakButton()">Abbrechen</button>
+    <br />
+    <div>
+      <div>Port eingeben</div>
+      <input formControlName="port" placeholder="8080" />
+    </div>
+    <br />
+    <div>
+      <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="newPrinterForm">
+          Speichern
+        </button>
+        <button mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
+      </mat-dialog-actions>
+    </div>
   </div>
 </form>

@@ -1,7 +1,7 @@
 <div class="page-container">
   <div class="half-container">
     <div *ngFor="let page of allHelpTopics">
-      <h1 id="titel">{{ page.pageTitel }}</h1>
+      <h1 id="titel" >{{ page.pageTitel }}</h1>
       <mat-expansion-panel
         style=" margin-left: -20px;"
         *ngFor="let topic of page.topics"
@@ -13,13 +13,19 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div *ngFor="let subtopic of topic.subtopics">
-          <div id="sub-titel" (click)="onClick(subtopic)">
+          <!-- <div id="sub-titel" (click)="onClick(subtopic)"> -->
+          <!-- <div id="sub-titel" (click)="openFAQPopUp()"> -->
+          <div id="sub-titel" (click)="openUrlTextPopUp()">
+
             {{ subtopic.subtopicTitel }}
           </div>
           <br />
         </div>
         <div id="button-space">
-        <button id="button-style" (click)="addNewTopic(topic)">add Topic</button>
+        <button id="button-style" (click)="openPopUpFaq()">add Topic</button>
+        </div>
+        <div *ngIf="newFaq">
+          Test FAQ
         </div>
       </mat-expansion-panel>
     </div>

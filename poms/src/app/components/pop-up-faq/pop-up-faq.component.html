@@ -1,0 +1,32 @@
+<form [formGroup]="newFaqForm">
+  <div class="page-container">
+    <div>
+      <div>Neues Subtopic anlegen</div>
+    </div>
+    <br>
+    <div>
+      <div>Subtopic Name</div>
+      <input formControlName="subtopicTitel" placeholder="Subtopic angeben" />
+    </div>
+    <br>
+    <div>
+      <div>Subtopic Content</div>
+      <input formControlName="subtopicContent" placeholder="Content angeben" />
+    </div>
+    <br>
+    <div>
+      <div>Subtopic Video</div>
+      <input formControlName="videoURL" placeholder="Viedeo angeben" />
+    </div>
+    <div>
+      <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="newFaqForm">
+          Speichern
+        </button>
+        <button mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</form>

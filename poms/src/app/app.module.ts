@@ -32,7 +32,6 @@ import { MatNativeDateModule } from "@angular/material";
 import { ReactiveFormsModule } from "@angular/forms";
 import { StatusComponent } from "./components/status/status.component";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { NewPrinterComponent } from "./components/new-printer/new-printer.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { FAQComponent } from "./pages/faq/faq.component";
@@ -46,6 +45,14 @@ import { LoginService } from "./services/login.service";
 import { BenutzerService } from "./services/benutzer.service";
 import { TestbackendProvider } from "./services/testbackend.service";
 import { PopUpNeuerDruckerComponent } from './components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { FilterButtonActivatedDirective } from './directives/filter-button-activated.directive';
+import { PopUpFAQComponent } from './components/pop-up-faq/pop-up-faq.component';
+import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucken.component';
+import { PopUpVanikComponent } from './components/pop-up-vanik/pop-up-vanik.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.component';
+import { FAQPopUpComponent } from './components/faqpop-up/faqpop-up.component';
+import { UrlTextPopUpComponent } from './components/url-text-pop-up/url-text-pop-up.component';
 
 registerLocaleData(de);
 @NgModule({
@@ -59,12 +66,19 @@ registerLocaleData(de);
     OrderCardComponent,
     CreateNewOrderComponent,
     StatusComponent,
-    NewPrinterComponent,
     FAQComponent,
     EinstellungenComponent,
     LoginComponent,
     OrderFilterPopupComponent,
-    PopUpNeuerDruckerComponent
+    PopUpNeuerDruckerComponent,
+    FilterButtonActivatedDirective,
+    PopUpFAQComponent,
+    PopUpDruckenComponent,
+    PopUpVanikComponent,
+    LogoutComponent,
+    ErrorPopUpComponent,
+    FAQPopUpComponent,
+    UrlTextPopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -88,14 +102,21 @@ registerLocaleData(de);
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
 
   entryComponents: [
     CreateNewOrderComponent,
-    NewPrinterComponent,
     OrderFilterPopupComponent,
     PopUpNeuerDruckerComponent,
+    PopUpFAQComponent,
+    PopUpDruckenComponent,
+    PopUpVanikComponent,
+    LogoutComponent,
+    ErrorPopUpComponent,
+    FAQPopUpComponent,
+    UrlTextPopUpComponent
   ],
   //alle Services einbinden
   providers: [

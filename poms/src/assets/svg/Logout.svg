@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.979" height="27" viewBox="0 0 30.979 27">
+    <defs>
+        <style>
+            .cls-1,.cls-3,.cls-5{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3,.cls-5{stroke:#272f33;stroke-linecap:round;stroke-width:2px}.cls-4{clip-path:url(#clip-path-2)}.cls-5{stroke-linejoin:round}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h30.979v27H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <path d="M0 0h12v18.64H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Gruppe_657" data-name="Gruppe 657" transform="translate(-1 -.5)">
+        <g id="Komponente_1" class="cls-2" data-name="Komponente 1" transform="translate(1 .5)">
+            <path id="Pfad_218" d="M4 0h15.15a5.39 5.39 0 0 1 5.509 5.263v14.474A5.39 5.39 0 0 1 19.15 25H4" class="cls-3" data-name="Pfad 218" transform="translate(5.32 1)"/>
+            <g id="Hochladen" class="cls-4" transform="rotate(-90 9.75 9.75)">
+                <path id="Pfad_206" d="M1397.011 271.047l-4.981 4.834-5.019-4.834" class="cls-5" data-name="Pfad 206" transform="rotate(180 699.005 138.44)"/>
+                <path id="Linie_183" d="M0 0v12" class="cls-3" data-name="Linie 183" transform="translate(6 1.64)"/>
+            </g>
+        </g>
+    </g>
+</svg>

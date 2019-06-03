@@ -8,6 +8,7 @@ import { EinstellungenComponent } from "./pages/einstellungen/einstellungen.comp
 import { LoginComponent } from "./components/login/login.component";
 import { BenutzerService } from "./services/benutzer.service";
 import { Role } from "./shared/interfaces";
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   //Seiten auf die mal geleitet wird, wenn man entsprechen Path angibt
@@ -24,7 +25,8 @@ const routes: Routes = [
     canActivate: [BenutzerService],
     data: { roles: [Role.Admin] }
   },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: "logout", component: LogoutComponent }
 ];
 
 @NgModule({

@@ -1,72 +1,64 @@
-<form [formGroup]="filterParamForm">
-  <div class="harz-container">
+<form [formGroup]="filterParamForm" class="page-container">
+
+  <h3>Filteroptionen</h3>
+  <div>
+    <h4> Harz </h4>
+    <mat-select matNativeControl required formControlName="harz" placeholder="Harz auswählen" class="boxen">
+      <mat-option *ngFor="let harz of harzList1" value="{{harz.harz}}">
+        {{ harz.harz }}
+      </mat-option>
+    </mat-select>
+  </div>
+  <!-- Wird gebraucht, wenn Backend komplett steht -->
+  <!-- <div class="harz-container">
     <div *ngFor="let harz of harzList">
-      <input
-        type="radio"
-        id="{{ harz.resin_name }}"
-        name="harz"
-        value="{{ harz.resin_name }}"
-        formControlName="harz"
-      />
+      <input type="radio" id="{{ harz.resin_name }}" name="harz" value="{{ harz.resin_name }}" formControlName="harz" />
       <label for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
     </div>
-  </div>
-  <h1>Fällig am:</h1>
+  </div> -->
+
+  <h4>Fällig am:</h4>
   <mat-form-field>
-    <input
-      matInput
-      [matDatepicker]="pickerStart"
-      placeholder="Choose a date"
-      formControlName="dueDateStart"
-    />
-    <mat-datepicker-toggle
-      matSuffix
-      [for]="pickerStart"
-    ></mat-datepicker-toggle>
+    <input matInput [matDatepicker]="pickerStart" placeholder="Choose a date" formControlName="dueDateStart"
+      class="boxen" />
+    <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
     <mat-datepicker #pickerStart></mat-datepicker>
   </mat-form-field>
   <mat-form-field>
-    <input
-      matInput
-      [matDatepicker]="pickerEnd"
-      placeholder="Choose a date"
-      formControlName="dueDateEnd"
-    />
+    <input matInput [matDatepicker]="pickerEnd" placeholder="Choose a date" formControlName="dueDateEnd"
+      class="boxen" />
     <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
     <mat-datepicker #pickerEnd></mat-datepicker>
   </mat-form-field>
-  <h1>Priorität:</h1>
-  <input
-    type="radio"
-    id="niedrig"
-    name="priority"
-    value="niedrig"
-    formControlName="priority"
-  />
+  <div>
+    <h4> Kategorie </h4>
+    <mat-select matNativeControl required formControlName="dentalPrintType" placeholder="Kategorie auswählen" class="boxen">
+      <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
+        {{ oneCategory.category_name }}
+      </mat-option>
+    </mat-select>
+  </div>
+  <h4>Priorität:</h4>
+  <!-- <input type="radio" id="niedrig" name="priority" value="niedrig" formControlName="priority" class="boxenPrio" />
   <label for="niedrig">niedrig</label>
-  <input
-    type="radio"
-    id="mittel"
-    name="priority"
-    value="mittel"
-    formControlName="priority"
-  />
+  <input type="radio" id="mittel" name="priority" value="mittel" formControlName="priority" class="boxenPrio" />
   <label for="mittel">mittel</label>
-  <input
-    type="radio"
-    id="hoch"
-    name="priority"
-    value="hoch"
-    formControlName="priority"
-  />
-  <label for="hoch">hoch</label>
-  <h1>Kunde:</h1>
+  <input type="radio" id="hoch" name="priority" value="hoch" formControlName="priority" class="boxenPrio" />
+  <label for="hoch">hoch</label> -->
+  <div class="prio" required>
+    <div id="boxenPrio" class="schrift-boxen" (click)="onClick()"> niedrig</div>
+    <div id="boxenPrio" class="schrift-boxen" (click)="onClick()"> mittel </div>
+    <div id="boxenPrio" class="schrift-boxen" (click)="onClick()"> hoch </div>
+  </div>
+  <h4>Kunde:</h4>
   <mat-form-field>
-    <mat-label>Cars</mat-label>
-    <select matNativeControl required formControlName="customer">
-      <option value="Schmittlauch">Schmidttlauch</option>
-      <option value="Schmittlauch1">Schmidttlauch1</option>
+    <mat-label>Kunde</mat-label>
+    <select matNativeControl required formControlName="customer" class="boxen">
+      <option *ngFor="let customer of customerData" value="{{ customer.customer }}">
+        {{ customer.customer }}
+      </option>
     </select>
   </mat-form-field>
 </form>
-<button class="button-style" (click)="saveInFilterFormate()">Save</button>
+  <button class="button-style" (click)="saveInFilterFormate()" filterbuttonGroups>anwenden</button>
+  <button class="button-style" (click)="onNoClick()" filterbuttonGroups>abbrechen</button>
