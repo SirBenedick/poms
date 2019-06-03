@@ -24,7 +24,7 @@
       </button>
       <div class="expand-print">
         <mat-expansion-panel *ngFor="let group of filteredGroupData" class="expand-collapse" cdkDropList
-          [cdkDropListData]="group.orders" (cdkDropListDropped)="drop($event)">
+          [cdkDropListData]="group.orders" (cdkDropListDropped)="drop($event)" appDeactiveGroup="group">
           <mat-expansion-panel-header>
             <mat-panel-title>
               <div>

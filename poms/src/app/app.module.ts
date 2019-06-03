@@ -53,6 +53,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.component';
 import { FAQPopUpComponent } from './components/faqpop-up/faqpop-up.component';
 import { UrlTextPopUpComponent } from './components/url-text-pop-up/url-text-pop-up.component';
+import { DeactiveGroupDirective } from './directives/deactive-group.directive';
 
 registerLocaleData(de);
 @NgModule({
@@ -78,7 +79,8 @@ registerLocaleData(de);
     LogoutComponent,
     ErrorPopUpComponent,
     FAQPopUpComponent,
-    UrlTextPopUpComponent
+    UrlTextPopUpComponent,
+    DeactiveGroupDirective
   ],
   imports: [
     BrowserModule,
