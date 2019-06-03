@@ -4,9 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import {
   IFilterOrders,
   IResinType,
-  IOrder,
   ICategory,
-  IGroupedOrders,
   ICustomer
 } from "src/app/shared/interfaces";
 import { FormGroup, FormControl } from "@angular/forms";

@@ -71,10 +71,7 @@
         placeholder="Kategorie auswählen"
         class=" rechteck-eingabe"
       >
-        <mat-option
-          *ngFor="let oneCategory of categoryData"
-          value="{{ oneCategory.category_name }}"
-        >
+        <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
           {{ oneCategory.category_name }}
         </mat-option>
       </mat-select>

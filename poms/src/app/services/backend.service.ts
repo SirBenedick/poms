@@ -27,162 +27,6 @@ export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
-  //** Mocked Data for offline use */
-  // mockedOrderData: Array<IOrder> = [
-  //   {
-  //     order_id: 1,
-  //     group_id: 1,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Schienen für Halterungsposition",
-  //     priority: "hoch",
-  //     harz: "weiß",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 2,
-  //     group_id: 2,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Kundenspezifische Anpassung",
-  //     priority: "hoch",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "postPrint"
-  //   },
-  //   {
-  //     order_id: 3,
-  //     group_id: 3,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Gießbare Teile",
-  //     priority: "hoch",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "postPrint"
-  //   },
-  //   {
-  //     order_id: 4,
-  //     customer: "Schmittlauch1",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Backenzaehne",
-  //     priority: "hoch",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-23",
-  //     creationDate: "2019-05-22",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 5,
-  //     group_id: 1,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Weichgewebe",
-  //     priority: "mittel",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 6,
-  //     group_id: 2,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Implantat",
-  //     priority: "mittel",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 7,
-  //     group_id: 3,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Justierung der Zaehne",
-  //     priority: "mittel",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "sent"
-  //   },
-  //   {
-  //     order_id: 8,
-  //     customer: "Schmittlauch1",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Modelle und Implantatmodelle",
-  //     priority: "mittel",
-  //     harz: "weiß",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 9,
-  //     group_id: 1,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Provisorische Kronen und Bruecken",
-  //     priority: "niedrig",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 10,
-  //     group_id: 2,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Zaehne",
-  //     priority: "niedrig",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 11,
-  //     group_id: 3,
-  //     customer: "Schmittlauch",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Zaehne",
-  //     priority: "niedrig",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "created"
-  //   },
-  //   {
-  //     order_id: 12,
-  //     customer: "Schmittlauch1",
-  //     laboratory: "testlabor",
-  //     patient: "Maximum Lauch",
-  //     dental_print_type: "Implantat",
-  //     priority: "niedrig",
-  //     harz: "schwarz",
-  //     dueDate: "2019-05-19",
-  //     creationDate: "2019-05-19",
-  //     status: "cleaned"
-  //   }
-  // ];
   mockedPrinterData: Array<IPrinterData> = [
     {
       printer_id: 23,
@@ -401,32 +245,6 @@ export class BackendService {
       ]
     }
   ];
-  mockedGroupData: Array<IGroupedOrders> = [
-    {
-      group_id: 1,
-      harz: "Vanille",
-      creationDate: "5/1/2019",
-      fileSliced: null,
-      orders: [],
-      status: "preprint"
-    },
-    {
-      group_id: 2,
-      harz: "Mettiges Mettharz aus Mettmann",
-      creationDate: "5/1/2019",
-      fileSliced: null,
-      orders: [],
-      status: "preprint"
-    },
-    {
-      group_id: 3,
-      harz: "Vanille",
-      creationDate: "5/1/2019",
-      fileSliced: null,
-      orders: [],
-      status: "preprint"
-    }
-  ];
   mockedCategoryData: Array<ICategory> = [
     { category_name: "Schienen für Halterungsposition" },
     { category_name: "Kundenspezifische Anpassung" },
@@ -442,6 +260,7 @@ export class BackendService {
 
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
+  allGroupData$: Observable<Object>;
 
   allUngroupedOrders: Array<IOrder> = [];
   allGroupData: Array<IGroupedOrders> = [];
@@ -452,24 +271,24 @@ export class BackendService {
 
   constructor(
     private http: HttpClient,
-    private converter: ConverterService,
     private uploadService: UploadService
   ) {
     /** Starts observable and polls all OrderData from Backend */
-
     this.allOrderData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<any>) => {
-      // this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
       this.allUngroupedOrders = allOrderData;
-      // this.allUngroupedOrders = this.mockedOrderData;
     });
 
-    this.getAllGroups().then(
-      (res: Array<IGroupedOrders>) => (this.allGroupData = res)
+    this.allGroupData$ = timer(0, 2000).pipe(
+      switchMap((counter: number) => this.getAllGroups()),
+      catchError((err, caught) => caught)
     );
+    this.allGroupData$.subscribe((allGroupData: Array<any>) => {
+      this.allGroupData = allGroupData;
+    });
 
     /** Starts observable and polls all PrinterData from Backend */
     this.allPrinterData$ = timer(0, 2000).pipe(
@@ -538,15 +357,8 @@ export class BackendService {
     return promiseRes;
   }
 
-  getAllGroups(): Promise<Object> {
-    return this.http.get(this.backendUrl + "group/get/all").toPromise();
-    // let promiseRes = new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     resolve();
-    //   }, 200);
-    //   resolve(this.mockedGroupData);
-    // });
-    // return promiseRes;
+  getAllGroups(): Observable<Object> {
+    return this.http.get(this.backendUrl + "group/get/all");
   }
 
   getAllGroupData(): Array<IGroupedOrders> {
@@ -567,7 +379,9 @@ export class BackendService {
   //Create
   createNewGroup(order: IOrder): Promise<Object> {
     //example API-Call, URL not yet real
-    return this.http.post(this.backendUrl + "group/create/", {order_id: order.order_id}).toPromise();
+    return this.http
+      .post(this.backendUrl + "group/create/", { order_id: order.order_id })
+      .toPromise();
   }
 
   createNewOrder_Backup(newOrder: IOrderCreateNew): Promise<Object> {
@@ -604,22 +418,13 @@ export class BackendService {
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 
-  assignOrderToGroup(order_id: number, group_id: number): Promise<Object>{
-    return this.http.get(this.backendUrl + "order/assign/" + order_id + "/to/" + group_id ).toPromise();
+  assignOrderToGroup(order_id: number, group_id: number): Promise<Object> {
+    return this.http
+      .get(this.backendUrl + "order/assign/" + order_id + "/to/" + group_id)
+      .toPromise();
   }
-  removeGroupById(id: number): Promise<Object>{
+  removeGroupById(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
   }
 }
 
-/**
- * To-Do
- * Frontend:
- * "add Topic" Dialog gestalten
- * auf subtopic in der faq seite draufklicken solle dialog öffnen mit inhalten des IHelpPageSubtopic-Objektes
- *
- * Backend:
- * createNewGroup()
- * getAllHelpTopics()
- * addNewSubtopic()
- */

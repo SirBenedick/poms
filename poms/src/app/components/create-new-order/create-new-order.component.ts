@@ -54,7 +54,7 @@ export class CreateNewOrderComponent implements OnInit {
         Validators.required
       ]),
       dental_print_type: new FormControl(
-        this.data.dental_print_type ? this.data.dental_print_type : "",
+        this.data.dental_print_type ? this.data.dental_print_type : "Bitte auswählen",
         [Validators.required]
       ),
       harz: new FormControl(this.data.resin_name ? this.data.resin_name : "", [
