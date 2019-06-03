@@ -17,7 +17,7 @@ export interface IPrinterData {
 }
 
 export interface IOrder {
-  orderId: Number;
+  orderId: number;
   groupId?: Number;
   customer: String; //DB has list of all customers
   laboratory?: String; //DB has list of all laboratories

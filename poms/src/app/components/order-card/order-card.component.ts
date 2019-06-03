@@ -1,5 +1,6 @@
+import { ConverterService } from "./../../services/converter.service";
 import { Component, OnInit, Input } from "@angular/core";
-import { IOrder } from "src/app/shared/interfaces";
+import { IOrder, IOrderCreateNew } from "src/app/shared/interfaces";
 import { CreateNewOrderComponent } from "../create-new-order/create-new-order.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { BackendService } from "src/app/services/backend.service";
@@ -11,14 +12,23 @@ import { BackendService } from "src/app/services/backend.service";
 })
 export class OrderCardComponent implements OnInit {
   @Input() order: IOrder;
+
   allUngroupedOrders: Array<IOrder> = [];
   ordersNameDialogRef: MatDialogRef<CreateNewOrderComponent>;
+
   constructor(
     private dialog: MatDialog,
-    private backendService: BackendService
+    private backendService: BackendService,
+    private converterService: ConverterService
   ) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (!this.order.orderId) {
+      this.order = this.converterService.ordersBackendToFrontend([
+        <any>this.order
+      ])[0];
+    }
+  }
 
   onCardClick(event) {
     this.ordersNameDialogRef = this.dialog.open(CreateNewOrderComponent, {

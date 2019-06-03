@@ -54,10 +54,13 @@ export class OrderComponent implements OnInit {
         .pollAllOrdersFromBackend()
         .toPromise()
         .then((allOrderData: Array<IOrder>) => {
-          // let convertedOrders: Array<IOrder> = this.converter.ordersBackendToFrontend(allOrderData);
-          // this.sortOrderLists(convertedOrders);
+          let convertedOrders: Array<
+            IOrder
+          > = this.converter.ordersBackendToFrontend(allOrderData);
+          this.sortOrderLists(convertedOrders);
+          this.backendService.allUngroupedOrders = convertedOrders;
           // this.sortOrderLists(this.backendService.allUngroupedOrders);
-          this.sortOrderLists(allOrderData);
+          // this.sortOrderLists(allOrderData);
         });
     } else {
       this.sortOrderLists(this.backendService.allUngroupedOrders);
@@ -65,22 +68,34 @@ export class OrderComponent implements OnInit {
   }
 
   sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
+    console.log("sortOrderLists");
+    //old version, first we filtered the grouped orders out
+    // allOrdersUnsorted.forEach(singleOrder => {
+    //   //check if groupId exists
+    //   if (singleOrder.groupId) {
+    //     //returns item with corresponding singleOrder.groupId or undefinded
+    //     let foundGroupObject = this.allGroupedOrders.find(
+    //       item => item.groupId === singleOrder.groupId
+    //     );
+    //     //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
+    //     if (foundGroupObject) {
+    //       foundGroupObject.orders.push(singleOrder);
+    //       console.log("pushed group");
+    //     } else {
+    //       console.log("Keine Gruppe vorhanden: ", foundGroupObject);
+    //     }
+    //   } else {
+    //     this.allUngroupedOrders.push(singleOrder);
+    //   }
+    // });
     allOrdersUnsorted.forEach(singleOrder => {
-      //check if groupId exists
-      if (singleOrder.groupId) {
-        //returns item with corresponding singleOrder.groupId or undefinded
-        let foundGroupObject = this.allGroupedOrders.find(
-          item => item.groupId === singleOrder.groupId
-        );
-        //if group already exists add singleOrder to existing orderCardsByGroup else add group with singleOrder
-        if (foundGroupObject) {
-          foundGroupObject.orders.push(singleOrder);
-          console.log("pushed group");
-        } else {
-          console.log("Keine Gruppe vorhanden: ", foundGroupObject);
+      if (singleOrder.groupId == 0 || singleOrder.groupId == null) {
+        if (
+          singleOrder.status == "created" ||
+          singleOrder.status == "isSolid"
+        ) {
+          this.allUngroupedOrders.push(singleOrder);
         }
-      } else {
-        this.allUngroupedOrders.push(singleOrder);
       }
     });
     this.filteredUngroupedOrders = this.allUngroupedOrders;
@@ -172,7 +187,7 @@ export class OrderComponent implements OnInit {
       if (result) {
         if (result.value) {
           let order = result.value;
-          console.log(result.value)
+          console.log(result.value);
           let newOrder: IOrderCreateNew = {
             customer_id: parseInt(order.customer),
             patient: order.patient,
@@ -183,13 +198,13 @@ export class OrderComponent implements OnInit {
             status: "created",
             scan_file: order.hochladen.files[0]
           };
-          console.log(newOrder)
+          console.log(newOrder);
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
               console.log(res.error);
-            }else{
-              console.log(res)
+            } else {
+              console.log(res);
             }
             //ggf müssen hier alle aufträge neugeladen/angezeigt werden
             //bei in order.ts und basic-layout.ts
@@ -264,7 +279,7 @@ export class OrderComponent implements OnInit {
 
     this.backendService.createNewGroup(draggedOrder).then(res => {
       console.log("response:", res);
-      this.sortOrderLists(this.backendService.allUngroupedOrders);
+      // this.sortOrderLists(this.backendService.allUngroupedOrders);
     });
   }
 
@@ -274,9 +289,10 @@ export class OrderComponent implements OnInit {
       (<unknown>previousContainer.data[event.previousIndex])
     );
     let targetContainer = event.container;
-    let targetDataLink: Array<IOrder> = <Array<IOrder>>(
+    let targetDataLink: Array<any> = <Array<IOrder>>(
       (<unknown>targetContainer.data)
     );
+    let firstItemFromGroup: any = targetDataLink[0];
     let targetContainerNodeType =
       targetContainer.element.nativeElement.nodeName;
 
@@ -296,13 +312,17 @@ export class OrderComponent implements OnInit {
       );
     }
     //** Abglech ob Harzfarbe passt */
-    else if (targetDataLink[0].harz === draggedOrder.harz) {
+    else if (firstItemFromGroup.resin_name === draggedOrder.harz) {
       transferArrayItem(
         previousContainer.data,
         targetContainer.data,
         event.previousIndex,
         event.currentIndex
       );
+
+      this.backendService
+        .assignOrderToGroup(draggedOrder.orderId, firstItemFromGroup.group_id)
+        .then(res => console.log(res));
     } else {
       /** Fehler muss ersichtlich ausgegeben sein */
       this.dialog.open(ErrorPopUpComponent);

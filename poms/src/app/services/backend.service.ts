@@ -462,8 +462,8 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allOrderData$.subscribe((allOrderData: Array<any>) => {
-      // this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
-      this.allUngroupedOrders = this.mockedOrderData;
+      this.allUngroupedOrders = this.converter.ordersBackendToFrontend(allOrderData);
+      // this.allUngroupedOrders = this.mockedOrderData;
     });
 
     this.getAllGroups().then(
@@ -492,10 +492,10 @@ export class BackendService {
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
-    // return this.http.get(this.backendUrl + "order/get/all");
+    return this.http.get(this.backendUrl + "order/get/all");
     //** Mocked Data */
     // console.log("pollAllOrdersFromBackend");
-    return this.http.get(this.mockedURL + "allOrders");
+    // return this.http.get(this.mockedURL + "allOrders");
   }
 
   pollAllPrinterFromBackend(): Observable<Object> {
@@ -538,14 +538,14 @@ export class BackendService {
   }
 
   getAllGroups(): Promise<Object> {
-    // return this.http.get(this.backendUrl + "groups/all").toPromise();
-    let promiseRes = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 200);
-      resolve(this.mockedGroupData);
-    });
-    return promiseRes;
+    return this.http.get(this.backendUrl + "group/get/all").toPromise();
+    // let promiseRes = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve();
+    //   }, 200);
+    //   resolve(this.mockedGroupData);
+    // });
+    // return promiseRes;
   }
 
   getAllGroupData(): Array<IGroupedOrders> {
@@ -566,7 +566,7 @@ export class BackendService {
   //Create
   createNewGroup(order: IOrder): Promise<Object> {
     //example API-Call, URL not yet real
-    return this.http.get(this.backendUrl + "group/create/").toPromise();
+    return this.http.post(this.backendUrl + "group/create/", {order_id: order.orderId}).toPromise();
   }
 
   createNewOrder_Backup(newOrder: IOrderCreateNew): Promise<Object> {
@@ -601,6 +601,10 @@ export class BackendService {
   addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
     //Insert Backendcall here
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  }
+
+  assignOrderToGroup(orderId: number, groupId: number): Promise<Object>{
+    return this.http.get(this.backendUrl + "order/assign/" + orderId + "/to/" + groupId ).toPromise();
   }
 }
 
