@@ -47,4 +47,23 @@ mat-dialog-container{
 .mat-icon.mat-accent{color: #62c6d6
 }
 
+.mat-focused .mat-form-field-required-marker{color:#62c6d6}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
+  background-color: #62c6d6
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+  color: #62c6d6}
 
+.mat-accent .mat-pseudo-checkbox-checked,.mat-accent .mat-pseudo-checkbox-indeterminate,.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-indeterminate
+{background: #62c6d6
+}
+.mat-primary .mat-pseudo-checkbox-checked,.mat-primary .mat-pseudo-checkbox-indeterminate
+{background: #62c6d6
+}
+
+.mat-accent .mat-pseudo-checkbox-checked,.mat-accent .mat-pseudo-checkbox-indeterminate,.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-indeterminate{background: #62c6d6
+}
+.mat-primary .mat-pseudo-checkbox-checked,.mat-primary .mat-pseudo-checkbox-indeterminate{background: #62c6d6
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{background-color: #62c6d6
+}
