@@ -7,10 +7,10 @@
   </div>
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-    <mat-expansion-panel *ngFor="let printer of allPrinters">
-      <mat-expansion-panel-header class="expand-collapse">
+    <mat-expansion-panel *ngFor="let printer of allPrinters" class="expand-collapse">
+      <mat-expansion-panel-header>
         <!-- Ausgabe von allen verfügbaren Druckern -->
-        <mat-panel-title>
+        <mat-panel-title id="order-heading">
           <img
             height="35px"
             width="35px"
