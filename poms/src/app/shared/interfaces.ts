@@ -55,7 +55,7 @@ export interface IOrderCreateNew {
 
 export interface IGroupedOrders {
   group_id: number;
-  harz: String;
+  resin_name: string;
   creationDate: String;
   fileSliced?: any; //REST-Url to file
   orders?: Array<IOrder>;

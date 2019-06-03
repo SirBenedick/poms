@@ -33,6 +33,7 @@
                   {{ group.orders.length }}
                 </p>
               </div>
+              <p (click)="copyResinFromGroup(group)">{{group.resin_name}}</p>
             </mat-panel-title>
             <div id="button-space">
               <button class="button-style" (click)="onPrintClick()">Drucken</button>

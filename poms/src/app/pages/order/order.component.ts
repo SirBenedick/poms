@@ -29,8 +29,18 @@ export class OrderComponent implements OnInit {
   filteredGroupData: Array<IGroupedOrders> = [];
   isOrderFilterSet: number = 0;
   isGroupFilterSet: number = 0;
-  filterParameterOrder: IFilterOrders;
-  filterParameterGroup: IFilterOrders;
+  filterParameterOrder: IFilterOrders = {
+    resin_name: null,
+    priority: null,
+    due_date: null,
+    customer_id: null
+  };
+  filterParameterGroup: IFilterOrders = {
+    resin_name: null,
+    priority: null,
+    due_date: null,
+    customer_id: null
+  };
 
   constructor(
     private backendService: BackendService,
@@ -255,6 +265,20 @@ export class OrderComponent implements OnInit {
     this.isOrderFilterSet = this.numberOfFilterParameters(
       this.filterParameterGroup
     );
+  }
+
+  copyResinFromGroup(group: IGroupedOrders) {
+    event.stopPropagation();
+    let tempFilter = {
+      resin_name: group.resin_name,
+      priority: null,
+      due_date: null,
+      customer_id: null
+    };
+
+    this.filterGroupData(tempFilter);
+    this.isGroupFilterSet = this.numberOfFilterParameters(tempFilter);
+    this.filterParameterGroup = tempFilter;
   }
 
   dropNewGroup(event: CdkDragDrop<string[]>) {
