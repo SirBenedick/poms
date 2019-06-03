@@ -14,12 +14,7 @@
   box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
 }
 
-<<<<<<< HEAD
-
-.half-half-container{
-=======
 .half-half-container {
->>>>>>> develop
   display: flex;
   justify-content: space-between;
 }

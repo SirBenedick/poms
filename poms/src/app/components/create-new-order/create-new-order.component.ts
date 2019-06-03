@@ -7,17 +7,11 @@ import {
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-<<<<<<< HEAD
 import {
   FormControl,
   FormGroup,
   Validators
 } from "@angular/forms";
-import {style} from "@angular/animations";
-import {hasI18nAttrs} from "@angular/compiler/src/render3/view/i18n/util";
-=======
-import { FormControl, FormGroup, Validators } from "@angular/forms";
->>>>>>> develop
 
 @Component({
   selector: "app-create-new-order",
