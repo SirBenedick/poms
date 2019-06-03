@@ -105,7 +105,7 @@ export class PrintedordersComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
             order => {
               let orderDate = new Date(order[key]);
@@ -129,7 +129,7 @@ export class PrintedordersComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           this.allReadyOrders = this.allReadyOrders.filter(order => {
             let orderDate = new Date(order[key]);
             if (
