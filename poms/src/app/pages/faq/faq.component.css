@@ -3,10 +3,18 @@
     flex-direction: column;
 }
 #titel{
+  width: 226px;
+  height: 35px;
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 26px;
   font-weight: bold;
-  font-size: 20px;
-  padding-left: 10px;
-  margin-top: 20px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
 }
 .half-container{
 max-height: 85vh;
@@ -33,18 +41,34 @@ object-fit: contain;
     color: #272f33;
   }
   #heading {
-    font-family: "Segoe UI";
-    font-size: 14px;
-    font-weight: bold;
-    text-align: left;
     padding-left: 10px;
-    padding-top: 10px;
+    padding-top: 5px;
+    height: 21px;
+    object-fit: contain;
+    font-family: "SegoeUI";
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: left;
     color: #272f33;
   }
   #sub-titel{
-    text-align: left;
-    font-size: 12px;
     padding-left: 35px;
+    width: 351px;
+    height: 21px;
+    object-fit: contain;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: left;
+    color: #272f33;
   }
 #button-style{
   border-radius: 4px;
@@ -57,4 +81,21 @@ object-fit: contain;
 
 #button-space{
  float: right;
+}
+
+#order-heading {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  height: 30px;
+  width: 100%;
+}
+
+.expand-collapse {
+  flex-wrap: wrap;
+  font-size: 8px;
+  box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+
+  margin: 5px;
 }

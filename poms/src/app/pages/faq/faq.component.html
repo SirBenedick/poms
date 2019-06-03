@@ -5,13 +5,15 @@
       <mat-expansion-panel
         style=" margin-left: -20px;"
         *ngFor="let topic of page.topics"
+        class="expand-collapse"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title>
+          <mat-panel-title id="order-heading">
             <img style="width: 25px" src="../../../assets/svg/Hilfestellung_Button.svg" />
             <h1 id="heading">{{ topic.topicTitel }}</h1>
           </mat-panel-title>
         </mat-expansion-panel-header>
+        <br>
         <div *ngFor="let subtopic of topic.subtopics">
           <!-- <div id="sub-titel" (click)="onClick(subtopic)"> -->
           <!-- <div id="sub-titel" (click)="openFAQPopUp()"> -->
@@ -22,7 +24,7 @@
           <br />
         </div>
         <div id="button-space">
-        <button id="button-style" (click)="openPopUpFaq()">add Topic</button>
+        <button id="button-style" (click)="openPopUpFaq()">hinzufügen</button>
         </div>
         <div *ngIf="newFaq">
           Test FAQ
