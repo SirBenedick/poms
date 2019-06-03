@@ -1,3 +1,4 @@
+import { UploadService } from "./upload.service";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, timer } from "rxjs";
@@ -392,7 +393,7 @@ export class BackendService {
           topicTitel: "Prioritäten verwalten",
           subtopics: [
             {
-              subtopicTitel: "Denn Zeitraum der Priorität ändern",
+              subtopicTitel: "Den Zeitraum der Priorität ändern",
               subtopicContent: "subtopicContent 121"
             }
           ]
@@ -449,7 +450,11 @@ export class BackendService {
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
 
-  constructor(private http: HttpClient, private converter: ConverterService) {
+  constructor(
+    private http: HttpClient,
+    private converter: ConverterService,
+    private uploadService: UploadService
+  ) {
     /** Starts observable and polls all OrderData from Backend */
 
     this.allOrderData$ = timer(0, 2000).pipe(
@@ -564,12 +569,19 @@ export class BackendService {
     return this.http.get(this.backendUrl + "group/create/").toPromise();
   }
 
-  createNewOrder(newOrder: IOrderCreateNew): Promise<Object> {
+  createNewOrder_Backup(newOrder: IOrderCreateNew): Promise<Object> {
     console.log("createNewOrder Errorhandling implementieren");
     console.log("createNewOrder Backend", newOrder);
     return this.http
       .post(this.backendUrl + "order/create/", newOrder)
       .toPromise();
+  }
+
+  createNewOrder(newOrder: IOrderCreateNew): Observable<Object> {
+    console.log("createNewOrder Backend", newOrder);
+    return this.uploadService.createNewOrder(newOrder);
+    // return this.http
+    //   .post(this.backendUrl + "order/create/", newOrder);
   }
 
   addNewPrinter(newPrinter: IPrinterNew): Promise<Object> {

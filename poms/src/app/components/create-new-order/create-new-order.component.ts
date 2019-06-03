@@ -1,3 +1,4 @@
+import { UploadService } from './../../services/upload.service';
 import {
   IResinType,
   IOrder,
@@ -5,7 +6,7 @@ import {
   ICustomer
 } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import {
   FormControl,
@@ -24,11 +25,13 @@ export class CreateNewOrderComponent implements OnInit {
   categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
-
+  @ViewChild("fileInputScan") fileInputScan;
+  
   constructor(
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IOrder,
-    private backendService: BackendService
+    private backendService: BackendService,
+    private uploadService: UploadService
   ) {}
   ngOnInit() {
     this.newOrderForm = new FormGroup({
@@ -74,7 +77,11 @@ export class CreateNewOrderComponent implements OnInit {
       fileSolid: new FormControl(
         this.data.fileSolid ? this.data.fileSolid : "",
         [Validators.required]
-      )
+      ),
+      hochladen: new FormControl(
+        this.fileInputScan.nativeElement ? this.fileInputScan.nativeElement : null,
+        [Validators.required]
+      ),
     });
     // this.backendService.getAllResin().then((res: Array<IResinType>) => {
     //   this.harzList = res;
@@ -87,5 +94,15 @@ export class CreateNewOrderComponent implements OnInit {
   // }
   onQuit(): void {
     this.dialogRef.close();
+  }
+  uploadScan(){
+    console.log("uploadScan")
+
+    // if (fi.files && fi.files[0]) {
+    //   let fileToUpload = fi.files[0];
+    //   this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
+    //     console.log(res);
+    //   });
+    // }
   }
 }
