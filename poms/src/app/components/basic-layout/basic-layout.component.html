@@ -101,31 +101,40 @@
     <div *ngFor="let printer of printerSubscription | async">
       <div *ngIf="printer.offline == 0">
         <div *ngIf="printer.is_printing == 1">
-          <p id="info-print-heading">
-            <b>{{ printer.name }}</b> druckt <b>Gruppe 2</b>
-          </p>
-          <div class="progressbar">
+
+          <div *ngIf="printer.paused == 1">
+            <div class="progressbar">
             <mat-progress-bar [value]="printer.progress * 100">
             </mat-progress-bar>
             <img
-              width="10px"
-              height="10px"
-              src="../../../assets/svg/pause.svg"
+              width="20px"
+              height="20px"
+              src="../../../assets/svg/warning.svg"
             />
-            <img
-              width="10px"
-              height="10px"
-              src="../../../assets/fonts/abbrechen.svg"
-            />
-          </div>
-          <div *ngIf="printer.paused == 1">
-            <p>
+            </div>
+            <p class="info-print-heading">
               Druck <b>pausiert</b> bei:
               {{ printer.progress * 100 | number: "1.0-0" }}%
             </p>
+
+
           </div>
           <div *ngIf="printer.paused != 1">
-            <p id="print-prozess-info">
+            <div class="progressbar">
+              <mat-progress-bar [value]="printer.progress * 100">
+              </mat-progress-bar>
+              <img
+                width="10px"
+                height="10px"
+                src="../../../assets/svg/pause.svg"
+              />
+              <img
+                width="10px"
+                height="10px"
+                src="../../../assets/fonts/abbrechen.svg"
+              />
+            </div>
+            <p class="info-print-heading">
               Druckfortschritt bei
               {{ printer.progress * 100 | number: "1.0-0" }}%
             </p>
