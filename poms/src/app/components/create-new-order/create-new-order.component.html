@@ -6,16 +6,15 @@
       <h1 class="heading" *ngIf="data.customer">Auftrag: #{{data.orderId}}</h1>
     </div>
     <div class="small-bar-left"></div>
-    <br>
 
-    <div>
+    <div id="patitent-titel">
       <h1 class="title">Patient/Titel</h1>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" style="margin-top: -10px">
         <textarea matInput formControlName="patient"></textarea>
       </mat-form-field>
     </div>
     <br>
-    <div>
+    <div style="margin-top: -10px">
       <h1 class ="title"> Fälligkeit </h1>
       <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="dueDate"
         placeholder="Fälligkeitsdatum auswählen" />

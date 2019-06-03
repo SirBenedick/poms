@@ -13,7 +13,6 @@
   object-fit: contain;
   box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
 }
-
 .half-half-container {
   display: flex;
   justify-content: space-between;
@@ -27,8 +26,6 @@
 .expand-collapse {
   flex-wrap: wrap;
   font-size: 8px;
-  /* height: 60px; */
-  /* object-fit: contain; */
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
 
   margin: 5px;
@@ -73,9 +70,6 @@
   position: relative;
   height: 30px;
   width: 100%;
-}
-.titel-expand-collapse {
-  margin-top: 5px;
 }
 #button-space {
   height: 40px;
