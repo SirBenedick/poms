@@ -7,10 +7,19 @@
     </div>
     <div class="small-bar-left"></div>
 
+        
+    <div>
+        <h1 class ="title">Zahnarzt</h1>
+        <mat-select formControlName="customer" placeholder="Name auswählen" class=" rechteck-eingabe">
+          <mat-option *ngFor="let Doctor of customerData" value="{{Doctor.name}}">{{ Doctor.name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <br> 
     <div id="patitent-titel">
       <h1 class="title">Patient/Titel</h1>
       <mat-form-field class="example-full-width" style="margin-top: -10px">
-        <textarea matInput formControlName="patient"></textarea>
+        <input matInput formControlName="patient">
       </mat-form-field>
     </div>
     <br>
