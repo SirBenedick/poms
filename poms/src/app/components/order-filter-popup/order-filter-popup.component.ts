@@ -6,7 +6,8 @@ import {
   IResinType,
   IOrder,
   ICategory,
-  IGroupedOrders
+  IGroupedOrders,
+  ICustomer
 } from "src/app/shared/interfaces";
 import { FormGroup, FormControl } from "@angular/forms";
 
@@ -19,7 +20,7 @@ export class OrderFilterPopupComponent implements OnInit {
   harzList: Array<IResinType> = this.backendService.resineData;
 
   filterParamForm: FormGroup;
-  customerData: Array<IOrder> = null; //ANPASSEN!
+  customerData: Array<ICustomer> = this.backendService.customerData;
   categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
 
   constructor(
@@ -34,8 +35,8 @@ export class OrderFilterPopupComponent implements OnInit {
       dueDateStart: new FormControl(),
       dueDateEnd: new FormControl(),
       priority: new FormControl(),
-      customer: new FormControl(),
-      dentalPrintType: new FormControl()
+      customer_id: new FormControl(),
+      dental_print_type: new FormControl()
     });
   }
   onClick(): void {

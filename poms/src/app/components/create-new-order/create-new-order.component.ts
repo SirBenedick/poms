@@ -53,8 +53,8 @@ export class CreateNewOrderComponent implements OnInit {
       patient: new FormControl(this.data.patient ? this.data.patient : "", [
         Validators.required
       ]),
-      dentalPrintType: new FormControl(
-        this.data.dentalPrintType ? this.data.dentalPrintType : "",
+      dental_print_type: new FormControl(
+        this.data.dental_print_type ? this.data.dental_print_type : "",
         [Validators.required]
       ),
       harz: new FormControl(this.data.resin_name ? this.data.resin_name : "", [
@@ -67,7 +67,7 @@ export class CreateNewOrderComponent implements OnInit {
         Validators.required
       ]),
       creationDate: new FormControl(
-        this.data.creationDate ? this.data.creationDate : "",
+        this.data.creation_date ? this.data.creation_date : "",
         [Validators.required]
       ),
       comment: new FormControl(this.data.comment ? this.data.comment : ""),

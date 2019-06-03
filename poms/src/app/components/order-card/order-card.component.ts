@@ -12,7 +12,7 @@ import { BackendService } from "src/app/services/backend.service";
 })
 export class OrderCardComponent implements OnInit {
   @Input() order: IOrder;
-
+  dateForFrontendView: string;
   allUngroupedOrders: Array<IOrder> = [];
   ordersNameDialogRef: MatDialogRef<CreateNewOrderComponent>;
 
@@ -23,6 +23,9 @@ export class OrderCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    let oldDateFormat = new Date(this.order.creation_date);
+    this.dateForFrontendView = oldDateFormat.getFullYear() + "-" + (oldDateFormat.getMonth()+1) + "-" + oldDateFormat.getDate(); 
+
     // if (!this.order.order_id) {
     //   this.order = this.converterService.ordersBackendToFrontend([
     //     <any>this.order

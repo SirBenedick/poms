@@ -206,7 +206,7 @@ export class OrderComponent implements OnInit {
           let newOrder: IOrderCreateNew = {
             customer_id: parseInt(order.customer),
             patient: order.patient,
-            dental_print_type: order.dentalPrintType,
+            dental_print_type: order.dental_print_type,
             resin_name: order.harz,
             due_date: order.dueDate,
             comment: order.comment,

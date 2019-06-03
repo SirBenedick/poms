@@ -25,7 +25,7 @@
   </mat-form-field>
   <div>
     <h4> Kategorie </h4>
-    <mat-select matNativeControl required formControlName="dentalPrintType" placeholder="Kategorie auswählen" class="boxen">
+    <mat-select matNativeControl required formControlName="dental_print_type" placeholder="Kategorie auswählen" class="boxen">
       <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
         {{ oneCategory.category_name }}
       </mat-option>
@@ -46,9 +46,9 @@
   <h4>Kunde:</h4>
   <mat-form-field>
     <mat-label>Kunde</mat-label>
-    <select matNativeControl required formControlName="customer" class="boxen">
-      <option *ngFor="let customer of customerData" value="{{ customer.customer }}">
-        {{ customer.customer }}
+    <select matNativeControl required formControlName="customer_id" class="boxen">
+      <option *ngFor="let customer of customerData" value="{{ customer.customer_id }}">
+        {{ customer.name }}
       </option>
     </select>
   </mat-form-field>

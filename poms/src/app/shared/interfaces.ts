@@ -22,11 +22,11 @@ export interface IOrder {
   customer: String; //DB has list of all customers
   laboratory?: String; //DB has list of all laboratories
   patient: String; //DB has list of all patients
-  dentalPrintType: String; //DB has list of all dentalPrintTypes
+  dental_print_type: String; //DB has list of all dental_print_types
   resin_name: String; //DB has list of all "harzes"
   dueDate: String;
   priority: String;
-  creationDate: String;
+  creation_date: string;
   comment?: String;
   fileScan?: String; //REST-Url to file
   fileSolid?: String; //REST-Url to file
@@ -71,7 +71,7 @@ export interface IFilterOrders {
   resin_name: String;
   priority: "hoch" | "mittel" | "niedrig";
   due_date: any;
-  customer: String;
+  customer_id: string;
 }
 
 export interface IHelpPage {

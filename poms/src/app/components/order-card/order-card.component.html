@@ -1,6 +1,6 @@
 <div class="card" (click)="onCardClick(this)">
   <div class="card-inner">
-    <div [ngSwitch]="order.dentalPrintType">
+    <div [ngSwitch]="order.dental_print_type">
       <div *ngSwitchCase="'Schienen für Halterungsposition'">
         <!-- Bracket Position Splints -->
         <img class="icon-card" src="../../../assets/svg/Schiene.svg">
@@ -42,7 +42,7 @@
     
     <!-- Order ID fünfstellig mit führede Nullen machen-->
     <h1 id="order-heading">#{{ order.order_id }}</h1>
-    <div class="order-card-text">{{ order.creationDate }}</div>
+    <div class="order-card-text">{{ dateForFrontendView }}</div>
     <img class="drag-n-drop" src="../../../assets/svg/drag-drop.svg" />
   </div>
 </div>
