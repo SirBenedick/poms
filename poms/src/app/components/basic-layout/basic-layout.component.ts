@@ -50,7 +50,7 @@ export class BasicLayoutComponent implements OnInit {
             status: "created",
             scan_file: null
           };
-          this.backendService.createNewOrder(newOrder).then((res: any) => {
+          this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
               console.log(res.error);
