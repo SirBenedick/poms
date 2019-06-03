@@ -64,16 +64,32 @@
     margin-bottom: 10px;
 }
 
-.expand-collapse {
-  /* width: 1272px; */
+/* .expand-collapse {
+  width: 1272px;
   height: 40px;
   width: auto;
   border-radius: 5px;
   padding-left: 2px;
-  /* object-fit: contain; */
+  object-fit: contain;
   box-shadow: 2px 4px 8px 0 rgba(39, 47, 51, 0.25);
   background-color: #ffffff;
   border: #f3f3f3 0.02cm solid;
+} */
+
+.expand-collapse {
+  flex-wrap: wrap;
+  font-size: 8px;
+  box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+  margin: 5px;
+}
+
+#order-heading {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  height: 30px;
+  width: 100%;
 }
 
 .half-container {
