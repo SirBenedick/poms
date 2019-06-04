@@ -36,8 +36,8 @@
         <input matInput formControlName="patient" />
       </mat-form-field>
     </div>
-    <br>
-    <div class="input-container" style="margin-top: -20px">
+
+    <div class="input-container" style="margin-top: -15px">
       <h1 class="title">Fälligkeit</h1>
       <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="dueDate"
         placeholder="Fälligkeitsdatum auswählen" />
@@ -62,11 +62,11 @@
       </mat-select>
     </div>
 
+    <h1 class="title">Datei hochladen</h1>
     <img
       src="../../../assets/svg/Hochladen.svg"
       style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
     />
-
     <div >
       <input
         id="file"
@@ -80,11 +80,11 @@
           class="title"
           style="padding-left: 35%;padding-top: 5px;font-weight: normal"
         >
-          Hochladen
+        Oralscan‚ Hochladen
         </h1></label>
 
       <div class="file-input-symbole" (click)="uploadScan()">
-        Oralscan‚ Hochladen
+
       </div>
     </div>
 
