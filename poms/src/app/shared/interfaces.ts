@@ -73,22 +73,30 @@ export interface IFilterOrders {
   due_date: any;
   customer_id: string;
 }
-
-export interface IHelpPage {
-  pageTitel: String;
-  topics: Array<IHelpPageTopic>;
+export interface IFAQPage {
+  category: {
+    sub_category: Array<{
+      title: string;
+      video_url?: string;
+      content: string;
+    }>;
+  };
 }
+// export interface IHelpPage {
+//   pageTitel: String;
+//   topics: Array<IHelpPageTopic>;
+// }
 
-export interface IHelpPageTopic {
-  topicTitel: String;
-  subtopics: Array<IHelpPageSubtopic>;
-}
+// export interface IHelpPageTopic {
+//   topicTitel: String;
+//   subtopics: Array<IHelpPageSubtopic>;
+// }
 
-export interface IHelpPageSubtopic {
-  subtopicTitel: String;
-  subtopicContent: String;
-  videoURL?: String;
-}
+// export interface IHelpPageSubtopic {
+//   subtopicTitel: String;
+//   subtopicContent: String;
+//   videoURL?: String;
+// }
 
 export interface IResinType {
   resin_name: String;

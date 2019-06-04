@@ -1,25 +1,26 @@
 <div id="flex-container">
   <div *ngIf="!bearbeitenAktiv">
-   <h1> {{subtopicTitel}}</h1>
+    <h1>{{ data.item.title }} </h1>
+
     <img src="{{videoURL}}" />
 
     <div class="text">
-     {{ subtopicContent }}
+      {{ data.item.content }}
     </div>
   </div>
   <div class="text" *ngIf="bearbeitenAktiv">
-    <h1><textarea cols="51" rows="2" style="resize:none;">Hier kann IHR FAQ stehen!</textarea></h1>
-    <img src="{{videoURL}}" />
+    <h1><textarea cols="51" rows="2" style="resize:none;">{{data.item.title}}</textarea></h1>
+    <!-- <img src="{{videoURL}}" /> -->
 
-    <textarea cols="90" rows="8" style="resize:none;" [(ngModel)]="subtopicContent">
-  {{ subtopicContent }}
+    <textarea cols="90" rows="8" style="resize:none;" [(ngModel)]="data.item.content">
+  {{ data.item.content }}
 </textarea>
 
   </div>
   <div>
 
     <button class="button-first" (click)="saveButton()" *ngIf="bearbeitenAktiv">speichern</button>
-    <button class="button-first"(click)="bearbeitenButton()" *ngIf="!bearbeitenAktiv">bearbeiten</button>
+    <button class="button-first" (click)="bearbeitenButton()" *ngIf="!bearbeitenAktiv">bearbeiten</button>
     <button class="button-sec" (click)="onBreakButton()">schließen</button>
   </div>
 </div>

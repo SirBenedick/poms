@@ -5,9 +5,6 @@ import { Observable, timer } from "rxjs";
 import {
   IOrder,
   IPrinterData,
-  IHelpPageTopic,
-  IHelpPage,
-  IHelpPageSubtopic,
   ISettingsPage,
   ISettingsPageSubtopic,
   IGroupedOrders,
@@ -15,7 +12,8 @@ import {
   ICategory,
   ICustomer,
   IOrderCreateNew,
-  IPrinterNew
+  IPrinterNew,
+  IFAQPage
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 import { ConverterService } from "./converter.service";
@@ -97,87 +95,87 @@ export class BackendService {
       resin_volume: 0.7
     }
   ];
-  mockedHelpPage: Array<IHelpPage> = [
-    {
-      pageTitel: "Hilfestellung",
-      topics: [
-        {
-          topicTitel: " Vorbereitung",
-          subtopics: [
-            {
-              subtopicTitel: "subtopicTitel 111",
-              subtopicContent: "subtopicContent 111"
-            },
-            {
-              subtopicTitel: "subtopicTitel 112",
-              subtopicContent: "subtopicContent 112"
-            }
-          ]
-        },
-        {
-          topicTitel: "Druckprozess",
-          subtopics: [
-            {
-              subtopicTitel: "subtopicTitel 121",
-              subtopicContent: "subtopicContent 121"
-            },
-            {
-              subtopicTitel: "subtopicTitel 122",
-              subtopicContent: "subtopicContent 122"
-            }
-          ]
-        },
-        {
-          topicTitel: "Nachbereitung",
-          subtopics: [
-            {
-              subtopicTitel: "Wie reinige ich das Modell nach dem Drucken?",
-              subtopicContent: "subtopicContent 121"
-            },
-            {
-              subtopicTitel: "Wie härte ich das Modell nach dem Drucken nach?",
-              subtopicContent: "subtopicContent 122"
-            },
-            {
-              subtopicTitel: "Wie schließe ich den Auftrag endgültig ab?",
-              subtopicContent: "subtopicContent 122"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      pageTitel: "Softwarebedienung",
-      topics: [
-        {
-          topicTitel: "Wartung des Druckers",
-          subtopics: [
-            {
-              subtopicTitel: "subtopicTitel211",
-              subtopicContent: "subtopicContent211"
-            },
-            {
-              subtopicTitel: "subtopicTitel212",
-              subtopicContent: "subtopicContent212"
-            }
-          ]
-        },
-        {
-          topicTitel: "Funktionsweise des POMS",
-          subtopics: [
-            {
-              subtopicTitel: "subtopicTitel221",
-              subtopicContent: "subtopicContent221"
-            },
-            {
-              subtopicTitel: "subtopicTitel222",
-              subtopicContent: "subtopicContent222"
-            }
-          ]
-        }
-      ]
-    }
-  ];
+  // mockedHelpPage: Array<IHelpPage> = [
+  //   {
+  //     pageTitel: "Hilfestellung",
+  //     topics: [
+  //       {
+  //         topicTitel: " Vorbereitung",
+  //         subtopics: [
+  //           {
+  //             subtopicTitel: "subtopicTitel 111",
+  //             subtopicContent: "subtopicContent 111"
+  //           },
+  //           {
+  //             subtopicTitel: "subtopicTitel 112",
+  //             subtopicContent: "subtopicContent 112"
+  //           }
+  //         ]
+  //       },
+  //       {
+  //         topicTitel: "Druckprozess",
+  //         subtopics: [
+  //           {
+  //             subtopicTitel: "subtopicTitel 121",
+  //             subtopicContent: "subtopicContent 121"
+  //           },
+  //           {
+  //             subtopicTitel: "subtopicTitel 122",
+  //             subtopicContent: "subtopicContent 122"
+  //           }
+  //         ]
+  //       },
+  //       {
+  //         topicTitel: "Nachbereitung",
+  //         subtopics: [
+  //           {
+  //             subtopicTitel: "Wie reinige ich das Modell nach dem Drucken?",
+  //             subtopicContent: "subtopicContent 121"
+  //           },
+  //           {
+  //             subtopicTitel: "Wie härte ich das Modell nach dem Drucken nach?",
+  //             subtopicContent: "subtopicContent 122"
+  //           },
+  //           {
+  //             subtopicTitel: "Wie schließe ich den Auftrag endgültig ab?",
+  //             subtopicContent: "subtopicContent 122"
+  //           }
+  //         ]
+  //       }
+  //     ]
+  //   },
+  //   {
+  //     pageTitel: "Softwarebedienung",
+  //     topics: [
+  //       {
+  //         topicTitel: "Wartung des Druckers",
+  //         subtopics: [
+  //           {
+  //             subtopicTitel: "subtopicTitel211",
+  //             subtopicContent: "subtopicContent211"
+  //           },
+  //           {
+  //             subtopicTitel: "subtopicTitel212",
+  //             subtopicContent: "subtopicContent212"
+  //           }
+  //         ]
+  //       },
+  //       {
+  //         topicTitel: "Funktionsweise des POMS",
+  //         subtopics: [
+  //           {
+  //             subtopicTitel: "subtopicTitel221",
+  //             subtopicContent: "subtopicContent221"
+  //           },
+  //           {
+  //             subtopicTitel: "subtopicTitel222",
+  //             subtopicContent: "subtopicContent222"
+  //           }
+  //         ]
+  //       }
+  //     ]
+  //   }
+  // ];
   mockedSettingsPage: Array<ISettingsPage> = [
     {
       pageTitel: "Verwaltung",
@@ -268,7 +266,7 @@ export class BackendService {
 
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
-
+  helpData: Array<IFAQPage>;
   constructor(
     private http: HttpClient,
     private uploadService: UploadService
@@ -308,6 +306,10 @@ export class BackendService {
     this.getAllCustomer().then(
       (customerData: Array<ICustomer>) => (this.customerData = customerData)
     );
+
+    this.getAllHelpData().then(
+      (helpData: Array<IFAQPage>) => (this.helpData = helpData)
+    )
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
@@ -344,17 +346,21 @@ export class BackendService {
 
   getAllCustomer(): Promise<Object> {
     return this.http.get(this.backendUrl + "customer/get/all/").toPromise();
-  }
+  } 
 
-  getAllHelpTopics(): Promise<Object> {
-    // return this.http.get(this.backendUrl + "help/all/").toPromise();
-    let promiseRes = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 200);
-      resolve(this.mockedHelpPage);
-    });
-    return promiseRes;
+  // getAllHelpTopics(): Promise<Object> {
+  //   // return this.http.get(this.backendUrl + "help/all/").toPromise();
+  //   let promiseRes = new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve();
+  //     }, 200);
+  //     resolve(this.mockedHelpPage);
+  //   });
+  //   return promiseRes;
+  // }
+
+  getAllHelpData(): Promise<Object> {
+    return this.http.get(this.backendUrl + "faq/get/all/").toPromise();
   }
 
   getAllGroups(): Observable<Object> {
@@ -413,9 +419,10 @@ export class BackendService {
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 
-  addNewSubtopic(topic: IHelpPageTopic, newSubtopic: IHelpPageSubtopic) {
-    //Insert Backendcall here
-    console.log("Adding new Subtopic to topic", newSubtopic, topic);
+   createFAQ(topic: IFAQPage, newSubtopic: IFAQPage): Promise<Object> {
+     return this.http.post(this.backendUrl + "faq/create/" + topic, newSubtopic).toPromise();
+     //Insert Backendcall here
+  //  console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 
   assignOrderToGroup(order_id: number, group_id: number): Promise<Object> {
