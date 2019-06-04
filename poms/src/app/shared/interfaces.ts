@@ -24,7 +24,7 @@ export interface IOrder {
   patient: String; //DB has list of all patients
   dental_print_type: String; //DB has list of all dental_print_types
   resin_name: String; //DB has list of all "harzes"
-  dueDate: String;
+  due_date: String;
   priority: String;
   creation_date: string;
   comment?: String;

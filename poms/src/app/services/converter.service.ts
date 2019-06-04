@@ -19,7 +19,7 @@ export class ConverterService {
         patient: order.patient,
         dental_print_type: order.dental_print_type,
         resin_name: order.resin_name,
-        dueDate: order.due_date,
+        due_date: order.due_date,
         priority: "hoch",
         creation_date: order.creation_date,
         comment: order.comment,
