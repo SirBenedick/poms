@@ -90,6 +90,9 @@ body {
   font-weight: bold;
   border-left: 10px solid #003549;
 }
+.button-style:hover {
+  cursor: pointer;
+}
 
 #order-overview {
   background-image: url("../../../assets/svg/auftraguebersicht.svg");
@@ -178,6 +181,9 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: right;
+}
+#new-assignment-box:hover{
+  cursor: pointer;
 }
 
 .progressbar {

@@ -22,7 +22,15 @@
   background-color: #ffffff;
   flex-wrap: wrap;
 }
-
+.draggable-card-container {
+  cursor: pointer;
+}
+#dragging:hover{
+  cursor: grab;
+}
+#dragging:active{
+  cursor: grabbing;
+}
 .expand-collapse {
   flex-wrap: wrap;
   font-size: 8px;
@@ -86,7 +94,8 @@
   height: 30px;
   margin: 2px;
   object-fit: contain;
-  border-radius: 3px;
+  border-radius: 4px;
+  color: #62c6d6;
   border: solid 1px #62c6d6;
   background-color: white;
 }
@@ -98,19 +107,24 @@
 .button-style-group {
   float: right;
   font-family: "Segoe UI";
-  width: 70px;
-  height: 20px;
+  width: 100px;
+  height: 30px;
   margin: 2px;
+  padding-top: 5px;
   object-fit: contain;
   border-radius: 3px;
   border: solid 1px #62c6d6;
   background-color: white;
+  color: #62c6d6;
   text-align: center;
   font-size: 12px;
+  margin-top: -5px;
 }
 .button-style-group:hover {
-  background-color: #62c6d6;
+  background-color: #272f33;
   color: white;
+  border: transparent;
+  cursor: pointer;
 }
 
 .create-new-order {
@@ -141,17 +155,16 @@
   justify-content: center;
 }
 .copy-filter {
+  padding-left: 15px;
   width: 186px;
   height: 21px;
   object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.31;
-  letter-spacing: normal;
-  text-align: center;
+  font-family: "Segoe UI";
+  font-size: 14px;
   color: #62c6d6;
   float: right;
+}
+
+.copy-filter:hover{
+  cursor: pointer;
 }
