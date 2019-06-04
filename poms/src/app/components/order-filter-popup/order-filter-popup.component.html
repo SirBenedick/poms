@@ -1,6 +1,6 @@
 <form [formGroup]="filterParamForm" class="page-container">
 
-  <h3>Filteroptionen</h3>
+  <h3 class="heading">Filteroptionen</h3>
 
   <!-- Wird gebraucht, wenn Backend komplett steht -->
   <div class="harz-container">
@@ -10,28 +10,34 @@
     </div>
   </div>
 
-  <h4>Fällig am:</h4>
-  <mat-form-field>
+<div >
+  <h4 class="title">Fällig am:</h4>
+  <mat-form-field style="width: 350px">
     <input matInput [matDatepicker]="pickerStart" placeholder="Choose a date" formControlName="dueDateStart"
-      class="boxen" />
+      class="boxen" style="border: transparent"/>
     <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
     <mat-datepicker #pickerStart></mat-datepicker>
   </mat-form-field>
-  <mat-form-field>
+</div>
+
+  <div >
+  <mat-form-field style="width: 350px">
     <input matInput [matDatepicker]="pickerEnd" placeholder="Choose a date" formControlName="dueDateEnd"
-      class="boxen" />
+      class="boxen" style="border: transparent" />
     <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
     <mat-datepicker #pickerEnd></mat-datepicker>
   </mat-form-field>
+  </div>
+
   <div>
-    <h4> Kategorie </h4>
+    <h4 class="title"> Kategorie </h4>
     <mat-select matNativeControl required formControlName="dental_print_type" placeholder="Kategorie auswählen" class="boxen">
       <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.category_name}}">
         {{ oneCategory.category_name }}
       </mat-option>
     </mat-select>
   </div>
-  <h4>Priorität:</h4>
+  <h4 class="title">Priorität:</h4>
   <div class="prio" required>
   <input type="radio" id="niedrig" name="priority" value="niedrig" formControlName="priority" class="boxenPrio" />
   <label for="niedrig" class="schrift_boxen">niedrig</label>
@@ -43,7 +49,7 @@
     <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> mittel </div>
     <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> hoch </div> -->
   </div>
-  <h4>Kunde:</h4>
+  <h4 class="title">Kunde:</h4>
   <mat-form-field>
     <mat-label>Kunde</mat-label>
     <select matNativeControl required formControlName="customer_id" class="boxen">
@@ -53,5 +59,7 @@
     </select>
   </mat-form-field>
 </form>
-  <button class="button-style" (click)="saveInFilterFormate()" filterbuttonGroups>anwenden</button>
-  <button class="button-style" (click)="onNoClick()" filterbuttonGroups>abbrechen</button>
+<div style="float: right">
+  <button class="send-button" (click)="saveInFilterFormate()" filterbuttonGroups>anwenden</button>
+  <button class="break-button" (click)="onNoClick()" filterbuttonGroups>abbrechen</button>
+</div>

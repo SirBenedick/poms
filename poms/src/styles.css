@@ -112,4 +112,12 @@ mat-dialog-container{
 .mat-select-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
 ::-moz-selection { background: rgba(98, 198, 214, 0.6); color: #1f282c}
 ::selection { background: rgba(98, 198, 214, 0.6); color: #1f282c}
+.mat-form-field.mat-focused .mat-form-field-label{color: #62c6d6;}
 
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after,.mat-input-element:disabled{color:rgba(0,0,0,.38)}
+.mat-input-element{caret-color: #5fdfff}
+.mat-input-element::placeholder{color: rgba(98, 198, 214, 0.42); padding-left: 5px; font-style: italic}
+.mat-input-element::-moz-placeholder{color: rgba(98, 198, 214, 0.42); padding-left: 5px; font-style: italic}
+.mat-input-element::-webkit-input-placeholder{color: rgba(98, 198, 214, 0.42); padding-left: 5px; font-style: italic}
+.mat-input-element:-ms-input-placeholder{color: rgba(98, 198, 214, 0.42); padding-left: 5px; font-style: italic}
+.mat-accent .mat-input-element{caret-color:#ffd740}
