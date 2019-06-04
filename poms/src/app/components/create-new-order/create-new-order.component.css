@@ -3,7 +3,6 @@
   width: 750px;
   height: 570px;
   flex-direction: column;
-  padding: 18px;
 background-color: transparent;
 }
 
@@ -27,7 +26,6 @@ background-color: transparent;
   font-weight: bold;
   /* text-align: center; */
   text-align: left;
-  margin-top: -20px;
   color: #272f33;
 }
 .b{
