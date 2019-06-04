@@ -235,11 +235,9 @@ body {
   font-family: "Segoe UI";
   font-size: 25px;
   margin-top: -3px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
   text-align: left;
+  font-weight: bold;
   color: #62c6d6;
 }
