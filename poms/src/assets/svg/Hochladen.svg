@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="18.64" viewBox="0 0 12 18.64">
+    <defs>
+        <style>
+            .cls-1,.cls-3,.cls-4{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3,.cls-4{stroke:#fff;stroke-linecap:round;stroke-width:2px}.cls-3{stroke-linejoin:round}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h12v18.64H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Hochladen" class="cls-2">
+        <path id="Pfad_206" d="M1397.011 271.047l-4.981 4.834-5.019-4.834" class="cls-3" data-name="Pfad 206" transform="rotate(180 699.005 138.44)"/>
+        <path id="Linie_183" d="M0 0v12" class="cls-4" data-name="Linie 183" transform="translate(6 1.64)"/>
+        <path id="Linie_184" d="M10 0H0" class="cls-4" data-name="Linie 184" transform="translate(1 17.64)"/>
+    </g>
+</svg>
