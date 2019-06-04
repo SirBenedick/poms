@@ -1,33 +1,37 @@
 <div class="page-container">
   <div class="half-container">
-    <div *ngFor="let page of allHelpTopics">
-      <h1 id="titel" >{{ page.pageTitel }}</h1>
-      <mat-expansion-panel
-        style=" margin-left: -20px;"
-        *ngFor="let topic of page.topics"
-        class="expand-collapse"
-      >
+    <div *ngFor="let category of helpData | keyvalue">
+      <h1>{{category.key}}</h1>
+      <!-- <div *ngFor="let subcategory of category.value | keyvalue">
+        <h2> {{subcategory.key}} </h2>
+        <div *ngFor="let item of subcategory.value">
+          <h4>{{item.title}}</h4> -->
+      <!-- <p>{{item.content}}</p> -->
+      <!-- </div> -->
+
+      <!-- <h1 id="titel" >{{ page.category_name}}</h1>
+      <h1 id="titel" >{{ page.title }}</h1> -->
+      <mat-expansion-panel style=" margin-left: -20px;" *ngFor="let subcategory of category.value | keyvalue"
+        class="expand-collapse">
         <mat-expansion-panel-header>
           <mat-panel-title id="order-heading">
             <img style="width: 25px" src="../../../assets/svg/Hilfestellung_Button.svg" />
-            <h1 id="heading">{{ topic.topicTitel }}</h1>
+            <h1 id="heading">{{ subcategory.key }}</h1>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <br>
-        <div *ngFor="let subtopic of topic.subtopics">
-          <!-- <div id="sub-titel" (click)="onClick(subtopic)"> -->
-          <!-- <div id="sub-titel" (click)="openFAQPopUp()"> -->
-          <div id="sub-titel" (click)="openUrlTextPopUp()">
-
-            {{ subtopic.subtopicTitel }}
+        <div *ngFor="let item of subcategory.value">
+          <!-- <div id="sub-titel" (click)="onClick(subtopic)">
+           <div id="sub-titel" (click)="openPopUpFaq()"> 
+           <div id="sub-titel" (click)="openFAQPopUp()"> -->
+          <div id="sub-titel" (click)="openUrlTextPopUp(item, category.key, subcategory.key)">
+            {{item.title}}
+            <!-- {{ subtopic.subtopicTitel }} -->
           </div>
           <br />
         </div>
         <div id="button-space">
-        <button id="button-style" (click)="openPopUpFaq()">Hinzufügen</button>
-        </div>
-        <div *ngIf="newFaq">
-          Test FAQ
+          <button id="button-style" (click)="openPopUpFaq()">Hinzufügen</button>
         </div>
       </mat-expansion-panel>
     </div>

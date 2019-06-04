@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FAQPopUpComponent } from '../faqpop-up/faqpop-up.component';
 import { setTNodeAndViewData } from '@angular/core/src/render3/state';
-import { IHelpPageSubtopic } from 'src/app/shared/interfaces';
+// import { IHelpPageSubtopic } from 'src/app/shared/interfaces';
 import { BackendService } from 'src/app/services/backend.service';
+import { IFAQPage } from 'src/app/shared/interfaces';
+import { FAQComponent } from 'src/app/pages/faq/faq.component';
 
 @Component({
   selector: 'app-url-text-pop-up',
@@ -12,21 +14,15 @@ import { BackendService } from 'src/app/services/backend.service';
 })
 export class UrlTextPopUpComponent implements OnInit {
   bearbeitenAktiv: boolean = false;
-  subtopicTitel: string = `Hier kann IHR FAQ stehen!`;
-  videoURL: string = `../../../assets/png/FAQ_temp_pic.jpg `
-  subtopicContent: string =
-  `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-  et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-  Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-  dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.`
+
   constructor(
     private backendService: BackendService,
-    public dialogRef: MatDialogRef<FAQPopUpComponent>
+    public dialogRef: MatDialogRef<FAQPopUpComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: FAQComponent,
   ) { }
 
   ngOnInit() {
+    console.log(this.data)
   }
 
   onBreakButton():void{
@@ -39,12 +35,11 @@ export class UrlTextPopUpComponent implements OnInit {
 
   saveButton():void{
     this.bearbeitenAktiv = false;  
-    let alteredSubtopic: IHelpPageSubtopic = {
-      subtopicTitel : this.subtopicTitel,
-      videoURL : this.videoURL,
-      subtopicContent : this.subtopicContent,
-    }
-    this.backendService.addNewSubtopic(null, alteredSubtopic);
+    // Muss noch ausgefüllt werden
+    //  let alteredSubtopic: IFAQPage = {
+     
+    //  }
+    //  this.backendService.createFAQ(null, alteredSubtopic);
   }
 
 }
