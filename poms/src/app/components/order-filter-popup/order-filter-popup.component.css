@@ -6,19 +6,43 @@
   display: flex;
 }
 
-.button-style {
-  float: right;
-  font-family: "Segoe UI";
-  width: 149px;
-  height: auto;
-  margin: 2px;
+.heading{
   object-fit: contain;
-  border-radius: 3px;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: bold;
+  /* text-align: center; */
+  text-align: left;
+  color: #272f33;
+}
+.title{
+  font-family: "Segoe UI";
+  font-weight: bold;
+  font-size: 14px;
+}
+.send-button {
+  border-radius: 4px;
+  width: 149px;
+  height: 38px;
+  color: white;
+  object-fit: contain;
   border: solid 1px #62c6d6;
-  background-color: white;
+  background-color: #62c6d6;
+  margin: 2px;
+}
+
+.break-button{
+  margin: 2px;
+  border-radius: 4px;
+  width: 149px;
+  height: 38px;
+  object-fit: contain;
+  border: solid 1px #62c6d6;
+  color: #62c6d6;
+  background-color: #ffffff;
 }
 .boxen{
-  width: 472px;
+  width: 350px;
   height: auto;
   object-fit: contain;
   border-radius: 4px;
