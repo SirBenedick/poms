@@ -4,7 +4,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { IOrderCreateNew, User } from "src/app/shared/interfaces";
+import { IOrderCreateNew, User, IOrder } from "src/app/shared/interfaces";
 import { LoginService } from 'src/app/services/login.service';
 import { LogoutComponent } from '../logout/logout.component';
 @Component({
@@ -33,30 +33,32 @@ export class BasicLayoutComponent implements OnInit {
 
   openDialogCreateNewOrder(): void {
     const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newPrinterForm: this.newOrder }
+      data: { newPrinterForm: "Keine Auswahl getroffen" }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         if (result.value) {
           let order = result.value;
+          console.log(result.value);
           let newOrder: IOrderCreateNew = {
-            customer_id: parseInt(order.customer),
+            customer_id: parseInt(order.customer_id),
             patient: order.patient,
             dental_print_type: order.dental_print_type,
             resin_name: order.harz,
             due_date: order.dueDate,
             comment: order.comment,
             status: "created",
-            scan_file: null
+            scan_file: order.hochladen.files[0]
           };
+          console.log(newOrder);
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
               console.log(res.error);
+            } else {
+              console.log("createNewOrder: ", res);
             }
-            //ggf müssen hier alle aufträge neugeladen/angezeigt werden
-            //bei in order.ts und basic-layout.ts
           });
         }
       }
