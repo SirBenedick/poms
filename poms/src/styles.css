@@ -110,3 +110,6 @@ mat-dialog-container{
 .mat-input-element::-webkit-input-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
 .mat-input-element:-ms-input-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
 .mat-select-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
+::-moz-selection { background: rgba(98, 198, 214, 0.6); color: #1f282c}
+::selection { background: rgba(98, 198, 214, 0.6); color: #1f282c}
+
