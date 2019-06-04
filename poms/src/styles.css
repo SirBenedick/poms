@@ -102,4 +102,11 @@ mat-dialog-container{
   color: #62c6d6;
   padding-left: 5px;
 }
-
+.mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: #62c6d6;
+}
+.mat-input-element::placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
+.mat-input-element::-moz-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
+.mat-input-element::-webkit-input-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
+.mat-input-element:-ms-input-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}
+.mat-select-placeholder{color: rgba(95, 223, 255, 1);font-style: italic}

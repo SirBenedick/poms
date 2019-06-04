@@ -1,52 +1,84 @@
 <form [formGroup]="newPrinterForm">
   <div class="page-container">
-    <h1>
+    <h1 class="heading">
       Gruppe drucken
     </h1>
-    <h3>
+
+    <div style="padding-top: 20px" class="container">
+    <h3 class="sub-heading">
       Dateien vorbereiten
     </h3>
-    <div class="fileinputs">
-      <div class="fakefile">
+
+
+    <!-- Herunterladen Feld-->
+      <div>
         <input
-          placeholder="Skin-Datei herunterladen"
-          class="fileinputs"
-          formControlName="hochladen"
-          #fileInputSkin
-          type="file"
-        />
-        <div class="file-input-symbole" (click)="downloadSkin()">Herunterladen</div>
-      </div>
-    </div>
-    <br />
-    <div class="fileinputs">
-      <div class="fakefile">
-        <input
-          placeholder="Solid-Datei hochladen"
+          id="file"
           class="fileinputs"
           formControlName="herunterladen"
-          #fileInputSolid
-          type="file"
+          #fileInputSkin
+          type="file" style="display: none"
         />
-        <div class="file-input-symbole" (click)="uploadSolid()">Hochladen</div>
+
+        <label for="file"
+        ><h1
+          class="title"
+          style="padding-left: 30%;padding-top: 5px;font-weight: normal; font-size: 14px"
+        >
+          Skin-Datei herunterladen
+        </h1></label>
+        <img
+          src="../../../assets/svg/icon-downlode.svg"
+          class="icon"
+        />
+        <div class="file-input-symbole" (click)="downloadSkin()"></div>
+      </div>
+<!-- Hochladen Feld-->
+      <div class="fakefile">
+        <input
+          class="fileinputs"
+          formControlName="hochladen"
+          #fileInputSolid
+          type="file" style="display: none"
+        />
+        <label for="file"
+        ><h1
+          class="title"
+          style="padding-left: 32%;padding-top: 5px;font-weight: normal; font-size: 14px"
+        >
+          Solid-Datei hochladen
+        </h1></label>
+        <img
+          src="../../../assets/svg/Hochladen.svg"
+          class="icon"
+        />
+        <div class="file-input-symbole" (click)="uploadSolid()"></div>
       </div>
     </div>
-    <div>
-      <h3>Drucker</h3>
+
+<!-- Drucker Auswahl-->
+    <div class="container">
+      <h3 class="sub-heading">Drucker</h3>
       <div>
-        <select formControlName="drucker" class="drucker">
-          <option
-            *ngFor="let printer of printerData"
-            value="{{ printer.name }}"
-          >
+        <mat-select
+          formControlName="dental_print_type"
+          placeholder="Drucker auswählen"
+          class=" drucker"
+        >
+          <mat-option *ngFor="let printer of printerData" value="{{ printer.name }}">
             {{ printer.name }}
-          </option>
-        </select>
+          </mat-option>
+
+        </mat-select>
+
       </div>
     </div>
-    <br />
-    <h3>Benachrichtigung</h3>
-    <mat-form-field style="width: 472px">
+
+
+    <!-- Benachrichtigung-->
+    <div class="container">
+    <h3 class="sub-heading">Benachrichtigung</h3>
+    <mat-form-field style="width: 350px;">
       <input
         matInput
         type="text"
@@ -54,22 +86,19 @@
         formControlName="EMail"
       />
     </mat-form-field>
-    <div>
+    <div style="font-family: 'Segoe UI'; font-size: 12px; width: 350px;">
       Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe
       fertig gedruckt ist, oder falls ein Problem mit dem Druck auftauchen
       sollte.
     </div>
-    <div>
+    </div>
+
+
+    <div style="align-self: flex-end">
       <mat-dialog-actions>
-        <button
-          mat-button
-          [mat-dialog-close]="newFaqForm"
-          (click)="onPrintButton()"
-        >
+        <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+        <button class="send-button" mat-button [mat-dialog-close]="newFaqForm" (click)="onPrintButton()">
           drucken
-        </button>
-        <button mat-button (click)="onBreakButton()">
-          Abbrechen
         </button>
       </mat-dialog-actions>
     </div>
