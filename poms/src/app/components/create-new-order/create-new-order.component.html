@@ -2,22 +2,15 @@
   <div class="page-container">
     <div id="data-ist-nicht-vorhanden" *ngIf="!data.customer_id">
       <div class="a">
-        <h1 class="heading" *ngIf="!data.customer_id">
+        <h1 class="heading">
           Neuen Auftrag erstellen
         </h1>
       </div>
 
-      <div class="input-container" *ngIf="!data.customer_id">
+      <div class="input-container">
         <h1 class="title">Zahnarzt</h1>
-        <mat-select
-          formControlName="customer_id"
-          placeholder="Name auswählen"
-          class=" rechteck-eingabee"
-        >
-          <mat-option
-            *ngFor="let doctor of customerData"
-            value="{{ doctor.customer_id }}"
-            >{{ doctor.name }}
+        <mat-select formControlName="customer_id" placeholder="Name auswählen" class=" rechteck-eingabe">
+          <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
           </mat-option>
         </mat-select>
       </div>
@@ -27,90 +20,57 @@
           <input matInput formControlName="patient" />
         </mat-form-field>
       </div>
-      <div class="input-container">
-        <h1 class="title">Patient/Titel</h1>
-        <mat-form-field class="example-full-width" style="margin-top: -20px">
-          <input matInput formControlName="patient" />
-        </mat-form-field>
-      </div>
     </div>
+
     <div id="data-ist-vorhanden" *ngIf="data.customer_id">
       <div class="a">
-        <h1 class="heading" *ngIf="data.customer_id">
+        <h1 class="heading">
           Auftrag: #{{ data.order_id }}
         </h1>
       </div>
-      <p>{{ customer_name }}</p>
+      <div class="input-container">
+        <h1 class="title">Zahnarzt</h1>
+        <p>{{ customer_name }}</p>
+      </div>
       <div class="input-container">
         <h1 class="title">Patient/Titel</h1>
         <p>{{ data.patient }}</p>
       </div>
     </div>
+    <br>
     <div class="input-container" style="margin-top: -20px">
       <h1 class="title">Fälligkeit</h1>
-      <input
-        class=" rechteck-eingabe"
-        [matDatepicker]="searchDate"
-        formControlName="dueDate"
-        placeholder="Fälligkeitsdatum auswählen"
-      />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="searchDate"
-      ></mat-datepicker-toggle>
+      <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="dueDate"
+        placeholder="Fälligkeitsdatum auswählen" />
+      <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
       <mat-datepicker #searchDate></mat-datepicker>
     </div>
 
     <div class="input-container">
       <h1 class="title">Harzfarbe</h1>
-      <mat-select
-        formControlName="harz"
-        placeholder="Harzfarbe auswählen"
-        class=" rechteck-eingabe"
-      >
-        <mat-option
-          *ngFor="let harzfarbe of harzList"
-          value="{{ harzfarbe.resin_name }}"
-          >{{ harzfarbe.resin_name }}
+      <mat-select formControlName="harz" placeholder="Harzfarbe auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let harzfarbe of harzList" value="{{ harzfarbe.resin_name }}">{{ harzfarbe.resin_name }}
         </mat-option>
       </mat-select>
     </div>
 
     <div class="input-container">
       <h1 class="title">Kategorie</h1>
-      <mat-select
-        formControlName="dental_print_type"
-        placeholder="Kategorie auswählen"
-        class=" rechteck-eingabe"
-      >
-        <mat-option
-          *ngFor="let oneCategory of categoryData"
-          value="{{ oneCategory.category_name }}"
-        >
+      <mat-select formControlName="dental_print_type" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let oneCategory of categoryData" value="{{ oneCategory.category_name }}">
           {{ oneCategory.category_name }}
         </mat-option>
       </mat-select>
     </div>
-    <img
-      src="../../../assets/svg/icon-downlode.svg"
-      style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
-    />
+    <img src="../../../assets/svg/icon-downlode.svg"
+      style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px" />
     <div class="fakefile">
-      <input
-        id="file"
-        class="inputfile"
-        formControlName="hochladen"
-        #fileInputScan
-        type="file"
-      />
-      <label for="file"
-        ><h1
-          class="title"
-          style="padding-left: 35%;padding-top: 5px;font-weight: normal"
-        >
+      <input id="file" class="inputfile" formControlName="hochladen" #fileInputScan type="file" />
+      <label for="file">
+        <h1 class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">
           Choose a file..
-        </h1></label
-      >
+        </h1>
+      </label>
       <div class="file-input-symbole" (click)="uploadScan()">
         Oralscan‚ Hochladen
       </div>
@@ -118,152 +78,23 @@
 
     <div class="input-container">
       <h1 class="title">Sonstige Informationen</h1>
-      <textarea
-        class=" rechteck-eingabe"
-        formControlName="comment"
-        rows="4"
-        style="resize:none; width: 350px;height: 80px"
-        placeholder="Anmerkung"
-      ></textarea>
+      <textarea class=" rechteck-eingabe" formControlName="comment" rows="4"
+        style="resize:none; width: 350px;height: 80px" placeholder="Anmerkung"></textarea>
     </div>
 
     <div style="align-self: flex-end">
       <mat-dialog-actions>
-        <button class="break-button" mat-button (click)="onQuit()">
+        <button *ngIf="!data.customer_id" class="break-button" mat-button (click)="onQuit()">
           abbrechen
         </button>
-        <button
-          class="send-button"
-          mat-button
-          [mat-dialog-close]="newOrderForm"
-        >
+        <button *ngIf="!data.customer_id" class="send-button" mat-button [mat-dialog-close]="newOrderForm">
           erstellen
+        </button>
+        <button *ngIf="data.customer_id" class="break-button" mat-button (click)="onDeleteButton()">löschen
+        </button>
+        <button *ngIf="data.customer_id" class="send-button" mat-button (click)="onSaveButton()">Speichern
         </button>
       </mat-dialog-actions>
     </div>
   </div>
 </form>
-
-<!-- MS- Als BackUp noch gesichter nachher löschen!! -->
-<!-- <div id="left-row"> -->
-<!-- Wird vom Backend automatisch hochgezählt -->
-<!-- OrderId notwendig -->
-<!-- <div class="order-titel">
-        <mat-form-field>
-          <input
-            class=" rechteck-eingabe"
-            matInput
-            type="number"
-            formControlName="order_id"
-            placeholder="OrderId"
-          />
-        </mat-form-field> -->
-<!-- Nach neuen Designangaben fällt dies raus -->
-<!-- <mat-form-field>
-          <input
-            class=" rechteck-eingabe"
-            matInput
-            type="number"
-            formControlName="group_id"
-            placeholder="GroupId"
-          />
-        </mat-form-field> -->
-<!-- </div> -->
-
-<!-- 
-    <div style="margin-top:auto">
-      <div>Priorität</div>
-      <mat-form-field>
-        <input class=" rechteck-eingabe" matInput type="text" formControlName="priority" placeholder="Priorität" />
-      </mat-form-field>
-    </div> -->
-<!-- <div>
-        <mat-form-field>
-          <input
-            class=" rechteck-eingabe"
-            matInput
-            type="text"
-            formControlName="dental_print_type"
-            placeholder="dental_print_type"
-          /> -->
-<!-- <mat-select formControlName="dental_print_type" placeholder="dental_print_type">
-              <mat-option *ngFor="let category of orderCategories" [value]="category">{{ category }}
-              </mat-option>
-            </mat-select> -->
-<!-- </mat-form-field>
-      </div> -->
-<!-- Nach neuen Designangaben fällt dies raus -->
-<!-- <div>
-        <mat-form-field>
-          <input
-            class=" rechteck-eingabe"
-            matInput
-            type="text"
-            formControlName="laboratory"
-            placeholder="Labor"
-          />
-          <mat-select formControlName="laboratory" placeholder="laboratory">
-              <mat-option *ngFor="let docs of docName" [value]="docs">{{ docs }}
-              </mat-option>
-            </mat-select>
-        </mat-form-field>
-      </div> -->
-
-<!-- <div id="right-row">
-     
-        <input formControleName="dueDate" readonly>
-         erstellt am: {{ newDate.getMonth() + 1 }}/{{ newDate.getDate() }}/{{
-           newDate.getFullYear()
-         }}
-         erstellt am: {{newDate | date:"mediumDate"}} -->
-
-<!-- <div>
-        <mat-form-field>
-          <mat-label>Harz</mat-label>
-          <select matNativeControl required formControlName="harz">
-            <option
-              *ngFor="let harz of harzList"
-              value="{{ harz.resin_name }}"
-              >{{ harz.resin_name }}</option
-            >
-          </select>
-        </mat-form-field>
-      </div> -->
-<!-- <div>
-        <mat-form-field>
-          <input
-            class=" rechteck-eingabe"
-            matInput
-            type="text"
-            formControlName="customer"
-            placeholder="Customer"
-          />
-        </mat-form-field>
-      </div> -->
-<!-- 
-      <div class="order-titel">
-        <mat-form-field class="order-type"> -->
-<!-- <input
-          class=" rechteck-eingabe"
-          type="file"
-          #fileInput
-          formControlName="fileScan"
-          placeholder="Scan"
-        />
-        </mat-form-field>
-        <button md-raised-button color="primary" (click)="fileInput.click()">
-          Skin
-        </button>
-      </div>
-      <div class="order-titel">
-        <mat-form-field class="order-type">
-        <input
-          class=" rechteck-eingabe"
-          matInput
-          type="text"
-          formControlName="fileSolid"
-          placeholder="Solid"
-        />
-        </mat-form-field>
-        <button>Solid</button>
-      </div> -->

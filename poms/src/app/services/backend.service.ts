@@ -426,5 +426,13 @@ export class BackendService {
   removeGroupById(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
   }
+
+  alterOrderById(order_id: number, alteredOrder: Object): Promise<Object>{
+    return this.http.post(this.backendUrl + "order/alter/"+ order_id, alteredOrder).toPromise();
+  }
+
+  removeOrderById(id:number): Promise<Object> {
+    return this.http.get(this.backendUrl + "order/remove/" + id).toPromise();
+  }
 }
 

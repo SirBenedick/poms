@@ -21,6 +21,7 @@ export class CreateNewOrderComponent implements OnInit {
   categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
+
   @ViewChild("fileInputScan") fileInputScan;
   customer_name: string;
   constructor(
@@ -39,14 +40,7 @@ export class CreateNewOrderComponent implements OnInit {
         Validators.minLength(1),
         Validators.required
       ]),
-      customer_id: new FormControl(
-        this.data.customer_id
-          ? this.customerData.find(
-              customer => customer.customer_id == this.data.customer_id
-            )
-          : "",
-        [Validators.required]
-      ),
+      customer_id: new FormControl("", [Validators.required]),
       laboratory: new FormControl(
         this.data.laboratory ? this.data.laboratory : "",
         [Validators.required]
@@ -63,7 +57,7 @@ export class CreateNewOrderComponent implements OnInit {
       harz: new FormControl(this.data.resin_name ? this.data.resin_name : "", [
         Validators.required
       ]),
-      dueDate: new FormControl(this.data.dueDate ? this.data.dueDate : "", [
+      dueDate: new FormControl(this.data.due_date ? this.data.due_date : "", [
         Validators.required
       ]),
       priority: new FormControl(this.data.priority ? this.data.priority : "", [
@@ -88,22 +82,21 @@ export class CreateNewOrderComponent implements OnInit {
         [Validators.required]
       )
     });
-    console.log("card Data:", this.data);
+    // console.log("card Data:", this.data);
+    // console.log("date", this.data.due_date);
+
     if (this.data.customer_id)
       this.customer_name = this.customerData.find(
         customer => customer.customer_id == this.data.customer_id
       ).name;
-      // this.newOrderForm.controls["dueDate"].setValue(this.data.dueDate)
+    // this.newOrderForm.controls["dueDate"].setValue(this.data.dueDate)
     // this.newOrderForm.controls["customer_id"].setValue(this.data.customer_id);
     // this.backendService.getAllResin().then((res: Array<IResinType>) => {
     //   this.harzList = res;
     //   console.log(this.harzList);
     // });
   }
-  // MS - only for testing
-  //  onSubmit() {
-  //   console.log(this.newOrderForm.value);
-  // }
+
   onQuit(): void {
     this.dialogRef.close();
   }
@@ -116,5 +109,31 @@ export class CreateNewOrderComponent implements OnInit {
     //     console.log(res);
     //   });
     // }
+  }
+
+  onDeleteButton(): void {
+    this.backendService
+      .removeOrderById(this.data.order_id)
+      .then(response => console.log("onDeleteButton", response));
+    this.dialogRef.close();
+  }
+
+  onSaveButton(): void {
+    let formData = this.newOrderForm.value;
+    let alteredOrderData = {
+      customer_id: this.data.customer_id,
+      patient: formData.patient,
+      dental_print_type: formData.dental_print_type,
+      resin_name: formData.harz,
+      due_date: formData.dueDate ? formData.dueDate : this.data.due_date,
+      comment: formData.comment,
+      status: this.data.status
+    };
+    this.backendService
+      .alterOrderById(this.data.order_id, alteredOrderData)
+      .then(response => console.log(response));
+    // console.log(alteredOrderData);
+    // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
+    this.dialogRef.close();
   }
 }

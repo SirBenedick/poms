@@ -75,10 +75,6 @@
         <div class="create-new-order" (click)="openDialogCreateNewOrder()">
           <img src="../../../assets/svg/plus-order.svg" />
         </div>
-
-        <div *ngIf="newOrder">
-          <div (click)="openDialogCreateNewOrder(this)">Test</div>
-        </div>
         <!-- Show all Order-Cards with Layout from Order-Card -->
         <app-order-card *ngFor="let orderCard of filteredUngroupedOrders" cdkDragBoundary=".page-container" cdkDrag
           [order]="orderCard">
