@@ -18,7 +18,6 @@ import {
   IPrinterNew
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
-import { ConverterService } from "./converter.service";
 
 @Injectable({
   providedIn: "root"
@@ -296,8 +295,8 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-      //this.allPrinterData = newPrinterData;
-      this.allPrinterData = this.mockedPrinterData;
+      this.allPrinterData = newPrinterData;
+      // this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
 
@@ -320,15 +319,15 @@ export class BackendService {
 
   pollAllPrinterFromBackend(): Observable<Object> {
     //** Backendcall */
-    //return this.http.get(this.url + "echte/url/einfügen/");
+    // return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    return this.http.get(this.mockedURL + "allPrinter");
-    //return this.http.get(this.backendUrl + "printer/get/all");
+    // return this.http.get(this.mockedURL + "allPrinter");
+    return this.http.get(this.backendUrl + "printer/get/all");
   }
 
   startPrinter(id: Number) {
-    return this.http.get(this.backendUrl + "printer/action/start/" + id);
+    return this.http.get(this.backendUrl + "printer/action/start/" + id).toPromise();
   }
   stopPrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/stop/" + id);
