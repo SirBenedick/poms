@@ -6,20 +6,6 @@
           Neuen Auftrag erstellen
         </h1>
       </div>
-
-      <div class="input-container">
-        <h1 class="title">Zahnarzt</h1>
-        <mat-select formControlName="customer_id" placeholder="Name auswählen" class=" rechteck-eingabe">
-          <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
-          </mat-option>
-        </mat-select>
-      </div>
-      <div class="input-container">
-        <h1 class="title">Patient/Titel</h1>
-        <mat-form-field class="example-full-width" style="margin-top: -20px">
-          <input matInput formControlName="patient" />
-        </mat-form-field>
-      </div>
     </div>
 
     <div id="data-ist-vorhanden" *ngIf="data.customer_id">
@@ -28,14 +14,27 @@
           Auftrag: #{{ data.order_id }}
         </h1>
       </div>
-      <div class="input-container">
-        <h1 class="title">Zahnarzt</h1>
-        <p>{{ customer_name }}</p>
+    </div>
+
+    <div class="input-container" *ngIf="!data.customer_id">
+      <h1 class="title">Zahnarzt</h1>
+      <mat-select formControlName="customer_id" placeholder="Name auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div class="input-container" *ngIf="data.customer_id">
+      <h1 class="title">Zahnarzt</h1>
+        <mat-select formControlName="customer_id" placeholder="{{customer_name}}" class=" rechteck-eingabe">
+          <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
+          </mat-option>
+        </mat-select>
       </div>
-      <div class="input-container">
-        <h1 class="title">Patient/Titel</h1>
-        <p>{{ data.patient }}</p>
-      </div>
+    <div class="input-container">
+      <h1 class="title">Patient/Titel</h1>
+      <mat-form-field class="example-full-width" style="margin-top: -20px">
+        <input matInput formControlName="patient" />
+      </mat-form-field>
     </div>
     <br>
     <div class="input-container" style="margin-top: -20px">
