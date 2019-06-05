@@ -5,8 +5,8 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
 import { IOrderCreateNew, User, IOrder } from "src/app/shared/interfaces";
-import { LoginService } from 'src/app/services/login.service';
-import { LogoutComponent } from '../logout/logout.component';
+import { LoginService } from "src/app/services/login.service";
+import { LogoutComponent } from "../logout/logout.component";
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
@@ -15,16 +15,22 @@ import { LogoutComponent } from '../logout/logout.component';
 export class BasicLayoutComponent implements OnInit {
   currentUser: User;
   printerSubscription: Observable<Object>;
+  menuItems;
 
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog,
-    private authService: LoginService,
-    
+    private authService: LoginService
   ) {}
 
   ngOnInit() {
     this.printerSubscription = this.backendService.allPrinterData$;
+    this.menuItems = {
+      auftragsuebersicht: true,
+      gedruckte_auftraege: false,
+      druckerverwaltung: false,
+      hilfestellung: false
+    };
   }
 
   newOrder() {
@@ -64,8 +70,16 @@ export class BasicLayoutComponent implements OnInit {
       }
     });
   }
+
   logout() {
     this.authService.logout();
-    this.dialog.open(LogoutComponent)
+    this.dialog.open(LogoutComponent);
+  }
+  
+  onMenuItem(menuItem) {
+    for (const key in this.menuItems) {
+      this.menuItems[key] = false;
+    }
+    this.menuItems[menuItem] = true;
   }
 }
