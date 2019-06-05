@@ -1,31 +1,30 @@
-<form [formGroup]="newFaqForm">
-  <div class="page-container">
-    <div>
-      <h1>Neues Subtopic anlegen</h1>
-    </div>
-    <div class ="input-container">
-      <h2>Subtopic Name</h2>
-      <input type="text" formControlName="titel" placeholder="Subtopic angeben..." />
-    </div>
-    <div class ="input-container">
-      <h2>Subtopic Video</h2>
-      <input type="text" formControlName="videoURL" placeholder="Viedeo angeben..." />
-    </div>
-    <div class ="input-container">
-      <h2>Subtopic Content</h2>
-      <textarea type="text" class=" rechteck-eingabe" formControlName="content" rows="6" placeholder="Content angeben..."></textarea>
-    </div>
-
-
-    <div style="float: right">
-      <mat-dialog-actions>
-        <button id="button-abbruch" mat-button (click)="onBreakButton()">
-          Abbrechen
-        </button>
-        <button id="button-save" mat-button [mat-dialog-close]="newFaqForm">
-          Speichern
-        </button>
-      </mat-dialog-actions>
-    </div>
+<div class="page-container">
+  <div>
+    <h1>Neues Subtopic anlegen</h1>
   </div>
-</form>
+  <div class="input-container">
+    <h2>Subtopic Title</h2>
+    <input type="text" [(ngModel)]="newTitle" placeholder="Subtopic angeben..." />
+  </div>
+  <div class="input-container">
+    <h2>Subtopic Video</h2>
+    <input type="text" [(ngModel)]="newVideourl" placeholder="Viedeo angeben..." />
+  </div>
+  <div class="input-container">
+    <h2>Subtopic Content</h2>
+    <textarea type="text" class=" rechteck-eingabe" [(ngModel)]="newContent" rows="6"
+      placeholder="Content angeben..."></textarea>
+  </div>
+
+
+  <div style="float: right">
+    <mat-dialog-actions>
+      <button id="button-abbruch" mat-button (click)="onBreakButton()">
+        Abbrechen
+      </button>
+      <button id="button-save" mat-button [mat-dialog-close]="newFaqForm" (click)="onSaveButton()">
+        Speichern
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

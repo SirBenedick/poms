@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
-import { ISettingsPage, ISettingsPageSubtopic } from 'src/app/shared/interfaces';
+import { ISettingsPage, IFAQPage, ISettingsPageSubtopic } from 'src/app/shared/interfaces';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-einstellungen',
@@ -9,15 +10,17 @@ import { ISettingsPage, ISettingsPageSubtopic } from 'src/app/shared/interfaces'
 })
 export class EinstellungenComponent implements OnInit {
   allSettingsTopics: Array<ISettingsPage>;
-  constructor(private backendService: BackendService) { }
+  // settingsData: any = this.backendService.settingsData;
+  constructor(private backendService: BackendService,
+  @Inject(MAT_DIALOG_DATA) public data: IFAQPage,) { }
 
   ngOnInit() {
-    this.backendService
-    .getAllSettingTopics()
-    .then(
-      (newSettingsTopics: Array<ISettingsPage>) =>
-        (this.allSettingsTopics = newSettingsTopics)
-    );
+     this.backendService
+     .getAllSettingTopics()
+     .then(
+       (newSettingsTopics: Array<ISettingsPage>) =>
+         (this.allSettingsTopics = newSettingsTopics)
+     );
   }
   onClick(subtopic: {
     subtopicTitel: String;
@@ -26,9 +29,9 @@ export class EinstellungenComponent implements OnInit {
     console.log(subtopic);
   }
 
-  addNewTopic(topic: ISettingsPage){
-    let newSubtopic: ISettingsPageSubtopic = {subtopicTitel: "newSubTitel", subtopicContent: "newSubtopicContent"};
-    this.backendService.addNewSettingSubtopic(topic, newSubtopic);
-  }
+   addNewTopic(topic: ISettingsPage){
+     let newSubtopic: ISettingsPageSubtopic = {subtopicTitel: "newSubTitel", subtopicContent: "newSubtopicContent"};
+     this.backendService.addNewSettingSubtopic(topic, newSubtopic);
+   }
 
 }

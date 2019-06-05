@@ -13,7 +13,9 @@ import {
   ICustomer,
   IOrderCreateNew,
   IPrinterNew,
-  IFAQPage
+  IFAQPage,
+  IFAQPageAlter,
+  IFAQPageCreate
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 import { ConverterService } from "./converter.service";
@@ -267,10 +269,8 @@ export class BackendService {
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
   helpData: Array<IFAQPage>;
-  constructor(
-    private http: HttpClient,
-    private uploadService: UploadService
-  ) {
+  // settingsData: Array<ISettingsPage>;
+  constructor(private http: HttpClient, private uploadService: UploadService) {
     /** Starts observable and polls all OrderData from Backend */
     this.allOrderData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllOrdersFromBackend()),
@@ -309,7 +309,11 @@ export class BackendService {
 
     this.getAllHelpData().then(
       (helpData: Array<IFAQPage>) => (this.helpData = helpData)
-    )
+    );
+
+    // this.getAllSettingsData().then(
+    //   (settings: Array<ISettingsPage>) => (this.settingsData = settings)
+    // );
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
@@ -346,7 +350,7 @@ export class BackendService {
 
   getAllCustomer(): Promise<Object> {
     return this.http.get(this.backendUrl + "customer/get/all/").toPromise();
-  } 
+  }
 
   // getAllHelpTopics(): Promise<Object> {
   //   // return this.http.get(this.backendUrl + "help/all/").toPromise();
@@ -381,6 +385,11 @@ export class BackendService {
     });
     return promiseRes;
   }
+
+  //Hier die URL für die Einstellungen einfügen!
+  // getAllSettingsData(): Promise<Object>{
+  //   return this.http.get(this.backendUrl + "faq/get/all/").toPromise();
+  // }
 
   //Create
   createNewGroup(order: IOrder): Promise<Object> {
@@ -419,10 +428,17 @@ export class BackendService {
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 
-   createFAQ(topic: IFAQPage, newSubtopic: IFAQPage): Promise<Object> {
-     return this.http.post(this.backendUrl + "faq/create/" + topic, newSubtopic).toPromise();
-     //Insert Backendcall here
-  //  console.log("Adding new Subtopic to topic", newSubtopic, topic);
+  createFAQ(createTopic: IFAQPageCreate): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "faq/create/", createTopic)
+      .toPromise();
+  }
+
+  alterFAQ(alteredTopic: IFAQPageAlter): Promise<Object> {
+    console.log(alteredTopic)
+    return this.http
+      .post(this.backendUrl + "faq/alter/", {alteredTopic})
+      .toPromise();
   }
 
   assignOrderToGroup(order_id: number, group_id: number): Promise<Object> {
@@ -434,12 +450,19 @@ export class BackendService {
     return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
   }
 
-  alterOrderById(order_id: number, alteredOrder: Object): Promise<Object>{
-    return this.http.post(this.backendUrl + "order/alter/"+ order_id, alteredOrder).toPromise();
+  alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "order/alter/" + order_id, alteredOrder)
+      .toPromise();
   }
 
-  removeOrderById(id:number): Promise<Object> {
+  removeOrderById(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "order/remove/" + id).toPromise();
   }
-}
 
+  removePrinterById(name: String): Promise<Object> {
+    return this.http
+      .get(this.backendUrl + "printer/remove/" + name)
+      .toPromise();
+  }
+}

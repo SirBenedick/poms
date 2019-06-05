@@ -2,17 +2,20 @@
   <div *ngIf="!bearbeitenAktiv">
     <h1>{{ data.item.title }} </h1>
 
-    <img src="{{videoURL}}" />
-
+    <iframe *ngIf="data.item.video_url" width="560" height="315" src="{{data.item.video_url}}" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  
     <div class="text">
       {{ data.item.content }}
     </div>
   </div>
-  <div class="text" *ngIf="bearbeitenAktiv">
-    <h1><textarea cols="51" rows="2" style="resize:none;">{{data.item.title}}</textarea></h1>
-    <!-- <img src="{{videoURL}}" /> -->
 
-    <textarea cols="90" rows="8" style="resize:none;" [(ngModel)]="data.item.content">
+  <div class="text" *ngIf="bearbeitenAktiv">
+    <h1><textarea cols="51" rows="2" style="resize:none;" [(ngModel)]="data.item.title">{{data.item.title}}</textarea>
+    </h1>
+    <textarea [(ngModel)]="data.item.video_url">{{data.item.video_url}} /></textarea>
+
+    <textarea cols="90" rows="8" style="resize:none;" [(ngModel)]=" data.item.content">
   {{ data.item.content }}
 </textarea>
 

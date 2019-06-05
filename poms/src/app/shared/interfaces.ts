@@ -82,21 +82,40 @@ export interface IFAQPage {
     }>;
   };
 }
-// export interface IHelpPage {
-//   pageTitel: String;
-//   topics: Array<IHelpPageTopic>;
-// }
 
-// export interface IHelpPageTopic {
-//   topicTitel: String;
-//   subtopics: Array<IHelpPageSubtopic>;
-// }
+export interface IFAQPageAlter{
+  category : string;
+  sub_category : string;
+  title : string;
+  new_category : string;
+  new_sub_category : string;
+  new_title : string;
+  video_url : string;
+  content : string;
+}
 
-// export interface IHelpPageSubtopic {
-//   subtopicTitel: String;
-//   subtopicContent: String;
-//   videoURL?: String;
-// }
+export interface IFAQPageCreate{
+  category: string,
+  sub_category: string,
+  title: string,
+  video_url: string;
+  content: string,
+}
+//  export interface IHelpPage {
+//    pageTitel: String;
+//    topics: Array<IHelpPageTopic>;
+//  }
+
+//  export interface IHelpPageTopic {
+//    topicTitel: String;
+//    subtopics: Array<IHelpPageSubtopic>;
+//  }
+
+//  export interface IHelpPageSubtopic {
+//    subtopicTitel: String;
+//    subtopicContent: String;
+//    videoURL?: String;
+//  }
 
 export interface IResinType {
   resin_name: String;
@@ -118,14 +137,14 @@ export interface ISettingsPage {
   topics: Array<ISettingsPagetopic>;
 }
 
-export interface ISettingsPagetopic {
-  topicTitel: String;
-  subtopics: Array<ISettingsPageSubtopic>;
-}
-export interface ISettingsPageSubtopic {
-  subtopicTitel: String;
-  subtopicContent: String;
-}
+ export interface ISettingsPagetopic {
+   topicTitel: String;
+   subtopics: Array<ISettingsPageSubtopic>;
+ }
+ export interface ISettingsPageSubtopic {
+   subtopicTitel: String;
+   subtopicContent: String;
+ }
 
 export interface ICategory {
   category_name: String;
