@@ -22,8 +22,9 @@
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
-
+      
       <app-status style="overflow: auto" [printer]="printer"></app-status>
+      <button (click)="deletePrinter()">Drucker löschen</button>
     </mat-expansion-panel>
     <button (click)="startPrinter(23)">Druck Starten</button>
     <button (click)="stopPrinter(23)">Druck Stop</button>

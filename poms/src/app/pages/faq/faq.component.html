@@ -2,15 +2,6 @@
   <div class="half-container">
     <div *ngFor="let category of helpData | keyvalue">
       <h1>{{category.key}}</h1>
-      <!-- <div *ngFor="let subcategory of category.value | keyvalue">
-        <h2> {{subcategory.key}} </h2>
-        <div *ngFor="let item of subcategory.value">
-          <h4>{{item.title}}</h4> -->
-      <!-- <p>{{item.content}}</p> -->
-      <!-- </div> -->
-
-      <!-- <h1 id="titel" >{{ page.category_name}}</h1>
-      <h1 id="titel" >{{ page.title }}</h1> -->
       <mat-expansion-panel style=" margin-left: -20px;" *ngFor="let subcategory of category.value | keyvalue"
         class="expand-collapse">
         <mat-expansion-panel-header>
@@ -26,12 +17,11 @@
            <div id="sub-titel" (click)="openFAQPopUp()"> -->
           <div id="sub-titel" (click)="openUrlTextPopUp(item, category.key, subcategory.key)">
             {{item.title}}
-            <!-- {{ subtopic.subtopicTitel }} -->
           </div>
           <br />
         </div>
         <div id="button-space">
-          <button id="button-style" (click)="openPopUpFaq()">Hinzufügen</button>
+          <button id="button-style" (click)="createNewFaq(category, subcategory)">Hinzufügen</button>
         </div>
       </mat-expansion-panel>
     </div>

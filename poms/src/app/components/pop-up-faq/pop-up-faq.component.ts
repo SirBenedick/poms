@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { FAQComponent } from "src/app/pages/faq/faq.component";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { IFAQPage } from 'src/app/shared/interfaces';
+import { BackendService } from "src/app/services/backend.service";
+import { IFAQPageCreate } from 'src/app/shared/interfaces';
 // import { IHelpPageSubtopic } from "src/app/shared/interfaces";
 
 @Component({
@@ -11,32 +12,37 @@ import { IFAQPage } from 'src/app/shared/interfaces';
   styleUrls: ["./pop-up-faq.component.css"]
 })
 export class PopUpFAQComponent implements OnInit {
-  newFaqForm: FormGroup;
-
+  newTitle: string;
+  newContent: string;
+  newVideourl: string;
   constructor(
-     @Inject(MAT_DIALOG_DATA) public data: IFAQPage,
-    public dialogRef: MatDialogRef<FAQComponent>
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      category: { key };
+      subcategory: { key };
+    },
+    public dialogRef: MatDialogRef<FAQComponent>,
+    private backendService: BackendService
   ) {}
 
-  ngOnInit() {
-     this.newFaqForm = new FormGroup({
-       titel: new FormControl(
-         this.data.category ? this.data : "",
-         [Validators.minLength(1), Validators.required]
-       ),
-       content: new FormControl(
-         this.data.category ? this.data : "",
-         [Validators.minLength(1), Validators.required]
-       ),
-       videoURL: new FormControl(),
-        // videoURL: new FormControl(this.data.videoURL ? this.data.videoURL : "", [
-        //   Validators.minLength(1),
-        //   Validators.required
-        // ]),
-    });
-  }
+  ngOnInit() {}
 
   onBreakButton(): void {
     this.dialogRef.close();
   }
+
+  onSaveButton(): void {
+    console.log(this.data);
+     let createFaq: IFAQPageCreate ={
+       category: this.data.category.key,
+       sub_category: this.data.subcategory.key,
+       title: this.newTitle,
+       video_url: this.newVideourl,
+       content: this.newContent,
+  }
+  console.log(createFaq)
+   this.backendService
+   .createFAQ(createFaq)
+   .then(response => console.log("createFaq", response));
+ }
 }

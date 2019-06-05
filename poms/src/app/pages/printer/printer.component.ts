@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Inject } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog, MatDialogRef } from "@angular/material";
-import { IPrinterData } from "../../shared/interfaces";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { IPrinterData, IPrinterNew } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 
 @Component({
@@ -15,7 +15,8 @@ export class PrinterComponent implements OnInit {
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
     private backendService: BackendService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: IPrinterNew,
   ) {}
 
   ngOnInit() {
@@ -71,5 +72,10 @@ export class PrinterComponent implements OnInit {
   }
   togglePrinter(id: Number) {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
+  }
+
+  deletePrinter():void{
+    alert(`Ihr Drucker wurde erfolgreich gelöscht!`)
+    // this.backendService.removePrinterById(this.data.name).then(response => console.log(response));
   }
 }
