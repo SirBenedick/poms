@@ -65,9 +65,11 @@
           placeholder="Drucker auswählen"
           class=" drucker"
         >
-          <mat-option *ngFor="let printer of printerData" value="{{ printer.name }}">
+        <div *ngFor="let printer of printerData">
+          <mat-option *ngIf="!printer.is_printing" value="{{ printer.name }}">
             {{ printer.name }}
           </mat-option>
+        </div>
 
         </mat-select>
 
