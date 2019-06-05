@@ -293,8 +293,8 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-      this.allPrinterData = newPrinterData;
-      // this.allPrinterData = this.mockedPrinterData;
+      // this.allPrinterData = newPrinterData;
+      this.allPrinterData = this.mockedPrinterData;
     });
     //ENDE
 
@@ -324,8 +324,8 @@ export class BackendService {
     // return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    // return this.http.get(this.mockedURL + "allPrinter");
-    return this.http.get(this.backendUrl + "printer/get/all");
+    return this.http.get(this.mockedURL + "allPrinter");
+    // return this.http.get(this.backendUrl + "printer/get/all");
   }
 
   startPrinter(id: Number) {
