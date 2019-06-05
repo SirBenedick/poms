@@ -22,8 +22,9 @@
   </div>
   <div>
 
-    <button class="button-first" (click)="saveButton()" *ngIf="bearbeitenAktiv">speichern</button>
-    <button class="button-first" (click)="bearbeitenButton()" *ngIf="!bearbeitenAktiv">bearbeiten</button>
-    <button class="button-sec" (click)="onBreakButton()">schließen</button>
+    <button *ngIf="bearbeitenAktiv" class="button-first" (click)="saveButton()" >speichern</button>
+    <button *ngIf="bearbeitenAktiv" class="button-sec" (click)="onBreakButton()">schließen</button>
+    <button *ngIf="!bearbeitenAktiv" class="button-first" (click)="onBreakButton()">schließen</button>
+    <button *ngIf="!bearbeitenAktiv" class="button-sec" (click)="bearbeitenButton()" >bearbeiten</button>
   </div>
 </div>

@@ -15,7 +15,7 @@ import { HttpEventType } from "@angular/common/http";
 })
 export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
-  printerData: Array<IPrinterData> = this.backendService.mockedPrinterData;
+  printerData: Array<IPrinterData> = this.backendService.allPrinterData;
   downloadProgress;
 
   @ViewChild("fileInputSkin") fileInputSkin;
@@ -58,16 +58,19 @@ export class PopUpDruckenComponent implements OnInit {
     this.dialogRef.close();
   }
   onPrintButton(): void {
-    console.log("onPrintButton");
-    let fi = this.fileInputSkin.nativeElement;
-    console.log(fi.files[0]);
+    this.backendService.startPrinter(24).then(res => console.log(res))
 
-    if (fi.files && fi.files[0]) {
-      let fileToUpload = fi.files[0];
-      this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
-        console.log(res);
-      });
-    }
+    // //Für Den richtigen druck
+    // console.log("onPrintButton");
+    // let fi = this.fileInputSkin.nativeElement;
+    // console.log(fi.files[0]);
+
+    // if (fi.files && fi.files[0]) {
+    //   let fileToUpload = fi.files[0];
+    //   this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
+    //     console.log(res);
+    //   });
+    // }
   }
   downloadSkin() {}
   uploadSolid() {}

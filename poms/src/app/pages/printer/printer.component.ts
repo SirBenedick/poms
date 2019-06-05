@@ -65,7 +65,7 @@ export class PrinterComponent implements OnInit {
   }
 
   startPrinter(id: Number) {
-    this.backendService.startPrinter(id).subscribe(data => console.log(data));
+    this.backendService.startPrinter(id).then(data => console.log(data));
   }
   stopPrinter(id: Number) {
     this.backendService.stopPrinter(id).subscribe(data => console.log(data));

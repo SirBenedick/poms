@@ -17,7 +17,13 @@
 
     <div style="margin-bottom: auto">
       <div>
-        <nav routerLink="order" class="button-style" id="order-overview">
+        <nav
+          routerLink="order"
+          class="button-style"
+          id="order-overview"
+          (click)="onMenuItem('auftragsuebersicht')"
+          appSelectedNavElement="{{menuItems.auftragsuebersicht}}"
+        >
           <a class="transparent">Auftragsübersicht</a>
         </nav>
       </div>
@@ -27,20 +33,34 @@
           routerLink="printedorders"
           class="button-style"
           id="printed-orders"
+          (click)="onMenuItem('gedruckte_auftraege')"
+          appSelectedNavElement="{{menuItems.gedruckte_auftraege}}"
         >
           <a class="transparent">Gedruckte Aufträge</a>
         </nav>
       </div>
 
       <div>
-        <nav routerLink="printer" class="button-style" id="printer-management">
+        <nav
+          routerLink="printer"
+          class="button-style"
+          id="printer-management"
+          (click)="onMenuItem('druckerverwaltung')"
+          appSelectedNavElement="{{ menuItems.druckerverwaltung }}"
+          >
           <a class="transparent">Druckerverwaltung</a>
         </nav>
       </div>
     </div>
-
+    
     <div style="margin-top: auto">
-      <nav routerLink="hilfestellung" class="button-style" id="help">
+      <nav
+      routerLink="hilfestellung"
+      class="button-style"
+      id="help"
+      (click)="onMenuItem('hilfestellung')"
+      appSelectedNavElement="{{ menuItems.hilfestellung }}"
+      >
         <a class="transparent"></a>Hilfestellung
       </nav>
     </div>
@@ -50,10 +70,15 @@
       </nav>
     </div>
     <div>
-        <nav routerLink="logout" class="button-style" id="logout" (click)="logout()">
-          <a class="transparent"></a>Logout
-        </nav>
-      </div>
+      <nav
+        routerLink="logout"
+        class="button-style"
+        id="logout"
+        (click)="logout()"
+      >
+        <a class="transparent"></a>Logout
+      </nav>
+    </div>
   </div>
   <!-- Middle Bar -->
   <div class="center-row">
@@ -101,23 +126,20 @@
     <div *ngFor="let printer of printerSubscription | async">
       <div *ngIf="printer.offline == 0">
         <div *ngIf="printer.is_printing == 1">
-
           <div *ngIf="printer.paused == 1">
             <div class="progressbar">
-            <mat-progress-bar [value]="printer.progress * 100" color="warn">
-            </mat-progress-bar>
-            <img
-              width="20px"
-              height="20px"
-              src="../../../assets/svg/warning.svg"
-            />
+              <mat-progress-bar [value]="printer.progress * 100" color="warn">
+              </mat-progress-bar>
+              <img
+                width="20px"
+                height="20px"
+                src="../../../assets/svg/warning.svg"
+              />
             </div>
             <p class="info-print-heading">
               Druck <b>pausiert</b> bei:
               {{ printer.progress * 100 | number: "1.0-0" }}%
             </p>
-
-
           </div>
           <div *ngIf="printer.paused != 1">
             <div class="progressbar">
