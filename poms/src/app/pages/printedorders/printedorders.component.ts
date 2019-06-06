@@ -152,7 +152,7 @@ export class PrintedordersComponent implements OnInit {
 
     for (let key in parameter) {
       if (parameter[key]) {
-        if (key == "dueDate") {
+        if (key == "due_date") {
           if (new Date("2019-01-01") < parameter[key].start) {
             setParamters++;
           }

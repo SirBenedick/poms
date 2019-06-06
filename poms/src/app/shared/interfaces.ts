@@ -14,6 +14,8 @@ export interface IPrinterData {
   progress: Number;
   estimated_time_remaining: String;
   resin_volume: Number;
+  assigned_group_id?: number;
+  email_to_notify?: string;
 }
 
 export interface IOrder {
@@ -28,8 +30,8 @@ export interface IOrder {
   priority: String;
   creation_date: string;
   comment?: String;
-  fileScan?: String; //REST-Url to file
-  fileSolid?: String; //REST-Url to file
+  fileScan?: string; //REST-Url to file
+  fileSolid?: string; //REST-Url to file
   trackingId?: String;
   shippingWay?: String;
   deliveryCompany?: String;
@@ -83,23 +85,23 @@ export interface IFAQPage {
   };
 }
 
-export interface IFAQPageAlter{
-  category : string;
-  sub_category : string;
-  title : string;
-  new_category : string;
-  new_sub_category : string;
-  new_title : string;
-  video_url : string;
-  content : string;
+export interface IFAQPageAlter {
+  category: string;
+  sub_category: string;
+  title: string;
+  new_category: string;
+  new_sub_category: string;
+  new_title: string;
+  video_url: string;
+  content: string;
 }
 
-export interface IFAQPageCreate{
-  category: string,
-  sub_category: string,
-  title: string,
+export interface IFAQPageCreate {
+  category: string;
+  sub_category: string;
+  title: string;
   video_url: string;
-  content: string,
+  content: string;
 }
 //  export interface IHelpPage {
 //    pageTitel: String;
@@ -121,11 +123,11 @@ export interface IResinType {
   resin_name: String;
 }
 
-export interface IResinName{
+export interface IResinName {
   name: string;
 }
 
-export interface ICustomerName{
+export interface ICustomerName {
   name: string;
 }
 // MS-Auf Backend warten bis es steht
@@ -149,14 +151,14 @@ export interface ISettingsPage {
   topics: Array<ISettingsPagetopic>;
 }
 
- export interface ISettingsPagetopic {
-   topicTitel: String;
-   subtopics: Array<ISettingsPageSubtopic>;
- }
- export interface ISettingsPageSubtopic {
-   subtopicTitel: String;
-   subtopicContent: String;
- }
+export interface ISettingsPagetopic {
+  topicTitel: String;
+  subtopics: Array<ISettingsPageSubtopic>;
+}
+export interface ISettingsPageSubtopic {
+  subtopicTitel: String;
+  subtopicContent: String;
+}
 
 export interface ICategory {
   category_name: String;

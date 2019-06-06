@@ -1,9 +1,9 @@
 .page-container {
-   display: flex;
+  display: flex;
   width: 750px;
   height: 570px;
   flex-direction: column;
-background-color: transparent;
+  background-color: transparent;
 }
 
 .a{
@@ -47,7 +47,7 @@ background-color: transparent;
 #right-row {
   display: flex;
   flex-direction: column;
-   width: 60vh;
+  width: 60vh;
   object-fit: contain;
   /* background-color: #6e3b4f; */
 }
@@ -81,12 +81,12 @@ background-color: transparent;
 }
 
 .break-button{
-    width: 149px;
-    height: 38px;
-    object-fit: contain;
-    border: solid 1px #62c6d6;
+  width: 149px;
+  height: 38px;
+  object-fit: contain;
+  border: solid 1px #62c6d6;
   color: #62c6d6;
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 .inputfile{
   width: 0.1px;
@@ -123,4 +123,9 @@ label{
   color: #62c6d6;
   padding-left: 5px;
 }
-
+/*<h3 *ngIf="!fileToUploade.name" class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">
+                                                                                                                Oralscan Hochladen
+        </h3>
+                                                                                                                                   <h3 *ngIf="fileToUploade.name" class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">
+                                                                                                                                                                                                                                              {{fileToUploade.name}}
+</h3>*/

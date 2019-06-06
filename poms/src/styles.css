@@ -133,3 +133,8 @@ mat-dialog-container{
 .mat-form-field-invalid .mat-input-element,.mat-warn .mat-input-element{caret-color: #ff002f}
 .mat-input-element{caret-color:#62c6d6}
 .mat-select-placeholder{color:#62c6d6}
+::placeholder{
+  font-style: italic;
+  padding-left: 5px;
+  color: #62c6d6;
+}
