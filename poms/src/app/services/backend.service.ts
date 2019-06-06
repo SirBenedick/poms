@@ -15,7 +15,9 @@ import {
   IPrinterNew,
   IFAQPage,
   IFAQPageAlter,
-  IFAQPageCreate
+  IFAQPageCreate,
+  IResinName,
+  ICustomerName
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -333,7 +335,9 @@ export class BackendService {
   }
 
   startPrinter(id: Number) {
-    return this.http.get(this.backendUrl + "printer/action/start/" + id).toPromise();
+    return this.http
+      .get(this.backendUrl + "printer/action/start/" + id)
+      .toPromise();
   }
   stopPrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/stop/" + id);
@@ -427,6 +431,21 @@ export class BackendService {
     console.log("Adding new Subtopic to topic", newSubtopic, topic);
   }
 
+  createResin(createNewResin: IResinName): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "resin/create/", createNewResin)
+      .toPromise();
+  }
+
+  createCustomer(createNewCustomer: ICustomerName): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "customer/create/", createNewCustomer)
+      .toPromise();
+  }
+  // MS-Auf Backend warten, bis Kategory steht
+  // createCategory(createNewCategory: ICategoryName ):Promise<Object>{
+  //   return this.http.post(this.backendUrl + "category/create/", createNewCategory).toPromise()
+  // }
   createFAQ(createTopic: IFAQPageCreate): Promise<Object> {
     return this.http
       .post(this.backendUrl + "faq/create/", createTopic)
@@ -434,9 +453,8 @@ export class BackendService {
   }
 
   alterFAQ(alteredTopic: IFAQPageAlter): Promise<Object> {
-    console.log(alteredTopic)
     return this.http
-      .post(this.backendUrl + "faq/alter/", {alteredTopic})
+      .post(this.backendUrl + "faq/alter/",  alteredTopic)
       .toPromise();
   }
 

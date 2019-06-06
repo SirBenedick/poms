@@ -29,7 +29,8 @@ export class BasicLayoutComponent implements OnInit {
       auftragsuebersicht: true,
       gedruckte_auftraege: false,
       druckerverwaltung: false,
-      hilfestellung: false
+      hilfestellung: false,
+      einstellung: false
     };
   }
 
@@ -75,7 +76,7 @@ export class BasicLayoutComponent implements OnInit {
     this.authService.logout();
     this.dialog.open(LogoutComponent);
   }
-  
+
   onMenuItem(menuItem) {
     for (const key in this.menuItems) {
       this.menuItems[key] = false;

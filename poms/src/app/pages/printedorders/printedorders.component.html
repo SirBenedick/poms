@@ -1,30 +1,55 @@
 <div class="page-container">
   <div class="half-container">
-    <div> <b class="ueberschriften"> Nachbereitung ausstehend </b>
-      <a (click)="help()" class="ueberschriften1" >Hilfe zur Nachbereitung findest du hier </a>
-      <!-- <button class="button-style" (click)="resetOrderFilter()">Reset</button> -->
-      <button class="button-style" (click)="openPostProcessing()">
-        Filter </button>
+    <div>
+      <b class="ueberschriften"> Nachbereitung ausstehend </b>
+      <a (click)="help()" class="ueberschriften1"
+        >Hilfe zur Nachbereitung findest du hier
+      </a>
+      <div
+        class="button-style-group"
+        (click)="openUnsentFilter()"
+        [appFilterButtonActivated]="isUnsentFilterSet"
+      >
+        Filter
+        <div
+          style="color:black;"
+          *ngIf="isUnsentFilterSet != 0"
+          (click)="resetUnsentFilter($event)"
+        >
+          ({{ isUnsentFilterSet }}) X
+        </div>
+      </div>
     </div>
     <!-- with filter -->
     <div class="cards">
-      <app-order-card *ngFor="let orderCard of filteredUngroupedOrders" [order]="orderCard">
+      <app-order-card
+        *ngFor="let orderCard of filteredUnsentOrders"
+        [order]="orderCard"
+      >
       </app-order-card>
     </div>
-    <!-- no filter -->
-    <!-- <div class="cards">
-      <app-order-card
-      *ngFor="let orderCard of allUngroupedOrders"
-      [order]="orderCard">
-    </app-order-card>     
-    </div>  -->
   </div>
   <div class="half-container">
-    <div class="ueberschriften"> Abgeschlossene Aufträge</div>
-    <button class="button-style" (click)="openFinishedFilter()">
-        Filter </button>
+    <div class="ueberschriften">Abgeschlossene Aufträge</div>
+    <div
+      class="button-style-group"
+      (click)="openSentFilter()"
+      [appFilterButtonActivated]="isSentFilterSet"
+    >
+      Filter
+      <div
+        style="color:black;"
+        *ngIf="isSentFilterSet != 0"
+        (click)="resetSentFilter($event)"
+      >
+        ({{ isSentFilterSet }}) X
+      </div>
+    </div>
     <div class="cards">
-      <app-order-card *ngFor="let orderCard of allReadyOrders" [order]="orderCard">
+      <app-order-card
+        *ngFor="let orderCard of filteredSentOrders"
+        [order]="orderCard"
+      >
       </app-order-card>
     </div>
   </div>
