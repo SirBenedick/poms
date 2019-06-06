@@ -15,16 +15,16 @@ import { FAQComponent } from "../faq/faq.component";
   styleUrls: ["./printedorders.component.css"]
 })
 export class PrintedordersComponent implements OnInit {
-  allUngroupedOrders: Array<IOrder> = [];
-  allGroupedOrders: Array<IGroupedOrders> = [];
-  allReadyOrders: Array<any> = [];
-  filteredUngroupedOrders: Array<IOrder> = [];
-  filteredGroupData: Array<IGroupedOrders> = [];
-  newOrder: String;
+  allUnsentOrders: Array<IOrder> = [];
+  allSentOrders: Array<any> = [];
+
+  filteredUnsentOrders: Array<IOrder> = [];
+  filteredSentOrders: Array<IGroupedOrders> = [];
+  
   filterParameterOrder: IFilterOrders;
   filterParameterGroup: IFilterOrders;
-  isOrderFilterSet: number = 0;
-  isGroupFilterSet: number = 0;
+  isUnsentFilterSet: number = 0;
+  isSentFilterSet: number = 0;
 
   constructor(
     private backendService: BackendService,
@@ -32,11 +32,10 @@ export class PrintedordersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     if (this.backendService.allUngroupedOrders.length == 0) {
       this.loadOrderData();
     } else {
-      this.readyOrders(this.backendService.allUngroupedOrders);
+      this.sortOrderLists(this.backendService.allUngroupedOrders);
     }
   }
   loadOrderData() {
@@ -45,66 +44,69 @@ export class PrintedordersComponent implements OnInit {
       .pollAllOrdersFromBackend()
       .toPromise()
       .then((allOrderData: Array<IOrder>) => {
-        this.allUngroupedOrders = [];
-        this.readyOrders(allOrderData);
+        this.allUnsentOrders = [];
+        this.sortOrderLists(allOrderData);
         this.backendService.allUngroupedOrders = allOrderData;
       });
   }
   //show all ReadyOrders
-  readyOrders(allReadyUnsorted: Array<IOrder>) {
+  sortOrderLists(allReadyUnsorted: Array<IOrder>) {
     //Search all Orders
     allReadyUnsorted.forEach(singleReady => {
       //If Status===created, push the singleReady into the array
-      if (singleReady.status === "created") {
-        this.allUngroupedOrders.push(singleReady);
-      } else {
-        //push the singleReady into a new array
-        this.allReadyOrders.push(singleReady);
+      if (
+        singleReady.status === "postPrint" ||
+        singleReady.status === "cleaned" ||
+        singleReady.status === "postExposure"
+      ) {
+        this.allUnsentOrders.push(singleReady);
+      } else if (singleReady.status === "sent") {
+        this.allSentOrders.push(singleReady);
       }
     });
     //for filter, with this the filter is accept
-    this.filteredUngroupedOrders = this.allUngroupedOrders;
-    this.filteredGroupData = this.allReadyOrders;
+    this.filteredUnsentOrders = this.allUnsentOrders;
+    this.filteredSentOrders = this.allSentOrders;
   }
 
-  openPostProcessing(): void {
+  openUnsentFilter(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
-      data: { newOrderForm: this.newOrder }
+      data: { newOrderForm: "newOrder" }
     });
 
     dialogRef.afterClosed().subscribe((result: { data: IFilterOrders }) => {
       if (result) {
         let filterParamter = result.data;
-        this.filterPostProcessing(filterParamter);
+        this.filterUnsentOrders(filterParamter);
         // Anzeige wie viele Filter aktiv sind
-        // this.isOrderFilterSet = this.numberOfFilterParameters(filterParamter);
-        // this.filterParameterOrder = filterParamter;
+        this.isUnsentFilterSet = this.numberOfFilterParameters(filterParamter);
+        this.filterParameterOrder = filterParamter;
       }
     });
   }
 
-  openFinishedFilter(): void {
+  openSentFilter(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
-      data: { newOrderForm: this.newOrder }
+      data: { newOrderForm: "newOrder" }
     });
 
     dialogRef.afterClosed().subscribe((result: { data: IFilterOrders }) => {
       if (result) {
         let filterParamter = result.data;
-        this.filterFinishedData(filterParamter);
+        this.filterSentOrders(filterParamter);
         // Anzeige wie viele Filter aktiv sind
-        // this.isGroupFilterSet = this.numberOfFilterParameters(filterParamter);
-        // this.filterParameterGroup = filterParamter;
+        this.isSentFilterSet = this.numberOfFilterParameters(filterParamter);
+        this.filterParameterGroup = filterParamter;
       }
     });
   }
-  filterPostProcessing(parameter: IFilterOrders) {
-    this.resetOrderFilter();
-
+  filterUnsentOrders(parameter: IFilterOrders) {
+    this.resetUnsentFilter();
+    console.log(this.allSentOrders)
     for (let key in parameter) {
       if (parameter[key]) {
         if (key == "due_date") {
-          this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
+          this.filteredUnsentOrders = this.filteredUnsentOrders.filter(
             order => {
               let orderDate = new Date(order[key]);
               if (
@@ -115,20 +117,19 @@ export class PrintedordersComponent implements OnInit {
             }
           );
         } else {
-          this.filteredUngroupedOrders = this.filteredUngroupedOrders.filter(
+          this.filteredUnsentOrders = this.filteredUnsentOrders.filter(
             order => order[key] == parameter[key]
           );
         }
       }
     }
   }
-  filterFinishedData(parameter: IFilterOrders) {
-    this.resetFinishedFilter();
-
+  filterSentOrders(parameter: IFilterOrders) {
+    this.resetSentFilter();
     for (let key in parameter) {
       if (parameter[key]) {
         if (key == "due_date") {
-          this.allReadyOrders = this.allReadyOrders.filter(order => {
+          this.filteredSentOrders = this.filteredSentOrders.filter(order => {
             let orderDate = new Date(order[key]);
             if (
               parameter[key].start <= orderDate &&
@@ -137,7 +138,7 @@ export class PrintedordersComponent implements OnInit {
               return true;
           });
         } else {
-          this.allReadyOrders = this.allReadyOrders.filter(
+          this.filteredSentOrders = this.filteredSentOrders.filter(
             order => order[key] == parameter[key]
           );
         }
@@ -145,37 +146,37 @@ export class PrintedordersComponent implements OnInit {
     }
   }
   // Anzahl der Filter berechnen, wie viele Aktiv sind
-  // numberOfFilterParameters(parameter: IFilterOrders): number {
-  //   let setParamters: number = 0;
-  //   let maxTimeForDateCreation = 8640000000000000;
+  numberOfFilterParameters(parameter: IFilterOrders): number {
+    let setParamters: number = 0;
+    let maxTimeForDateCreation = 8640000000000000;
 
-  //   for (let key in parameter) {
-  //     if (parameter[key]) {
-  //       if (key == "dueDate") {
-  //         if (new Date("2019-01-01") < parameter[key].start) {
-  //           setParamters++;
-  //         }
-  //         if (parameter[key].end < new Date(maxTimeForDateCreation)) {
-  //           setParamters++;
-  //         }
-  //       } else {
-  //         setParamters++;
-  //       }
-  //     }
-  //   }
-  //   return setParamters;
-  // }
+    for (let key in parameter) {
+      if (parameter[key]) {
+        if (key == "dueDate") {
+          if (new Date("2019-01-01") < parameter[key].start) {
+            setParamters++;
+          }
+          if (parameter[key].end < new Date(maxTimeForDateCreation)) {
+            setParamters++;
+          }
+        } else {
+          setParamters++;
+        }
+      }
+    }
+    return setParamters;
+  }
 
-  resetOrderFilter() {
-    this.filteredUngroupedOrders = this.allUngroupedOrders;
-    this.isOrderFilterSet = 0;
+  resetUnsentFilter() {
+    this.filteredUnsentOrders = this.allUnsentOrders;
+    this.isUnsentFilterSet = 0;
     event.stopPropagation();
     this.filterParameterOrder = null;
   }
 
-  resetFinishedFilter() {
-    this.allReadyOrders = this.filteredGroupData;
-    this.isGroupFilterSet = 0;
+  resetSentFilter() {
+    this.filteredSentOrders = this.allSentOrders;
+    this.isSentFilterSet = 0;
     event.stopPropagation();
     this.filterParameterGroup = null;
   }
