@@ -121,6 +121,18 @@ export interface IResinType {
   resin_name: String;
 }
 
+export interface IResinName{
+  name: string;
+}
+
+export interface ICustomerName{
+  name: string;
+}
+// MS-Auf Backend warten bis es steht
+// export interface ICategoryName{
+
+// }
+
 export class User {
   id: number;
   username: string;
