@@ -10,7 +10,7 @@ export class SelectedNavElementDirective {
 
   ngOnChanges(): void {
     if (this.appSelectedNavElement == "true") {
-      this.el.nativeElement.style.backgroundColor = "#FFFFFF";
+      this.el.nativeElement.style.backgroundColor = "transparent";
       this.el.nativeElement.style.color = "";
     } else {
       this.el.nativeElement.style.backgroundColor = "";
