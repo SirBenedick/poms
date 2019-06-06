@@ -471,9 +471,10 @@ export class BackendService {
   }
 
   alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
-    return this.http
-      .post(this.backendUrl + "order/alter/" + order_id, alteredOrder)
-      .toPromise();
+    // return this.http
+    //   .post(this.backendUrl + "order/alter/" + order_id, alteredOrder)
+    //   .toPromise();
+    return this.uploadService.alterOrderById(order_id, alteredOrder);
   }
 
   removeOrderById(id: number): Promise<Object> {

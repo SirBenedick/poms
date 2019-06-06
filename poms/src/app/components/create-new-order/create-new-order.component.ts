@@ -116,17 +116,30 @@ export class CreateNewOrderComponent implements OnInit {
 
   onSaveButton(): void {
     let formData = this.newOrderForm.value;
-    let alteredOrderData = {
-      customer_id: this.data.customer_id,
-      patient: formData.patient,
-      dental_print_type: formData.dental_print_type,
-      resin_name: formData.harz,
-      due_date: formData.dueDate ? formData.dueDate : this.data.due_date,
-      comment: formData.comment,
-      status: this.data.status
-    };
+
+    let newOrder = new FormData();
+    newOrder.append("customer_id", formData.customer_id ? formData.customer_id : this.data.customer_id);
+    newOrder.append("patient", formData.patient);
+    newOrder.append("dental_print_type", formData.dental_print_type);
+    newOrder.append("resin_name", formData.harz);
+    newOrder.append("due_date", formData.dueDate);
+    newOrder.append("comment", formData.comment);
+    newOrder.append("status", this.data.status);
+    newOrder.append("scan_file", formData.hochladen.files[0]);
+
+    // newOrder.forEach(value=>console.log("order: ", value))
+    //OLD test above then delete below
+    // let alteredOrderData = {
+    //   customer_id: this.data.customer_id,
+    //   patient: formData.patient,
+    //   dental_print_type: formData.dental_print_type,
+    //   resin_name: formData.harz,
+    //   due_date: formData.dueDate ? formData.dueDate : this.data.due_date,
+    //   comment: formData.comment,
+    //   status: this.data.status
+    // };
     this.backendService
-      .alterOrderById(this.data.order_id, alteredOrderData)
+      .alterOrderById(this.data.order_id, newOrder)
       .then(response => console.log("alterOrderById", response));
     // console.log(alteredOrderData);
     // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});

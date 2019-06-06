@@ -15,7 +15,7 @@ export class UploadService {
   uploadScan(fileToUpload: any, id: number): Observable<Object> {
     let input = new FormData();
     input.append("scan_file", fileToUpload);
-    console.log("input: ", input)
+    console.log("input: ", input);
     return this.http
       .post(this.url + "order/upload/scan/" + id, input, {
         reportProgress: true,
@@ -56,5 +56,26 @@ export class UploadService {
           }
         })
       );
+  }
+  alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
+    return this.http
+      .post(this.url + "order/alter/" + order_id, alteredOrder, {
+        reportProgress: true,
+        observe: "events"
+      })
+      .pipe(
+        map(event => {
+          switch (event.type) {
+            case HttpEventType.UploadProgress:
+              const progress = Math.round((100 * event.loaded) / event.total);
+              return { status: "progress", message: progress };
+
+            case HttpEventType.Response:
+              return event.body;
+            default:
+              return `Unhandled event: ${event.type}`;
+          }
+        })
+      ).toPromise();
   }
 }
