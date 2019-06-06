@@ -35,15 +35,12 @@ export class FAQComponent implements OnInit {
   //   this.backendService.addNewSubtopic(topic, newSubtopic);
   // }
 
-  openFAQPopUp(): void {
-    const dialogRef = this.dialog.open(FAQPopUpComponent);
-    console.log("PopUp Hilfestellung");
-  }
+  // openFAQPopUp(): void {
+  //   const dialogRef = this.dialog.open(FAQPopUpComponent);
+  //   console.log("PopUp Hilfestellung");
+  // }
 
   openUrlTextPopUp(item, category, subcategory): void {
-    // console.log("item", item)
-    // console.log("category", category)
-    // console.log("subcategory", subcategory)
     let createData = {
       item: item,
       category: category,
