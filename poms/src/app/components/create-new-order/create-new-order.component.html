@@ -18,7 +18,7 @@
 
     <div class="input-container" *ngIf="!data.customer_id">
       <h1 class="title">Zahnarzt</h1>
-      <mat-select formControlName="customer_id" placeholder="Name auswählen" class=" rechteck-eingabe">
+      <mat-select formControlName="customer_id" placeholder="Kunde auswählen" class=" rechteck-eingabe">
         <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
         </mat-option>
       </mat-select>
@@ -33,14 +33,14 @@
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
       <mat-form-field   class="example-full-width" style="margin-top: -20px">
-        <input matInput formControlName="patient" placeholder="Patient/Titel eingeben" />
+        <input matInput formControlName="patient" />
       </mat-form-field>
     </div>
 
     <div class="input-container" style="margin-top: -15px">
       <h1 class="title">Fälligkeit</h1>
       <mat-form-field style="width: 350px">
-        <input matInput [matDatepicker]="searchDate"  placeholder="Fälligkeitsdatum auswählen" class=" rechteck-eingabe"  formControlName="dueDate"
+        <input matInput [matDatepicker]="searchDate" class=" rechteck-eingabe"  formControlName="dueDate"
                style="border: transparent" />
         <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
         <mat-datepicker #searchDate></mat-datepicker>
