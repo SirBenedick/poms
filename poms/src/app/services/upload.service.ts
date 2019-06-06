@@ -15,7 +15,7 @@ export class UploadService {
   uploadScan(fileToUpload: any, id: number): Observable<Object> {
     let input = new FormData();
     input.append("scan_file", fileToUpload);
-
+    console.log("input: ", input)
     return this.http
       .post(this.url + "order/upload/scan/" + id, input, {
         reportProgress: true,
@@ -36,7 +36,7 @@ export class UploadService {
         })
       );
   }
-  createNewOrder(newOrder: IOrderCreateNew): Observable<Object> {
+  createNewOrder(newOrder: any): Observable<Object> {
     return this.http
       .post(this.url + "order/create/", newOrder, {
         reportProgress: true,

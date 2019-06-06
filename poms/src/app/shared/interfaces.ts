@@ -31,6 +31,7 @@ export interface IOrder {
   creation_date: string;
   comment?: String;
   fileScan?: string; //REST-Url to file
+  file_scan_name?: string;
   fileSolid?: string; //REST-Url to file
   trackingId?: String;
   shippingWay?: String;

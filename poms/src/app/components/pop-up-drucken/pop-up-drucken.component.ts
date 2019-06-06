@@ -58,19 +58,20 @@ export class PopUpDruckenComponent implements OnInit {
     this.dialogRef.close();
   }
   onPrintButton(): void {
-    this.backendService.startPrinter(24).then(res => console.log(res))
+    // this.backendService.startPrinter(24).then(res => console.log(res))
 
     // //Für Den richtigen druck
-    // console.log("onPrintButton");
-    // let fi = this.fileInputSkin.nativeElement;
-    // console.log(fi.files[0]);
+    console.log("onPrintButton");
+    let fi = this.fileInputSkin.nativeElement;
+    console.log(fi.files[0]);
 
-    // if (fi.files && fi.files[0]) {
-    //   let fileToUpload = fi.files[0];
-    //   this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
-    //     console.log(res);
-    //   });
-    // }
+    if (fi.files && fi.files[0]) {
+      let fileToUpload = fi.files[0];
+      this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
+        console.log(res);
+      });
+    }
+    this.dialogRef.close();
   }
   downloadSkin() {}
   uploadSolid() {}

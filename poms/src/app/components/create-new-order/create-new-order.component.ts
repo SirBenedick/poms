@@ -1,4 +1,3 @@
-import { first } from 'rxjs/operators';
 import { UploadService } from "./../../services/upload.service";
 import {
   IResinType,
@@ -85,20 +84,13 @@ export class CreateNewOrderComponent implements OnInit {
         [Validators.required]
       )
     });
-    // console.log("card Data:", this.data);
-    // console.log("date", this.data.due_date);
+
     if (this.data.customer_id)
       this.customer_name = this.customerData.find(
         customer => customer.customer_id == this.data.customer_id
       ).name;
-    // this.newOrderForm.controls["dueDate"].setValue(this.data.dueDate)
-    // this.newOrderForm.controls["customer_id"].setValue(this.data.customer_id);
-    // this.backendService.getAllResin().then((res: Array<IResinType>) => {
-    //   this.harzList = res;
-    //   console.log(this.harzList);
-    // });
-    this.fileToUploadName = this.data.fileScan ? this.data.fileScan : "";
-    console.log("data:", this.data.fileScan)
+
+    this.fileToUploadName = this.data.file_scan_name ? this.data.file_scan_name : "";
   }
 
   onQuit(): void {
@@ -135,7 +127,7 @@ export class CreateNewOrderComponent implements OnInit {
     };
     this.backendService
       .alterOrderById(this.data.order_id, alteredOrderData)
-      .then(response => console.log(response));
+      .then(response => console.log("alterOrderById", response));
     // console.log(alteredOrderData);
     // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
     this.dialogRef.close();
