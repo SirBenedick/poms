@@ -54,10 +54,10 @@ import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.comp
 import { FAQPopUpComponent } from './components/faqpop-up/faqpop-up.component';
 import { UrlTextPopUpComponent } from './components/url-text-pop-up/url-text-pop-up.component';
 import { DeactiveGroupDirective } from './directives/deactive-group.directive';
-import { SelectedNavElementDirective } from './directives/selected-nav-element.directive';
 import { NeuerKundeComponent } from './Pop-Ups/Settings/neuer-kunde/neuer-kunde.component';
 import { NeuesHarzComponent } from './Pop-Ups/Settings/neues-harz/neues-harz.component';
 import { NeueKategorieComponent } from './Pop-Ups/Settings/neue-kategorie/neue-kategorie.component';
+
 
 registerLocaleData(de);
 @NgModule({
@@ -85,7 +85,9 @@ registerLocaleData(de);
     FAQPopUpComponent,
     UrlTextPopUpComponent,
     DeactiveGroupDirective,
-    SelectedNavElementDirective
+    NeuerKundeComponent,
+    NeuesHarzComponent,
+    NeueKategorieComponent
   ],
   imports: [
     BrowserModule,
