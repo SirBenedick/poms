@@ -30,8 +30,8 @@ export interface IOrder {
   priority: String;
   creation_date: string;
   comment?: String;
-  fileScan?: String; //REST-Url to file
-  fileSolid?: String; //REST-Url to file
+  fileScan?: string; //REST-Url to file
+  fileSolid?: string; //REST-Url to file
   trackingId?: String;
   shippingWay?: String;
   deliveryCompany?: String;

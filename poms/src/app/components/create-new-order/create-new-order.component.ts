@@ -1,3 +1,4 @@
+import { first } from 'rxjs/operators';
 import { UploadService } from "./../../services/upload.service";
 import {
   IResinType,
@@ -22,7 +23,7 @@ export class CreateNewOrderComponent implements OnInit {
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
 
-  fileToUploade: string="";
+  fileToUploadName: string;
 
   @ViewChild("fileInputScan") fileInputScan;
   customer_name: string;
@@ -86,7 +87,6 @@ export class CreateNewOrderComponent implements OnInit {
     });
     // console.log("card Data:", this.data);
     // console.log("date", this.data.due_date);
-
     if (this.data.customer_id)
       this.customer_name = this.customerData.find(
         customer => customer.customer_id == this.data.customer_id
@@ -97,6 +97,8 @@ export class CreateNewOrderComponent implements OnInit {
     //   this.harzList = res;
     //   console.log(this.harzList);
     // });
+    this.fileToUploadName = this.data.fileScan ? this.data.fileScan : "";
+    console.log("data:", this.data.fileScan)
   }
 
   onQuit(): void {
@@ -139,6 +141,6 @@ export class CreateNewOrderComponent implements OnInit {
     this.dialogRef.close();
   }
   handleFileInput(files: FileList){
-    this.fileToUploade = files.item(0).name;
+    this.fileToUploadName = files.item(0).name;
   }
 }

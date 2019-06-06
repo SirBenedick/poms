@@ -79,17 +79,17 @@
         (change)="handleFileInput($event.target.files)"
       />
       <label for="file"
-             *ngIf="fileToUploade"
+             *ngIf="fileToUploadName"
       >
       <h1
         class="title"
         style="text-align: center; padding-top: 5px;font-weight: normal"
       >
-        {{fileToUploade}}
+        {{fileToUploadName}}
       </h1></label>
 
       <label for="file"
-             *ngIf="!fileToUploade"
+             *ngIf="!fileToUploadName"
       ><h1
         class="title"
         style="text-align: center;padding-top: 5px;font-weight: normal"
