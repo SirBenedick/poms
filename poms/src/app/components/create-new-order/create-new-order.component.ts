@@ -22,6 +22,8 @@ export class CreateNewOrderComponent implements OnInit {
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
 
+  fileToUploade: string="";
+
   @ViewChild("fileInputScan") fileInputScan;
   customer_name: string;
   constructor(
@@ -135,5 +137,8 @@ export class CreateNewOrderComponent implements OnInit {
     // console.log(alteredOrderData);
     // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
     this.dialogRef.close();
+  }
+  handleFileInput(files: FileList){
+    this.fileToUploade = files.item(0).name;
   }
 }
