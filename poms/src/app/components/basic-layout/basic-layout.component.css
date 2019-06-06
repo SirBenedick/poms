@@ -210,6 +210,10 @@ body {
   padding-left: 10px;
   padding-bottom: 5px;
   border: transparent;
+  border-bottom: solid 1px #a2a2a2;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 4px;
 }
 .info-print-heading{
   font-family: "Segoe UI";
@@ -219,6 +223,16 @@ body {
   margin-right: 10px;
   padding-bottom: 4px;
   font-style: italic;
+}
+.info-print-heading-paused{
+  font-family: "Segoe UI";
+  font-size: 11px;
+  border-bottom: solid 1px #a2a2a2;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 4px;
+  font-style: italic;
+  color: #cd0000;
 }
 #print-prozess-info{
   font-family: "Segoe UI";
@@ -240,4 +254,18 @@ body {
   text-align: left;
   font-weight: bold;
   color: #62c6d6;
+}
+
+.printer-prints-group-text {
+  width: 210px;
+  height: 21px;
+  object-fit: contain;
+  font-family: Segoe UI;
+  font-size: 12px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
 }

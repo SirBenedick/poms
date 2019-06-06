@@ -32,18 +32,21 @@ export class StatusComponent implements OnInit {
     }
   }
 
-  //Klick damit man Informationen erhält: bisher noch nicht in HTML verbaut
-  onPrinterName(event) {
-    this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
-      data: event.printer
-    });
-  }
+   onDetailedView(detail): void {
+     let printerInfo = {
+       host: this.printer.host,
+       port: this.printer.port,
+       name: this.printer.name,
+       progress: this.printer.progress,
+       max_layer: this.printer.max_layer,
+       current_layer: this.printer.current_layer,
+       harzstand: this.printer.resin_volume,
+     }
 
-   onDetailedView(detail: any): void {
      const dialogRef = this.dialog.open(PopUpVanikComponent, {
-       data: detail
-     });
-
+       data: {printerInfo, detail}
+       });
+     
       dialogRef.afterClosed().subscribe(result => {
         result;
       });

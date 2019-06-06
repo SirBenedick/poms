@@ -1,10 +1,56 @@
-  <div class="page-container">
-      <h3>Nähere Informationen zum Drucker</h3>
-       {{data}}
-    <div>
-        <button mat-button (click)="onBreakButton()">
-          Schließen
-        </button>
-
+<div class="page-container" style="text-align: center">
+  <div id="ueberschrift">Nähere Informationen zum Drucker</div>
+  <!-- Anzeige von näheren Informationen über den Drucker -->
+  <div *ngIf="data.detail == data.printerInfo.name">
+  <div id="ueberschriftenTexte">Druckername</div>
+  <div class="textboxen" id="textausrichten" style="text-align: center">
+    {{data.detail}}
+  </div>
+  <div id="ueberschriftenTexte">Port des Druckers</div>
+  <div class="textboxen" id="textausrichten">
+    {{data.printerInfo.port}}
+  </div>
+  <div id="ueberschriftenTexte">Host des Druckers</div>
+  <div class="textboxen" id="textausrichten">
+    {{data.printerInfo.host}}
+  </div>
+</div>
+<!-- Anzeige der Daten geht bis hier hin -->
+<!-- Anzeige der Daten vom Druckfortschritt -->
+<div *ngIf="data.detail == (data.printerInfo.progress)*100">
+    <div id="ueberschriftenTexte">Druckfortschritt</div>
+    <div class="textboxen" id="textausrichten" style="text-align: center">
+      {{data.printerInfo.progress |percent}}
+    </div>
+    <div id="ueberschriftenTexte">Anzahl der bisher gedruckten Layer</div>
+    <div class="textboxen" id="textausrichten">
+      {{data.printerInfo.current_layer}}
+    </div>
+    <div id="ueberschriftenTexte">Anzahl der gesamt gedruckten Layer</div>
+    <div class="textboxen" id="textausrichten">
+      {{data.printerInfo.max_layer}}
     </div>
   </div>
+  <!-- Anzeige der Daten geht bis hier hin -->
+  <!-- Anzeige der Daten vom Füllstand -->
+  <div *ngIf="data.detail == (data.printerInfo.harzstand)*100">
+      <div id="ueberschriftenTexte">Füllstand des Druckers in %</div>
+      <div class="textboxen" id="textausrichten" style="text-align: center">
+        {{data.printerInfo.harzstand |percent}}
+      </div>
+      <div id="ueberschriftenTexte">Füllstand des Druckers in ml</div>
+      <div class="textboxen" id="textausrichten">
+        {{(data.printerInfo.harzstand*0.4)*1000 |number}} ml
+      </div>
+      <div id="ueberschriftenTexte">Wie viel ml passen maximal in den Tank?</div>
+      <div class="textboxen" id="textausrichten">
+        400 ml
+      </div>
+    </div>
+    <!-- Anzeige der Daten geht bis hier hin -->
+  <div>
+    <button mat-button (click)="onBreakButton()" class="closeButton">
+      Schließen
+    </button>
+  </div>
+</div>

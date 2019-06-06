@@ -1,6 +1,6 @@
 <div class="page-container">
-  <div class="half-container">
-    <div *ngFor="let category of helpData | keyvalue">
+  <div >
+    <div *ngFor="let category of helpData | keyvalue" class="half-container">
       <h1>{{category.key}}</h1>
       <mat-expansion-panel style=" margin-left: -20px;" *ngFor="let subcategory of category.value | keyvalue"
         class="expand-collapse">

@@ -36,11 +36,14 @@ export class EinstellungenComponent implements OnInit {
     if (subtopic.subtopicTitel == "Einen Kunden hinzufügen") {
       const dialogRef = this.dialog.open(NeuerKundeComponent, {});
     }
-    if(subtopic.subtopicTitel == "Eine Kategorie hinzufügen") {
+    else if(subtopic.subtopicTitel == "Eine Kategorie hinzufügen") {
       const dialogReg = this.dialog.open(NeueKategorieComponent, {});
     }
-    if(subtopic.subtopicTitel == "Ein Harz hinzufügen") {
+    else if(subtopic.subtopicTitel == "Ein Harz hinzufügen") {
       const dialogReg = this.dialog.open(NeuesHarzComponent, {});
+    }
+    else{
+      alert(`Müsste von einem Experten ausgefüllt werden!`)
     }
   }
 
