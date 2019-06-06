@@ -453,9 +453,8 @@ export class BackendService {
   }
 
   alterFAQ(alteredTopic: IFAQPageAlter): Promise<Object> {
-    console.log(alteredTopic);
     return this.http
-      .post(this.backendUrl + "faq/alter/", { alteredTopic })
+      .post(this.backendUrl + "faq/alter/",  alteredTopic)
       .toPromise();
   }
 
