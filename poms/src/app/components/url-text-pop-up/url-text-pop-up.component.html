@@ -4,17 +4,22 @@
 
     <iframe *ngIf="data.item.video_url" width="560" height="315" src="{{data.item.video_url}}" frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  
+
     <div class="text">
       {{ data.item.content }}
     </div>
   </div>
 
   <div class="text" *ngIf="bearbeitenAktiv">
-    <h1><textarea cols="51" rows="2" style="resize:none;" [(ngModel)]="data.item.title">{{data.item.title}}</textarea>
+   <div> <h4>Titel bearbeiten </h4></div>
+    <h1><textarea cols="51" rows="2" style="resize:none;" [(ngModel)]="data.item.title">
+      {{data.item.title}}</textarea>
     </h1>
-    <textarea [(ngModel)]="data.item.video_url">{{data.item.video_url}} /></textarea>
+    <div> <h4>Viedeo bearbeiten </h4></div>
+    <textarea cols="90" rows="8" class="text" style="resize:none;" [(ngModel)]="data.item.video_url">
+      {{data.item.video_url}} /></textarea>
 
+      <div> <h4>Beschreibung der Hilfestellung bearbeiten </h4></div>
     <textarea cols="90" rows="8" style="resize:none;" [(ngModel)]=" data.item.content">
   {{ data.item.content }}
 </textarea>
@@ -22,9 +27,9 @@
   </div>
   <div>
 
-    <button *ngIf="bearbeitenAktiv" class="button-first" (click)="saveButton()" >speichern</button>
+    <button *ngIf="bearbeitenAktiv" class="button-first" (click)="saveButton()">speichern</button>
     <button *ngIf="bearbeitenAktiv" class="button-sec" (click)="onBreakButton()">schließen</button>
     <button *ngIf="!bearbeitenAktiv" class="button-first" (click)="onBreakButton()">schließen</button>
-    <button *ngIf="!bearbeitenAktiv" class="button-sec" (click)="bearbeitenButton()" >bearbeiten</button>
+    <button *ngIf="!bearbeitenAktiv" class="button-sec" (click)="bearbeitenButton()">bearbeiten</button>
   </div>
 </div>
