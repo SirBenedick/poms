@@ -1,11 +1,53 @@
 .page-container{
+  width: 725px;
+  height: 540px;
+  flex-direction: column;
+  background-color: transparent;
   display: flex;
-  flex-direction: column
 }
 .harz-container {
   display: flex;
+  flex-direction: row;
+  width: 550px;
+  height: auto;
+  flex-wrap: wrap;
+}
+.inner.container{
+  margin-top: -10px;
 }
 
+.radio-container input{
+  position: absolute;
+  clip: rect(0,0,0,0);
+  height: 20px;
+  width: 20px;
+  border: 0;
+  overflow: hidden;
+}
+.radio-container label{
+  width: 120px;
+  height: 30px;
+  margin-right: 5px;
+  background-color: transparent;
+  font-size: 12px;
+  color: #62c6d6;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  border: #62c6d6 1px solid;
+  border-radius: 4px;
+}
+.radio-container label:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #1f282c;
+  border: #1f282c 1px solid;
+}
+.radio-container input:checked + label{
+  background-color: #1f282c;
+  color: white;
+  border: transparent;
+}
 .heading{
   object-fit: contain;
   font-family: "Segoe UI";
@@ -22,8 +64,8 @@
 }
 .send-button {
   border-radius: 4px;
-  width: 149px;
-  height: 38px;
+  width: 120px;
+  height: 30px;
   color: white;
   object-fit: contain;
   border: solid 1px #62c6d6;
@@ -34,20 +76,20 @@
 .break-button{
   margin: 2px;
   border-radius: 4px;
-  width: 149px;
-  height: 38px;
+  width: 120px;
+  height: 30px;
   object-fit: contain;
   border: solid 1px #62c6d6;
   color: #62c6d6;
   background-color: #ffffff;
 }
-.boxen{
-  width: 350px;
+.rechteck-eingabe {
+  width: 370px;
   height: auto;
   object-fit: contain;
+  background-color: #ffffff;
   border-radius: 4px;
   border: solid 1px #62c6d6;
-  background-color: #ffffff;
 }
 #boxenPrio{
   width: 149px;
@@ -56,21 +98,4 @@
   border: solid 1px #62c6d6;
   background-color: #ffffff;
 }
-.prio{
-  display: flex;
-  justify-content: space-between
-}
-.schrift_boxen{
-  width: 50px;
-  height: 21px;
-  object-fit: contain;
-  font-family: SegoeUI;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.31;
-  letter-spacing: normal;
-  text-align: center;
-  color: #62c6d6;
-}
+

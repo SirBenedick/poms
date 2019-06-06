@@ -32,20 +32,22 @@
       </div>
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
-      <mat-form-field class="example-full-width" style="margin-top: -20px">
+      <mat-form-field  placeholder="Patient/Titel eingeben" class="example-full-width" style="margin-top: -20px">
         <input matInput formControlName="patient" />
       </mat-form-field>
     </div>
 
     <div class="input-container" style="margin-top: -15px">
       <h1 class="title">Fälligkeit</h1>
-      <input class=" rechteck-eingabe" [matDatepicker]="searchDate" formControlName="dueDate"
-        placeholder="Fälligkeitsdatum auswählen" />
+      <mat-form-field style="width: 370px">
+      <input matInput [matDatepicker]="searchDate"  placeholder="Fälligkeitsdatum auswählen" class=" rechteck-eingabe"  formControlName="dueDate"
+             style="border: transparent" />
       <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
       <mat-datepicker #searchDate></mat-datepicker>
+      </mat-form-field>
     </div>
 
-    <div class="input-container">
+    <div class="input-container" style="margin-top: -10px">
       <h1 class="title">Harzfarbe</h1>
       <mat-select formControlName="harz" placeholder="Harzfarbe auswählen" class=" rechteck-eingabe">
         <mat-option *ngFor="let harzfarbe of harzList" value="{{ harzfarbe.resin_name }}">{{ harzfarbe.resin_name }}
@@ -94,7 +96,7 @@
         style="resize:none; width: 350px;height: 80px" placeholder="Anmerkung"></textarea>
     </div>
 
-    <div style="align-self: flex-end">
+    <div style="align-self: flex-end; margin-top: -10px">
       <mat-dialog-actions>
         <button *ngIf="!data.customer_id" class="break-button" mat-button (click)="onQuit()">
           abbrechen
