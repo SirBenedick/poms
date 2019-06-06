@@ -301,11 +301,17 @@ export class BackendService {
     //ENDE
 
     this.getAllResin().then(
-      (harzData: Array<IResinType>) => (this.resineData = harzData)
+      (harzData: Array<IResinType>) => {
+        this.resineData = harzData
+       this.resineData.sort();
+      }
     );
 
     this.getAllCustomer().then(
-      (customerData: Array<ICustomer>) => (this.customerData = customerData)
+      (customerData: Array<ICustomer>) => {
+        this.customerData = customerData
+       this.customerData.sort((a,b)=> a.name.localeCompare(b.name))
+      }
     );
 
     this.getAllHelpData().then(
