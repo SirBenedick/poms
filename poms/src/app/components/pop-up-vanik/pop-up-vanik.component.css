@@ -1,0 +1,35 @@
+.textboxen {
+    background-color: #62c6d6;
+    color: white;
+    width: 50%;
+    height: auto;
+    margin: 20px 80px;
+}
+
+
+#textausrichten{
+    font-family: "Segoe UI";
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#ueberschrift{
+    font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: bold;
+ 
+}
+
+#ueberschriftenTexte{
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.closeButton{
+    border-radius: 4px;
+    float: right;
+    color: white;
+    background-color: #62c6d6;
+    font-size: 14px;
+}
