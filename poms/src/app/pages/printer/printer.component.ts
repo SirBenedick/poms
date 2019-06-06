@@ -11,6 +11,7 @@ import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-druc
 })
 export class PrinterComponent implements OnInit {
   allPrinters: Array<IPrinterData> = [];
+  // allPrinters: Observable<Object> = this.backendService.allPrinterData$;
 
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
@@ -33,15 +34,6 @@ export class PrinterComponent implements OnInit {
     }
   }
 
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-  //     data: { key: "Example, maybe no data is needed" }
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log("The create new Printer Dialog was closed, result: ", result);
-  //   });
-  // }
   openDialogNewDrucker(): void {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
       data: {}

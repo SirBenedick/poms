@@ -85,7 +85,7 @@ body {
   margin-bottom: 10px;
 }
 
-.button-style:focus {
+.button-style-focus {
   font-family: "Segoe UI";
   font-weight: bold;
   border-left: 10px solid #003549;

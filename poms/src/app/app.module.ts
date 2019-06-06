@@ -85,10 +85,7 @@ registerLocaleData(de);
     FAQPopUpComponent,
     UrlTextPopUpComponent,
     DeactiveGroupDirective,
-    SelectedNavElementDirective,
-    NeuerKundeComponent,
-    NeuesHarzComponent,
-    NeueKategorieComponent
+    SelectedNavElementDirective
   ],
   imports: [
     BrowserModule,
