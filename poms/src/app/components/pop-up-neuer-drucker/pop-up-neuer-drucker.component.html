@@ -21,11 +21,11 @@
     <br />
     <div>
       <mat-dialog-actions>
-        <button mat-button [mat-dialog-close]="newPrinterForm">
-          Speichern
-        </button>
-        <button mat-button (click)="onBreakButton()">
+        <button mat-button class="break-button" (click)="onBreakButton()">
           Abbrechen
+        </button>
+        <button mat-button class="save-button" [mat-dialog-close]="newPrinterForm">
+          Speichern
         </button>
       </mat-dialog-actions>
     </div>
