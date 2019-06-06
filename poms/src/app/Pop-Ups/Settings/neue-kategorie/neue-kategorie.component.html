@@ -1,0 +1,16 @@
+<form [formGroup]="newKategorie">
+    <div class="page-container">
+      <h1> Neue Kategorie hinzufügen </h1>
+  
+      <mat-form-field>
+        <input matInput formControlName="kategoriename" placeholder="Kategoriename eingeben">
+      </mat-form-field>
+  
+      <mat-dialog-actions>
+        <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+        <button class="save-button" mat-button [mat-dialog-close]="newKategorie" (click)="onSaveButton()">
+          anlegen
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </form>
