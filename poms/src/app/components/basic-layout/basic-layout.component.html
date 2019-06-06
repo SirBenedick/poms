@@ -22,7 +22,7 @@
           class="button-style"
           id="order-overview"
           (click)="onMenuItem('auftragsuebersicht')"
-          appSelectedNavElement="{{menuItems.auftragsuebersicht}}"
+          [class.button-style-focus]="menuItems.auftragsuebersicht"
         >
           <a class="transparent">Auftragsübersicht</a>
         </nav>
@@ -34,7 +34,7 @@
           class="button-style"
           id="printed-orders"
           (click)="onMenuItem('gedruckte_auftraege')"
-          appSelectedNavElement="{{menuItems.gedruckte_auftraege}}"
+          [class.button-style-focus]="menuItems.gedruckte_auftraege"
         >
           <a class="transparent">Gedruckte Aufträge</a>
         </nav>
@@ -46,26 +46,32 @@
           class="button-style"
           id="printer-management"
           (click)="onMenuItem('druckerverwaltung')"
-          appSelectedNavElement="{{ menuItems.druckerverwaltung }}"
-          >
+          [class.button-style-focus]="menuItems.druckerverwaltung"
+        >
           <a class="transparent">Druckerverwaltung</a>
         </nav>
       </div>
     </div>
-    
+
     <div style="margin-top: auto">
       <nav
-      routerLink="hilfestellung"
-      class="button-style"
-      id="help"
-      (click)="onMenuItem('hilfestellung')"
-      appSelectedNavElement="{{ menuItems.hilfestellung }}"
+        routerLink="hilfestellung"
+        class="button-style"
+        id="help"
+        (click)="onMenuItem('hilfestellung')"
+        [class.button-style-focus]="menuItems.hilfestellung"
       >
         <a class="transparent"></a>Hilfestellung
       </nav>
     </div>
     <div>
-      <nav routerLink="einstellungen" class="button-style" id="settings">
+      <nav
+        routerLink="einstellungen"
+        class="button-style"
+        id="settings"
+        (click)="onMenuItem('einstellung')"
+        [class.button-style-focus]="menuItems.einstellung"
+      >
         <a class="transparent"></a>Verwaltung
       </nav>
     </div>

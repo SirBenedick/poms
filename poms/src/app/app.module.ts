@@ -54,7 +54,6 @@ import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.comp
 import { FAQPopUpComponent } from './components/faqpop-up/faqpop-up.component';
 import { UrlTextPopUpComponent } from './components/url-text-pop-up/url-text-pop-up.component';
 import { DeactiveGroupDirective } from './directives/deactive-group.directive';
-import { SelectedNavElementDirective } from './directives/selected-nav-element.directive';
 
 registerLocaleData(de);
 @NgModule({
@@ -82,7 +81,6 @@ registerLocaleData(de);
     FAQPopUpComponent,
     UrlTextPopUpComponent,
     DeactiveGroupDirective,
-    SelectedNavElementDirective
   ],
   imports: [
     BrowserModule,
