@@ -16,6 +16,7 @@ export class PopUpVanikComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    console.log(this.data)
   }
 
   onBreakButton():void{
