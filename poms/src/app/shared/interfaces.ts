@@ -6,13 +6,13 @@ export interface IPrinterData {
   is_printing: Number;
   current_layer: Number;
   max_layer: Number;
-  print_start: String;
-  time_estimated: String;
+  print_start: string;
+  time_estimated: string;
   model_height: Number;
   paused: Number;
   offline: Number;
   progress: Number;
-  estimated_time_remaining: String;
+  estimated_time_remaining: string;
   resin_volume: Number;
   assigned_group_id?: number;
   email_to_notify?: string;
@@ -22,20 +22,20 @@ export interface IOrder {
   order_id: number;
   group_id?: number;
   customer_id: number; //DB has list of all customers
-  laboratory?: String; //DB has list of all laboratories
-  patient: String; //DB has list of all patients
-  dental_print_type: String; //DB has list of all dental_print_types
-  resin_name: String; //DB has list of all "harzes"
-  due_date: String;
-  priority: String;
+  laboratory?: string; //DB has list of all laboratories
+  patient: string; //DB has list of all patients
+  dental_print_type: string; //DB has list of all dental_print_types
+  resin_name: string; //DB has list of all "harzes"
+  due_date: string;
+  priority: string;
   creation_date: string;
-  comment?: String;
+  comment?: string;
   fileScan?: string; //REST-Url to file
   file_scan_name?: string;
   fileSolid?: string; //REST-Url to file
-  trackingId?: String;
-  shippingWay?: String;
-  deliveryCompany?: String;
+  trackingId?: string;
+  shippingWay?: string;
+  deliveryCompany?: string;
   status:
     | "created"
     | "isSolid"
@@ -47,31 +47,31 @@ export interface IOrder {
 
 export interface IOrderCreateNew {
   customer_id: number;
-  patient: String;
-  dental_print_type: String;
-  resin_name: String;
-  due_date: String;
-  comment: String;
-  status: String;
+  patient: string;
+  dental_print_type: string;
+  resin_name: string;
+  due_date: string;
+  comment: string;
+  status: string;
   scan_file: any;
 }
 
 export interface IGroupedOrders {
   group_id: number;
   resin_name: string;
-  creationDate: String;
+  creationDate: string;
   fileSliced?: any; //REST-Url to file
   orders?: Array<IOrder>;
   status: "preprint" | "printing" | "postprint";
 }
 
 export interface ICreateNewOrder {
-  titel: String;
-  Kategorie: String;
+  titel: string;
+  Kategorie: string;
 }
 
 export interface IFilterOrders {
-  resin_name: String;
+  resin_name: string;
   priority: "hoch" | "mittel" | "niedrig";
   due_date: any;
   customer_id: string;
@@ -105,23 +105,23 @@ export interface IFAQPageCreate {
   content: string;
 }
 //  export interface IHelpPage {
-//    pageTitel: String;
+//    pageTitel: string;
 //    topics: Array<IHelpPageTopic>;
 //  }
 
 //  export interface IHelpPageTopic {
-//    topicTitel: String;
+//    topicTitel: string;
 //    subtopics: Array<IHelpPageSubtopic>;
 //  }
 
 //  export interface IHelpPageSubtopic {
-//    subtopicTitel: String;
-//    subtopicContent: String;
-//    videoURL?: String;
+//    subtopicTitel: string;
+//    subtopicContent: string;
+//    videoURL?: string;
 //  }
 
 export interface IResinType {
-  resin_name: String;
+  resin_name: string;
 }
 
 export interface IResinName {
@@ -132,30 +132,28 @@ export interface ICustomerName {
   name: string;
 }
 
-
- export interface ICategoryName{
-  name: string,
- }
-export interface IAlterResin{
-  name: string,
-  new_name: string,
+export interface ICategoryName {
+  name: string;
 }
- export interface IAlterCategory{
-   name: string;
-   new_name: string;
- }
-
+export interface IAlterResin {
+  name: string;
+  new_name: string;
+}
+export interface IAlterCategory {
+  name: string;
+  new_name: string;
+}
 
 export interface IResinDelete {
   name: string;
 }
 
-export interface ICategoryDelete{
+export interface ICategoryDelete {
   name: string;
 }
 
-export interface ICustomerDelete{
- customer_id: number;
+export interface ICustomerDelete {
+  customer_id: number;
 }
 
 export class User {
@@ -170,28 +168,28 @@ export enum Role {
   Admin = "Admin"
 }
 export interface ISettingsPage {
-  pageTitel: String;
+  pageTitel: string;
   topics: Array<ISettingsPagetopic>;
 }
 
 export interface ISettingsPagetopic {
-  topicTitel: String;
+  topicTitel: string;
   subtopics: Array<ISettingsPageSubtopic>;
 }
 export interface ISettingsPageSubtopic {
-  subtopicTitel: String;
-  subtopicContent: String;
+  subtopicTitel: string;
+  subtopicContent: string;
 }
 
 export interface ICategory {
-  model_type_name: String;
+  model_type_name: string;
 }
 
 export interface IDrucken {
   upload: File;
   download: File;
   print: File;
-  EMail: String;
+  EMail: string;
 }
 
 export interface ICustomer {
@@ -200,7 +198,7 @@ export interface ICustomer {
 }
 
 export interface IPrinterNew {
-  name: String;
-  host: String;
-  port: String;
+  name: string;
+  host: string;
+  port: string;
 }
