@@ -1,13 +1,17 @@
-import { UploadService } from "./../../services/upload.service";
 import {
   IResinType,
   IOrder,
   ICategory,
-  ICustomer,
-  ICategoryName
+  ICustomer
 } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
-import { Component, OnInit, Inject, ViewChild, ElementRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Inject,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
@@ -30,8 +34,7 @@ export class CreateNewOrderComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CreateNewOrderComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IOrder,
-    private backendService: BackendService,
-    private uploadService: UploadService
+    private backendService: BackendService
   ) {}
   ngOnInit() {
     this.newOrderForm = new FormGroup({
@@ -78,13 +81,12 @@ export class CreateNewOrderComponent implements OnInit {
         this.data.fileSolid ? this.data.fileSolid : "",
         [Validators.required]
       ),
-       hochladen: new FormControl(
-        this.fileInputScan.nativeElement?
+      hochladen: new FormControl(
         this.fileInputScan.nativeElement
-          : null
-         ,[Validators.required])
-       
-  
+          ? this.fileInputScan.nativeElement
+          : null,
+        [Validators.required]
+      )
     });
 
     if (this.data.customer_id)
@@ -92,21 +94,13 @@ export class CreateNewOrderComponent implements OnInit {
         customer => customer.customer_id == this.data.customer_id
       ).name;
 
-    this.fileToUploadName = this.data.file_scan_name ? this.data.file_scan_name : "";
+    this.fileToUploadName = this.data.file_scan_name
+      ? this.data.file_scan_name
+      : "";
   }
 
   onQuit(): void {
     this.dialogRef.close();
-  }
-  uploadScan() {
-    console.log("uploadScan");
-
-    // if (fi.files && fi.files[0]) {
-    //   let fileToUpload = fi.files[0];
-    //   this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
-    //     console.log(res);
-    //   });
-    // }
   }
 
   onDeleteButton(): void {
@@ -120,7 +114,10 @@ export class CreateNewOrderComponent implements OnInit {
     let formData = this.newOrderForm.value;
 
     let newOrder = new FormData();
-    newOrder.append("customer_id", formData.customer_id ? formData.customer_id : this.data.customer_id);
+    newOrder.append(
+      "customer_id",
+      formData.customer_id ? formData.customer_id : this.data.customer_id
+    );
     newOrder.append("patient", formData.patient);
     newOrder.append("dental_print_type", formData.dental_print_type);
     newOrder.append("resin_name", formData.harz);
@@ -129,26 +126,12 @@ export class CreateNewOrderComponent implements OnInit {
     newOrder.append("status", this.data.status);
     newOrder.append("scan_file", formData.hochladen.files[0]);
 
-    // newOrder.forEach(value=>console.log("order: ", value))
-    //OLD test above then delete below
-    // let alteredOrderData = {
-    //   customer_id: this.data.customer_id,
-    //   patient: formData.patient,
-    //   dental_print_type: formData.dental_print_type,
-    //   resin_name: formData.harz,
-    //   due_date: formData.dueDate ? formData.dueDate : this.data.due_date,
-    //   comment: formData.comment,
-    //   status: this.data.status
-    // };
     this.backendService
       .alterOrderById(this.data.order_id, newOrder)
       .then(response => console.log("alterOrderById", response));
-    // console.log(alteredOrderData);
-    // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
     this.dialogRef.close();
-    console.log(newOrder);
   }
-  handleFileInput(files: FileList){
+  handleFileInput(files: FileList) {
     this.fileToUploadName = files.item(0).name;
   }
 }

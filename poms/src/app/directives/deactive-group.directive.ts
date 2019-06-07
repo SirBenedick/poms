@@ -1,10 +1,10 @@
-import { Directive, Input, ElementRef } from '@angular/core';
+import { Directive, Input, ElementRef, OnChanges } from '@angular/core';
 import { IGroupedOrders } from '../shared/interfaces';
 
 @Directive({
   selector: '[appDeactiveGroup]'
 })
-export class DeactiveGroupDirective {
+export class DeactiveGroupDirective implements OnChanges{
   @Input() appDeactiveGroup: IGroupedOrders;
   
   constructor(private el: ElementRef) {}

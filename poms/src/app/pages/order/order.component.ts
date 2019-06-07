@@ -1,4 +1,3 @@
-import { IOrderCreateNew } from "./../../shared/interfaces";
 import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import {
@@ -131,7 +130,7 @@ export class OrderComponent implements OnInit {
   filterGroupData(parameter: IFilterOrders) {
     this.resetGroupFilter();
 
-    for (let key in parameter) {
+    for (const key in parameter) {
       if (parameter[key]) {
         if (key == "due_date") {
           // console.log("Filter DueDate, does nothing");
@@ -208,7 +207,7 @@ export class OrderComponent implements OnInit {
               this.loadOrderData();
             }
           });
-          console.log(newOrder)
+          console.log(newOrder);
         }
       }
     });
@@ -243,6 +242,7 @@ export class OrderComponent implements OnInit {
   }
 
   onPrintClick(): void {
+    event.stopPropagation();
     const dialogRef = this.dialog.open(PopUpDruckenComponent, {
       data: { newOrderForm: "newOrder" }
     });
@@ -283,7 +283,7 @@ export class OrderComponent implements OnInit {
   dropNewGroup(event: CdkDragDrop<string[]>) {
     let previousContainer = event.previousContainer;
     let draggedOrder: IOrder = <IOrder>(
-      (<unknown>previousContainer.data[event.previousIndex])
+      (<unknown> previousContainer.data[event.previousIndex])
     );
 
     this.backendService.createNewGroup(draggedOrder).then(res => {

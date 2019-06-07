@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from "@angular/core";
-import { BackendService } from "src/app/services/backend.service";
 import {
   ISettingsPage,
   IFAQPage,
@@ -96,7 +95,7 @@ export class EinstellungenComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClick(subtopic: { subtopicTitel: String; subtopicContent: String }) {
+  onClick(subtopic: { subtopicTitel: string; subtopicContent: string }) {
     if (subtopic.subtopicTitel == "Einen Kunden hinzufügen") {
      this.dialog.open(NeuerKundeComponent, {});
     }
