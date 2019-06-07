@@ -4,7 +4,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { IOrderCreateNew, User, IOrder } from "src/app/shared/interfaces";
+import {  User, IPrinterData } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
 import { LogoutComponent } from "../logout/logout.component";
 @Component({
@@ -15,6 +15,7 @@ import { LogoutComponent } from "../logout/logout.component";
 export class BasicLayoutComponent implements OnInit {
   currentUser: User;
   printerSubscription: Observable<Object>;
+  everyPrinter: Array<Observable<IPrinterData>> = this.backendService.everyPrinter;
   menuItems;
 
   constructor(

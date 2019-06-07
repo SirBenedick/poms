@@ -130,17 +130,17 @@
   <!-- Right sidebar -->
   <div id="right-row">
     <p id="print-progress">Druckfortschritt</p>
-    <div *ngFor="let printer of printerSubscription | async">
-      <div *ngIf="printer.offline == 0">
-        <div *ngIf="printer.is_printing == 1">
+    <div *ngFor="let printer of everyPrinter">
+      <div *ngIf="(printer | async )?.offline == 0">
+        <div *ngIf="(printer | async )?.is_printing == 1">
           <!-- Paused printer-->
-          <div *ngIf="printer.paused == 1">
+          <div *ngIf="(printer | async )?.paused == 1">
             <p class="printer-prints-group-text" style="margin-bottom: 10px">
-              <b>Drucker {{ printer.printer_id }}</b> druckt
-              <b>Gruppe {{ printer.assigned_group_id }}</b>
+              <b>Drucker {{ (printer | async ).printer_id }}</b> druckt
+              <b>Gruppe {{ (printer | async ).assigned_group_id }}</b>
             </p>
             <div class="progressbar">
-              <mat-progress-bar [value]="printer.progress * 100" color="warn">
+              <mat-progress-bar [value]="(printer | async )?.progress * 100" color="warn">
               </mat-progress-bar>
               <img
                 width="20px"
@@ -150,17 +150,17 @@
             </div>
             <p class="info-print-heading-paused">
               Druck <b>pausiert</b> bei
-              {{ printer.progress * 100 | number: "1.0-0" }}%
+              {{ (printer | async )?.progress * 100 | number: "1.0-0" }}%
             </p>
           </div>
           <!-- Not paused printer-->
-          <div *ngIf="printer.paused != 1">
+          <div *ngIf="(printer | async )?.paused != 1">
             <p class="printer-prints-group-text">
-              <b>Drucker {{ printer.printer_id }}</b> druckt
-              <b>Gruppe {{ printer.assigned_group_id }}</b>
+              <b>Drucker {{ (printer | async )?.printer_id }}</b> druckt
+              <b>Gruppe {{ (printer | async )?.assigned_group_id }}</b>
             </p>
             <div class="progressbar">
-              <mat-progress-bar [value]="printer.progress * 100">
+              <mat-progress-bar [value]="(printer | async )?.progress * 100">
               </mat-progress-bar>
               <img
                 width="10px"
@@ -175,7 +175,7 @@
             </div>
             <p class="info-print-heading">
               Druckfortschritt bei
-              {{ printer.progress * 100 | number: "1.0-0" }}%
+              {{ (printer | async )?.progress * 100 | number: "1.0-0" }}%
             </p>
           </div>
         </div>

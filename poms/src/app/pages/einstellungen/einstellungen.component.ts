@@ -21,21 +21,80 @@ import { HarzloeschenComponent } from 'src/app/Pop-Ups/Settings/harzloeschen/har
   styleUrls: ["./einstellungen.component.css"]
 })
 export class EinstellungenComponent implements OnInit {
-  allSettingsTopics: Array<ISettingsPage>;
-  // settingsData: any = this.backendService.settingsData;
+  allSettingsTopics: Array<ISettingsPage> = [
+    {
+      pageTitel: "Verwaltung",
+      topics: [
+        {
+          topicTitel: "Kunden verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Einen Kunden hinzufügen",
+              subtopicContent: "subtopicContent 111"
+            },
+            {
+              subtopicTitel: "Kundeninformation bearbeiten",
+              subtopicContent: "subtopicContent 112"
+            },
+            {
+              subtopicTitel: "Bestehende Kunden entfernen",
+              subtopicContent: "subtopicContent 112"
+            }
+          ]
+        },
+        {
+          topicTitel: "Kategorien verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Eine Kategorie hinzufügen",
+              subtopicContent: "subtopicContent 121"
+            },
+            {
+              subtopicTitel: "Kategorieinformation bearbeiten",
+              subtopicContent: "subtopicContent 122"
+            },
+            {
+              subtopicTitel: " Bestehende Kategorie entfernen",
+              subtopicContent: "subtopicContent 122"
+            }
+          ]
+        },
+        {
+          topicTitel: " Harze verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Ein Harz hinzufügen",
+              subtopicContent: "subtopicContent 121"
+            },
+            {
+              subtopicTitel: " Harzinformationen bearbeiten",
+              subtopicContent: "subtopicContent 122"
+            },
+            {
+              subtopicTitel: " Bestehende Harze entfernen",
+              subtopicContent: "subtopicContent 122"
+            }
+          ]
+        },
+        {
+          topicTitel: "Prioritäten verwalten",
+          subtopics: [
+            {
+              subtopicTitel: "Den Zeitraum der Priorität ändern",
+              subtopicContent: "subtopicContent 121"
+            }
+          ]
+        }
+      ]
+    }
+  ];
+  
   constructor(
-    private backendService: BackendService,
     @Inject(MAT_DIALOG_DATA) public data: IFAQPage,
     public dialog: MatDialog
   ) {}
 
   ngOnInit() {
-    this.backendService
-      .getAllSettingTopics()
-      .then(
-        (newSettingsTopics: Array<ISettingsPage>) =>
-          (this.allSettingsTopics = newSettingsTopics)
-      );
   }
   onClick(subtopic: { subtopicTitel: String; subtopicContent: String }) {
     if (subtopic.subtopicTitel == "Einen Kunden hinzufügen") {

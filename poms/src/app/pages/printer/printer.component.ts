@@ -11,10 +11,6 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ["./printer.component.css"]
 })
 export class PrinterComponent implements OnInit {
-  allPrinters: Array<IPrinterData> = [];
-
-  allPrinters$: Observable<Object> = this.backendService.allPrinterData$;
-  allPrinterSubscription: Subscription;
   everyPrinter: Array<Observable<IPrinterData>> = this.backendService.everyPrinter;
 
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
