@@ -5,7 +5,8 @@ import {
   IFilterOrders,
   IResinType,
   ICategory,
-  ICustomer
+  ICustomer,
+  ICategoryName
 } from "src/app/shared/interfaces";
 import { FormGroup, FormControl } from "@angular/forms";
 
@@ -19,7 +20,7 @@ export class OrderFilterPopupComponent implements OnInit {
 
   filterParamForm: FormGroup;
   customerData: Array<ICustomer> = this.backendService.customerData;
-  categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
+  categoryData: Array<ICategory> = this.backendService.categorysData;
 
   constructor(
     public dialogRef: MatDialogRef<OrderFilterPopupComponent>,

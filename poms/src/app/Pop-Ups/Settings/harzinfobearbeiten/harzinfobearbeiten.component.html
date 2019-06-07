@@ -1,0 +1,23 @@
+<form [formGroup]="alterResin">
+  <div class="page-container">
+    <h1> Harzfarbe bearbeiten </h1>
+
+    <div>
+      <mat-select formControlName="resinAltered" placeholder="Harz auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let resin of harzList" value="{{ resin.resin_name }}">{{ resin.resin_name }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div>
+    <mat-form-field>
+      <input matInput formControlName="resingNew" placeholder="Neuen Harzfarbenamen eingeben">
+    </mat-form-field>
+    </div>
+    <mat-dialog-actions>
+      <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+      <button class="save-button" mat-button [mat-dialog-close]="newHarz" (click)="onSaveButton()">
+        anwenden
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>

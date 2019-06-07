@@ -25,7 +25,7 @@ export class NeuesHarzComponent implements OnInit {
     let newHarzcolor = {
       name: this.newHarz.value.harzname
     }
-    this.backendService.createResin(newHarzcolor).then(response => console.log("createResin", response))
+   this.backendService.createResin(newHarzcolor).then(response => console.log("createResin", response))
   }
 
   onBreakButton(): void {

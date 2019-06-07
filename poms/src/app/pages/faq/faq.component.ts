@@ -5,7 +5,7 @@ import { MatDialog } from "@angular/material";
 import { PopUpFAQComponent } from "src/app/components/pop-up-faq/pop-up-faq.component";
 import { FAQPopUpComponent } from "src/app/components/faqpop-up/faqpop-up.component";
 import { UrlTextPopUpComponent } from "src/app/components/url-text-pop-up/url-text-pop-up.component";
-import { IFAQPage, ICategory, IResinType } from "src/app/shared/interfaces";
+import { IFAQPage, ICategory, IResinType, ICategoryName } from "src/app/shared/interfaces";
 
 @Component({
   selector: "app-faq",
@@ -14,7 +14,7 @@ import { IFAQPage, ICategory, IResinType } from "src/app/shared/interfaces";
 })
 export class FAQComponent implements OnInit {
   helpData: any = this.backendService.helpData;
-  categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
+  categoryData: Array<ICategory> = this.backendService.categorysData;
   item: any;
   constructor(
     private backendService: BackendService,
