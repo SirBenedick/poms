@@ -7,7 +7,7 @@
   </div>
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-    <mat-expansion-panel *ngFor="let printer of allPrinters" class="expand-collapse">
+    <mat-expansion-panel *ngFor="let printer of everyPrinter" class="expand-collapse">
       <mat-expansion-panel-header>
         <!-- Ausgabe von allen verfügbaren Druckern -->
         <mat-panel-title id="order-heading">
@@ -17,8 +17,8 @@
             src="../../../assets/svg/Pfad 141.svg"
             style="padding-left: 10px; height: 30px"
           />
-          <div class="printer" >
-            {{ printer.name }}
+          <div class="printer">
+            Drucker: {{ (printer | async)?.printer_id }}, {{ (printer | async)?.name }}
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
@@ -26,9 +26,9 @@
       <app-status style="overflow: auto" [printer]="printer"></app-status>
       <button (click)="deletePrinter()">Drucker löschen</button>
     </mat-expansion-panel>
-    <button (click)="startPrinter(24)">Druck Starten</button>
-    <button (click)="stopPrinter(24)">Druck Stop</button>
-    <button (click)="togglePrinter(24)">Pause toggeln</button>
+    <button (click)="startPrinter(23)">Druck Starten</button>
+    <button (click)="stopPrinter(23)">Druck Stop</button>
+    <button (click)="togglePrinter(23)">Pause toggeln</button>
   </div>
  
 

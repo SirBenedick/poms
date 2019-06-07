@@ -1,7 +1,7 @@
 export interface IPrinterData {
-  printer_id: Number;
-  name: String;
-  host: String;
+  printer_id: number;
+  name: string;
+  host: string;
   port: number;
   is_printing: Number;
   current_layer: Number;
