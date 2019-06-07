@@ -13,7 +13,9 @@
   color: #272f33;
 }
 .break-button{
-
+ width: 100px;
+  height: 30px;
+  font-size: 14px;
   border-radius: 4px;
   object-fit: contain;
   border: solid 1px #62c6d6;
@@ -30,4 +32,5 @@
   font-style: normal;
   font-family: "Segoe UI";
   font-size: 12px;
+  color: #272f33;
 }
