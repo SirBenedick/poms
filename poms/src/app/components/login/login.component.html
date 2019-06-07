@@ -2,30 +2,32 @@
 
   <div id="heading">
     POMS
-  <img src="../../../assets/svg/printer.svg">
   </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <div id ="login-input">
 
   <div class ="input-container">
-
-     <h3 class="subheading"><label for="username">Username </label></h3>
-    <input class="input-box" type="text" formControlName="username" placeholder="Benutzername..." />
+     <label for="username"></label>
+    <mat-form-field style="width: 200px">
+    <input matInput class="input-box" type="text" formControlName="username" placeholder="Benutzername" />
+    </mat-form-field>
   </div>
 
   <div class="input-container">
-    <h3 class="subheading"><label for="password">Password  </label></h3>
-    <input class="input-box" type="password" formControlName="password" placeholder="Passwort..." />
+    <label for="password">  </label>
+    <mat-form-field style="width: 200px">
+    <input matInput class="input-box" type="password" formControlName="password" placeholder="Passwort" />
+    </mat-form-field>
   </div>
 
       </div>
 
-  <div>
-    <button id="button-style" [disabled]="loading">Login</button>
+  <div style="padding-left: 100px">
+    <button id="button-style" [disabled]="loading">login</button>
   </div>
       <div id ="login-info">
-        <strong>Anmeldeinfos:</strong><br/>
+        <strong >Anmeldeinfos:</strong><br/>
         <strong>Normal User</strong> -> U: user P: user<br />
         <strong>Administrator</strong> -> U: admin P: admin
       </div>
