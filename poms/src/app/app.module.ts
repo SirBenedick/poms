@@ -57,6 +57,7 @@ import { DeactiveGroupDirective } from './directives/deactive-group.directive';
 import { NeuerKundeComponent } from './Pop-Ups/Settings/neuer-kunde/neuer-kunde.component';
 import { NeuesHarzComponent } from './Pop-Ups/Settings/neues-harz/neues-harz.component';
 import { NeueKategorieComponent } from './Pop-Ups/Settings/neue-kategorie/neue-kategorie.component';
+import { PrinterStatusPipe } from './shared/printer-status.pipe';
 import { KundeninfobearbeitenComponent } from './Pop-Ups/Settings/kundeninfobearbeiten/kundeninfobearbeiten.component';
 import { KundeloeschenComponent } from './Pop-Ups/Settings/kundeloeschen/kundeloeschen.component';
 import { KategorieinfobearbeitenComponent } from './Pop-Ups/Settings/kategorieinfobearbeiten/kategorieinfobearbeiten.component';
@@ -94,6 +95,7 @@ registerLocaleData(de);
     NeuerKundeComponent,
     NeuesHarzComponent,
     NeueKategorieComponent,
+    PrinterStatusPipe,
     KundeninfobearbeitenComponent,
     KundeloeschenComponent,
     KategorieinfobearbeitenComponent,
