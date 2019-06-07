@@ -208,12 +208,12 @@ body {
   text-align: left;
   padding-top: 50px;
   padding-left: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   border: transparent;
   border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
   margin-right: 10px;
-  padding-bottom: 4px;
+
 }
 .info-print-heading{
   font-family: "Segoe UI";

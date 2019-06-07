@@ -5,21 +5,20 @@
 }
 
 .half-container {
-  max-height: 45vh;
-  min-height: 45vh;
-  border: 1px solid #ffffff;
+  max-height: 47.25vh;
+  min-height: 47.25vh;
+  border: transparent;
+  border-bottom: solid 1px #a2a2a2;
   overflow: auto;
   margin: 2px;
   object-fit: contain;
-  box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
 }
-#titel {
+#title {
   object-fit: contain;
   font-family: "Segoe UI";
   padding-left: 5px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  line-height: 1.35;
   text-align: left;
   color: #272f33;
 }
