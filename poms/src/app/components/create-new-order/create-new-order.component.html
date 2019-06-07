@@ -10,29 +10,41 @@
 
     <div id="data-ist-vorhanden" *ngIf="data.customer_id">
       <div class="a">
-        <h1 class="heading">
-          Auftrag: #{{ data.order_id }}
-        </h1>
+        <h1 class="heading">Auftrag: #{{ data.order_id }}</h1>
       </div>
     </div>
 
     <div class="input-container" *ngIf="!data.customer_id">
       <h1 class="title">Zahnarzt</h1>
-      <mat-select formControlName="customer_id" placeholder="Kunde auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
+      <mat-select
+        formControlName="customer_id"
+        placeholder="Kunde auswählen"
+        class=" rechteck-eingabe"
+      >
+        <mat-option
+          *ngFor="let doctor of customerData"
+          value="{{ doctor.customer_id }}"
+          >{{ doctor.name }}
         </mat-option>
       </mat-select>
     </div>
     <div class="input-container" *ngIf="data.customer_id">
       <h1 class="title">Zahnarzt</h1>
-      <mat-select formControlName="customer_id" placeholder="{{customer_name}}" class=" rechteck-eingabe">
-        <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
+      <mat-select
+        formControlName="customer_id"
+        placeholder="{{ customer_name }}"
+        class=" rechteck-eingabe"
+      >
+        <mat-option
+          *ngFor="let doctor of customerData"
+          value="{{ doctor.customer_id }}"
+          >{{ doctor.name }}
         </mat-option>
       </mat-select>
     </div>
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
-      <mat-form-field   class="example-full-width" style="margin-top: -20px">
+      <mat-form-field class="example-full-width" style="margin-top: -20px">
         <input matInput formControlName="patient" placeholder="Name eingeben" />
       </mat-form-field>
     </div>
@@ -40,35 +52,58 @@
     <div class="input-container" style="margin-top: -15px">
       <h1 class="title">Fälligkeit</h1>
       <mat-form-field style="width: 350px">
-        <input matInput [matDatepicker]="searchDate" class=" rechteck-eingabe"  formControlName="dueDate"
-               style="border: transparent" placeholder="Fälligkeitdatum DD/MM/JJJJ" />
-        <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
+        <input
+          matInput
+          [matDatepicker]="searchDate"
+          class=" rechteck-eingabe"
+          formControlName="dueDate"
+          style="border: transparent"
+          placeholder="Fälligkeitdatum DD/MM/JJJJ"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="searchDate"
+        ></mat-datepicker-toggle>
         <mat-datepicker #searchDate></mat-datepicker>
       </mat-form-field>
     </div>
 
     <div class="input-container" style="margin-top: -10px">
       <h1 class="title">Harzfarbe</h1>
-      <mat-select formControlName="harz" placeholder="Harzfarbe auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let harzfarbe of harzList" value="{{ harzfarbe.resin_name }}">{{ harzfarbe.resin_name }}
+      <mat-select
+        formControlName="harz"
+        placeholder="Harzfarbe auswählen"
+        class=" rechteck-eingabe"
+      >
+        <mat-option
+          *ngFor="let harzfarbe of harzList"
+          value="{{ harzfarbe.resin_name }}"
+          >{{ harzfarbe.resin_name }}
         </mat-option>
       </mat-select>
     </div>
 
     <div class="input-container">
       <h1 class="title">Kategorie</h1>
-      <mat-select formControlName="dental_print_type" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let oneCategory of categoryData" value="{{ oneCategory.model_type_name }}">
+      <mat-select
+        formControlName="dental_print_type"
+        placeholder="Kategorie auswählen"
+        class=" rechteck-eingabe"
+      >
+        <mat-option
+          *ngFor="let oneCategory of categoryData"
+          value="{{ oneCategory.model_type_name }}"
+        >
           {{ oneCategory.model_type_name }}
         </mat-option>
       </mat-select>
-    </div> 
- <!-- Hier ist der Fehler verbaut -->
-     <h1 class="title">Datei hochladen</h1>
+    </div>
+    <!-- Hier ist der Fehler verbaut -->
+    <h1 class="title">Datei hochladen</h1>
     <img
       src="../../../assets/svg/Hochladen.svg"
       style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
-    /> 
+    />
     <div>
       <input
         id="file"
@@ -78,47 +113,78 @@
         type="file"
         (change)="handleFileInput($event.target.files)"
       />
-      <label for="file"
-             *ngIf="fileToUploadName"
+      <label for="file" *ngIf="fileToUploadName">
+        <h1
+          class="title"
+          style="text-align: center; padding-top: 5px;font-weight: normal"
+        >
+          {{ fileToUploadName }}
+        </h1></label
       >
-      <h1
-        class="title"
-        style="text-align: center; padding-top: 5px;font-weight: normal"
-      >
-        {{fileToUploadName}}
-      </h1></label>
 
-      <label for="file"
-             *ngIf="!fileToUploadName"
-      ><h1
-        class="title"
-        style="text-align: center;padding-top: 5px;font-weight: normal"
+      <label for="file" *ngIf="!fileToUploadName"
+        ><h1
+          class="title"
+          style="text-align: center;padding-top: 5px;font-weight: normal"
+        >
+          Oralscan‚ Hochladen
+        </h1></label
       >
-        Oralscan‚ Hochladen
-      </h1></label>
-      <div class="file-input-symbole" (click)="uploadScan()">
-
-      </div>
     </div>
-   
+
     <!-- bis hier Fehlersuche -->
     <div class="input-container">
       <h1 class="title">Sonstige Informationen</h1>
-      <textarea class=" rechteck-eingabe" formControlName="comment" rows="4"
-                style="resize:none; width: 350px;height: 80px" placeholder="Anmerkung"></textarea>
+      <textarea
+        class=" rechteck-eingabe"
+        formControlName="comment"
+        rows="4"
+        style="resize:none; width: 350px;height: 80px"
+        placeholder="Anmerkung"
+      ></textarea>
     </div>
 
     <div style="align-self: flex-end; margin-top: -10px">
       <mat-dialog-actions>
-        <button *ngIf="!data.customer_id" class="break-button" mat-button (click)="onQuit()">
-          <h1 style="font-size: 14px ; font-family: 'Segoe UI';padding-top: 5px">abbrechen</h1>
+        <button
+          *ngIf="!data.customer_id"
+          class="break-button"
+          mat-button
+          (click)="onQuit()"
+        >
+          <h1
+            style="font-size: 14px ; font-family: 'Segoe UI';padding-top: 5px"
+          >
+            abbrechen
+          </h1>
         </button>
-        <button *ngIf="!data.customer_id" class="send-button" mat-button [mat-dialog-close]="newOrderForm">
-          <h1 style="font-size: 14px ; font-family: 'Segoe UI';padding-top: 5px">erstellen</h1>
+        <button
+          *ngIf="!data.customer_id"
+          class="send-button"
+          mat-button
+          [mat-dialog-close]="newOrderForm"
+        >
+          <h1
+            style="font-size: 14px ; font-family: 'Segoe UI';padding-top: 5px"
+          >
+            erstellen
+          </h1>
         </button>
-        <button *ngIf="data.customer_id" class="break-button" mat-button (click)="onDeleteButton()">löschen
+        <button
+          *ngIf="data.customer_id"
+          class="break-button"
+          mat-button
+          (click)="onDeleteButton()"
+        >
+          löschen
         </button>
-        <button *ngIf="data.customer_id" class="send-button" mat-button (click)="onSaveButton()">speichern
+        <button
+          *ngIf="data.customer_id"
+          class="send-button"
+          mat-button
+          (click)="onSaveButton()"
+        >
+          speichern
         </button>
       </mat-dialog-actions>
     </div>
