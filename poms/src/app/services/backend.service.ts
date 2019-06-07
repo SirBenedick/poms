@@ -266,6 +266,7 @@ export class BackendService {
   allUngroupedOrders: Array<IOrder> = [];
   allGroupData: Array<IGroupedOrders> = [];
   allPrinterData: Array<IPrinterData> = [];
+  everyPrinter: Array<Observable<IPrinterData>> = [];
 
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
@@ -295,24 +296,29 @@ export class BackendService {
       catchError((err, caught) => caught)
     );
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-      // this.allPrinterData = newPrinterData;
-      this.allPrinterData = this.mockedPrinterData;
+      this.allPrinterData = newPrinterData;
+      // this.allPrinterData = this.mockedPrinterData;
+      if(this.everyPrinter.length == 0){
+        this.allPrinterData.forEach((printer: IPrinterData) => {
+          var singlePrinter$: Observable<IPrinterData> = <Observable<IPrinterData>><unknown>timer(0, 2000).pipe(
+            switchMap((counter: number) => this.getPrinterById(printer.printer_id)),
+            catchError((err, caught) => caught)
+          );
+          this.everyPrinter.push(singlePrinter$);
+        });
+      }
     });
     //ENDE
 
-    this.getAllResin().then(
-      (harzData: Array<IResinType>) => {
-        this.resineData = harzData
-       this.resineData.sort();
-      }
-    );
+    this.getAllResin().then((harzData: Array<IResinType>) => {
+      this.resineData = harzData;
+      this.resineData.sort();
+    });
 
-    this.getAllCustomer().then(
-      (customerData: Array<ICustomer>) => {
-        this.customerData = customerData
-       this.customerData.sort((a,b)=> a.name.localeCompare(b.name))
-      }
-    );
+    this.getAllCustomer().then((customerData: Array<ICustomer>) => {
+      this.customerData = customerData;
+      this.customerData.sort((a, b) => a.name.localeCompare(b.name));
+    });
 
     this.getAllHelpData().then(
       (helpData: Array<IFAQPage>) => (this.helpData = helpData)
@@ -321,6 +327,8 @@ export class BackendService {
     // this.getAllSettingsData().then(
     //   (settings: Array<ISettingsPage>) => (this.settingsData = settings)
     // );
+
+
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
@@ -336,8 +344,12 @@ export class BackendService {
     // return this.http.get(this.url + "echte/url/einfügen/");
     //** Mocked Data */
     // console.log("pollAllPrinterFromBackend");
-    return this.http.get(this.mockedURL + "allPrinter");
-    // return this.http.get(this.backendUrl + "printer/get/all");
+    // return this.http.get(this.mockedURL + "allPrinter");
+    return this.http.get(this.backendUrl + "printer/get/all");
+  }
+
+  getPrinterById(id: number): Observable<Object> {
+    return this.http.get(this.backendUrl + "printer/get/" + id);
   }
 
   startPrinter(id: Number) {
@@ -457,7 +469,7 @@ export class BackendService {
 
   alterFAQ(alteredTopic: IFAQPageAlter): Promise<Object> {
     return this.http
-      .post(this.backendUrl + "faq/alter/",  alteredTopic)
+      .post(this.backendUrl + "faq/alter/", alteredTopic)
       .toPromise();
   }
 
