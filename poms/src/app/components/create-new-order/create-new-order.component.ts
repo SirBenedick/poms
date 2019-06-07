@@ -146,7 +146,6 @@ export class CreateNewOrderComponent implements OnInit {
     // console.log(alteredOrderData);
     // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
     this.dialogRef.close();
-    console.log(newOrder);
   }
   handleFileInput(files: FileList){
     this.fileToUploadName = files.item(0).name;

@@ -1,4 +1,3 @@
-import { IOrderCreateNew } from "./../../shared/interfaces";
 import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import {
@@ -208,7 +207,7 @@ export class OrderComponent implements OnInit {
               this.loadOrderData();
             }
           });
-          console.log(newOrder)
+          console.log(newOrder);
         }
       }
     });
@@ -243,6 +242,7 @@ export class OrderComponent implements OnInit {
   }
 
   onPrintClick(): void {
+    event.stopPropagation();
     const dialogRef = this.dialog.open(PopUpDruckenComponent, {
       data: { newOrderForm: "newOrder" }
     });
