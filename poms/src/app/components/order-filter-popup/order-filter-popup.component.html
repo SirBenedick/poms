@@ -7,7 +7,7 @@
   <div class="harz-container">
     <div class="radio-container" *ngFor="let harz of harzList">
       <input type="radio" id="{{ harz.resin_name }}" name="resin_name" value="{{ harz.resin_name }}" formControlName="resin_name" />
-      <label for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
+      <label id="harz-title" for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
     </div>
   </div>
 </div>

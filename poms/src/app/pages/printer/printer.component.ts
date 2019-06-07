@@ -3,6 +3,7 @@ import { BackendService } from "../../services/backend.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { IPrinterData, IPrinterNew } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: "app-printer",
@@ -11,7 +12,10 @@ import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-druc
 })
 export class PrinterComponent implements OnInit {
   allPrinters: Array<IPrinterData> = [];
-  // allPrinters: Observable<Object> = this.backendService.allPrinterData$;
+
+  allPrinters$: Observable<Object> = this.backendService.allPrinterData$;
+  allPrinterSubscription: Subscription;
+  everyPrinter: Array<Observable<IPrinterData>> = this.backendService.everyPrinter;
 
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
@@ -21,17 +25,7 @@ export class PrinterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //** First time page is loaded "this.backendService.allPrinters" is still empty*/
-    if (this.backendService.allPrinterData.length == 0) {
-      this.backendService
-        .pollAllPrinterFromBackend()
-        .toPromise()
-        .then((allPrinterData: Array<IPrinterData>) => {
-          this.allPrinters = allPrinterData;
-        });
-    } else {
-      this.allPrinters = this.backendService.allPrinterData;
-    }
+
   }
 
   openDialogNewDrucker(): void {

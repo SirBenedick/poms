@@ -72,19 +72,19 @@
 }
 
 .send-button {
-  width: 149px;
-  height: 38px;
+  width: 100px;
+  height: 30px;
   color: white;
-  object-fit: contain;
   border: solid 1px #62c6d6;
+  border-radius: 4px;
   background-color: #62c6d6;
 }
 
 .break-button{
-  width: 149px;
-  height: 38px;
-  object-fit: contain;
+  width: 100px;
+  height: 30px;
   border: solid 1px #62c6d6;
+  border-radius: 4px;
   color: #62c6d6;
   background-color: #ffffff;
 }
@@ -123,9 +123,4 @@ label{
   color: #62c6d6;
   padding-left: 5px;
 }
-/*<h3 *ngIf="!fileToUploade.name" class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">
-                                                                                                                Oralscan Hochladen
-        </h3>
-                                                                                                                                   <h3 *ngIf="fileToUploade.name" class="title" style="padding-left: 35%;padding-top: 5px;font-weight: normal">
-                                                                                                                                                                                                                                              {{fileToUploade.name}}
-</h3>*/
+

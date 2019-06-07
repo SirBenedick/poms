@@ -33,7 +33,7 @@
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
       <mat-form-field   class="example-full-width" style="margin-top: -20px">
-        <input matInput formControlName="patient" />
+        <input matInput formControlName="patient" placeholder="Name eingeben" />
       </mat-form-field>
     </div>
 
@@ -41,7 +41,7 @@
       <h1 class="title">Fälligkeit</h1>
       <mat-form-field style="width: 350px">
         <input matInput [matDatepicker]="searchDate" class=" rechteck-eingabe"  formControlName="dueDate"
-               style="border: transparent" />
+               style="border: transparent" placeholder="Fälligkeitdatum DD/MM/JJJJ" />
         <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
         <mat-datepicker #searchDate></mat-datepicker>
       </mat-form-field>
@@ -111,14 +111,14 @@
     <div style="align-self: flex-end; margin-top: -10px">
       <mat-dialog-actions>
         <button *ngIf="!data.customer_id" class="break-button" mat-button (click)="onQuit()">
-          abbrechen
+          <h1 style="font-size: 14px ; font-family: 'Segoe UI';padding-top: 5px">abbrechen</h1>
         </button>
         <button *ngIf="!data.customer_id" class="send-button" mat-button [mat-dialog-close]="newOrderForm">
-          erstellen
+          <h1 style="font-size: 14px ; font-family: 'Segoe UI';padding-top: 5px">erstellen</h1>
         </button>
         <button *ngIf="data.customer_id" class="break-button" mat-button (click)="onDeleteButton()">löschen
         </button>
-        <button *ngIf="data.customer_id" class="send-button" mat-button (click)="onSaveButton()">Speichern
+        <button *ngIf="data.customer_id" class="send-button" mat-button (click)="onSaveButton()">speichern
         </button>
       </mat-dialog-actions>
     </div>
