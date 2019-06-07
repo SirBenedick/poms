@@ -5,13 +5,10 @@ import { Observable, timer } from "rxjs";
 import {
   IOrder,
   IPrinterData,
-  ISettingsPage,
-  ISettingsPageSubtopic,
   IGroupedOrders,
   IResinType,
   ICategory,
   ICustomer,
-  IOrderCreateNew,
   IPrinterNew,
   IFAQPage,
   IFAQPageAlter,
@@ -33,7 +30,7 @@ import { switchMap, catchError } from "rxjs/operators";
 export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
-
+  /** Mocked Printer Data for testing multiple printer during development */
   mockedPrinterData: Array<IPrinterData> = [
     {
       printer_id: 23,
@@ -104,166 +101,6 @@ export class BackendService {
       resin_volume: 0.7
     }
   ];
-  // mockedHelpPage: Array<IHelpPage> = [
-  //   {
-  //     pageTitel: "Hilfestellung",
-  //     topics: [
-  //       {
-  //         topicTitel: " Vorbereitung",
-  //         subtopics: [
-  //           {
-  //             subtopicTitel: "subtopicTitel 111",
-  //             subtopicContent: "subtopicContent 111"
-  //           },
-  //           {
-  //             subtopicTitel: "subtopicTitel 112",
-  //             subtopicContent: "subtopicContent 112"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         topicTitel: "Druckprozess",
-  //         subtopics: [
-  //           {
-  //             subtopicTitel: "subtopicTitel 121",
-  //             subtopicContent: "subtopicContent 121"
-  //           },
-  //           {
-  //             subtopicTitel: "subtopicTitel 122",
-  //             subtopicContent: "subtopicContent 122"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         topicTitel: "Nachbereitung",
-  //         subtopics: [
-  //           {
-  //             subtopicTitel: "Wie reinige ich das Modell nach dem Drucken?",
-  //             subtopicContent: "subtopicContent 121"
-  //           },
-  //           {
-  //             subtopicTitel: "Wie härte ich das Modell nach dem Drucken nach?",
-  //             subtopicContent: "subtopicContent 122"
-  //           },
-  //           {
-  //             subtopicTitel: "Wie schließe ich den Auftrag endgültig ab?",
-  //             subtopicContent: "subtopicContent 122"
-  //           }
-  //         ]
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     pageTitel: "Softwarebedienung",
-  //     topics: [
-  //       {
-  //         topicTitel: "Wartung des Druckers",
-  //         subtopics: [
-  //           {
-  //             subtopicTitel: "subtopicTitel211",
-  //             subtopicContent: "subtopicContent211"
-  //           },
-  //           {
-  //             subtopicTitel: "subtopicTitel212",
-  //             subtopicContent: "subtopicContent212"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         topicTitel: "Funktionsweise des POMS",
-  //         subtopics: [
-  //           {
-  //             subtopicTitel: "subtopicTitel221",
-  //             subtopicContent: "subtopicContent221"
-  //           },
-  //           {
-  //             subtopicTitel: "subtopicTitel222",
-  //             subtopicContent: "subtopicContent222"
-  //           }
-  //         ]
-  //       }
-  //     ]
-  //   }
-  // ];
-  mockedSettingsPage: Array<ISettingsPage> = [
-    {
-      pageTitel: "Verwaltung",
-      topics: [
-        {
-          topicTitel: "Kunden verwalten",
-          subtopics: [
-            {
-              subtopicTitel: "Einen Kunden hinzufügen",
-              subtopicContent: "subtopicContent 111"
-            },
-            {
-              subtopicTitel: "Kundeninformation bearbeiten",
-              subtopicContent: "subtopicContent 112"
-            },
-            {
-              subtopicTitel: "Bestehende Kunden entfernen",
-              subtopicContent: "subtopicContent 112"
-            }
-          ]
-        },
-        {
-          topicTitel: "Kategorien verwalten",
-          subtopics: [
-            {
-              subtopicTitel: "Eine Kategorie hinzufügen",
-              subtopicContent: "subtopicContent 121"
-            },
-            {
-              subtopicTitel: "Kategorieinformation bearbeiten",
-              subtopicContent: "subtopicContent 122"
-            },
-            {
-              subtopicTitel: " Bestehende Kategorie entfernen",
-              subtopicContent: "subtopicContent 122"
-            }
-          ]
-        },
-        {
-          topicTitel: " Harze verwalten",
-          subtopics: [
-            {
-              subtopicTitel: "Ein Harz hinzufügen",
-              subtopicContent: "subtopicContent 121"
-            },
-            {
-              subtopicTitel: " Harzinformationen bearbeiten",
-              subtopicContent: "subtopicContent 122"
-            },
-            {
-              subtopicTitel: " Bestehende Harze entfernen",
-              subtopicContent: "subtopicContent 122"
-            }
-          ]
-        },
-        {
-          topicTitel: "Prioritäten verwalten",
-          subtopics: [
-            {
-              subtopicTitel: "Den Zeitraum der Priorität ändern",
-              subtopicContent: "subtopicContent 121"
-            }
-          ]
-        }
-      ]
-    }
-  ];
-  mockedCategoryData: Array<ICategory> = [
-    { model_type_name: "Schienen für Halterungsposition" },
-    { model_type_name: "Kundenspezifische Anpassung" },
-    { model_type_name: "Gießbare Teile" },
-    { model_type_name: "Backenzaehne" },
-    { model_type_name: "Weichgewebe" },
-    { model_type_name: "Implantat" },
-    { model_type_name: "Justierung der Zaehne" },
-    { model_type_name: "Modelle und Implantatmodelle" },
-    { model_type_name: "Provisorische Kronen und Bruecken" },
-    { model_type_name: "Zaehne" }
-  ];
 
   allOrderData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
@@ -274,30 +111,26 @@ export class BackendService {
   allPrinterData: Array<IPrinterData> = [];
   everyPrinter: Array<Observable<IPrinterData>> = [];
 
+  /**  Data that does not need to be polled */
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
   helpData: Array<IFAQPage>;
   categorysData: Array<ICategory>;
-  // settingsData: Array<ISettingsPage>;
+
   constructor(private http: HttpClient, private uploadService: UploadService) {
-    /** Starts observable and polls all OrderData from Backend */
-    this.allOrderData$ = timer(0, 2000).pipe(
-      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
-      catchError((err, caught) => caught)
-    );
-    this.allOrderData$.subscribe((allOrderData: Array<any>) => {
-      this.allUngroupedOrders = allOrderData;
-    });
+    /** Starts observable and polls from Backend */
+    this.startOrderObservable();
+    this.startGroupObservable();
+    this.startPrinterObservable();
 
-    this.allGroupData$ = timer(0, 2000).pipe(
-      switchMap((counter: number) => this.getAllGroups()),
-      catchError((err, caught) => caught)
-    );
-    this.allGroupData$.subscribe((allGroupData: Array<any>) => {
-      this.allGroupData = allGroupData;
-    });
+    /** Loads data that does not need to be polled */
+    this.loadResinData();
+    this.loadHelpData();
+    this.loadCustomerData();
+    this.loadCategoryData();
+  }
 
-    /** Starts observable and polls all PrinterData from Backend */
+  startPrinterObservable() {
     this.allPrinterData$ = timer(0, 2000).pipe(
       switchMap((counter: number) => this.pollAllPrinterFromBackend()),
       catchError((err, caught) => caught)
@@ -305,38 +138,40 @@ export class BackendService {
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       this.allPrinterData = newPrinterData;
       // this.allPrinterData = this.mockedPrinterData;
-      if(this.everyPrinter.length == 0){
+      if (this.everyPrinter.length == 0) {
         this.allPrinterData.forEach((printer: IPrinterData) => {
-          var singlePrinter$: Observable<IPrinterData> = <Observable<IPrinterData>><unknown>timer(0, 2000).pipe(
-            switchMap((counter: number) => this.getPrinterById(printer.printer_id)),
+          var singlePrinter$: Observable<IPrinterData> = <
+            Observable<IPrinterData>
+          >(<unknown>timer(0, 2000).pipe(
+            switchMap((counter: number) =>
+              this.getPrinterById(printer.printer_id)
+            ),
             catchError((err, caught) => caught)
-          );
+          ));
           this.everyPrinter.push(singlePrinter$);
         });
       }
     });
-    //ENDE
+  }
 
-    this.getAllResin().then((harzData: Array<IResinType>) => {
-      this.resineData = harzData;
-      this.resineData.sort();
-    });
-
-    this.getAllCustomer().then((customerData: Array<ICustomer>) => {
-      this.customerData = customerData;
-      this.customerData.sort((a, b) => a.name.localeCompare(b.name));
-    });
-
-    this.getAllHelpData().then(
-      (helpData: Array<IFAQPage>) => (this.helpData = helpData)
+  startGroupObservable() {
+    this.allGroupData$ = timer(0, 2000).pipe(
+      switchMap((counter: number) => this.getAllGroups()),
+      catchError((err, caught) => caught)
     );
+    this.allGroupData$.subscribe((allGroupData: Array<any>) => {
+      this.allGroupData = allGroupData;
+    });
+  }
 
-    // this.getAllSettingsData().then(
-    //   (settings: Array<ISettingsPage>) => (this.settingsData = settings)
-    // );
-    this.getAllCategoryData().then(
-      (categoryData: Array<ICategory>) => (this.categorysData = categoryData)
+  startOrderObservable() {
+    this.allOrderData$ = timer(0, 2000).pipe(
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      catchError((err, caught) => caught)
     );
+    this.allOrderData$.subscribe((allOrderData: Array<any>) => {
+      this.allUngroupedOrders = allOrderData;
+    });
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
@@ -372,6 +207,28 @@ export class BackendService {
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
 
+  loadResinData() {
+    this.getAllResin().then((harzData: Array<IResinType>) => {
+      this.resineData = harzData;
+      this.resineData.sort();
+    });
+  }
+  loadCustomerData() {
+    this.getAllCustomer().then((customerData: Array<ICustomer>) => {
+      this.customerData = customerData;
+      this.customerData.sort((a, b) => a.name.localeCompare(b.name));
+    });
+  }
+  loadCategoryData() {
+    this.getAllCategoryData().then(
+      (categoryData: Array<ICategory>) => (this.categorysData = categoryData)
+    );
+  }
+  loadHelpData() {
+    this.getAllHelpData().then(
+      (helpData: Array<IFAQPage>) => (this.helpData = helpData)
+    );
+  }
   //Get
   getAllResin(): Promise<Object> {
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
@@ -382,19 +239,8 @@ export class BackendService {
   }
 
   getAllCategoryData(): Promise<Object> {
-    return this.http.get(this.backendUrl + "model_type/get/all/").toPromise(); 
+    return this.http.get(this.backendUrl + "model_type/get/all/").toPromise();
   }
-
-  // getAllHelpTopics(): Promise<Object> {
-  //   // return this.http.get(this.backendUrl + "help/all/").toPromise();
-  //   let promiseRes = new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve();
-  //     }, 200);
-  //     resolve(this.mockedHelpPage);
-  //   });
-  //   return promiseRes;
-  // }
 
   getAllHelpData(): Promise<Object> {
     return this.http.get(this.backendUrl + "faq/get/all/").toPromise();
@@ -408,35 +254,10 @@ export class BackendService {
     return this.allGroupData;
   }
 
-  getAllSettingTopics(): Promise<Object> {
-    // return this.http.get(this.backendUrl + "help/all/").toPromise();
-    let promiseRes = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 200);
-      resolve(this.mockedSettingsPage);
-    });
-    return promiseRes;
-  }
-
-  //Hier die URL für die Einstellungen einfügen!
-  // getAllSettingsData(): Promise<Object>{
-  //   return this.http.get(this.backendUrl + "faq/get/all/").toPromise();
-  // }
-
   //Create
   createNewGroup(order: IOrder): Promise<Object> {
-    //example API-Call, URL not yet real
     return this.http
       .post(this.backendUrl + "group/create/", { order_id: order.order_id })
-      .toPromise();
-  }
-
-  createNewOrder_Backup(newOrder: IOrderCreateNew): Promise<Object> {
-    console.log("createNewOrder Errorhandling implementieren");
-    console.log("createNewOrder Backend", newOrder);
-    return this.http
-      .post(this.backendUrl + "order/create/", newOrder)
       .toPromise();
   }
 
@@ -450,14 +271,6 @@ export class BackendService {
       .toPromise();
   }
 
-  addNewSettingSubtopic(
-    topic: ISettingsPage,
-    newSubtopic: ISettingsPageSubtopic
-  ) {
-    //Insert Backendcall here
-    console.log("Adding new Subtopic to topic", newSubtopic, topic);
-  }
-
   createResin(createNewResin: IResinName): Promise<Object> {
     return this.http
       .post(this.backendUrl + "resin/create/", createNewResin)
@@ -469,10 +282,12 @@ export class BackendService {
       .post(this.backendUrl + "customer/create/", createNewCustomer)
       .toPromise();
   }
- 
-   createCategory(createNewCategory: ICategoryName ):Promise<Object>{
-     return this.http.post(this.backendUrl + "model_type/create/", createNewCategory).toPromise()
-   }
+
+  createCategory(createNewCategory: ICategoryName): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "model_type/create/", createNewCategory)
+      .toPromise();
+  }
   createFAQ(createTopic: IFAQPageCreate): Promise<Object> {
     return this.http
       .post(this.backendUrl + "faq/create/", createTopic)
@@ -495,28 +310,25 @@ export class BackendService {
   }
 
   alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
-    // return this.http
-    //   .post(this.backendUrl + "order/alter/" + order_id, alteredOrder)
-    //   .toPromise();
     return this.uploadService.alterOrderById(order_id, alteredOrder);
   }
 
- alterResin(new_name: IAlterResin):Promise<Object>{
-     return this.http
-     .post(this.backendUrl + "resin/alter/", new_name)
-     .toPromise();
-   }
+  alterResin(new_name: IAlterResin): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "resin/alter/", new_name)
+      .toPromise();
+  }
 
-   alterCategory(alteredCategory: IAlterCategory):Promise <Object>{
-     return this.http
-     .post(this.backendUrl + "model_type/alter/", alteredCategory)
-     .toPromise();
-   }
+  alterCategory(alteredCategory: IAlterCategory): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "model_type/alter/", alteredCategory)
+      .toPromise();
+  }
 
-   alterCustomer(customer_id: number, newCustomer: Object): Promise <Object>{
-     return this.http
-     .post(this.backendUrl + "customer/alter/" + customer_id, newCustomer)
-     .toPromise();
+  alterCustomer(customer_id: number, newCustomer: Object): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "customer/alter/" + customer_id, newCustomer)
+      .toPromise();
   }
 
   removeOrderById(id: number): Promise<Object> {
@@ -533,11 +345,18 @@ export class BackendService {
     return this.http.post(this.backendUrl + "resin/remove/", name).toPromise();
   }
 
-  removeCategoryByName(name: ICategoryDelete): Promise <Object>{
-    return this.http.post(this.backendUrl + "model_type/remove/", name).toPromise();
+  removeCategoryByName(name: ICategoryDelete): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "model_type/remove/", name)
+      .toPromise();
   }
-  
- removeCustomerByName(customer_id: ICustomerDelete, name: any):Promise <Object>{
-   return this.http.post(this.backendUrl + "customer/remove/" + customer_id, name ).toPromise();
- }
+
+  removeCustomerByName(
+    customer_id: ICustomerDelete,
+    name: any
+  ): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "customer/remove/" + customer_id, name)
+      .toPromise();
+  }
 }
