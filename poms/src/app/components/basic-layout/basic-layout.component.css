@@ -78,7 +78,7 @@ body {
 
   border-left: 10px solid transparent;
   font-size: 14px;
-  color: #003549;
+  color: #272f33;
   margin-left: -20px;
   z-index: 1;
   margin-top: 10px;
@@ -156,7 +156,7 @@ body {
   background-color: white;
   border: transparent;
   border-radius: 2px;
-  color: black;
+  color: #272f33;
   position: absolute;
   height: 20px;
   width: 200px;
@@ -201,13 +201,9 @@ body {
 #print-progress {
   font-size: 18px;
   font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.35;
-  letter-spacing: normal;
   text-align: left;
-  padding-top: 50px;
-  padding-left: 10px;
+  padding-top: 40px;
   padding-bottom: 4px;
   border: transparent;
   border-bottom: solid 1px #a2a2a2;
@@ -217,7 +213,7 @@ body {
 }
 .info-print-heading{
   font-family: "Segoe UI";
-  font-size: 11px;
+  font-size: 12px;
   border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
   margin-right: 10px;
@@ -226,8 +222,9 @@ body {
 }
 .info-print-heading-paused{
   font-family: "Segoe UI";
-  font-size: 11px;
+  font-size: 12px;
   border-bottom: solid 1px #a2a2a2;
+  margin-top: -4px;
   margin-left: 10px;
   margin-right: 10px;
   padding-bottom: 4px;
@@ -237,7 +234,7 @@ body {
 #print-prozess-info{
   font-family: "Segoe UI";
   font-style: italic;
-  font-size: 11px;
+  font-size: 12px;
   padding-left: 10px;
   padding-top: 2px;
 }
@@ -257,15 +254,10 @@ body {
 }
 
 .printer-prints-group-text {
-  width: 210px;
-  height: 21px;
-  object-fit: contain;
-  font-family: Segoe UI;
+  margin-top: -10px;
+  padding-left: 10px;
+  font-family: "Segoe UI";
   font-size: 12px;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.31;
-  letter-spacing: normal;
   text-align: left;
   color: #272f33;
 }
