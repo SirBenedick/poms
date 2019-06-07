@@ -58,8 +58,8 @@
     <div class="input-container">
       <h1 class="title">Kategorie</h1>
       <mat-select formControlName="dental_print_type" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let oneCategory of categoryData" value="{{ oneCategory.category_name }}">
-          {{ oneCategory.category_name }}
+        <mat-option *ngFor="let oneCategory of categoryData" value="{{ oneCategory.model_type_name }}">
+          {{ oneCategory.model_type_name }}
         </mat-option>
       </mat-select>
     </div>

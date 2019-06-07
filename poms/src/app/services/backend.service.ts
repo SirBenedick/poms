@@ -17,7 +17,13 @@ import {
   IFAQPageAlter,
   IFAQPageCreate,
   IResinName,
-  ICustomerName
+  ICustomerName,
+  IResinDelete,
+  ICustomerDelete,
+  IAlterResin,
+  ICategoryName,
+  ICategoryDelete,
+  IAlterCategory
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -247,16 +253,16 @@ export class BackendService {
     }
   ];
   mockedCategoryData: Array<ICategory> = [
-    { category_name: "Schienen für Halterungsposition" },
-    { category_name: "Kundenspezifische Anpassung" },
-    { category_name: "Gießbare Teile" },
-    { category_name: "Backenzaehne" },
-    { category_name: "Weichgewebe" },
-    { category_name: "Implantat" },
-    { category_name: "Justierung der Zaehne" },
-    { category_name: "Modelle und Implantatmodelle" },
-    { category_name: "Provisorische Kronen und Bruecken" },
-    { category_name: "Zaehne" }
+    { model_type_name: "Schienen für Halterungsposition" },
+    { model_type_name: "Kundenspezifische Anpassung" },
+    { model_type_name: "Gießbare Teile" },
+    { model_type_name: "Backenzaehne" },
+    { model_type_name: "Weichgewebe" },
+    { model_type_name: "Implantat" },
+    { model_type_name: "Justierung der Zaehne" },
+    { model_type_name: "Modelle und Implantatmodelle" },
+    { model_type_name: "Provisorische Kronen und Bruecken" },
+    { model_type_name: "Zaehne" }
   ];
 
   allOrderData$: Observable<Object>;
@@ -270,6 +276,7 @@ export class BackendService {
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
   helpData: Array<IFAQPage>;
+  categorysData: Array<ICategory>;
   // settingsData: Array<ISettingsPage>;
   constructor(private http: HttpClient, private uploadService: UploadService) {
     /** Starts observable and polls all OrderData from Backend */
@@ -300,19 +307,15 @@ export class BackendService {
     });
     //ENDE
 
-    this.getAllResin().then(
-      (harzData: Array<IResinType>) => {
-        this.resineData = harzData
-       this.resineData.sort();
-      }
-    );
+    this.getAllResin().then((harzData: Array<IResinType>) => {
+      this.resineData = harzData;
+      this.resineData.sort();
+    });
 
-    this.getAllCustomer().then(
-      (customerData: Array<ICustomer>) => {
-        this.customerData = customerData
-       this.customerData.sort((a,b)=> a.name.localeCompare(b.name))
-      }
-    );
+    this.getAllCustomer().then((customerData: Array<ICustomer>) => {
+      this.customerData = customerData;
+      this.customerData.sort((a, b) => a.name.localeCompare(b.name));
+    });
 
     this.getAllHelpData().then(
       (helpData: Array<IFAQPage>) => (this.helpData = helpData)
@@ -321,6 +324,9 @@ export class BackendService {
     // this.getAllSettingsData().then(
     //   (settings: Array<ISettingsPage>) => (this.settingsData = settings)
     // );
+    this.getAllCategoryData().then(
+      (categoryData: Array<ICategory>) => (this.categorysData = categoryData)
+    );
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
@@ -359,6 +365,10 @@ export class BackendService {
 
   getAllCustomer(): Promise<Object> {
     return this.http.get(this.backendUrl + "customer/get/all/").toPromise();
+  }
+
+  getAllCategoryData(): Promise<Object> {
+    return this.http.get(this.backendUrl + "model_type/get/all/").toPromise(); 
   }
 
   // getAllHelpTopics(): Promise<Object> {
@@ -445,10 +455,10 @@ export class BackendService {
       .post(this.backendUrl + "customer/create/", createNewCustomer)
       .toPromise();
   }
-  // MS-Auf Backend warten, bis Kategory steht
-  // createCategory(createNewCategory: ICategoryName ):Promise<Object>{
-  //   return this.http.post(this.backendUrl + "category/create/", createNewCategory).toPromise()
-  // }
+ 
+   createCategory(createNewCategory: ICategoryName ):Promise<Object>{
+     return this.http.post(this.backendUrl + "model_type/create/", createNewCategory).toPromise()
+   }
   createFAQ(createTopic: IFAQPageCreate): Promise<Object> {
     return this.http
       .post(this.backendUrl + "faq/create/", createTopic)
@@ -457,7 +467,7 @@ export class BackendService {
 
   alterFAQ(alteredTopic: IFAQPageAlter): Promise<Object> {
     return this.http
-      .post(this.backendUrl + "faq/alter/",  alteredTopic)
+      .post(this.backendUrl + "faq/alter/", alteredTopic)
       .toPromise();
   }
 
@@ -477,6 +487,24 @@ export class BackendService {
     return this.uploadService.alterOrderById(order_id, alteredOrder);
   }
 
+ alterResin(new_name: IAlterResin):Promise<Object>{
+     return this.http
+     .post(this.backendUrl + "resin/alter/", new_name)
+     .toPromise();
+   }
+
+   alterCategory(alteredCategory: IAlterCategory):Promise <Object>{
+     return this.http
+     .post(this.backendUrl + "model_type/alter/", alteredCategory)
+     .toPromise();
+   }
+
+   alterCustomer(customer_id: number, newCustomer: Object): Promise <Object>{
+     return this.http
+     .post(this.backendUrl + "customer/alter/" + customer_id, newCustomer)
+     .toPromise();
+  }
+
   removeOrderById(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "order/remove/" + id).toPromise();
   }
@@ -486,4 +514,16 @@ export class BackendService {
       .get(this.backendUrl + "printer/remove/" + name)
       .toPromise();
   }
+
+  removeResinByName(name: IResinDelete): Promise<Object> {
+    return this.http.post(this.backendUrl + "resin/remove/", name).toPromise();
+  }
+
+  removeCategoryByName(name: ICategoryDelete): Promise <Object>{
+    return this.http.post(this.backendUrl + "model_type/remove/", name).toPromise();
+  }
+  
+ removeCustomerByName(customer_id: ICustomerDelete, name: any):Promise <Object>{
+   return this.http.post(this.backendUrl + "customer/remove/" + customer_id, name ).toPromise();
+ }
 }

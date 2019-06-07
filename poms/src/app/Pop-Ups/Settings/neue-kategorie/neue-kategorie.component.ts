@@ -23,12 +23,10 @@ export class NeueKategorieComponent implements OnInit {
 
   }
   onSaveButton():void{
-    console.log(this.newKategorie.value.kategoriename)
-    // MS-Warten bis Backend steht
-    // let newCategoryName = {
-    //   name: this.newKategorie.value.kategoriename
-    // }
-    //this.backendService.createCategory(newHarzcolor).then(response => console.log("createResin", response))
+     let newCategoryName = {
+      name: this.newKategorie.value.kategoriename
+     }
+    this.backendService.createCategory(newCategoryName).then(response => console.log("createResin", response))
   }
 
   

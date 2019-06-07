@@ -1,0 +1,21 @@
+<form [formGroup]="deleteKategorie">
+  <div class="page-container">
+    <h1> Kategorie löschen </h1>
+
+    <!-- <mat-form-field>
+      <input matInput formControlName="deleteCategory" placeholder="Kategorie eingeben">
+    </mat-form-field> -->
+
+    <mat-select formControlName="deleteCategory" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
+      <mat-option *ngFor="let kategorie of categoryData" value="{{ kategorie.model_type_name }}">{{ kategorie.model_type_name }}
+      </mat-option>
+    </mat-select>
+
+    <mat-dialog-actions>
+      <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+      <button class="save-button" mat-button [mat-dialog-close]="newHarz" (click)="onSaveButton()">
+        anwenden
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>

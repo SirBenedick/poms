@@ -1,0 +1,26 @@
+.break-button{
+    width: 149px;
+    height: 38px;
+    object-fit: contain;
+    border: solid 1px #62c6d6;
+    color: #62c6d6;
+    background-color: #ffffff;
+  }
+
+.save-button {
+    width: 149px;
+    height: 38px;
+    color: white;
+    object-fit: contain;
+    border: solid 1px #62c6d6;
+    background-color: #62c6d6;
+  }
+
+  .rechteck-eingabe {
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: solid 1px #62c6d6;
+  }

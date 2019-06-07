@@ -3,7 +3,8 @@ import {
   IResinType,
   IOrder,
   ICategory,
-  ICustomer
+  ICustomer,
+  ICategoryName
 } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
@@ -18,7 +19,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
   newOrderForm: FormGroup;
-  categoryData: Array<ICategory> = this.backendService.mockedCategoryData;
+  categoryData: Array<ICategory> = this.backendService.categorysData;
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
 

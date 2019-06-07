@@ -131,10 +131,32 @@ export interface IResinName {
 export interface ICustomerName {
   name: string;
 }
-// MS-Auf Backend warten bis es steht
-// export interface ICategoryName{
 
-// }
+
+ export interface ICategoryName{
+  name: string,
+ }
+export interface IAlterResin{
+  name: string,
+  new_name: string,
+}
+ export interface IAlterCategory{
+   name: string;
+   new_name: string;
+ }
+
+
+export interface IResinDelete {
+  name: string;
+}
+
+export interface ICategoryDelete{
+  name: string;
+}
+
+export interface ICustomerDelete{
+ customer_id: number;
+}
 
 export class User {
   id: number;
@@ -162,7 +184,7 @@ export interface ISettingsPageSubtopic {
 }
 
 export interface ICategory {
-  category_name: String;
+  model_type_name: String;
 }
 
 export interface IDrucken {

@@ -1,0 +1,23 @@
+<form [formGroup]="alterCustomer">
+  <div class="page-container">
+    <h1> Kunde bearbeiten </h1>
+    <div>
+      <mat-select formControlName="customerAltered" placeholder="Kunde auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput formControlName="customerNew" placeholder="Neuer Kundenname eingeben">
+      </mat-form-field>
+    </div>
+
+    <mat-dialog-actions>
+      <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+      <button class="save-button" mat-button [mat-dialog-close]="newHarz" (click)="onSaveButton()">
+        anwenden
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>
