@@ -18,8 +18,8 @@ export class TestbackendService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const users: User[] = [
-      { id: 1, username: "admin", password: "admin", role: Role.Admin },
-      { id: 2, username: "user", password: "user", role: Role.User }
+      { id: 1, username: "Vanik", password: "admin", role: Role.Admin },
+      { id: 2, username: "Igor", password: "user", role: Role.User }
     ];
 
     const authHeader = request.headers.get("Authorization");
