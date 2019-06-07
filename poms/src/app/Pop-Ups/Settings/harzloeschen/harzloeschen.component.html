@@ -1,0 +1,20 @@
+<form [formGroup]="resinDelete">
+    <div class="page-container">
+      <h1> Harz löschen </h1>
+  
+      <!-- <mat-form-field>
+        <input matInput formControlName="resinName" placeholder="Harzname eingeben">
+      </mat-form-field> -->
+      <mat-select formControlName="resinName" placeholder="Harz auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let resin of harzList" value="{{ resin.resin_name }}">{{ resin.resin_name }}
+        </mat-option>
+      </mat-select>
+  
+      <mat-dialog-actions>
+        <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+        <button class="save-button" mat-button [mat-dialog-close]="newHarz" (click)="onSaveButton()">
+          anwenden
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </form>
