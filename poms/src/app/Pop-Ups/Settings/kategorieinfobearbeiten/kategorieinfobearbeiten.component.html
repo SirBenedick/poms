@@ -1,0 +1,23 @@
+<form [formGroup]="alterCategory">
+  <div class="page-container">
+    <h1> Kategorie bearbeiten </h1>
+    <div>
+      <mat-select formControlName="categoryAltered" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
+        <mat-option *ngFor="let kategorie of categoryData" value="{{ kategorie.model_type_name }}">
+          {{ kategorie.model_type_name }}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput formControlName="categoryNew" placeholder="Neuen Kategorienamen eingeben">
+      </mat-form-field>
+    </div>
+    <mat-dialog-actions>
+      <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+      <button class="save-button" mat-button [mat-dialog-close]="newHarz" (click)="onSaveButton()">
+        anwenden
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>

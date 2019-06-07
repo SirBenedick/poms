@@ -58,6 +58,12 @@ import { NeuerKundeComponent } from './Pop-Ups/Settings/neuer-kunde/neuer-kunde.
 import { NeuesHarzComponent } from './Pop-Ups/Settings/neues-harz/neues-harz.component';
 import { NeueKategorieComponent } from './Pop-Ups/Settings/neue-kategorie/neue-kategorie.component';
 import { PrinterStatusPipe } from './shared/printer-status.pipe';
+import { KundeninfobearbeitenComponent } from './Pop-Ups/Settings/kundeninfobearbeiten/kundeninfobearbeiten.component';
+import { KundeloeschenComponent } from './Pop-Ups/Settings/kundeloeschen/kundeloeschen.component';
+import { KategorieinfobearbeitenComponent } from './Pop-Ups/Settings/kategorieinfobearbeiten/kategorieinfobearbeiten.component';
+import { KategorieloeschenComponent } from './Pop-Ups/Settings/kategorieloeschen/kategorieloeschen.component';
+import { HarzinfobearbeitenComponent } from './Pop-Ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component';
+import { HarzloeschenComponent } from './Pop-Ups/Settings/harzloeschen/harzloeschen.component';
 
 
 registerLocaleData(de);
@@ -89,7 +95,13 @@ registerLocaleData(de);
     NeuerKundeComponent,
     NeuesHarzComponent,
     NeueKategorieComponent,
-    PrinterStatusPipe
+    PrinterStatusPipe,
+    KundeninfobearbeitenComponent,
+    KundeloeschenComponent,
+    KategorieinfobearbeitenComponent,
+    KategorieloeschenComponent,
+    HarzinfobearbeitenComponent,
+    HarzloeschenComponent
   ],
   imports: [
     BrowserModule,
@@ -129,8 +141,14 @@ registerLocaleData(de);
     FAQPopUpComponent,
     UrlTextPopUpComponent,
     NeuerKundeComponent,
+    KundeninfobearbeitenComponent,
+    KundeloeschenComponent,
     NeuesHarzComponent,
+    HarzinfobearbeitenComponent,
+    HarzloeschenComponent,
     NeueKategorieComponent,
+    KategorieinfobearbeitenComponent,
+    KategorieloeschenComponent
   ],
   //alle Services einbinden
   providers: [

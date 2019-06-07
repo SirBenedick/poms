@@ -1,0 +1,20 @@
+<form [formGroup]="deleteCustomer">
+  <div class="page-container">
+    <h1> Kunde löschen </h1>
+
+    <!-- <mat-form-field>
+      <input matInput formControlName="customerDelete" value="{{ data.customer_id}}" placeholder="Kunde eingeben">
+    </mat-form-field> -->
+    <mat-select formControlName="customerDelete" placeholder="Kunde auswählen" class=" rechteck-eingabe">
+      <mat-option *ngFor="let doctor of customerData" value="{{ doctor.customer_id }}">{{ doctor.name }}
+      </mat-option>
+    </mat-select>
+
+    <mat-dialog-actions>
+      <button class="break-button" mat-button (click)="onBreakButton()">abbrechen</button>
+      <button class="save-button" mat-button [mat-dialog-close]="newHarz" (click)="onSaveButton()">
+        anwenden
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>

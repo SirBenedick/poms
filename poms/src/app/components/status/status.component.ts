@@ -19,7 +19,6 @@ export class StatusComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
-    console.log(this.printer);
     this.printerInfo = {};
     this.printer.subscribe((printer: IPrinterData) => {
       this.printerInfo["host"] = printer.host;

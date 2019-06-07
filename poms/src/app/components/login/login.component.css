@@ -14,9 +14,14 @@
 #container>*{
   flex: 1 100%;
 }
+.input-container{
+  margin-top: -15px;
+}
 
 #heading{
   font-family: "Segoe UI";
+  font-weight: bold;
+  letter-spacing: 10px;
   font-size: 50px;
   font-weight: bold;
   text-align: center;
@@ -24,29 +29,12 @@
   margin-bottom: 10px;
 }
 
-.subheading{
-  font-family: "Segoe UI";
-  font-weight: bold;
-  font-size: 15px;
-  margin-bottom: -5px ;
-  margin-top: 5px;
-}
 .input-box{
   border-radius: 4px;
-  border: transparent;
+border: transparent;
   padding-left: 10px;
-}
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-style: italic;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  font-style: italic;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  font-style: italic;
-}
-:-moz-placeholder { /* Firefox 18- */
-  font-style: italic;
+  background-color: transparent;
+  color: #1f282c;
 }
 
 
@@ -57,25 +45,31 @@
   order: 3;
 }
 #login-info{
+  font-style: italic;
   text-align: center;
   font-size: 10px;
   order: 4;
+  color: #1f282c;
 }
 
 #button-style{
   font-family: "Segoe UI";
-  width: 70px;
+  width: 100px;
   height: 30px;
   object-fit: contain;
   border-radius: 4px;
-  border: white solid 1px;
+  border: solid 1px #272f33;
   background-color: transparent;
+  font-size: 14px;
+  color: #272f33;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 #button-style:hover{
-  font-weight: bold;
+
   border: solid 1px #62c6d6;
+  color: #62c6d6;
   background-color: white;
 }
+
