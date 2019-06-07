@@ -5,13 +5,7 @@ import {
   ICustomer
 } from "../../../shared/interfaces";
 import { BackendService } from "../../../services/backend.service";
-import {
-  Component,
-  OnInit,
-  Inject,
-  ViewChild,
-  ElementRef
-} from "@angular/core";
+import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 

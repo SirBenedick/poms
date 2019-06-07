@@ -18,5 +18,4 @@ export class DeactiveGroupDirective implements OnChanges{
       this.el.nativeElement.style.color = "";
     }
   }
-
 }

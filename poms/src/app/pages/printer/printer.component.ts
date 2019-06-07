@@ -1,10 +1,8 @@
-import { Component, OnInit, Input, Inject } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { IPrinterData, IPrinterNew } from "../../shared/interfaces";
+import { IPrinterData, IPrinterDataPolling } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
-import { Observable, Subscription } from "rxjs";
-import { analyzeAndValidateNgModules } from "@angular/compiler";
 
 @Component({
   selector: "app-printer",
@@ -12,9 +10,11 @@ import { analyzeAndValidateNgModules } from "@angular/compiler";
   styleUrls: ["./printer.component.css"]
 })
 export class PrinterComponent implements OnInit {
-  everyPrinter: Array<Observable<IPrinterData>>;
+  refreshWaitTimeInMs: number = 2000;
 
-  printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
+  /** "printerData" mapped to this.backendService.everySinglePrinter$ to display in printer.html */
+  printerData: Array<IPrinterDataPolling> = [];
+
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog,
@@ -22,10 +22,14 @@ export class PrinterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.refreshPrinterList();
+    /** First start backendService might not have polled data yet */
+    if (this.backendService.everySinglePrinter$.length == 0)
+      setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+    else this.refreshPrinterList();
   }
 
-  openDialogNewDrucker(): void {
+
+  openDialogNewPrinter(): void {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
       data: {}
     });
@@ -38,17 +42,23 @@ export class PrinterComponent implements OnInit {
               alert("Drucker konnte nicht hinzugefügt werden: \n" + res.error);
             } else {
               console.log("added printer");
-              this.refreshPrinterList();
+              setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
             }
           });
         }
       }
     });
   }
-  onPrinterClick(event) {
-    this.printersNameDialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
-      data: event.printer
+
+
+  deletePrinter(printer_id: any): void {
+    this.backendService.removePrinterById(printer_id).then(response => {
+      setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
     });
+  }
+
+  refreshPrinterList() {
+    this.printerData = this.backendService.everySinglePrinter$;
   }
 
   startPrinter(id: Number) {
@@ -59,19 +69,5 @@ export class PrinterComponent implements OnInit {
   }
   togglePrinter(id: Number) {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
-  }
-
-  deletePrinter(printer_id: any): void {
-    this.backendService.removePrinterById(printer_id).then(response => {
-      this.refreshPrinterList();
-    });
-  }
-
-  refreshPrinterList() {
-    this.backendService.startPrinterObservable().then(res => {
-      console.log("this.backendService.everyPrinter.length:", res)
-      //this.everyPrinter = this.backendService.everyPrinter;
-      setTimeout(res => this.everyPrinter = this.backendService.everyPrinter, 1500)
-    });
   }
 }

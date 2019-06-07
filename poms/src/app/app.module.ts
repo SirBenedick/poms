@@ -57,14 +57,14 @@ import { DeactiveGroupDirective } from './directives/deactive-group.directive';
 import { NeuerKundeComponent } from './components/pop-ups/Settings/neuer-kunde/neuer-kunde.component';
 import { NeuesHarzComponent } from './components/pop-ups/Settings/neues-harz/neues-harz.component';
 import { NeueKategorieComponent } from './components/pop-ups/Settings/neue-kategorie/neue-kategorie.component';
-import { PrinterStatusPipe } from './shared/printer-status.pipe';
+import { PrinterStatusPipe } from './shared/pipes/printer-status.pipe';
 import { KundeninfobearbeitenComponent } from './components/pop-ups/Settings/kundeninfobearbeiten/kundeninfobearbeiten.component';
 import { KundeloeschenComponent } from './components/pop-ups/Settings/kundeloeschen/kundeloeschen.component';
 import { KategorieinfobearbeitenComponent } from './components/pop-ups/Settings/kategorieinfobearbeiten/kategorieinfobearbeiten.component';
 import { KategorieloeschenComponent } from './components/pop-ups/Settings/kategorieloeschen/kategorieloeschen.component';
 import { HarzinfobearbeitenComponent } from './components/pop-ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component';
 import { HarzloeschenComponent } from './components/pop-ups/Settings/harzloeschen/harzloeschen.component';
-import { OrderIdLeadingZeros } from './shared/order-id-leading-zeros.pipe';
+import { OrderIdLeadingZeros } from './shared/pipes/order-id-leading-zeros.pipe';
 
 
 registerLocaleData(de);

@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { IPrinterData } from "src/app/shared/interfaces";
 import { Component, OnInit, Input } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
@@ -13,34 +13,38 @@ import { PopUpVanikComponent } from "../pop-ups/pop-up-vanik/pop-up-vanik.compon
 export class StatusComponent implements OnInit {
   @Input() printer: Observable<IPrinterData>;
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
-  printerStatus;
-  printerInfo = {};
+
+  /** Observable save polled data in printerDetails */
+  printerDetails = {};
+
+  /** Subscription for unsubscribing from polling on view exit*/
+  printerSubscription: Subscription;
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.printerInfo = {};
-    this.printer.subscribe((printer: IPrinterData) => {
-      this.printerInfo["host"] = printer.host;
-      this.printerInfo["port"] = printer.port;
-      this.printerInfo["name"] = printer.name;
-      this.printerInfo["progress"] = printer.progress;
-      this.printerInfo["max_layer"] = printer.max_layer;
-      this.printerInfo["current_layer"] = printer.current_layer;
-      this.printerInfo["resin_volume"] = printer.resin_volume;
-    });
+    this.printerSubscription = this.printer.subscribe(
+      (printer: IPrinterData) => {
+        this.printerDetails["host"] = printer.host;
+        this.printerDetails["port"] = printer.port;
+        this.printerDetails["name"] = printer.name;
+        this.printerDetails["progress"] = printer.progress;
+        this.printerDetails["max_layer"] = printer.max_layer;
+        this.printerDetails["current_layer"] = printer.current_layer;
+        this.printerDetails["resin_volume"] = printer.resin_volume;
+      }
+    );
+  }
+  ngOnDestroy() {
+    this.printerSubscription.unsubscribe();
   }
 
   onDetailedView(detail): void {
-    console.log("data:", this.printerInfo)
-    console.log("detail‚:", detail)
-    this.printerInfo;
+    /** Opens PopUp and matches clicked "detail" value with printerDetails to display relevant content  */
     const dialogRef = this.dialog.open(PopUpVanikComponent, {
-      data: { printerInfo: this.printerInfo, detail: detail }
+      data: { printerDetails: this.printerDetails, detail: detail }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      result;
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 }

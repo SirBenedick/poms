@@ -1,13 +1,13 @@
 <div class="page-container">
   <div class="available-printer">Druckerverwaltung</div>
-  <div class="new-printer" (click)="openDialogNewDrucker()">
+  <div class="new-printer" (click)="openDialogNewPrinter()">
     <div class="add-new-printer">
       <h4><b>+</b> neuen Drucker hinzufügen</h4>
     </div>
   </div>
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-    <mat-expansion-panel *ngFor="let printer of everyPrinter" class="expand-collapse" >
+    <mat-expansion-panel *ngFor="let printer of printerData" class="expand-collapse" >
       <mat-expansion-panel-header>
         <!-- Ausgabe von allen verfügbaren Druckern -->
         <mat-panel-title id="order-heading">
@@ -18,13 +18,13 @@
             style="padding-left: 10px; height: 30px"
           />
           <div class="printer">
-            Drucker: {{ (printer | async)?.printer_id }}, {{ (printer | async)?.name }}
+            Drucker: {{ printer.printer_id }}, {{ printer.printer_name }}
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
       
-      <app-status style="overflow: auto" [printer]="printer"></app-status>
-      <button *ngIf="(printer | async )?.printer_id as printer_id" (click)="deletePrinter(printer_id)">Drucker löschen</button>
+      <app-status style="overflow: auto" [printer]="printer.printer$"></app-status>
+      <button (click)="deletePrinter(printer.printer_id)">Drucker löschen</button>
     </mat-expansion-panel>
     <button (click)="startPrinter(23)">Druck Starten</button>
     <button (click)="stopPrinter(23)">Druck Stop</button>

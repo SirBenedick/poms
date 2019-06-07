@@ -21,13 +21,17 @@ import { ErrorPopUpComponent } from "src/app/components/pop-ups/error-pop-up/err
   styleUrls: ["./order.component.css"]
 })
 export class OrderComponent implements OnInit {
+  /** Saves all data, doesnt get changed, is used to reset the "filtered...Data" */
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
 
+  /** "filtered...Data" is dsiplayed to user */
   filteredUngroupedOrders: Array<IOrder> = [];
   filteredGroupData: Array<IGroupedOrders> = [];
+  /** "is...FilterSet" controlls the "appFilterButtonActivated" directive */
   isOrderFilterSet: number = 0;
   isGroupFilterSet: number = 0;
+  /** "filterParameter..." are saved for copying filter from group to order and viceversa */
   filterParameterOrder: IFilterOrders = {
     resin_name: null,
     priority: null,
@@ -47,7 +51,7 @@ export class OrderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //** First time POMS is loaded "this.backendService.allUngroupedOrders" is still empty*/
+    //** First time POMS is loaded "this.backendService.allUngroupedOrders" might still be empty*/
     if (this.backendService.allGroupData.length == 0) {
       this.loadGroupData();
     } else {
@@ -61,6 +65,7 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  /** Datahandling functions */
   loadOrderData() {
     this.backendService
       .pollAllOrdersFromBackend()
@@ -88,6 +93,7 @@ export class OrderComponent implements OnInit {
   }
 
   sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
+    /** Handles incoming orders and only forwards orders with status "created" or "isSolid" */
     allOrdersUnsorted.forEach(singleOrder => {
       if (singleOrder.group_id == 0 || singleOrder.group_id == null) {
         if (
@@ -127,13 +133,14 @@ export class OrderComponent implements OnInit {
       }
     }
   }
+
   filterGroupData(parameter: IFilterOrders) {
     this.resetGroupFilter();
 
     for (const key in parameter) {
       if (parameter[key]) {
         if (key == "due_date") {
-          // console.log("Filter DueDate, does nothing");
+          // Groups can not be filtered by "due_date"
         } else {
           this.filteredGroupData = this.filteredGroupData.filter(
             order => order[key] == parameter[key]
@@ -212,6 +219,7 @@ export class OrderComponent implements OnInit {
       }
     });
   }
+
   openDialogFilterOrders(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
       data: { newOrderForm: "newOrder" }
@@ -226,6 +234,7 @@ export class OrderComponent implements OnInit {
       }
     });
   }
+
   openDialogFilterGroups(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
       data: { newOrderForm: "newOrder" }
@@ -283,7 +292,7 @@ export class OrderComponent implements OnInit {
   dropNewGroup(event: CdkDragDrop<string[]>) {
     let previousContainer = event.previousContainer;
     let draggedOrder: IOrder = <IOrder>(
-      (<unknown> previousContainer.data[event.previousIndex])
+      (<unknown>previousContainer.data[event.previousIndex])
     );
 
     this.backendService.createNewGroup(draggedOrder).then(res => {
@@ -342,6 +351,7 @@ export class OrderComponent implements OnInit {
     }
     this.deleteEmptyGroup();
   }
+
   deleteEmptyGroup() {
     this.allGroupedOrders.forEach(group => {
       if (group.orders.length == 0) {
