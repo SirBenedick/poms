@@ -25,7 +25,7 @@
   overflow: hidden;
 }
 .radio-container label{
-  width: 120px;
+  width: 100px;
   height: 30px;
   margin-right: 5px;
   background-color: transparent;
@@ -33,20 +33,28 @@
   color: #62c6d6;
   line-height: 1;
   text-align: center;
-  padding: 8px 16px;
+padding-top: 8px;
   border: #62c6d6 1px solid;
   border-radius: 4px;
 }
 .radio-container label:hover{
   cursor: pointer;
   color: white;
-  background-color: #1f282c;
-  border: #1f282c 1px solid;
+  background-color: #272f33;
+  border: #272f33 1px solid;
 }
 .radio-container input:checked + label{
-  background-color: #1f282c;
+  background-color: #272f33;
   color: white;
   border: transparent;
+}
+#harz-title{
+  font-family: "Segoe UI";
+  font-size: 14px;
+  overflow: visible;
+  height: 30px;
+  width: 100px;
+  text-align: center;
 }
 .heading{
   object-fit: contain;
@@ -64,24 +72,26 @@
 }
 .send-button {
   border-radius: 4px;
-  width: 120px;
+  width: 100px;
   height: 30px;
   color: white;
   object-fit: contain;
   border: solid 1px #62c6d6;
   background-color: #62c6d6;
   margin: 2px;
+  font-size: 14px;
 }
 
 .break-button{
   margin: 2px;
   border-radius: 4px;
-  width: 120px;
+  width: 100px;
   height: 30px;
   object-fit: contain;
   border: solid 1px #62c6d6;
   color: #62c6d6;
   background-color: #ffffff;
+  font-size: 14px;
 }
 .rechteck-eingabe {
   width: 370px;
