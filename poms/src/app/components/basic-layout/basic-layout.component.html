@@ -135,9 +135,9 @@
         <div *ngIf="printer.is_printing == 1">
           <!-- Paused printer-->
           <div *ngIf="printer.paused == 1">
-            <p class="printer-prints-group-text">
-              <b>Drucker: {{ printer.printer_id }}</b> druckt
-              <b>Gruppe: {{ printer.assigned_group_id }}</b>
+            <p class="printer-prints-group-text" style="margin-bottom: 10px">
+              <b>Drucker {{ printer.printer_id }}</b> druckt
+              <b>Gruppe {{ printer.assigned_group_id }}</b>
             </p>
             <div class="progressbar">
               <mat-progress-bar [value]="printer.progress * 100" color="warn">
@@ -149,15 +149,15 @@
               />
             </div>
             <p class="info-print-heading-paused">
-              Druck <b>pausiert</b> bei:
+              Druck <b>pausiert</b> bei
               {{ printer.progress * 100 | number: "1.0-0" }}%
             </p>
           </div>
           <!-- Not paused printer-->
           <div *ngIf="printer.paused != 1">
             <p class="printer-prints-group-text">
-              <b>Drucker: {{ printer.printer_id }}</b> druckt
-              <b>Gruppe: {{ printer.assigned_group_id }}</b>
+              <b>Drucker {{ printer.printer_id }}</b> druckt
+              <b>Gruppe {{ printer.assigned_group_id }}</b>
             </p>
             <div class="progressbar">
               <mat-progress-bar [value]="printer.progress * 100">
