@@ -1,4 +1,3 @@
-import { first } from 'rxjs/operators';
 import { UploadService } from "./../../services/upload.service";
 import {
   IResinType,
@@ -86,20 +85,13 @@ export class CreateNewOrderComponent implements OnInit {
         [Validators.required]
       )
     });
-    // console.log("card Data:", this.data);
-    // console.log("date", this.data.due_date);
+
     if (this.data.customer_id)
       this.customer_name = this.customerData.find(
         customer => customer.customer_id == this.data.customer_id
       ).name;
-    // this.newOrderForm.controls["dueDate"].setValue(this.data.dueDate)
-    // this.newOrderForm.controls["customer_id"].setValue(this.data.customer_id);
-    // this.backendService.getAllResin().then((res: Array<IResinType>) => {
-    //   this.harzList = res;
-    //   console.log(this.harzList);
-    // });
-    this.fileToUploadName = this.data.fileScan ? this.data.fileScan : "";
-    console.log("data:", this.data.fileScan)
+
+    this.fileToUploadName = this.data.file_scan_name ? this.data.file_scan_name : "";
   }
 
   onQuit(): void {
@@ -125,18 +117,31 @@ export class CreateNewOrderComponent implements OnInit {
 
   onSaveButton(): void {
     let formData = this.newOrderForm.value;
-    let alteredOrderData = {
-      customer_id: this.data.customer_id,
-      patient: formData.patient,
-      dental_print_type: formData.dental_print_type,
-      resin_name: formData.harz,
-      due_date: formData.dueDate ? formData.dueDate : this.data.due_date,
-      comment: formData.comment,
-      status: this.data.status
-    };
+
+    let newOrder = new FormData();
+    newOrder.append("customer_id", formData.customer_id ? formData.customer_id : this.data.customer_id);
+    newOrder.append("patient", formData.patient);
+    newOrder.append("dental_print_type", formData.dental_print_type);
+    newOrder.append("resin_name", formData.harz);
+    newOrder.append("due_date", formData.dueDate);
+    newOrder.append("comment", formData.comment);
+    newOrder.append("status", this.data.status);
+    newOrder.append("scan_file", formData.hochladen.files[0]);
+
+    // newOrder.forEach(value=>console.log("order: ", value))
+    //OLD test above then delete below
+    // let alteredOrderData = {
+    //   customer_id: this.data.customer_id,
+    //   patient: formData.patient,
+    //   dental_print_type: formData.dental_print_type,
+    //   resin_name: formData.harz,
+    //   due_date: formData.dueDate ? formData.dueDate : this.data.due_date,
+    //   comment: formData.comment,
+    //   status: this.data.status
+    // };
     this.backendService
-      .alterOrderById(this.data.order_id, alteredOrderData)
-      .then(response => console.log(response));
+      .alterOrderById(this.data.order_id, newOrder)
+      .then(response => console.log("alterOrderById", response));
     // console.log(alteredOrderData);
     // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
     this.dialogRef.close();

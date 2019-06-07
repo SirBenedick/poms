@@ -426,11 +426,8 @@ export class BackendService {
       .toPromise();
   }
 
-  createNewOrder(newOrder: IOrderCreateNew): Observable<Object> {
-    console.log("createNewOrder Backend", newOrder);
+  createNewOrder(newOrder: any): Observable<Object> {
     return this.uploadService.createNewOrder(newOrder);
-    // return this.http
-    //   .post(this.backendUrl + "order/create/", newOrder);
   }
 
   addNewPrinter(newPrinter: IPrinterNew): Promise<Object> {
@@ -484,9 +481,10 @@ export class BackendService {
   }
 
   alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
-    return this.http
-      .post(this.backendUrl + "order/alter/" + order_id, alteredOrder)
-      .toPromise();
+    // return this.http
+    //   .post(this.backendUrl + "order/alter/" + order_id, alteredOrder)
+    //   .toPromise();
+    return this.uploadService.alterOrderById(order_id, alteredOrder);
   }
 
  alterResin(new_name: IAlterResin):Promise<Object>{

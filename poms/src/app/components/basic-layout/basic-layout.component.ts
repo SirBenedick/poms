@@ -47,24 +47,22 @@ export class BasicLayoutComponent implements OnInit {
       if (result) {
         if (result.value) {
           let order = result.value;
-          console.log(result.value);
-          let newOrder: IOrderCreateNew = {
-            customer_id: parseInt(order.customer_id),
-            patient: order.patient,
-            dental_print_type: order.dental_print_type,
-            resin_name: order.harz,
-            due_date: order.dueDate,
-            comment: order.comment,
-            status: "created",
-            scan_file: order.hochladen.files[0]
-          };
-          console.log(newOrder);
+          let newOrder = new FormData();
+          newOrder.append("customer_id", order.customer_id);
+          newOrder.append("patient", order.patient);
+          newOrder.append("dental_print_type", order.dental_print_type);
+          newOrder.append("resin_name", order.harz);
+          newOrder.append("due_date", order.dueDate);
+          newOrder.append("comment", order.comment);
+          newOrder.append("status", "created");
+          newOrder.append("scan_file", order.hochladen.files[0]);
+
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
-              console.log(res.error);
+              console.log("createNewOrder Error: ", res.error);
             } else {
-              console.log("createNewOrder: ", res);
+              console.log("createNewOrder Response: ", res);
             }
           });
         }
