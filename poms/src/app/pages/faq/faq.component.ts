@@ -2,9 +2,9 @@
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
-import { PopUpFAQComponent } from "src/app/components/pop-up-faq/pop-up-faq.component";
-import { FAQPopUpComponent } from "src/app/components/faqpop-up/faqpop-up.component";
-import { UrlTextPopUpComponent } from "src/app/components/url-text-pop-up/url-text-pop-up.component";
+import { PopUpFAQComponent } from "src/app/components/pop-ups/pop-up-faq/pop-up-faq.component";
+import { FAQPopUpComponent } from "src/app/components/pop-ups/faqpop-up/faqpop-up.component";
+import { UrlTextPopUpComponent } from "src/app/components/pop-ups/url-text-pop-up/url-text-pop-up.component";
 import { IFAQPage, ICategory, IResinType, ICategoryName } from "src/app/shared/interfaces";
 
 @Component({

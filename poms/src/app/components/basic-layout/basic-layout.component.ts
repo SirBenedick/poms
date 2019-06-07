@@ -1,23 +1,24 @@
-import { Observable } from "rxjs";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
-import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { User, IPrinterData } from "src/app/shared/interfaces";
+import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-order/create-new-order.component";
+import { User, IPrinterDataPolling } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
-import { LogoutComponent } from "../logout/logout.component";
+import { LogoutComponent } from "../pop-ups/logout/logout.component";
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
   styleUrls: ["./basic-layout.component.css"]
 })
 export class BasicLayoutComponent implements OnInit {
+  refreshWaitTimeInMs: number = 20000;
+  firstLoadAfterMs: number = 2000;
   currentUser: User;
-  //printerSubscription: Observable<Object>;
-  everyPrinter: Array<Observable<IPrinterData>> = this.backendService
-    .everyPrinter;
   menuItems;
+
+  /** "printerData" mapped to this.backendService.everySinglePrinter$ to display in printer.html */
+  printerData: Array<IPrinterDataPolling> = [];
 
   constructor(
     private backendService: BackendService,
@@ -26,15 +27,14 @@ export class BasicLayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.printerSubscription = this.backendService.allPrinterData$;
-    console.log("length: ", this.everyPrinter.length);
-    setInterval(res => {
-      if (this.backendService.everyPrinter) {
-        this.everyPrinter = this.backendService.everyPrinter;
-        console.log("intervalli")
-        return;
-      }
-    }, 1000);
+    /** First start backendService might not have polled data yet */
+    if (this.backendService.everySinglePrinter$.length == 0)
+      setTimeout(res => this.refreshPrinterList(), this.firstLoadAfterMs);
+    else this.refreshPrinterList();
+    /** Sets every "refreshWaitTimeInMs"ms "printerData" to updated value, needed for when a new printer is added or one is removed */
+    setInterval(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+
+    /** Sets selected menu item inital to "auftragsuebersicht" */
     this.menuItems = {
       auftragsuebersicht: true,
       gedruckte_auftraege: false,
@@ -44,8 +44,8 @@ export class BasicLayoutComponent implements OnInit {
     };
   }
 
-  newOrder() {
-    console.log("function called");
+  refreshPrinterList() {
+    this.printerData = this.backendService.everySinglePrinter$;
   }
 
   openDialogCreateNewOrder(): void {
@@ -66,7 +66,7 @@ export class BasicLayoutComponent implements OnInit {
           newOrder.append("comment", order.comment);
           newOrder.append("status", "created");
           newOrder.append("scan_file", order.hochladen.files[0]);
-          console.log(order.hochladen.files[0]);
+
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
@@ -75,6 +75,7 @@ export class BasicLayoutComponent implements OnInit {
               console.log("createNewOrder Response: ", res);
             }
           });
+          console.log(newOrder);
         }
       }
     });

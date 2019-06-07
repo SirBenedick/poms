@@ -6,7 +6,7 @@ import {
 } from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
 import { MatDialog } from "@angular/material";
-import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
+import { OrderFilterPopupComponent } from "src/app/components/pop-ups/order-filter-popup/order-filter-popup.component";
 import { FAQComponent } from "../faq/faq.component";
 
 @Component({

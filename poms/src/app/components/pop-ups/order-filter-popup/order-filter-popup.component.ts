@@ -1,4 +1,4 @@
-import { BackendService } from "./../../services/backend.service";
+import { BackendService } from "../../../services/backend.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import {

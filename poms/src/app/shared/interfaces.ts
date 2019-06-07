@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export interface IPrinterData {
   printer_id: number;
   name: string;
@@ -201,4 +203,10 @@ export interface IPrinterNew {
   name: string;
   host: string;
   port: string;
+}
+
+export interface IPrinterDataPolling {
+  printer_id: number;
+  printer_name: string;
+  printer$: Observable<IPrinterData>;
 }

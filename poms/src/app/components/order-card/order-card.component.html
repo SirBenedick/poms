@@ -3,54 +3,62 @@
     <div [ngSwitch]="order.dental_print_type">
       <div *ngSwitchCase="'Schienen für Halterungsposition'">
         <!-- Bracket Position Splints -->
-        <img class="icon-card" src="../../../assets/svg/Schiene.svg">
+        <img class="icon-card" src="../../../assets/svg/Schiene.svg" />
       </div>
       <div *ngSwitchCase="'Kundenspezifische Anpassung'">
-          <img class="icon-card" src="../../../assets/svg/Custom Trays.svg">
+        <img class="icon-card" src="../../../assets/svg/Custom Trays.svg" />
         <!-- Custom Trays -->
       </div>
       <div *ngSwitchCase="'Gießbare Teile'">
-          <img class="icon-card" src="../../../assets/svg/Castable Parts.svg">
+        <img class="icon-card" src="../../../assets/svg/Castable Parts.svg" />
         <!-- Castable Parts -->
       </div>
       <div *ngSwitchCase="'Backenzaehne'">
-         <img class="icon-card" src="../../../assets/svg/True Color Dies.svg">
+        <img class="icon-card" src="../../../assets/svg/True Color Dies.svg" />
         <!-- True Color Dies -->
       </div>
       <div *ngSwitchCase="'Weichgewebe'">
-          <img class="icon-card" src="../../../assets/svg/Spft Tissue.svg">
+        <img class="icon-card" src="../../../assets/svg/Spft Tissue.svg" />
         <!-- Soft Tissue -->
       </div>
       <div *ngSwitchCase="'Implantat'">
-          <img class="icon-card" src="../../../assets/svg/Implant Jigs.svg">
+        <img class="icon-card" src="../../../assets/svg/Implant Jigs.svg" />
         <!-- Implant Jigs -->
       </div>
       <div *ngSwitchCase="'Justierung der Zaehne'">
-          <img class="icon-card" src="../../../assets/svg/Alighner.svg">
+        <img class="icon-card" src="../../../assets/svg/Alighner.svg" />
         <!-- Aligners -->
       </div>
       <div *ngSwitchCase="'Modelle und Implantatmodelle'">
-          <img class="icon-card" src="../../../assets/svg/Models and Implant Models.svg">
+        <img
+          class="icon-card"
+          src="../../../assets/svg/Models and Implant Models.svg"
+        />
         <!-- Models and Implantat Models -->
       </div>
       <div *ngSwitchCase="'Provisorische Kronen und Bruecken'">
         <!-- Provisional Crowns and Bridges -->
-        <img class="icon-card" src="../../../assets/svg/Provisional Crowns and Bridges.svg">
+        <img
+          class="icon-card"
+          src="../../../assets/svg/Provisional Crowns and Bridges.svg"
+        />
       </div>
       <div *ngSwitchCase="'Zaehne'">
         <!-- Testeneers -->
-        <img class="icon-card" src="../../../assets/svg/Testeneers.svg">
+        <img class="icon-card" src="../../../assets/svg/Testeneers.svg" />
       </div>
       <div *ngSwitchDefault>
-        <img class="icon-card" src="../../../assets/svg/icon-auftrag-1.svg">
+        <img class="icon-card" src="../../../assets/svg/icon-auftrag-1.svg" />
       </div>
     </div>
-    
+
     <!-- Order ID fünfstellig mit führede Nullen machen-->
-    <h1 id="order-heading">#{{ order.order_id }}</h1>
-  
+    <h1 id="order-heading">#{{ order.order_id | orderIdLeadingZeros }}</h1>
+
     <div class="order-card-text">{{ dateForFrontendView }}</div>
-    <div class="order-card-text" style="text-align: center"> {{ order.resin_name }}</div>
+    <div class="order-card-text" style="text-align: center">
+      {{ order.resin_name }}
+    </div>
 
     <img class="drag-n-drop" src="../../../assets/svg/drag-drop.svg" />
   </div>

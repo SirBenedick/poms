@@ -1,7 +1,7 @@
 import { UploadService } from "./upload.service";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, timer, Subscription } from "rxjs";
+import { Observable, timer } from "rxjs";
 import {
   IOrder,
   IPrinterData,
@@ -20,7 +20,8 @@ import {
   IAlterResin,
   ICategoryName,
   ICategoryDelete,
-  IAlterCategory
+  IAlterCategory,
+  IPrinterDataPolling
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -30,6 +31,7 @@ import { switchMap, catchError } from "rxjs/operators";
 export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
   mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
+
   /** Mocked Printer Data for testing multiple printer during development */
   mockedPrinterData: Array<IPrinterData> = [
     {
@@ -102,16 +104,19 @@ export class BackendService {
     }
   ];
 
-  printerSubscriptions: Array<Subscription> = [];
-
+  /** Observable which poll every pollingTimeInMs ms */
+  pollingTimeInMs: number = 2000;
   allOrderData$: Observable<Object>;
-  allPrinterData$: Observable<Object>;
   allGroupData$: Observable<Object>;
+  allPrinterData$: Observable<Object>;
+  /** "everySinglePrinter$" saves only important data and allows components to subscribe to printer observables */
+  everySinglePrinter$: Array<IPrinterDataPolling> = [];
 
+  /** Values saved from polling */
   allUngroupedOrders: Array<IOrder> = [];
   allGroupData: Array<IGroupedOrders> = [];
+  /** "allPrinterData" always up to date and easy accesible for quick information access */
   allPrinterData: Array<IPrinterData> = [];
-  everyPrinter: Array<Observable<IPrinterData>> = [];
 
   /**  Data that does not need to be polled */
   resineData: Array<IResinType>;
@@ -132,89 +137,79 @@ export class BackendService {
     this.loadCategoryData();
   }
 
-  async startPrinterObservable() {
-    this.printerSubscriptions.forEach(printerSub => printerSub.unsubscribe());
-    this.printerSubscriptions = [];
-
-    this.allPrinterData$ = timer(0, 2000).pipe(
-      switchMap((counter: number) => this.pollAllPrinterFromBackend()),
+  startOrderObservable(): void {
+    /** Creates observable which request data every "pollingTimeInMs" ms */
+    this.allOrderData$ = timer(0, this.pollingTimeInMs).pipe(
+      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.printerSubscriptions.push(
-      this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
-        this.allPrinterData = newPrinterData;
-        // this.allPrinterData = this.mockedPrinterData;
-        if (this.everyPrinter.length != newPrinterData.length){
-          this.everyPrinter=[];
-          this.allPrinterData.forEach((printer: IPrinterData) => {
-            var singlePrinter$: Observable<IPrinterData> = <
-              Observable<IPrinterData>
-            >(<unknown>timer(0, 2000).pipe(
-              switchMap((counter: number) =>
-                this.getPrinterById(printer.printer_id)
-              ),
-              catchError((err, caught) => caught)
-            ));
-            this.everyPrinter.push(singlePrinter$);
-          });
-      }
-      })
-    );
-    return this.everyPrinter.length;
+    /** Subscribes to observable and saves response in an array accessible for every component  */
+    this.allOrderData$.subscribe((allOrderData: Array<any>) => {
+      this.allUngroupedOrders = allOrderData;
+    });
   }
 
-  startGroupObservable() {
-    this.allGroupData$ = timer(0, 2000).pipe(
+  startGroupObservable(): void {
+    /** Creates observable which request data every "pollingTimeInMs" ms */
+    this.allGroupData$ = timer(0, this.pollingTimeInMs).pipe(
       switchMap((counter: number) => this.getAllGroups()),
       catchError((err, caught) => caught)
     );
+    /** Subscribes to observable and saves response in an array accessible for every component  */
     this.allGroupData$.subscribe((allGroupData: Array<any>) => {
       this.allGroupData = allGroupData;
     });
   }
 
-  startOrderObservable() {
-    this.allOrderData$ = timer(0, 2000).pipe(
-      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+  startPrinterObservable() {
+    /** Creates observable which request data every "pollingTimeInMs" ms */
+    this.allPrinterData$ = timer(0, this.pollingTimeInMs).pipe(
+      switchMap((counter: number) => this.pollAllPrinterFromBackend()),
       catchError((err, caught) => caught)
     );
-    this.allOrderData$.subscribe((allOrderData: Array<any>) => {
-      this.allUngroupedOrders = allOrderData;
+
+    /** Subscribes to observable and saves response in an array accessible for every component  */
+    this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
+      this.allPrinterData = newPrinterData;
+      // this.allPrinterData = this.mockedPrinterData;
+
+      /** If count of printer has changed then "everySinglePrinter$" gets updated */
+      if (this.everySinglePrinter$.length != this.allPrinterData.length) {
+        this.everySinglePrinter$ = [];
+        /** Each printer becomes one observable and stores printer_id and the printer name*/
+        this.allPrinterData.forEach((printer: IPrinterData) => {
+          /** Creates observable for each printer */
+          var singlePrinter$: Observable<IPrinterData> = <
+            Observable<IPrinterData>
+          >(<unknown>timer(0, this.pollingTimeInMs).pipe(
+            switchMap((counter: number) =>
+              this.getPrinterById(printer.printer_id)
+            ),
+            catchError((err, caught) => caught)
+          ));
+          /** Saves id, name and observable in an array accessible for every component  */
+          this.everySinglePrinter$.push({
+            printer_id: printer.printer_id,
+            printer_name: printer.name,
+            printer$: singlePrinter$
+          });
+        });
+      }
     });
   }
 
   pollAllOrdersFromBackend(): Observable<Object> {
     //** Backendcall */
     return this.http.get(this.backendUrl + "order/get/all");
-    //** Mocked Data */
-    // console.log("pollAllOrdersFromBackend");
+    //** Mocked Data for development */
     // return this.http.get(this.mockedURL + "allOrders");
   }
 
   pollAllPrinterFromBackend(): Observable<Object> {
     //** Backendcall */
-    // return this.http.get(this.url + "echte/url/einfügen/");
-    //** Mocked Data */
-    // console.log("pollAllPrinterFromBackend");
-    // return this.http.get(this.mockedURL + "allPrinter");
     return this.http.get(this.backendUrl + "printer/get/all");
-  }
-
-  getPrinterById(id: Number): Observable<Object> {
-    console.log("getPrinterById: ", id);
-    return this.http.get(this.backendUrl + "printer/get/" + id);
-  }
-
-  startPrinter(id: Number) {
-    return this.http
-      .get(this.backendUrl + "printer/action/start/" + id)
-      .toPromise();
-  }
-  stopPrinter(id: Number) {
-    return this.http.get(this.backendUrl + "printer/action/stop/" + id);
-  }
-  togglePrinter(id: Number) {
-    return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
+    //** Mocked Data for development */
+    // return this.http.get(this.mockedURL + "allPrinter");
   }
 
   loadResinData() {
@@ -240,7 +235,11 @@ export class BackendService {
     );
   }
 
-  //Get
+  /** Get data */
+  getPrinterById(id: Number): Observable<Object> {
+    return this.http.get(this.backendUrl + "printer/get/" + id);
+  }
+
   getAllResin(): Promise<Object> {
     return this.http.get(this.backendUrl + "resin/get/all/").toPromise();
   }
@@ -265,7 +264,7 @@ export class BackendService {
     return this.allGroupData;
   }
 
-  //Create
+  /** Create data*/
   createNewGroup(order: IOrder): Promise<Object> {
     return this.http
       .post(this.backendUrl + "group/create/", { order_id: order.order_id })
@@ -305,6 +304,7 @@ export class BackendService {
       .toPromise();
   }
 
+  /** Modify existing data */
   alterFAQ(alteredTopic: IFAQPageAlter): Promise<Object> {
     return this.http
       .post(this.backendUrl + "faq/alter/", alteredTopic)
@@ -315,9 +315,6 @@ export class BackendService {
     return this.http
       .get(this.backendUrl + "order/assign/" + order_id + "/to/" + group_id)
       .toPromise();
-  }
-  removeGroupById(id: number): Promise<Object> {
-    return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
   }
 
   alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
@@ -342,6 +339,7 @@ export class BackendService {
       .toPromise();
   }
 
+  /** Remove existing data */
   removeOrderById(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "order/remove/" + id).toPromise();
   }
@@ -367,5 +365,22 @@ export class BackendService {
     return this.http
       .post(this.backendUrl + "customer/remove/" + customer_id, name)
       .toPromise();
+  }
+
+  removeGroupById(id: number): Promise<Object> {
+    return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
+  }
+
+  /** Controlls printer, for development */
+  startPrinter(id: Number) {
+    return this.http
+      .get(this.backendUrl + "printer/action/start/" + id)
+      .toPromise();
+  }
+  stopPrinter(id: Number) {
+    return this.http.get(this.backendUrl + "printer/action/stop/" + id);
+  }
+  togglePrinter(id: Number) {
+    return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
 }

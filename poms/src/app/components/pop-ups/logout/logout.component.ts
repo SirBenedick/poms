@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../../login/login.component';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
