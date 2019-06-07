@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from "@angular/material";
 import { LoginService } from "./services/login.service";
 import { User, Role } from "./shared/interfaces";
 import { Router } from "@angular/router";
-import { LogoutComponent } from './components/logout/logout.component';
+import { LogoutComponent } from './components/pop-ups/logout/logout.component';
 
 
 @Component({

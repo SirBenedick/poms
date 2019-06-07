@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Inject } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { IPrinterData, IPrinterNew } from "../../shared/interfaces";
-import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
+import { PopUpNeuerDruckerComponent } from "src/app/components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { Observable, Subscription } from "rxjs";
 import { analyzeAndValidateNgModules } from "@angular/compiler";
 

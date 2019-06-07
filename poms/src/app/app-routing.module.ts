@@ -8,7 +8,7 @@ import { EinstellungenComponent } from "./pages/einstellungen/einstellungen.comp
 import { LoginComponent } from "./components/login/login.component";
 import { BenutzerService } from "./services/benutzer.service";
 import { Role } from "./shared/interfaces";
-import { LogoutComponent } from './components/logout/logout.component';
+import { LogoutComponent } from './components/pop-ups/logout/logout.component';
 
 const routes: Routes = [
   //Seiten auf die mal geleitet wird, wenn man entsprechen Path angibt

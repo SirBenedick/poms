@@ -2,8 +2,8 @@ import { Observable } from "rxjs";
 import { IPrinterData } from "src/app/shared/interfaces";
 import { Component, OnInit, Input } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
-import { PopUpNeuerDruckerComponent } from "../pop-up-neuer-drucker/pop-up-neuer-drucker.component";
-import { PopUpVanikComponent } from "../pop-up-vanik/pop-up-vanik.component";
+import { PopUpNeuerDruckerComponent } from "../pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
+import { PopUpVanikComponent } from "../pop-ups/pop-up-vanik/pop-up-vanik.component";
 
 @Component({
   selector: "app-status",

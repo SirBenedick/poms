@@ -3,8 +3,8 @@ import {
   IOrder,
   ICategory,
   ICustomer
-} from "./../../shared/interfaces";
-import { BackendService } from "./../../services/backend.service";
+} from "../../../shared/interfaces";
+import { BackendService } from "../../../services/backend.service";
 import {
   Component,
   OnInit,

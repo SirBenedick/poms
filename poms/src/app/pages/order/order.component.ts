@@ -11,10 +11,10 @@ import {
   transferArrayItem
 } from "@angular/cdk/drag-drop";
 import { MatDialog } from "@angular/material";
-import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import { OrderFilterPopupComponent } from "src/app/components/order-filter-popup/order-filter-popup.component";
-import { PopUpDruckenComponent } from "src/app/components/pop-up-drucken/pop-up-drucken.component";
-import { ErrorPopUpComponent } from "src/app/components/error-pop-up/error-pop-up.component";
+import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-order/create-new-order.component";
+import { OrderFilterPopupComponent } from "src/app/components/pop-ups/order-filter-popup/order-filter-popup.component";
+import { PopUpDruckenComponent } from "src/app/components/pop-ups/pop-up-drucken/pop-up-drucken.component";
+import { ErrorPopUpComponent } from "src/app/components/pop-ups/error-pop-up/error-pop-up.component";
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",

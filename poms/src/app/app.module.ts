@@ -24,7 +24,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
-import { CreateNewOrderComponent } from "./components/create-new-order/create-new-order.component";
+import { CreateNewOrderComponent } from "./components/pop-ups/create-new-order/create-new-order.component";
 import { MatOptionModule } from "@angular/material";
 import { MatSelectModule } from "@angular/material";
 import { MatDatepickerModule } from "@angular/material/";
@@ -39,31 +39,32 @@ import { EinstellungenComponent } from "./pages/einstellungen/einstellungen.comp
 import { MatCardModule } from "@angular/material/card";
 import { LoginComponent } from "./components/login/login.component";
 import { MatProgressSpinnerModule } from "@angular/material";
-import { OrderFilterPopupComponent } from "./components/order-filter-popup/order-filter-popup.component";
+import { OrderFilterPopupComponent } from "./components/pop-ups/order-filter-popup/order-filter-popup.component";
 import { BackendService } from "./services/backend.service";
 import { LoginService } from "./services/login.service";
 import { BenutzerService } from "./services/benutzer.service";
 import { TestbackendProvider } from "./services/testbackend.service";
-import { PopUpNeuerDruckerComponent } from './components/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
+import { PopUpNeuerDruckerComponent } from './components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component';
 import { FilterButtonActivatedDirective } from './directives/filter-button-activated.directive';
-import { PopUpFAQComponent } from './components/pop-up-faq/pop-up-faq.component';
-import { PopUpDruckenComponent } from './components/pop-up-drucken/pop-up-drucken.component';
-import { PopUpVanikComponent } from './components/pop-up-vanik/pop-up-vanik.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { ErrorPopUpComponent } from './components/error-pop-up/error-pop-up.component';
-import { FAQPopUpComponent } from './components/faqpop-up/faqpop-up.component';
-import { UrlTextPopUpComponent } from './components/url-text-pop-up/url-text-pop-up.component';
+import { PopUpFAQComponent } from './components/pop-ups/pop-up-faq/pop-up-faq.component';
+import { PopUpDruckenComponent } from './components/pop-ups/pop-up-drucken/pop-up-drucken.component';
+import { PopUpVanikComponent } from './components/pop-ups/pop-up-vanik/pop-up-vanik.component';
+import { LogoutComponent } from './components/pop-ups/logout/logout.component';
+import { ErrorPopUpComponent } from './components/pop-ups/error-pop-up/error-pop-up.component';
+import { FAQPopUpComponent } from './components/pop-ups/faqpop-up/faqpop-up.component';
+import { UrlTextPopUpComponent } from './components/pop-ups/url-text-pop-up/url-text-pop-up.component';
 import { DeactiveGroupDirective } from './directives/deactive-group.directive';
-import { NeuerKundeComponent } from './Pop-Ups/Settings/neuer-kunde/neuer-kunde.component';
-import { NeuesHarzComponent } from './Pop-Ups/Settings/neues-harz/neues-harz.component';
-import { NeueKategorieComponent } from './Pop-Ups/Settings/neue-kategorie/neue-kategorie.component';
+import { NeuerKundeComponent } from './components/pop-ups/Settings/neuer-kunde/neuer-kunde.component';
+import { NeuesHarzComponent } from './components/pop-ups/Settings/neues-harz/neues-harz.component';
+import { NeueKategorieComponent } from './components/pop-ups/Settings/neue-kategorie/neue-kategorie.component';
 import { PrinterStatusPipe } from './shared/printer-status.pipe';
-import { KundeninfobearbeitenComponent } from './Pop-Ups/Settings/kundeninfobearbeiten/kundeninfobearbeiten.component';
-import { KundeloeschenComponent } from './Pop-Ups/Settings/kundeloeschen/kundeloeschen.component';
-import { KategorieinfobearbeitenComponent } from './Pop-Ups/Settings/kategorieinfobearbeiten/kategorieinfobearbeiten.component';
-import { KategorieloeschenComponent } from './Pop-Ups/Settings/kategorieloeschen/kategorieloeschen.component';
-import { HarzinfobearbeitenComponent } from './Pop-Ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component';
-import { HarzloeschenComponent } from './Pop-Ups/Settings/harzloeschen/harzloeschen.component';
+import { KundeninfobearbeitenComponent } from './components/pop-ups/Settings/kundeninfobearbeiten/kundeninfobearbeiten.component';
+import { KundeloeschenComponent } from './components/pop-ups/Settings/kundeloeschen/kundeloeschen.component';
+import { KategorieinfobearbeitenComponent } from './components/pop-ups/Settings/kategorieinfobearbeiten/kategorieinfobearbeiten.component';
+import { KategorieloeschenComponent } from './components/pop-ups/Settings/kategorieloeschen/kategorieloeschen.component';
+import { HarzinfobearbeitenComponent } from './components/pop-ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component';
+import { HarzloeschenComponent } from './components/pop-ups/Settings/harzloeschen/harzloeschen.component';
+import { OrderIdLeadingZeros } from './shared/order-id-leading-zeros.pipe';
 
 
 registerLocaleData(de);
@@ -96,6 +97,7 @@ registerLocaleData(de);
     NeuesHarzComponent,
     NeueKategorieComponent,
     PrinterStatusPipe,
+    OrderIdLeadingZeros,
     KundeninfobearbeitenComponent,
     KundeloeschenComponent,
     KategorieinfobearbeitenComponent,

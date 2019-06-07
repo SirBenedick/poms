@@ -3,10 +3,10 @@ import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
-import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
+import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-order/create-new-order.component";
 import { User, IPrinterData } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
-import { LogoutComponent } from "../logout/logout.component";
+import { LogoutComponent } from "../pop-ups/logout/logout.component";
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",

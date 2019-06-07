@@ -1,4 +1,4 @@
-import { UploadService } from "./../../services/upload.service";
+import { UploadService } from "../../../services/upload.service";
 import { Component, OnInit, Inject, Input, ViewChild } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";

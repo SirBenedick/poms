@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { StatusComponent } from '../status/status.component';
+import { StatusComponent } from '../../status/status.component';
 import { IPrinterData } from 'src/app/shared/interfaces';
 
 

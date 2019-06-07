@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { IOrder } from "src/app/shared/interfaces";
-import { CreateNewOrderComponent } from "../create-new-order/create-new-order.component";
+import { CreateNewOrderComponent } from "../pop-ups/create-new-order/create-new-order.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { BackendService } from 'src/app/services/backend.service';
 
