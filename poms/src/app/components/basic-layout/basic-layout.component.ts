@@ -4,7 +4,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/create-new-order/create-new-order.component";
-import {  User, IPrinterData } from "src/app/shared/interfaces";
+import { User, IPrinterData } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
 import { LogoutComponent } from "../logout/logout.component";
 @Component({
@@ -14,8 +14,9 @@ import { LogoutComponent } from "../logout/logout.component";
 })
 export class BasicLayoutComponent implements OnInit {
   currentUser: User;
-  printerSubscription: Observable<Object>;
-  everyPrinter: Array<Observable<IPrinterData>> = this.backendService.everyPrinter;
+  //printerSubscription: Observable<Object>;
+  everyPrinter: Array<Observable<IPrinterData>> = this.backendService
+    .everyPrinter;
   menuItems;
 
   constructor(
@@ -25,7 +26,15 @@ export class BasicLayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.printerSubscription = this.backendService.allPrinterData$;
+    //this.printerSubscription = this.backendService.allPrinterData$;
+    console.log("length: ", this.everyPrinter.length);
+    setInterval(res => {
+      if (this.backendService.everyPrinter) {
+        this.everyPrinter = this.backendService.everyPrinter;
+        console.log("intervalli")
+        return;
+      }
+    }, 1000);
     this.menuItems = {
       auftragsuebersicht: true,
       gedruckte_auftraege: false,
@@ -57,7 +66,7 @@ export class BasicLayoutComponent implements OnInit {
           newOrder.append("comment", order.comment);
           newOrder.append("status", "created");
           newOrder.append("scan_file", order.hochladen.files[0]);
-          console.log(order.hochladen.files[0])
+          console.log(order.hochladen.files[0]);
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);

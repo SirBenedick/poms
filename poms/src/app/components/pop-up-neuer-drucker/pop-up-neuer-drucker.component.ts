@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { IPrinterData } from "src/app/shared/interfaces";
 import { PrinterComponent } from "src/app/pages/printer/printer.component";
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: "app-pop-up-neuer-drucker",

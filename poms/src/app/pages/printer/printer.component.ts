@@ -3,7 +3,8 @@ import { BackendService } from "../../services/backend.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { IPrinterData, IPrinterNew } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription } from "rxjs";
+import { analyzeAndValidateNgModules } from "@angular/compiler";
 
 @Component({
   selector: "app-printer",
@@ -11,17 +12,17 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ["./printer.component.css"]
 })
 export class PrinterComponent implements OnInit {
-  everyPrinter: Array<Observable<IPrinterData>> = this.backendService.everyPrinter;
+  everyPrinter: Array<Observable<IPrinterData>>;
 
   printersNameDialogRef: MatDialogRef<PopUpNeuerDruckerComponent>;
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: IPrinterNew,
+    @Inject(MAT_DIALOG_DATA) public data: Array<IPrinterData>
   ) {}
 
   ngOnInit() {
-
+    this.refreshPrinterList();
   }
 
   openDialogNewDrucker(): void {
@@ -33,8 +34,12 @@ export class PrinterComponent implements OnInit {
         if (result.value) {
           console.log("Dialog was closed", result.value);
           this.backendService.addNewPrinter(result.value).then((res: any) => {
-            if (res.error)
+            if (res.error) {
               alert("Drucker konnte nicht hinzugefügt werden: \n" + res.error);
+            } else {
+              console.log("added printer");
+              this.refreshPrinterList();
+            }
           });
         }
       }
@@ -56,8 +61,17 @@ export class PrinterComponent implements OnInit {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
   }
 
-  deletePrinter():void{
-    alert(`Ihr Drucker wurde erfolgreich gelöscht!`)
-    // this.backendService.removePrinterById(this.data.name).then(response => console.log(response));
+  deletePrinter(printer_id: any): void {
+    this.backendService.removePrinterById(printer_id).then(response => {
+      this.refreshPrinterList();
+    });
+  }
+
+  refreshPrinterList() {
+    this.backendService.startPrinterObservable().then(res => {
+      console.log("this.backendService.everyPrinter.length:", res)
+      //this.everyPrinter = this.backendService.everyPrinter;
+      setTimeout(res => this.everyPrinter = this.backendService.everyPrinter, 1500)
+    });
   }
 }

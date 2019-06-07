@@ -7,7 +7,7 @@
   </div>
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-    <mat-expansion-panel *ngFor="let printer of everyPrinter" class="expand-collapse">
+    <mat-expansion-panel *ngFor="let printer of everyPrinter" class="expand-collapse" >
       <mat-expansion-panel-header>
         <!-- Ausgabe von allen verfügbaren Druckern -->
         <mat-panel-title id="order-heading">
@@ -24,7 +24,7 @@
       </mat-expansion-panel-header>
       
       <app-status style="overflow: auto" [printer]="printer"></app-status>
-      <button (click)="deletePrinter()">Drucker löschen</button>
+      <button *ngIf="(printer | async )?.printer_id as printer_id" (click)="deletePrinter(printer_id)">Drucker löschen</button>
     </mat-expansion-panel>
     <button (click)="startPrinter(23)">Druck Starten</button>
     <button (click)="stopPrinter(23)">Druck Stop</button>

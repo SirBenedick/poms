@@ -33,7 +33,7 @@
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
       <mat-form-field   class="example-full-width" style="margin-top: -20px">
-        <input matInput formControlName="patient" placeholder="Name eingeben" />
+        <input matInput formControlName="patient" />
       </mat-form-field>
     </div>
 
@@ -41,7 +41,7 @@
       <h1 class="title">Fälligkeit</h1>
       <mat-form-field style="width: 350px">
         <input matInput [matDatepicker]="searchDate" class=" rechteck-eingabe"  formControlName="dueDate"
-               style="border: transparent" placeholder="Fälligkeitdatum DD/MM/JJJJ" />
+               style="border: transparent" />
         <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
         <mat-datepicker #searchDate></mat-datepicker>
       </mat-form-field>
