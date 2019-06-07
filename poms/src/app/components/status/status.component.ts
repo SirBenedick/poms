@@ -32,9 +32,11 @@ export class StatusComponent implements OnInit {
   }
 
   onDetailedView(detail): void {
+    console.log("data:", this.printerInfo)
+    console.log("detail‚:", detail)
     this.printerInfo;
     const dialogRef = this.dialog.open(PopUpVanikComponent, {
-      data: { printerInfo: this.printerInfo, detail }
+      data: { printerInfo: this.printerInfo, detail: detail }
     });
 
     dialogRef.afterClosed().subscribe(result => {

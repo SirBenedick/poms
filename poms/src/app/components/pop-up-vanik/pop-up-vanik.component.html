@@ -33,14 +33,14 @@
   </div>
   <!-- Anzeige der Daten geht bis hier hin -->
   <!-- Anzeige der Daten vom Füllstand -->
-  <div *ngIf="data.detail == (data.printerInfo.harzstand)*100">
+  <div *ngIf="data.detail == (data.printerInfo.resin_volume)*100">
       <div id="ueberschriftenTexte">Füllstand des Druckers in %</div>
       <div class="textboxen" id="textausrichten" style="text-align: center">
-        {{data.printerInfo.harzstand |percent}}
+        {{data.printerInfo.resin_volume |percent}}
       </div>
       <div id="ueberschriftenTexte">Füllstand des Druckers in ml</div>
       <div class="textboxen" id="textausrichten">
-        {{(data.printerInfo.harzstand*0.4)*1000 |number}} ml
+        {{(data.printerInfo.resin_volume*0.4)*1000 |number}} ml
       </div>
       <div id="ueberschriftenTexte">Wie viel ml passen maximal in den Tank?</div>
       <div class="textboxen" id="textausrichten">
@@ -49,7 +49,7 @@
     </div>
     <!-- Anzeige der Daten geht bis hier hin -->
   <div>
-    <button mat-button (click)="onBreakButton()" class="closeButton">
+    <button mat-button (click)="onBreakButton()" class="close-button">
       Schließen
     </button>
   </div>

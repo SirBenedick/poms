@@ -16,7 +16,7 @@
   <div class="status-card-container">
     <h1 class="card-title">Füllstand</h1>
     <h2 class="print-info" >{{ (printer | async)?.resin_volume | percent }}</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printerInfo.resin_volume*100)" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onDetailedView(printerData.resin_volume*100)" />
   </div>
   <div class="status-card-container">
     <h1 class="card-title">
