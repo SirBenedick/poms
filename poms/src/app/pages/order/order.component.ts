@@ -208,6 +208,7 @@ export class OrderComponent implements OnInit {
               this.loadOrderData();
             }
           });
+          console.log(newOrder)
         }
       }
     });

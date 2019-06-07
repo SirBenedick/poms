@@ -56,7 +56,7 @@ export class BasicLayoutComponent implements OnInit {
           newOrder.append("comment", order.comment);
           newOrder.append("status", "created");
           newOrder.append("scan_file", order.hochladen.files[0]);
-
+          console.log(order.hochladen.files[0])
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               alert(res.error);
