@@ -335,7 +335,7 @@ export class BackendService {
     return this.http.get(this.backendUrl + "order/remove/" + id).toPromise();
   }
 
-  removePrinterById(name: String): Promise<Object> {
+  removePrinterById(name: string): Promise<Object> {
     return this.http
       .get(this.backendUrl + "printer/remove/" + name)
       .toPromise();

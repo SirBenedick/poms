@@ -23,9 +23,9 @@ export class FAQComponent implements OnInit {
 
   ngOnInit() {}
   onClick(subtopic: {
-    subtopicTitel: String;
-    subtopicContent: String;
-    videoURL?: String;
+    subtopicTitel: string;
+    subtopicContent: string;
+    videoURL?: string;
   }) {
     console.log(subtopic);
   }

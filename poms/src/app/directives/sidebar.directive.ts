@@ -8,7 +8,7 @@ export class SidebarDirective {
   click: boolean = false;
   constructor() {}
 
-  @HostListener("click") onClick() {
-    this.click=!this.click;
+  @HostListener('click') onClick() {
+    this.click = !this.click;
   }
 }

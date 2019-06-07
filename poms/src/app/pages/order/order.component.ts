@@ -130,7 +130,7 @@ export class OrderComponent implements OnInit {
   filterGroupData(parameter: IFilterOrders) {
     this.resetGroupFilter();
 
-    for (let key in parameter) {
+    for (const key in parameter) {
       if (parameter[key]) {
         if (key == "due_date") {
           // console.log("Filter DueDate, does nothing");
@@ -283,7 +283,7 @@ export class OrderComponent implements OnInit {
   dropNewGroup(event: CdkDragDrop<string[]>) {
     let previousContainer = event.previousContainer;
     let draggedOrder: IOrder = <IOrder>(
-      (<unknown>previousContainer.data[event.previousIndex])
+      (<unknown> previousContainer.data[event.previousIndex])
     );
 
     this.backendService.createNewGroup(draggedOrder).then(res => {
