@@ -7,7 +7,7 @@ import {
   ICategoryName
 } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
-import { Component, OnInit, Inject, ViewChild } from "@angular/core";
+import { Component, OnInit, Inject, ViewChild, ElementRef } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
@@ -78,12 +78,13 @@ export class CreateNewOrderComponent implements OnInit {
         this.data.fileSolid ? this.data.fileSolid : "",
         [Validators.required]
       ),
-      hochladen: new FormControl(
+       hochladen: new FormControl(
+        this.fileInputScan.nativeElement?
         this.fileInputScan.nativeElement
-          ? this.fileInputScan.nativeElement
-          : null,
-        [Validators.required]
-      )
+          : null
+         ,[Validators.required])
+       
+  
     });
 
     if (this.data.customer_id)
@@ -145,6 +146,7 @@ export class CreateNewOrderComponent implements OnInit {
     // console.log(alteredOrderData);
     // this.dialogRef.close({order_id : this.data.order_id, alteredOrder : alteredOrderData});
     this.dialogRef.close();
+    console.log(newOrder);
   }
   handleFileInput(files: FileList){
     this.fileToUploadName = files.item(0).name;

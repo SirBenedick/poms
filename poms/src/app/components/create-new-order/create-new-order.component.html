@@ -62,14 +62,14 @@
           {{ oneCategory.model_type_name }}
         </mat-option>
       </mat-select>
-    </div>
-
-    <h1 class="title">Datei hochladen</h1>
+    </div> 
+ <!-- Hier ist der Fehler verbaut -->
+     <h1 class="title">Datei hochladen</h1>
     <img
       src="../../../assets/svg/Hochladen.svg"
       style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
-    />
-    <div >
+    /> 
+    <div>
       <input
         id="file"
         class="inputfile"
@@ -100,7 +100,8 @@
 
       </div>
     </div>
-
+   
+    <!-- bis hier Fehlersuche -->
     <div class="input-container">
       <h1 class="title">Sonstige Informationen</h1>
       <textarea class=" rechteck-eingabe" formControlName="comment" rows="4"
