@@ -1,13 +1,13 @@
 <!-- Page Content -->
 <div class="page-container">
   <div cdkDropListGroup>
-    <div class="half-container" style=" border: transparent;
-  border-bottom: solid 1px #a2a2a2;">
+    <div
+      class="half-container"
+      style=" border: transparent;
+  border-bottom: solid 1px #a2a2a2;"
+    >
       <h1 class="heading">Gruppierte Aufträge</h1>
       <div class="button-space">
-        <!-- <div style="color:black;" *ngIf="isGroupFilterSet != 0" (click)="resetGroupFilter($event)">
-          ({{ isGroupFilterSet }}) X
-        </div> -->
         <div
           class="button-style-group"
           (click)="openDialogFilterGroups()"
@@ -34,7 +34,12 @@
       >
         <b>+</b> Aufträge hierhinziehen um neue Gruppe zu erstellen
       </button>
-      <div class="expand-print">
+      <div class="no-data-to-display" *ngIf="!filteredGroupData.length">
+        <img src="../../../assets/svg/Zahn.svg" /><br />
+        Momentan existieren keine Gruppen. Um eine Gruppe zu erstellen, ziehe
+        einfach einen oder mehrere Aufträge von unten auf das Gruppenfeld oben.
+      </div>
+      <div class="expand-print" *ngIf="filteredGroupData.length">
         <mat-expansion-panel
           *ngFor="let group of filteredGroupData"
           class="expand-collapse"
@@ -118,13 +123,11 @@
           [order]="orderCard"
         >
         </app-order-card>
-        <p
-          style="font-family: 'Segoe UI';font-size: 15px; font-weight: bold; padding-left: 20px; padding-top: 35px"
-          *ngIf="filteredUngroupedOrders.length == 0"
-        >
-          Es sind keine Aufträge mehr vorhanden oder keine treffen auf die
-          Filterung zu.
-        </p>
+        <div class="no-data-to-display" *ngIf="!filteredUngroupedOrders.length">
+          <img src="../../../assets/svg/Zahn.svg" /><br />
+          Momentan sind keine Aufträge vorhanden. Erstelle einfach einen, indem
+          du den Button anklickst.
+        </div>
       </div>
     </div>
   </div>

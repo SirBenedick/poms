@@ -10,7 +10,6 @@
   overflow: auto;
   margin: 2px;
   object-fit: contain;
-
 }
 .half-half-container {
   display: flex;
@@ -24,10 +23,10 @@
 .draggable-card-container {
   cursor: pointer;
 }
-#dragging:hover{
+#dragging:hover {
   cursor: grab;
 }
-#dragging:active{
+#dragging:active {
   cursor: grabbing;
 }
 .expand-collapse {
@@ -164,6 +163,20 @@
   float: right;
 }
 
-.copy-filter:hover{
+.copy-filter:hover {
   cursor: pointer;
+}
+.no-data-to-display {
+  width: 376px;
+  height: 42px;
+  object-fit: contain;
+  font-family: SegoeUI;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgb(98, 198, 214);
 }
