@@ -2,7 +2,8 @@ import {
   IResinType,
   IOrder,
   ICategory,
-  ICustomer
+  ICustomer,
+  IOrderStatus
 } from "../../../shared/interfaces";
 import { BackendService } from "../../../services/backend.service";
 import { Component, OnInit, Inject, ViewChild } from "@angular/core";
@@ -20,6 +21,7 @@ export class CreateNewOrderComponent implements OnInit {
   categoryData: Array<ICategory> = this.backendService.categorysData;
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
+  orderStatus: Array<IOrderStatus> = this.backendService.orderStatus;
 
   fileToUploadName: string;
 
@@ -55,6 +57,9 @@ export class CreateNewOrderComponent implements OnInit {
         [Validators.required]
       ),
       harz: new FormControl(this.data.resin_name ? this.data.resin_name : "", [
+        Validators.required
+      ]),
+      status: new FormControl(this.data.status ? this.data.status : "", [
         Validators.required
       ]),
       dueDate: new FormControl(this.data.due_date ? this.data.due_date : "", [
@@ -117,9 +122,10 @@ export class CreateNewOrderComponent implements OnInit {
     newOrder.append("resin_name", formData.harz);
     newOrder.append("due_date", formData.dueDate);
     newOrder.append("comment", formData.comment);
-    newOrder.append("status", this.data.status);
+    newOrder.append("status", formData.status);
     newOrder.append("scan_file", formData.hochladen.files[0]);
 
+    
     this.backendService
       .alterOrderById(this.data.order_id, newOrder)
       .then(response => console.log("alterOrderById", response));

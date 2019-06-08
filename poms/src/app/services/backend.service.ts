@@ -21,7 +21,8 @@ import {
   ICategoryName,
   ICategoryDelete,
   IAlterCategory,
-  IPrinterDataPolling
+  IPrinterDataPolling,
+  IOrderStatus
 } from "../shared/interfaces";
 import { switchMap, catchError } from "rxjs/operators";
 
@@ -123,6 +124,11 @@ export class BackendService {
   customerData: Array<ICustomer>;
   helpData: Array<IFAQPage>;
   categorysData: Array<ICategory>;
+  orderStatus: Array<IOrderStatus> = [
+    { value: "created", display_name: "Druckbereit" },
+    { value: "postPrint", display_name: "Nachbereitung" },
+    { value: "sent", display_name: "Abgeschlossen" }
+  ];
 
   constructor(private http: HttpClient, private uploadService: UploadService) {
     /** Starts observable and polls from Backend */
@@ -322,8 +328,13 @@ export class BackendService {
       .toPromise();
   }
 
-  alterOrderById(order_id: number, alteredOrder: Object): Promise<Object> {
-    return this.uploadService.alterOrderById(order_id, alteredOrder);
+  alterOrderById(order_id: number, alteredOrder: FormData): Promise<Object> {
+    /** When an order is in status "sent" the ground information needs to get removed so it does not get displayed twice */
+    if (alteredOrder.get("status") === "sent") {
+      return this.assignOrderToGroup(order_id, 0).then(res =>
+        this.uploadService.alterOrderById(order_id, alteredOrder)
+      );
+    } else return this.uploadService.alterOrderById(order_id, alteredOrder);
   }
 
   alterResin(new_name: IAlterResin): Promise<Object> {

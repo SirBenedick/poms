@@ -44,7 +44,7 @@
     </div>
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
-      <mat-form-field   class="example-full-width" style="margin-top: -20px">
+      <mat-form-field class="example-full-width" style="margin-top: -20px">
         <input matInput formControlName="patient" />
       </mat-form-field>
     </div>
@@ -52,14 +52,26 @@
     <div class="input-container" style="margin-top: -15px">
       <h1 class="title">Fälligkeit</h1>
       <mat-form-field style="width: 350px">
-        <input matInput [matDatepicker]="searchDate" class=" rechteck-eingabe"  formControlName="dueDate"
-               style="border: transparent" />
-        <mat-datepicker-toggle matSuffix [for]="searchDate"></mat-datepicker-toggle>
+        <input
+          matInput
+          [matDatepicker]="searchDate"
+          class=" rechteck-eingabe"
+          formControlName="dueDate"
+          style="border: transparent"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="searchDate"
+        ></mat-datepicker-toggle>
         <mat-datepicker #searchDate></mat-datepicker>
       </mat-form-field>
     </div>
 
-    <div class="input-container" style="margin-top: -10px">
+    <div
+      class="input-container"
+      style="margin-top: -10px"
+      *ngIf="data.status != 'sent'"
+    >
       <h1 class="title">Harzfarbe</h1>
       <mat-select
         formControlName="harz"
@@ -74,7 +86,7 @@
       </mat-select>
     </div>
 
-    <div class="input-container">
+    <div class="input-container" *ngIf="data.status != 'sent' && data.status != 'postPrint'">
       <h1 class="title">Kategorie</h1>
       <mat-select
         formControlName="dental_print_type"
@@ -89,7 +101,8 @@
         </mat-option>
       </mat-select>
     </div>
-    <!-- Hier ist der Fehler verbaut -->
+    <!-- Hier versteckt sich das feature -->
+
     <h1 class="title">Datei hochladen</h1>
     <img
       src="../../../assets/svg/Hochladen.svg"
@@ -110,20 +123,21 @@
           style="text-align: center; padding-top: 5px;font-weight: normal"
         >
           {{ fileToUploadName }}
-        </h1></label
-      >
+        </h1>
+      </label>
 
-      <label for="file" *ngIf="!fileToUploadName"
-        ><h1
+      <label for="file" *ngIf="!fileToUploadName">
+        <h1
           class="title"
           style="text-align: center;padding-top: 5px;font-weight: normal"
         >
           Oralscan‚ Hochladen
-        </h1></label
-      >
+        </h1>
+      </label>
     </div>
 
     <!-- bis hier Fehlersuche -->
+
     <div class="input-container">
       <h1 class="title">Sonstige Informationen</h1>
       <textarea
@@ -133,6 +147,24 @@
         style="resize:none; width: 350px;height: 80px"
         placeholder="Anmerkung"
       ></textarea>
+    </div>
+    <div
+      class="input-container"
+      *ngIf="data.status == 'postPrint' || data.status == 'sent'"
+    >
+      <h1 class="title">Status setzten</h1>
+      <mat-select
+        formControlName="status"
+        placeholder="Kategorie auswählen"
+        class=" rechteck-eingabe"
+      >
+        <mat-option
+          *ngFor="let status of orderStatus"
+          value="{{ status.value }}"
+        >
+          {{ status.display_name }}
+        </mat-option>
+      </mat-select>
     </div>
 
     <div style="align-self: flex-end; margin-top: -10px">

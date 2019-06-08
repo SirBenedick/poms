@@ -210,3 +210,7 @@ export interface IPrinterDataPolling {
   printer_name: string;
   printer$: Observable<IPrinterData>;
 }
+export interface IOrderStatus{
+  value: string;
+  display_name: string;
+}
