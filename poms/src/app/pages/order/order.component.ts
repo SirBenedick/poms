@@ -82,13 +82,15 @@ export class OrderComponent implements OnInit {
       .getAllGroups()
       .toPromise()
       .then((allGroupData: Array<IGroupedOrders>) => {
-        this.allGroupedOrders = [];
         this.refreshAllGroupData(allGroupData);
       });
   }
 
   refreshAllGroupData(newData: Array<IGroupedOrders>) {
-    this.allGroupedOrders = newData;
+    this.allGroupedOrders = [];
+    newData.forEach((group: IGroupedOrders) => {
+      if (group.status != "postprint") this.allGroupedOrders.push(group);
+    });
     this.filteredGroupData = this.allGroupedOrders;
   }
 
