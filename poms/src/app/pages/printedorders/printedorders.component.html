@@ -1,5 +1,69 @@
 <div class="page-container">
-  <div class="half-container">
+  <div cdkDropListGroup>
+    <div
+      class="half-container"
+      style=" border: transparent;
+      border-bottom: solid 1px #a2a2a2;"
+    >
+      <h1 class="heading">Gruppierte Aufträge</h1>
+      <p>Aktuell werden "preprint" Gruppen angezeigt, da das backend den status nicht setzt</p>
+      <div class="button-space">
+        <div
+              class="button-style-group"
+              (click)="openDialogFilterGroups()"
+              [appFilterButtonActivated]="isGroupFilterSet"
+            >
+              Filter setzen
+              <div
+                style="color:black;"
+                *ngIf="isGroupFilterSet != 0"
+                (click)="resetGroupFilter($event)"
+              >
+                ({{ isGroupFilterSet }}) X
+              </div>
+            </div>
+      </div>
+      <div class="no-data-to-display" *ngIf="!filteredGroupData.length">
+        <img src="../../../assets/svg/Zahn.svg" /><br />
+        Momentan existieren keine Gruppen die sich in der Nachbereitung
+        befinden.
+      </div>
+      <div class="expand-print" *ngIf="filteredGroupData.length">
+        <mat-expansion-panel
+          *ngFor="let group of filteredGroupData"
+          class="expand-collapse"
+          cdkDropList
+          [cdkDropListData]="group.orders"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div>
+                <p id="order-heading">
+                  Gruppe: {{ group.group_id }}, Aufträge:
+                  {{ group.orders.length }}
+                </p>
+              </div>
+            </mat-panel-title>
+            <div id="button-space">
+                  <button class="button-style" (click)="onGroupClick(group)">
+                    Details
+                  </button> 
+                </div>
+          </mat-expansion-panel-header>
+          <div class="draggable-card-container">
+            <app-order-card
+              id="dragging"
+              *ngFor="let orderCard of group.orders"
+              [order]="orderCard"
+            >
+            </app-order-card>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <!-- <button class="expand-collapse" (click)="onClick()">drucken</button>
+        </div> -->
+    </div>
+    <!-- <div class="half-container">
     <div>
       <b class="ueberschriften"> Nachbereitung ausstehend </b>
       <a (click)="help()" class="ueberschriften1"
@@ -20,7 +84,7 @@
         </div>
       </div>
     </div>
-    <!-- with filter -->
+    -- with filter --
     <div class="cards">
       <app-order-card
         *ngFor="let orderCard of filteredUnsentOrders"
@@ -28,29 +92,30 @@
       >
       </app-order-card>
     </div>
-  </div>
-  <div class="half-container">
-    <div class="ueberschriften">Abgeschlossene Aufträge</div>
-    <div
-      class="button-style-group"
-      (click)="openSentFilter()"
-      [appFilterButtonActivated]="isSentFilterSet"
-    >
-      Filter
+  </div> -->
+    <div class="half-container">
+      <div class="ueberschriften">Abgeschlossene Aufträge</div>
       <div
-        style="color:black;"
-        *ngIf="isSentFilterSet != 0"
-        (click)="resetSentFilter($event)"
+        class="button-style-group"
+        (click)="openSentFilter()"
+        [appFilterButtonActivated]="isSentFilterSet"
       >
-        ({{ isSentFilterSet }}) X
+        Filter
+        <div
+          style="color:black;"
+          *ngIf="isSentFilterSet != 0"
+          (click)="resetSentFilter($event)"
+        >
+          ({{ isSentFilterSet }}) X
+        </div>
       </div>
-    </div>
-    <div class="cards">
-      <app-order-card
-        *ngFor="let orderCard of filteredSentOrders"
-        [order]="orderCard"
-      >
-      </app-order-card>
+      <div class="cards">
+        <app-order-card
+          *ngFor="let orderCard of filteredSentOrders"
+          [order]="orderCard"
+        >
+        </app-order-card>
+      </div>
     </div>
   </div>
 </div>

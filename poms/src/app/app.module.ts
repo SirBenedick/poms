@@ -65,6 +65,7 @@ import { KategorieloeschenComponent } from './components/pop-ups/Settings/katego
 import { HarzinfobearbeitenComponent } from './components/pop-ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component';
 import { HarzloeschenComponent } from './components/pop-ups/Settings/harzloeschen/harzloeschen.component';
 import { OrderIdLeadingZeros } from './shared/pipes/order-id-leading-zeros.pipe';
+import { PostprintGroupActionComponent } from './components/pop-ups/postprint-group-action/postprint-group-action.component';
 
 
 registerLocaleData(de);
@@ -103,7 +104,9 @@ registerLocaleData(de);
     KategorieinfobearbeitenComponent,
     KategorieloeschenComponent,
     HarzinfobearbeitenComponent,
-    HarzloeschenComponent
+    HarzloeschenComponent,
+    PostprintGroupActionComponent,
+    PostprintGroupActionComponent
   ],
   imports: [
     BrowserModule,
@@ -150,7 +153,8 @@ registerLocaleData(de);
     HarzloeschenComponent,
     NeueKategorieComponent,
     KategorieinfobearbeitenComponent,
-    KategorieloeschenComponent
+    KategorieloeschenComponent,
+    PostprintGroupActionComponent
   ],
   //alle Services einbinden
   providers: [
