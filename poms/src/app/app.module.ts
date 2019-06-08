@@ -53,7 +53,6 @@ import { LogoutComponent } from './components/pop-ups/logout/logout.component';
 import { ErrorPopUpComponent } from './components/pop-ups/error-pop-up/error-pop-up.component';
 import { FAQPopUpComponent } from './components/pop-ups/faqpop-up/faqpop-up.component';
 import { UrlTextPopUpComponent } from './components/pop-ups/url-text-pop-up/url-text-pop-up.component';
-import { DeactiveGroupDirective } from './directives/deactive-group.directive';
 import { NeuerKundeComponent } from './components/pop-ups/Settings/neuer-kunde/neuer-kunde.component';
 import { NeuesHarzComponent } from './components/pop-ups/Settings/neues-harz/neues-harz.component';
 import { NeueKategorieComponent } from './components/pop-ups/Settings/neue-kategorie/neue-kategorie.component';
@@ -93,7 +92,6 @@ registerLocaleData(de);
     ErrorPopUpComponent,
     FAQPopUpComponent,
     UrlTextPopUpComponent,
-    DeactiveGroupDirective,
     NeuerKundeComponent,
     NeuesHarzComponent,
     NeueKategorieComponent,
