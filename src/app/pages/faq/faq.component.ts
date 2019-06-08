@@ -1,11 +1,9 @@
-// import { IHelpPage, IHelpPageTopic, IHelpPageSubtopic } from "./../../shared/interfaces";
 import { BackendService } from "./../../services/backend.service";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { PopUpFAQComponent } from "src/app/components/pop-ups/pop-up-faq/pop-up-faq.component";
-import { FAQPopUpComponent } from "src/app/components/pop-ups/faqpop-up/faqpop-up.component";
 import { UrlTextPopUpComponent } from "src/app/components/pop-ups/url-text-pop-up/url-text-pop-up.component";
-import { IFAQPage, ICategory, IResinType, ICategoryName } from "src/app/shared/interfaces";
+import { ICategory } from "src/app/shared/interfaces";
 
 @Component({
   selector: "app-faq",
@@ -55,7 +53,7 @@ export class FAQComponent implements OnInit {
     const dialogRef = this.dialog.open(PopUpFAQComponent, {
       data: {
         category: category,
-        subcategory: subcategory,
+        subcategory: subcategory
       }
     });
 

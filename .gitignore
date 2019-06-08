@@ -1,18 +1,8 @@
 
 #manually added
-idea/
 .idea/
 .vscode/
-=======
-#manually added
-idea/
-.idea/
->>>>>>> master
-=======
-#manually added
-idea/
-.idea/
->>>>>>> master
+
 # Logs
 logs
 *.log
