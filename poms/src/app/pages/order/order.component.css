@@ -124,7 +124,23 @@
   border: transparent;
   cursor: pointer;
 }
+.button-style-printing {
+  float: right;
+  font-family: "Segoe UI";
+  width: 130px;
+  height: 30px;
+  margin: 2px;
+  object-fit: contain;
 
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  color: #272f33;
+}
 .create-new-order {
   width: 149px;
   height: 149px;

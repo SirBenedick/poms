@@ -58,11 +58,28 @@
               </div>
               <p (click)="copyResinFromGroup(group)">{{ group.resin_name }}</p>
             </mat-panel-title>
-            <div id="button-space">
-              <button class="button-style" (click)="onPrintClick()">
-                Drucken
-              </button>
-            </div>
+
+            <div
+              *ngIf="
+                group.status == 'printing';
+                then printingBlock;
+                else elseBlock
+              "
+            ></div>
+            <ng-template #printingBlock>
+              <div id="button-space">
+                <div class="button-style-printing">
+                  druckt gerade...
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #elseBlock>
+              <div id="button-space">
+                <button class="button-style" (click)="onPrintClick()">
+                  Drucken
+                </button>
+              </div>
+            </ng-template>
           </mat-expansion-panel-header>
           <div class="draggable-card-container">
             <app-order-card
