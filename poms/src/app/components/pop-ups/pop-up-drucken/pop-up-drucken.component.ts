@@ -3,10 +3,9 @@ import { Component, OnInit, Inject, Input, ViewChild } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
-import { IDrucken, IPrinterData } from "src/app/shared/interfaces";
+import { IPrinterData } from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
-import { map } from "rxjs/operators";
-import { HttpEventType } from "@angular/common/http";
+
 
 @Component({
   selector: "app-pop-up-drucken",
@@ -30,19 +29,6 @@ export class PopUpDruckenComponent implements OnInit {
 
   ngOnInit() {
     this.newPrinterForm = new FormGroup({
-      //   hochladen: new FormControl(
-      //     this.data.download ? this.data.download : "",
-      //     [Validators.minLength(1), Validators.required]
-      //   ),
-      //   herunterladen: new FormControl(
-      //     this.data.upload ? this.data.upload : "",
-      //     [Validators.minLength(1), Validators.required]
-      //   ),
-      //   drucker: new FormControl(
-      //     this.data.print ? this.data.print : "",
-      //     [Validators.minLength(1), Validators.required]
-      //   ),
-      // });
       // Kann in der Regel auch leer sein
       hochladen: new FormControl(),
       herunterladen: new FormControl(),
@@ -58,8 +44,6 @@ export class PopUpDruckenComponent implements OnInit {
     this.dialogRef.close();
   }
   onPrintButton(): void {
-    // this.backendService.startPrinter(24).then(res => console.log(res))
-
     // //Für Den richtigen druck
     console.log("onPrintButton");
     let fi = this.fileInputSkin.nativeElement;
@@ -73,6 +57,10 @@ export class PopUpDruckenComponent implements OnInit {
     }
     this.dialogRef.close();
   }
-  downloadSkin() {}
-  uploadSolid() {}
+  downloadSkin() {
+    console.log("Nothing");
+  }
+  uploadSolid() {
+    console.log("Nothing");
+  }
 }

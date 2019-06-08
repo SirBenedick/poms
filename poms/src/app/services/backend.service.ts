@@ -236,6 +236,7 @@ export class BackendService {
   }
 
   /** Get data */
+
   getPrinterById(id: Number): Observable<Object> {
     return this.http.get(this.backendUrl + "printer/get/" + id);
   }
@@ -262,6 +263,10 @@ export class BackendService {
 
   getAllGroupData(): Array<IGroupedOrders> {
     return this.allGroupData;
+  }
+
+  downloadSlicedFileFromGroup(id: number): Promise<Object> {
+    return this.http.get(this.backendUrl + "group/download/" + id).toPromise();
   }
 
   /** Create data*/
@@ -336,6 +341,18 @@ export class BackendService {
   alterCustomer(customer_id: number, newCustomer: Object): Promise<Object> {
     return this.http
       .post(this.backendUrl + "customer/alter/" + customer_id, newCustomer)
+      .toPromise();
+  }
+
+  alterGroupOrderStatus(group_id: number): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "group/alter/orders", { id: group_id })
+      .toPromise();
+  }
+
+  alterGroupStatus(group_id: number, status: string): Promise<Object> {
+    return this.http
+      .post(this.backendUrl + "group/alter/1", { id: group_id, status: status })
       .toPromise();
   }
 
