@@ -1,11 +1,9 @@
-import { Component, OnInit, Input, Inject } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FAQPopUpComponent } from "../faqpop-up/faqpop-up.component";
-import { setTNodeAndViewData } from "@angular/core/src/render3/state";
-// import { IHelpPageSubtopic } from 'src/app/shared/interfaces';
 import { BackendService } from "src/app/services/backend.service";
-import { IFAQPage, IFAQPageAlter } from "src/app/shared/interfaces";
-import { FAQComponent } from "src/app/pages/faq/faq.component";
+import { IFAQPageAlter } from 'src/app/shared/interfaces';
+
 
 @Component({
   selector: "app-url-text-pop-up",
@@ -28,7 +26,6 @@ export class UrlTextPopUpComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.data);
     this.oldTitle = this.data.item.title;
   }
 

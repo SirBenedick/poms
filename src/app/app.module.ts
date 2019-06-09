@@ -65,6 +65,7 @@ import { HarzinfobearbeitenComponent } from './components/pop-ups/Settings/harzi
 import { HarzloeschenComponent } from './components/pop-ups/Settings/harzloeschen/harzloeschen.component';
 import { OrderIdLeadingZeros } from './shared/pipes/order-id-leading-zeros.pipe';
 import { PostprintGroupActionComponent } from './components/pop-ups/postprint-group-action/postprint-group-action.component';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 
 registerLocaleData(de);
@@ -96,6 +97,7 @@ registerLocaleData(de);
     NeuesHarzComponent,
     NeueKategorieComponent,
     PrinterStatusPipe,
+    SafePipe,
     OrderIdLeadingZeros,
     KundeninfobearbeitenComponent,
     KundeloeschenComponent,
