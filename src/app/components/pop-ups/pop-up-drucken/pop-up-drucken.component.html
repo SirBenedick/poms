@@ -1,7 +1,7 @@
 <form [formGroup]="newPrinterForm">
   <div class="page-container">
     <h1 class="heading">
-      Gruppe drucken
+      Gruppe: {{ data.group_id }}
     </h1>
 
     <div style="padding-top: 20px" class="container">
@@ -56,7 +56,7 @@
           class=" drucker"
         >
           <div *ngFor="let printer of printerData">
-            <mat-option *ngIf="!printer.is_printing" value="{{ printer.name }}">
+            <mat-option *ngIf="!printer.is_printing" value="{{ printer.printer_id }}">
               {{ printer.name }}
             </mat-option>
           </div>
