@@ -5,8 +5,7 @@ import {
   IFilterOrders,
   IResinType,
   ICategory,
-  ICustomer,
-  ICategoryName
+  ICustomer
 } from "src/app/shared/interfaces";
 import { FormGroup, FormControl } from "@angular/forms";
 

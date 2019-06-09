@@ -1,62 +1,128 @@
 <form [formGroup]="filterParamForm" class="page-container">
-
   <h3 class="heading">Filteroptionen</h3>
-<div class ="inner-container" style="padding-top: 10px">
-  <!-- Wird gebraucht, wenn Backend komplett steht -->
-  <h4 class="title">Harz</h4>
-  <div class="harz-container">
-    <div class="radio-container" *ngFor="let harz of harzList">
-      <input type="radio" id="{{ harz.resin_name }}" name="resin_name" value="{{ harz.resin_name }}" formControlName="resin_name" />
-      <label id="harz-title" for="{{ harz.resin_name }}">{{ harz.resin_name }}</label>
+  <div class="inner-container" style="padding-top: 10px">
+    <!-- Wird gebraucht, wenn Backend komplett steht -->
+    <h4 class="title">Harz</h4>
+    <div class="harz-container">
+      <div class="radio-container" *ngFor="let harz of harzList">
+        <input
+          type="radio"
+          id="{{ harz.resin_name }}"
+          name="resin_name"
+          value="{{ harz.resin_name }}"
+          formControlName="resin_name"
+        />
+        <label id="harz-title" for="{{ harz.resin_name }}">{{
+          harz.resin_name
+        }}</label>
+      </div>
     </div>
   </div>
-</div>
 
-<div class ="inner-container" style="padding-top: 5px">
-  <h4 class="title">Fällig am</h4>
-  <mat-form-field style="width: 370px">
-    <input matInput [matDatepicker]="pickerStart" placeholder="Erstellungsdatum auswählen" formControlName="dueDateStart"
-      class="boxen" style="border: transparent"/>
-    <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
-    <mat-datepicker #pickerStart></mat-datepicker>
-  </mat-form-field>
-</div>
-
-  <div class ="inner-container" style="margin-top: -10px">
-  <mat-form-field style="width: 370px">
-    <input matInput [matDatepicker]="pickerEnd" placeholder="Fälligkeitsdatum auswählen" formControlName="dueDateEnd"
-      class="boxen" style="border: transparent" />
-    <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
-    <mat-datepicker #pickerEnd></mat-datepicker>
-  </mat-form-field>
+  <div class="inner-container" style="padding-top: 5px">
+    <h4 class="title">Fällig am</h4>
+    <mat-form-field style="width: 370px">
+      <input
+        matInput
+        [matDatepicker]="pickerStart"
+        placeholder="Erstellungsdatum auswählen"
+        formControlName="dueDateStart"
+        class="boxen"
+        style="border: transparent"
+        (click)="pickerStart.open()"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pickerStart"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerStart></mat-datepicker>
+    </mat-form-field>
   </div>
 
-  <div class ="inner-container">
-    <h4 class="title"> Kategorie </h4>
-    <mat-select matNativeControl required formControlName="dental_print_type" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
-      <mat-option *ngFor="let oneCategory of categoryData" value="{{oneCategory.model_type_name}}">
+  <div class="inner-container" style="margin-top: -10px">
+    <mat-form-field style="width: 370px">
+      <input
+        matInput
+        [matDatepicker]="pickerEnd"
+        placeholder="Fälligkeitsdatum auswählen"
+        formControlName="dueDateEnd"
+        class="boxen"
+        style="border: transparent"
+        (click)="pickerEnd.open()"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pickerEnd"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerEnd></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="inner-container">
+    <h4 class="title">Kategorie</h4>
+    <mat-select
+      matNativeControl
+      required
+      formControlName="dental_print_type"
+      placeholder="Kategorie auswählen"
+      class=" rechteck-eingabe"
+    >
+      <mat-option
+        *ngFor="let oneCategory of categoryData"
+        value="{{ oneCategory.model_type_name }}"
+      >
         {{ oneCategory.model_type_name }}
       </mat-option>
     </mat-select>
   </div>
-  <div class ="inner-container" style="padding-top: 10px">
-  <h4 class="title">Priorität</h4>
-  <div class="radio-container" required>
-  <input type="radio" id="niedrig" name="priority" value="niedrig" formControlName="priority" class="boxenPrio" />
-  <label for="niedrig" class="schrift_boxen">niedrig</label>
-  <input type="radio" id="mittel" name="priority" value="mittel" formControlName="priority" class="boxenPrio" />
-  <label for="mittel" class="schrift_boxen">mittel</label>
-  <input type="radio" id="hoch" name="priority" value="hoch" formControlName="priority" class="boxenPrio" />
-  <label for="hoch" class="schrift_boxen">hoch</label>
-  </div>
+  <div class="inner-container" style="padding-top: 10px">
+    <h4 class="title">Priorität</h4>
+    <div class="radio-container" required>
+      <input
+        type="radio"
+        id="niedrig"
+        name="priority"
+        value="niedrig"
+        formControlName="priority"
+        class="boxenPrio"
+      />
+      <label for="niedrig" class="schrift_boxen">niedrig</label>
+      <input
+        type="radio"
+        id="mittel"
+        name="priority"
+        value="mittel"
+        formControlName="priority"
+        class="boxenPrio"
+      />
+      <label for="mittel" class="schrift_boxen">mittel</label>
+      <input
+        type="radio"
+        id="hoch"
+        name="priority"
+        value="hoch"
+        formControlName="priority"
+        class="boxenPrio"
+      />
+      <label for="hoch" class="schrift_boxen">hoch</label>
+    </div>
     <!-- <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> niedrig</div>
     <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> mittel </div>
     <div id="boxenPrio" class="schrift_boxen" (click)="onClick()"> hoch </div> -->
   </div>
-  <div class ="inner-container">
-  <h4 class="title">Kunde</h4>
-    <mat-select matNativeControl required formControlName="customer_id" class=" rechteck-eingabe" placeholder="Kunden auswählen">
-      <mat-option *ngFor="let customer of customerData" value="{{ customer.customer_id }}">
+  <div class="inner-container">
+    <h4 class="title">Kunde</h4>
+    <mat-select
+      matNativeControl
+      required
+      formControlName="customer_id"
+      class=" rechteck-eingabe"
+      placeholder="Kunden auswählen"
+    >
+      <mat-option
+        *ngFor="let customer of customerData"
+        value="{{ customer.customer_id }}"
+      >
         {{ customer.name }}
       </mat-option>
     </mat-select>
@@ -64,6 +130,14 @@
 </form>
 
 <div style="float: right;padding-right: 25px;">
-  <button class="break-button" (click)="onNoClick()" filterbuttonGroups>Abbrechen</button>
-  <button class="send-button" (click)="saveInFilterFormate()" filterbuttonGroups>Anwenden</button>
+  <button class="break-button" (click)="onNoClick()" filterbuttonGroups>
+    Abbrechen
+  </button>
+  <button
+    class="send-button"
+    (click)="saveInFilterFormate()"
+    filterbuttonGroups
+  >
+    Anwenden
+  </button>
 </div>
