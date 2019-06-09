@@ -271,8 +271,13 @@ export class BackendService {
     return this.allGroupData;
   }
 
+  /** Download */
   downloadSlicedFileFromGroup(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "group/download/" + id).toPromise();
+  }
+
+  downloadSkinFilesFromGroup(id: number): Promise<Object>{
+    return this.http.get(this.backendUrl + "group/order/download" + id).toPromise();
   }
 
   /** Create data*/

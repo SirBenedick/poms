@@ -1,11 +1,10 @@
 import { UploadService } from "../../../services/upload.service";
-import { Component, OnInit, Inject, Input, ViewChild } from "@angular/core";
+import { Component, OnInit, Inject, ViewChild } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
-import { IPrinterData } from "src/app/shared/interfaces";
+import { IPrinterData, IGroupedOrders } from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
-
 
 @Component({
   selector: "app-pop-up-drucken",
@@ -17,11 +16,11 @@ export class PopUpDruckenComponent implements OnInit {
   printerData: Array<IPrinterData> = this.backendService.allPrinterData;
   downloadProgress;
 
-  @ViewChild("fileInputSkin") fileInputSkin;
-  @ViewChild("fileInputSolid") fileInputSolid;
+  // @ViewChild("fileInputSkin") fileInputSkin;
+  @ViewChild("fileInputSliced") fileInputSliced;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: IGroupedOrders,
     public dialogRef: MatDialogRef<OrderComponent>,
     private backendService: BackendService,
     private uploadService: UploadService
@@ -33,10 +32,7 @@ export class PopUpDruckenComponent implements OnInit {
       hochladen: new FormControl(),
       herunterladen: new FormControl(),
       drucker: new FormControl(),
-      EMail: new FormControl(this.data.EMail ? this.data.EMail : "", [
-        Validators.minLength(1),
-        Validators.required
-      ])
+      EMail: new FormControl("", [Validators.minLength(6), Validators.required])
     });
   }
 
@@ -46,7 +42,7 @@ export class PopUpDruckenComponent implements OnInit {
   onPrintButton(): void {
     // //Für Den richtigen druck
     console.log("onPrintButton");
-    let fi = this.fileInputSkin.nativeElement;
+    let fi = this.fileInputSliced.nativeElement;
     console.log(fi.files[0]);
 
     if (fi.files && fi.files[0]) {
@@ -57,10 +53,12 @@ export class PopUpDruckenComponent implements OnInit {
     }
     this.dialogRef.close();
   }
-  downloadSkin() {
-    console.log("Nothing");
+  downloadSkinFiles() {
+    this.backendService
+      .downloadSkinFilesFromGroup(this.data.group_id)
+      .then(response => console.log("downloadSkinFilesFromGroup: ", response));
   }
-  uploadSolid() {
+  uploadSlicedFile() {
     console.log("Nothing");
   }
 }

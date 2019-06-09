@@ -252,10 +252,10 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  onPrintClick(): void {
+  onPrintClick(group: IGroupedOrders): void {
     event.stopPropagation();
     const dialogRef = this.dialog.open(PopUpDruckenComponent, {
-      data: { newOrderForm: "newOrder" }
+      data: group
     });
 
     dialogRef.afterClosed().subscribe(result => {

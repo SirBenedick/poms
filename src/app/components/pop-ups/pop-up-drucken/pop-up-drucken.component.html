@@ -5,58 +5,47 @@
     </h1>
 
     <div style="padding-top: 20px" class="container">
-    <h3 class="sub-heading">
-      Dateien vorbereiten
-    </h3>
+      <h3 class="sub-heading">
+        Dateien vorbereiten
+      </h3>
 
-
-    <!-- Herunterladen Feld-->
-      <div>
-        <input
-          id="file"
-          class="fileinputs"
-          formControlName="herunterladen"
-          #fileInputSkin
-          type="file" style="display: none"
-        />
-
-        <label for="file"
-        ><h1
-          class="title"
-          style="padding-left: 30%;padding-top: 5px;font-weight: normal; font-size: 14px"
-        >
-          Skin-Dateien herunterladen
-        </h1></label>
-        <img
-          src="../../../assets/svg/icon-downlode.svg"
-          class="icon"
-        />
-        <div class="file-input-symbole" (click)="downloadSkin()"></div>
+      <!-- Herunterladen Feld-->
+      <div (click)="downloadSkinFiles()">
+        <label
+          ><h1
+            class="title"
+            style="padding-left: 30%;padding-top: 5px;font-weight: normal; font-size: 14px"
+          >
+            Skin-Dateien herunterladen
+          </h1>
+        </label>
+        <img src="../../../assets/svg/icon-downlode.svg" class="icon" />
+        <div class="file-input-symbole"></div>
       </div>
-<!-- Hochladen Feld-->
+      <!-- Hochladen Feld-->
       <div class="fakefile">
         <input
           class="fileinputs"
+          id="file"
           formControlName="hochladen"
-          #fileInputSolid
-          type="file" style="display: none"
+          #fileInputSliced
+          type="file"
+          style="display: none"
         />
         <label for="file"
-        ><h1
-          class="title"
-          style="padding-left: 32%;padding-top: 5px;font-weight: normal; font-size: 14px"
-        >
-          Sliced-Datei hochladen
-        </h1></label>
-        <img
-          src="../../../assets/svg/Hochladen.svg"
-          class="icon"
-        />
-        <div class="file-input-symbole" (click)="uploadSolid()"></div>
+          ><h1
+            class="title"
+            style="padding-left: 32%;padding-top: 5px;font-weight: normal; font-size: 14px"
+          >
+            Sliced-Datei hochladen
+          </h1>
+        </label>
+        <img src="../../../assets/svg/Hochladen.svg" class="icon" />
+        <div class="file-input-symbole" (click)="uploadSlicedFile()"></div>
       </div>
     </div>
 
-<!-- Drucker Auswahl-->
+    <!-- Drucker Auswahl-->
     <div class="container">
       <h3 class="sub-heading">Drucker</h3>
       <div>
@@ -65,40 +54,38 @@
           placeholder="Drucker auswählen"
           class=" drucker"
         >
-        <div *ngFor="let printer of printerData">
-          <mat-option *ngIf="!printer.is_printing" value="{{ printer.name }}">
-            {{ printer.name }}
-          </mat-option>
-        </div>
-
+          <div *ngFor="let printer of printerData">
+            <mat-option *ngIf="!printer.is_printing" value="{{ printer.name }}">
+              {{ printer.name }}
+            </mat-option>
+          </div>
         </mat-select>
-
       </div>
     </div>
 
-
     <!-- Benachrichtigung-->
     <div class="container">
-    <h3 class="sub-heading">Benachrichtigung</h3>
-    <mat-form-field style="width: 350px;">
-      <input
-        matInput
-        type="text"
-        placeholder="E-Mail Adresse hinterlegen"
-        formControlName="EMail"
-      />
-    </mat-form-field>
-    <div style="font-family: 'Segoe UI'; font-size: 12px; width: 350px;">
-      Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe
-      fertig gedruckt ist, oder falls ein Problem mit dem Druck auftauchen
-      sollte.
+      <h3 class="sub-heading">Benachrichtigung</h3>
+      <mat-form-field style="width: 350px;">
+        <input
+          matInput
+          type="text"
+          placeholder="E-Mail Adresse hinterlegen"
+          formControlName="EMail"
+        />
+      </mat-form-field>
+      <div style="font-family: 'Segoe UI'; font-size: 12px; width: 350px;">
+        Du bekommst eine Benachrichtigung per Mail geschickt, sobald die Gruppe
+        fertig gedruckt ist, oder falls ein Problem mit dem Druck auftauchen
+        sollte.
+      </div>
     </div>
-    </div>
-
 
     <div style="align-self: flex-end">
       <mat-dialog-actions>
-        <button class="break-button" mat-button (click)="onBreakButton()">Abbrechen</button>
+        <button class="break-button" mat-button (click)="onBreakButton()">
+          Abbrechen
+        </button>
         <button class="send-button" mat-button (click)="onPrintButton()">
           Drucken
         </button>
