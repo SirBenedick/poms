@@ -14,7 +14,7 @@ import { BackendService } from "src/app/services/backend.service";
 export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
   printerData: Array<IPrinterData> = this.backendService.allPrinterData;
-  downloadProgress;
+  uploadProgress: number = 0;
 
   // @ViewChild("fileInputSkin") fileInputSkin;
   @ViewChild("fileInputSliced") fileInputSliced;
@@ -70,6 +70,7 @@ export class PopUpDruckenComponent implements OnInit {
         .uploadSlicedToGroup(this.data.group_id, fileToUpload)
         .subscribe(res => {
           console.log(res);
+          if (res["status"] == "progress") this.uploadProgress= res["message"];
         });
     }
   }

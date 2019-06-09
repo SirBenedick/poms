@@ -1,8 +1,6 @@
 <form [formGroup]="newPrinterForm">
   <div class="page-container">
-    <h1 class="heading">
-      Gruppe: {{ data.group_id }}
-    </h1>
+    <h1 class="heading">Gruppe: {{ data.group_id }}</h1>
 
     <div style="padding-top: 20px" class="container">
       <h3 class="sub-heading">
@@ -40,10 +38,18 @@
             Sliced-Datei auswählen
           </h1>
         </label>
-        <img src="../../../assets/svg/Hochladen.svg" class="icon" />
-        <div class="file-input-symbole" ></div>
+        <img
+          src="../../../assets/svg/Hochladen.svg"
+          class="icon"
+          (click)="uploadSlicedFile()"
+        />
+        <div class="file-input-symbole"></div>
+        <p *ngIf="uploadProgress > 0">Upload bei: {{ uploadProgress }}%</p>
+        <mat-progress-bar
+          *ngIf="uploadProgress > 0"
+          [value]="uploadProgress"
+        ></mat-progress-bar>
       </div>
-      <button (click)="uploadSlicedFile()">Sliced Datei hochladen</button>
     </div>
 
     <!-- Drucker Auswahl-->
@@ -56,7 +62,10 @@
           class=" drucker"
         >
           <div *ngFor="let printer of printerData">
-            <mat-option *ngIf="!printer.is_printing" value="{{ printer.printer_id }}">
+            <mat-option
+              *ngIf="!printer.is_printing"
+              value="{{ printer.printer_id }}"
+            >
               {{ printer.name }}
             </mat-option>
           </div>
