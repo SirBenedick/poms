@@ -29,8 +29,17 @@
           #fileInputSliced
           type="file"
           style="display: none"
+          (change)="handleFileInput($event.target.files)"
         />
-        <label for="file"
+        <label for="file" *ngIf="fileToUploadName">
+            <h1
+              class="title"
+              style="text-align: center; padding-top: 5px;font-weight: normal"
+            >
+              {{ fileToUploadName }}
+            </h1>
+          </label>
+        <label for="file" *ngIf="!fileToUploadName"
           ><h1
             class="title"
             style="padding-left: 32%;padding-top: 5px;font-weight: normal; font-size: 14px"

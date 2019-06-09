@@ -16,8 +16,8 @@ export class PopUpDruckenComponent implements OnInit {
   printerData: Array<IPrinterData> = this.backendService.allPrinterData;
   uploadProgress: number = 0;
 
-  // @ViewChild("fileInputSkin") fileInputSkin;
   @ViewChild("fileInputSliced") fileInputSliced;
+  fileToUploadName: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: IGroupedOrders,
@@ -50,9 +50,10 @@ export class PopUpDruckenComponent implements OnInit {
         selectedPrinterId,
         selctedEmail
       )
-      .then(response =>
-        console.log("assignGroupToPrinterAndStartPrint :", response)
-      );
+      .then(response => {
+        console.log("assignGroupToPrinterAndStartPrint :", response);
+        if(response["error"]) alert("Bitte alle Informationen angeben: \n" + response["error"])
+      });
     this.dialogRef.close();
   }
   downloadSkinFiles() {
@@ -62,16 +63,18 @@ export class PopUpDruckenComponent implements OnInit {
   }
   uploadSlicedFile() {
     let fi = this.fileInputSliced.nativeElement;
-    console.log(fi.files[0]);
-
     if (fi.files && fi.files[0]) {
       let fileToUpload = fi.files[0];
       this.uploadService
         .uploadSlicedToGroup(this.data.group_id, fileToUpload)
         .subscribe(res => {
-          console.log(res);
-          if (res["status"] == "progress") this.uploadProgress= res["message"];
+          if (res["status"] == "progress") this.uploadProgress = res["message"];
         });
+    } else {
+      alert("Bitte Datei auswählen!");
     }
+  }
+  handleFileInput(files: FileList) {
+    this.fileToUploadName = files.item(0).name;
   }
 }

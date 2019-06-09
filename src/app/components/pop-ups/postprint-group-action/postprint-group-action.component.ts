@@ -1,6 +1,6 @@
 import { BackendService } from "src/app/services/backend.service";
 import { IGroupedOrders } from "./../../../shared/interfaces";
-import { Component, OnInit, ViewChild, Inject } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
 
@@ -36,10 +36,6 @@ export class PostprintGroupActionComponent implements OnInit {
       .then(response => console.log("alterGroupOrderStatus: ", response));
   }
 
-  downloadSkin() {
-    console.log("downloadSkin");
-  }
-
   downloadSliced() {
     console.log("downloadSliced");
     this.backendService
@@ -51,5 +47,10 @@ export class PostprintGroupActionComponent implements OnInit {
           console.log("downloadFile", response);
         }
       });
+  }
+  downloadSkinFiles() {
+    this.backendService
+      .downloadSkinFilesFromGroup(this.data.group_id)
+      .then(response => console.log("downloadSkinFilesFromGroup: ", response));
   }
 }
