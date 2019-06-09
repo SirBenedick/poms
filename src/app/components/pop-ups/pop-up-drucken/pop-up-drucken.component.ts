@@ -40,17 +40,7 @@ export class PopUpDruckenComponent implements OnInit {
     this.dialogRef.close();
   }
   onPrintButton(): void {
-    // //Für Den richtigen druck
-    console.log("onPrintButton");
-    let fi = this.fileInputSliced.nativeElement;
-    console.log(fi.files[0]);
-
-    if (fi.files && fi.files[0]) {
-      let fileToUpload = fi.files[0];
-      this.uploadService.uploadScan(fileToUpload, 17).subscribe(res => {
-        console.log(res);
-      });
-    }
+    //backendcall
     this.dialogRef.close();
   }
   downloadSkinFiles() {
@@ -59,6 +49,14 @@ export class PopUpDruckenComponent implements OnInit {
       .then(response => console.log("downloadSkinFilesFromGroup: ", response));
   }
   uploadSlicedFile() {
-    console.log("Nothing");
+    let fi = this.fileInputSliced.nativeElement;
+    console.log(fi.files[0]);
+
+    if (fi.files && fi.files[0]) {
+      let fileToUpload = fi.files[0];
+      this.uploadService.uploadSlicedToGroup(this.data.group_id, fileToUpload,).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 }

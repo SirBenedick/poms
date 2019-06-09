@@ -76,6 +76,35 @@ export class UploadService {
               return `Unhandled event: ${event.type}`;
           }
         })
-      ).toPromise();
+      )
+      .toPromise();
+  }
+
+  uploadSlicedToGroup(
+    group_id: number,
+    slicedFileToUpload: File
+  ): Observable<Object> {
+    let input = new FormData();
+    input.append("file_sliced", slicedFileToUpload);
+
+    return this.http
+      .post(this.url + "group/upload/" + group_id, input, {
+        reportProgress: true,
+        observe: "events"
+      })
+      .pipe(
+        map(event => {
+          switch (event.type) {
+            case HttpEventType.UploadProgress:
+              const progress = Math.round((100 * event.loaded) / event.total);
+              return { status: "progress", message: progress };
+
+            case HttpEventType.Response:
+              return event.body;
+            default:
+              return `Unhandled event: ${event.type}`;
+          }
+        })
+      );
   }
 }
