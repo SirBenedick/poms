@@ -106,24 +106,10 @@ export interface IFAQPageCreate {
   video_url: string;
   content: string;
 }
-//  export interface IHelpPage {
-//    pageTitel: string;
-//    topics: Array<IHelpPageTopic>;
-//  }
-
-//  export interface IHelpPageTopic {
-//    topicTitel: string;
-//    subtopics: Array<IHelpPageSubtopic>;
-//  }
-
-//  export interface IHelpPageSubtopic {
-//    subtopicTitel: string;
-//    subtopicContent: string;
-//    videoURL?: string;
-//  }
 
 export interface IResinType {
   resin_name: string;
+  color: string;
 }
 
 export interface IResinName {

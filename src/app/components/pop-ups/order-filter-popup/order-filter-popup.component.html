@@ -12,9 +12,9 @@
           value="{{ harz.resin_name }}"
           formControlName="resin_name"
         />
-        <label id="harz-title" for="{{ harz.resin_name }}">{{
-          harz.resin_name
-        }}</label>
+        <label id="harz-title" for="{{ harz.resin_name }}"
+          >{{ harz.resin_name }}<div style="width: 20px; height: 20px;" [style.backgroundColor]="harz.color"></div>
+        </label>
       </div>
     </div>
   </div>

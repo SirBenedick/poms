@@ -104,7 +104,19 @@ export class BackendService {
       resin_volume: 0.7
     }
   ];
-
+  mockedResinData: Array<IResinType> = [
+    { resin_name: "Cast UV", color: "#AAAFFF" },
+    { resin_name: "Gingiva UV", color: "#000000" },
+    { resin_name: "T UV", color: "#00FF00" },
+    { resin_name: "Temp A1", color: "#FF00FF" },
+    { resin_name: "Temp A2", color: "#FFFF00" },
+    { resin_name: "Temp A3", color: "#F0FF0F" },
+    { resin_name: "Tray UV", color: "#FF00FF" },
+    { resin_name: "UV Caramel", color: "#FFF00F" },
+    { resin_name: "UV Grey", color: "#F00FFF" },
+    { resin_name: "UV Ivory", color: "#FF00FF" }
+  ];
+  
   /** Observable which poll every pollingTimeInMs ms */
   pollingTimeInMs: number = 2000;
   allOrderData$: Observable<Object>;
@@ -220,7 +232,8 @@ export class BackendService {
 
   loadResinData() {
     this.getAllResin().then((harzData: Array<IResinType>) => {
-      this.resineData = harzData;
+      // this.resineData = harzData;
+      this.resineData = this.mockedResinData;
       this.resineData.sort();
     });
   }
@@ -437,5 +450,4 @@ export class BackendService {
   togglePrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
-
 }
