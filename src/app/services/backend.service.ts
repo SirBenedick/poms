@@ -271,8 +271,15 @@ export class BackendService {
     return this.allGroupData;
   }
 
+  /** Download */
   downloadSlicedFileFromGroup(id: number): Promise<Object> {
     return this.http.get(this.backendUrl + "group/download/" + id).toPromise();
+  }
+
+  downloadSkinFilesFromGroup(id: number): Promise<Object> {
+    return this.http
+      .get(this.backendUrl + "group/order/download" + id)
+      .toPromise();
   }
 
   /** Create data*/
@@ -399,6 +406,25 @@ export class BackendService {
     return this.http.get(this.backendUrl + "group/remove/" + id).toPromise();
   }
 
+  /** Controll printer */
+
+  assignGroupToPrinterAndStartPrint(
+    group_id: number,
+    printer_id: number,
+    email: string
+  ): Promise<Object> {
+    return this.http
+      .post(
+        this.backendUrl +
+          "printer/action/upload/" +
+          printer_id +
+          "/" +
+          group_id,
+        { email_to_notify: email }
+      )
+      .toPromise();
+  }
+
   /** Controlls printer, for development */
   startPrinter(id: Number) {
     return this.http
@@ -411,4 +437,5 @@ export class BackendService {
   togglePrinter(id: Number) {
     return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
   }
+
 }

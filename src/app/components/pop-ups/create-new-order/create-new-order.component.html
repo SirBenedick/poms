@@ -10,7 +10,7 @@
 
     <div id="data-ist-vorhanden" *ngIf="data.customer_id">
       <div class="a">
-        <h1 class="heading">Auftrag: #{{ data.order_id }}</h1>
+        <h1 class="heading">Auftrag: #{{ data.order_id | orderIdLeadingZeros}}</h1>
       </div>
     </div>
 
