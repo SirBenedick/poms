@@ -141,7 +141,7 @@
             </div>
             <div class="info-print-heading-paused">
                 <p>
-                  Druckfortschritt bei {{ (printer.printer$ | async)?.progress | percent}}
+                  Druck unterbrochen {{ (printer.printer$ | async)?.progress | percent}}
                 </p>
                 <div>
                   {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
