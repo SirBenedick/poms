@@ -152,7 +152,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
 }
-#search-input {
+/* #search-input {
   background-color: white;
   border: transparent;
   border-radius: 2px;
@@ -164,13 +164,13 @@ body {
   margin-top: -24px;
   z-index: -1;
 }
-
+befindet sich in eigener komponente
 #such-balken input[type="search"] {
   padding-left: 25px;
   padding-top: 2px;
   font-style: italic;
   font-size: 10px;
-}
+} */
 
 #new-assignment-box{
   position: absolute;

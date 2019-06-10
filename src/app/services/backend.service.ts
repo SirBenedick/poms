@@ -116,7 +116,7 @@ export class BackendService {
     { resin_name: "UV Grey", color: "#F00FFF" },
     { resin_name: "UV Ivory", color: "#FF00FF" }
   ];
-  
+
   /** Observable which poll every pollingTimeInMs ms */
   pollingTimeInMs: number = 2000;
   allOrderData$: Observable<Object>;
@@ -282,6 +282,28 @@ export class BackendService {
 
   getAllGroupData(): Array<IGroupedOrders> {
     return this.allGroupData;
+  }
+
+  getSearchResults(searchValue: string): Promise<Array<string>> {
+    //this.http.get(this.backendUrl + "search/" + searchValue).toPromise();
+    let mockedOptions: Array<string> = [
+      "One",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine"
+    ];
+    return new Promise((resolve, reject) => {
+      resolve(
+        mockedOptions.filter(option =>
+          option.toLowerCase().includes(searchValue)
+        )
+      );
+    });
   }
 
   /** Download */

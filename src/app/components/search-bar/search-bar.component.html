@@ -1,0 +1,30 @@
+<div style="padding-top: 5px; padding-left: 10px" href="#">
+  <img
+    src="../../../assets/svg/lupe.svg"
+    alt="lupe"
+    width="12"
+    height="12"
+    style="margin-top: -8px; margin-left: 5px; fill: #272f33"
+  />
+  <div id="such-balken">
+    <mat-form-field id="search-input">
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Number"
+        matInput
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredResultOptions | async"
+          [value]="option"
+          (click)="onOptionClicked(option)"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>

@@ -18,7 +18,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatInputModule, MatSliderModule } from "@angular/material";
+import { MatInputModule, MatSliderModule, MatAutocompleteModule } from "@angular/material";
 import {
   MatDialogModule,
   MatDialogRef,
@@ -66,6 +66,7 @@ import { HarzloeschenComponent } from './components/pop-ups/Settings/harzloesche
 import { OrderIdLeadingZeros } from './shared/pipes/order-id-leading-zeros.pipe';
 import { PostprintGroupActionComponent } from './components/pop-ups/postprint-group-action/postprint-group-action.component';
 import { SafePipe } from './shared/pipes/safe.pipe';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 registerLocaleData(de);
@@ -106,7 +107,8 @@ registerLocaleData(de);
     HarzinfobearbeitenComponent,
     HarzloeschenComponent,
     PostprintGroupActionComponent,
-    PostprintGroupActionComponent
+    PostprintGroupActionComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -131,6 +133,7 @@ registerLocaleData(de);
     MatIconModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
 

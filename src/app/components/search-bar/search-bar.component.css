@@ -1,0 +1,19 @@
+#search-input {
+    background-color: white;
+    border: transparent;
+    border-radius: 2px;
+    color: #272f33;
+    position: absolute;
+    height: 20px;
+    width: 200px;
+    justify-content: left;
+    margin-top: -24px;
+    z-index: -1;
+  }
+  
+  #such-balken input[type="search"] {
+    padding-left: 25px;
+    padding-top: 2px;
+    font-style: italic;
+    font-size: 10px;
+  }
