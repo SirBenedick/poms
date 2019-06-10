@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({ name: "orderIdLeadingZeros" })
-export class OrderIdLeadingZeros implements PipeTransform {
+export class OrderIdLeadingZerosPipe implements PipeTransform {
   transform(id: number) {
     let len = 5;
     let input = id.toString();

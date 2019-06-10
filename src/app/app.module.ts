@@ -63,10 +63,11 @@ import { KategorieinfobearbeitenComponent } from './components/pop-ups/Settings/
 import { KategorieloeschenComponent } from './components/pop-ups/Settings/kategorieloeschen/kategorieloeschen.component';
 import { HarzinfobearbeitenComponent } from './components/pop-ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component';
 import { HarzloeschenComponent } from './components/pop-ups/Settings/harzloeschen/harzloeschen.component';
-import { OrderIdLeadingZeros } from './shared/pipes/order-id-leading-zeros.pipe';
+import { OrderIdLeadingZerosPipe } from './shared/pipes/order-id-leading-zeros.pipe';
 import { PostprintGroupActionComponent } from './components/pop-ups/postprint-group-action/postprint-group-action.component';
 import { SafePipe } from './shared/pipes/safe.pipe';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { EstimatedTimePipe } from './shared/pipes/estimated-time.pipe';
 
 
 registerLocaleData(de);
@@ -99,7 +100,8 @@ registerLocaleData(de);
     NeueKategorieComponent,
     PrinterStatusPipe,
     SafePipe,
-    OrderIdLeadingZeros,
+    OrderIdLeadingZerosPipe,
+    EstimatedTimePipe,
     KundeninfobearbeitenComponent,
     KundeloeschenComponent,
     KategorieinfobearbeitenComponent,

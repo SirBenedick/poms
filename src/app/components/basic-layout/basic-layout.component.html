@@ -139,12 +139,14 @@
                 src="../../../assets/svg/warning.svg"
               />
             </div>
-            <p class="info-print-heading-paused">
-              Druck <b>pausiert</b> bei
-              {{
-                (printer.printer$ | async)?.progress * 100 | number: "1.0-0"
-              }}%
-            </p>
+            <div class="info-print-heading-paused">
+                <p>
+                  Druckfortschritt bei {{ (printer.printer$ | async)?.progress | percent}}
+                </p>
+                <div>
+                  {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
+                </div>
+              </div>
           </div>
           <!-- Not paused printer-->
           <div *ngIf="(printer.printer$ | async)?.paused != 1">
@@ -168,12 +170,14 @@
                 src="../../../assets/fonts/abbrechen.svg"
               />
             </div>
-            <p class="info-print-heading">
-              Druckfortschritt bei
-              {{
-                (printer.printer$ | async)?.progress * 100 | number: "1.0-0"
-              }}%
-            </p>
+            <div class="info-print-heading">
+              <p>
+                Druckfortschritt bei {{ (printer.printer$ | async)?.progress| percent}}
+              </p>
+              <p>
+                {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
+              </p>
+            </div>
           </div>
         </div>
       </div>
