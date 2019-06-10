@@ -90,19 +90,6 @@
   <div class="center-row">
     <nav class="nav" id="page-header">
       <app-search-bar></app-search-bar>
-      <!-- <div style="padding-top: 5px; padding-left: 10px" href="#">
-        <img
-          src="../../../assets/svg/lupe.svg"
-          alt="lupe"
-          width="12"
-          height="12"
-          style="margin-top: -8px; margin-left: 5px; fill: #272f33"
-        />
-        <div id="such-balken">
-          <input type="search" id="search-input" placeholder="Suchen..." />
-        </div>
-      </div> -->
-
       <div class="poms" style="text-align: center; margin-left: 200px;  ">
         P O M S
       </div>
@@ -132,16 +119,19 @@
   <div id="right-row">
     <p id="print-progress">Druckfortschritt</p>
     <div *ngFor="let printer of printerData">
-      <div *ngIf="(printer.printer$ | async )?.offline == 0">
-        <div *ngIf="(printer.printer$ | async )?.is_printing == 1">
+      <div *ngIf="(printer.printer$ | async)?.offline == 0">
+        <div *ngIf="(printer.printer$ | async)?.is_printing == 1">
           <!-- Paused printer-->
-          <div *ngIf="(printer.printer$ | async )?.paused == 1">
+          <div *ngIf="(printer.printer$ | async)?.paused == 1">
             <p class="printer-prints-group-text" style="margin-bottom: 10px">
-              <b>Drucker {{ (printer.printer$ | async )?.printer_id }}</b> druckt
-              <b>Gruppe {{ (printer.printer$ | async )?.assigned_group_id }}</b>
+              <b>Drucker {{ (printer.printer$ | async)?.printer_id }}</b> druckt
+              <b>Gruppe {{ (printer.printer$ | async)?.assigned_group_id }}</b>
             </p>
             <div class="progressbar">
-              <mat-progress-bar [value]="(printer.printer$ | async )?.progress * 100" color="warn">
+              <mat-progress-bar
+                [value]="(printer.printer$ | async)?.progress * 100"
+                color="warn"
+              >
               </mat-progress-bar>
               <img
                 width="20px"
@@ -151,17 +141,21 @@
             </div>
             <p class="info-print-heading-paused">
               Druck <b>pausiert</b> bei
-              {{ (printer.printer$ | async )?.progress * 100 | number: "1.0-0" }}%
+              {{
+                (printer.printer$ | async)?.progress * 100 | number: "1.0-0"
+              }}%
             </p>
           </div>
           <!-- Not paused printer-->
-          <div *ngIf="(printer.printer$ | async )?.paused != 1">
+          <div *ngIf="(printer.printer$ | async)?.paused != 1">
             <p class="printer-prints-group-text">
-              <b>Drucker {{ (printer.printer$ | async )?.printer_id }}</b> druckt
-              <b>Gruppe {{ (printer.printer$ | async )?.assigned_group_id }}</b>
+              <b>Drucker {{ (printer.printer$ | async)?.printer_id }}</b> druckt
+              <b>Gruppe {{ (printer.printer$ | async)?.assigned_group_id }}</b>
             </p>
             <div class="progressbar">
-              <mat-progress-bar [value]="(printer.printer$ | async )?.progress * 100">
+              <mat-progress-bar
+                [value]="(printer.printer$ | async)?.progress * 100"
+              >
               </mat-progress-bar>
               <img
                 width="10px"
@@ -176,7 +170,9 @@
             </div>
             <p class="info-print-heading">
               Druckfortschritt bei
-              {{ (printer.printer$ | async )?.progress * 100 | number: "1.0-0" }}%
+              {{
+                (printer.printer$ | async)?.progress * 100 | number: "1.0-0"
+              }}%
             </p>
           </div>
         </div>
