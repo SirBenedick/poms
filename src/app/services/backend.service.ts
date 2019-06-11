@@ -284,25 +284,35 @@ export class BackendService {
     return this.allGroupData;
   }
 
-  getSearchResults(searchValue: string): Promise<Array<string>> {
+  getSearchResults(searchValue: string): Promise<Array<any>> {
     //this.http.get(this.backendUrl + "search/" + searchValue).toPromise();
-    let mockedOptions: Array<string> = [
-      "One",
-      "Two",
-      "Three",
-      "Four",
-      "Five",
-      "Six",
-      "Seven",
-      "Eight",
-      "Nine"
+    // let mockedOptions: Array<string> = [
+    //   "One",
+    //   "Two",
+    //   "Three",
+    //   "Four",
+    //   "Five",
+    //   "Six",
+    //   "Seven",
+    //   "Eight",
+    //   "Nine"
+    // ];
+    // return new Promise((resolve, reject) => {
+    //   resolve(
+    //     mockedOptions.filter(option =>
+    //       option.toLowerCase().includes(searchValue)
+    //     )
+    //   );
+    // });
+    let mockedOptions: Array<{ category: string; result: string }> = [
+      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+      { category: "Hilfestellung", result: "Wie fülle ich harz auf" }
     ];
     return new Promise((resolve, reject) => {
-      resolve(
-        mockedOptions.filter(option =>
-          option.toLowerCase().includes(searchValue)
-        )
-      );
+      resolve(mockedOptions);
     });
   }
 

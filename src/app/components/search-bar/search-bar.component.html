@@ -22,7 +22,8 @@
           [value]="option"
           (click)="onOptionClicked(option)"
         >
-          {{ option }}
+          {{ option.category }}
+          {{ option.result }}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
