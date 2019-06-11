@@ -105,16 +105,16 @@ export class BackendService {
     }
   ];
   mockedResinData: Array<IResinType> = [
-    { resin_name: "Cast UV", color: "#AAAFFF" },
-    { resin_name: "Gingiva UV", color: "#000000" },
-    { resin_name: "T UV", color: "#00FF00" },
-    { resin_name: "Temp A1", color: "#FF00FF" },
-    { resin_name: "Temp A2", color: "#FFFF00" },
-    { resin_name: "Temp A3", color: "#F0FF0F" },
-    { resin_name: "Tray UV", color: "#FF00FF" },
-    { resin_name: "UV Caramel", color: "#FFF00F" },
-    { resin_name: "UV Grey", color: "#F00FFF" },
-    { resin_name: "UV Ivory", color: "#FF00FF" }
+    { resin_name: "Cast UV", color: "#fe6254" },
+    { resin_name: "Gingiva UV", color: "#f88379" },
+    { resin_name: "T UV", color: "#3f99dd" },
+    { resin_name: "Temp A1", color: "#fbfced" },
+    { resin_name: "Temp A2", color: "#e2e4c1" },
+    { resin_name: "Temp A3", color: "#c2b280" },
+    { resin_name: "Tray UV", color: "#fafafa" },
+    { resin_name: "UV Caramel", color: "#ffd59a" },
+    { resin_name: "UV Grey", color: "#d8d8d8" },
+    { resin_name: "UV Ivory", color: "#fffff0" }
   ];
 
   /** Observable which poll every pollingTimeInMs ms */
