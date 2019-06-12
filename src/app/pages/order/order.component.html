@@ -4,7 +4,9 @@
     <div
       class="half-container"
     >
-      <h1 class="title">Gruppierte Aufträge</h1>
+      <h1 class="title">
+        Gruppierte Aufträge <b class="titel-lenght">{{ allGroupedOrders.length }}</b>
+      </h1>
       <div>
         <div
                 class="button-style-group"
@@ -47,7 +49,8 @@
         >
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <div>
+              <div style="padding-top: 15px">
+                <div id="color-block" [style.backgroundColor]="getResineColorValue(group.resin_name)"></div>
                 <p id="order-heading">
                   Gruppe: {{ group.group_id }}, Aufträge:
                   {{ group.orders.length }} -
@@ -97,7 +100,7 @@
     <div class="half-container">
       <div>
         <h1 class="title">
-          Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}
+          Unzugeordnete Aufträge <b class="titel-lenght">{{ filteredUngroupedOrders.length }}</b>
         </h1>
         <div class="button-space">
           <div

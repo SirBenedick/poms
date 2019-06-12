@@ -3,7 +3,7 @@ import { BackendService } from "../../services/backend.service";
 import {
   IOrder,
   IFilterOrders,
-  IGroupedOrders
+  IGroupedOrders, IResinType
 } from "src/app/shared/interfaces";
 import {
   CdkDragDrop,
@@ -360,5 +360,8 @@ export class OrderComponent implements OnInit {
         this.loadGroupData();
       }
     });
+  }
+  getResineColorValue(resine_name: string){
+    return this.backendService.resineData.find((harz: IResinType) => harz.resin_name == resine_name).color;
   }
 }
