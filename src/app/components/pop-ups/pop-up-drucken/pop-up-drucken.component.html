@@ -77,7 +77,12 @@
             >
               {{ printer.name }}
             </mat-option>
-          </div>
+            <mat-option
+            *ngIf="printer.is_printing"
+            >
+            Es steht kein Drucker zur Verfügung
+          </mat-option>
+        </div>
         </mat-select>
       </div>
     </div>
