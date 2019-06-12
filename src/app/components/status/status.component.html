@@ -11,7 +11,7 @@
       Status
     </h1>
     <h2 class="print-info" *ngIf="printerData">{{ printerData | printerStatus }}</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onInfoClick()"/>
   </div>
   <div class="status-card-container">
     <h1 class="card-title">Füllstand</h1>
@@ -33,9 +33,9 @@
   <div class="status-card-container">
     <h1 class="card-title">
       restliche Druckzeit
-      {{ (printer | async)?.estimated_time_remaining }}
     </h1>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" />
+   <h2 class="print-info"> {{ (printer | async)?.estimated_time_remaining }} </h2>
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onInfoClick()" />
   </div>
 
   <div class="status-card-container">
@@ -43,6 +43,6 @@
       Druck gestartet
     </h1>
     <h2 class="print-info">{{ (printer | async)?.print_start }} Uhr</h2>
-    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" />
+    <img src="../../../assets/svg/detailansicht.svg" class="detailansicht" (click)="onInfoClick()" />
   </div>
 </div>

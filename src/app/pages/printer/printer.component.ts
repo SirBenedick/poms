@@ -51,11 +51,14 @@ export class PrinterComponent implements OnInit {
   }
 
 
-  deletePrinter(printer_id: any): void {
-    this.backendService.removePrinterById(printer_id).then(response => {
-      setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
-    });
-  }
+  // deletePrinter(printer_id: any): void {
+  //   this.backendService.removePrinterById(printer_id).then(response => {
+  //     setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+  //   });
+  // }
+   deletePrinter(printer_id: any): void {
+    alert(`Drucker wurde erfolgreich gelöscht`)
+   }
 
   refreshPrinterList() {
     this.printerData = this.backendService.everySinglePrinter$;

@@ -47,4 +47,7 @@ export class StatusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {});
   }
+  onInfoClick():void{
+    alert(`Keine näheren Informationen hinterlegt`)
+  }
 }
