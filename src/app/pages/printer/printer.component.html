@@ -21,6 +21,27 @@
             Drucker: {{ printer.printer_id }}, {{ printer.printer_name }}
           </div>
         </mat-panel-title>
+        <div
+        *ngIf="
+          printer.status == 'printing';
+          then printingBlock;
+          else elseBlock
+        "
+      ></div>
+      <ng-template #printingBlock>
+        <div id="button-space">
+          <div class="button-style-printing" (click)="onStopOpen()">
+            druckt gerade ...
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div id="button-space">
+          <div class="button-style" (click)="onStopOpen()">
+            verfügbar
+          </div>
+        </div>
+      </ng-template>
       </mat-expansion-panel-header>
       
       <app-status style="overflow: auto" [printer]="printer.printer$"></app-status>

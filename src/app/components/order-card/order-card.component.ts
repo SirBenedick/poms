@@ -22,11 +22,12 @@ export class OrderCardComponent implements OnInit {
   ngOnInit() {
     let oldDateFormat = new Date(this.order.creation_date);
     this.dateForFrontendView =
-      (oldDateFormat.getMonth() + 1) +
-      "-" +
-      oldDateFormat.getDate() +
-      "-" +
-      oldDateFormat.getFullYear()
+    oldDateFormat.getFullYear()+
+    "-" +
+    (oldDateFormat.getMonth() + 1) +
+    "-" +
+    oldDateFormat.getDate()
+      
   }
 
   onCardClick(event) {
