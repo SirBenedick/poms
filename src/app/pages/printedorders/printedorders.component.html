@@ -2,18 +2,17 @@
   <div cdkDropListGroup>
     <div
       class="half-container"
-      style=" border: transparent;
-      border-bottom: solid 1px #a2a2a2;"
+
     >
-      <h1 class="heading">Gruppierte Aufträge</h1>
-      <p>Aktuell werden "preprint" Gruppen angezeigt, da das backend den status nicht setzt</p>
+      <h1 class="title">Gruppierte Aufträge</h1>
+      <p style="display: none">Aktuell werden "preprint" Gruppen angezeigt, da das backend den status nicht setzt</p>
       <div class="button-space">
         <div
               class="button-style-group"
               (click)="openDialogFilterGroups()"
               [appFilterButtonActivated]="isGroupFilterSet"
             >
-              Filter setzen
+            <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>
               <div
                 style="color:black;"
                 *ngIf="isGroupFilterSet != 0"
@@ -28,7 +27,7 @@
         Momentan existieren keine Gruppen die sich in der Nachbereitung
         befinden.
       </div>
-      <div class="expand-print" *ngIf="filteredGroupData.length">
+      <div style="padding-top: 5px" *ngIf="filteredGroupData.length">
         <mat-expansion-panel
           *ngFor="let group of filteredGroupData"
           class="expand-collapse"
@@ -94,13 +93,13 @@
     </div>
   </div> -->
     <div class="half-container">
-      <div class="ueberschriften">Abgeschlossene Aufträge</div>
+      <h1 class="title">Abgeschlossene Aufträge</h1>
       <div
         class="button-style-group"
         (click)="openSentFilter()"
         [appFilterButtonActivated]="isSentFilterSet"
       >
-        Filter
+        <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>
         <div
           style="color:black;"
           *ngIf="isSentFilterSet != 0"
@@ -110,7 +109,7 @@
         </div>
       </div>
       <div class="cards">
-        <app-order-card
+        <app-order-card id="order-card"
           *ngFor="let orderCard of filteredSentOrders"
           [order]="orderCard"
         >

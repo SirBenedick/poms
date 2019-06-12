@@ -1,15 +1,16 @@
 .page-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
 .half-container {
-  max-height: 45vh;
-  min-height: 45vh;
+  max-height: 47.3vh;
+  min-height: 47.3vh;
+  border: transparent;
+  border-bottom: solid 1px #a2a2a2;
   overflow: auto;
-  margin: 2px;
   object-fit: contain;
-  /* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
 }
 
 .hilfe-nachbereitung {
@@ -50,8 +51,12 @@
   color: #272f33;
 }
 .cards {
+  margin-left: 10px;
   display: flex;
   flex-wrap: wrap;
+}
+#order-card:hover{
+  cursor: pointer;
 }
 .filter-box {
   width: 149px;
@@ -62,7 +67,7 @@
 .button-style {
   float: right;
   font-family: "Segoe UI";
-  width: 130px;
+  width: 100px;
   height: 30px;
   margin: 2px;
   object-fit: contain;
@@ -81,22 +86,21 @@
   font-family: "Segoe UI";
   width: 100px;
   height: 30px;
-  margin: 2px;
   padding-top: 5px;
   object-fit: contain;
-  border-radius: 3px;
+  border-radius: 4px;
   border: solid 1px #62c6d6;
   background-color: white;
   color: #62c6d6;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
+
   margin-top: -5px;
 }
 .button-style-group:hover {
   background-color: #272f33;
   color: white;
   border: transparent;
-  cursor: pointer;
 }
 .no-data-to-display {
   width: 376px;
@@ -112,20 +116,15 @@
   text-align: center;
   color: rgb(98, 198, 214);
 }
-.heading {
-  height: 40px;
-  width: 70%;
+.title {
+  font-size: 20px;
   object-fit: contain;
   font-family: "Segoe UI";
-  font-weight: bold;
-  font-size: 20px;
-  padding-left: 5px;
-  padding-top: 10px;
-  line-height: 1.35;
-  letter-spacing: normal;
   text-align: left;
   color: #272f33;
-  position: relative;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 8px;
 }
 #order-heading {
   font-family: "Segoe UI";
@@ -146,25 +145,25 @@
 }
 .expand-collapse {
   flex-wrap: wrap;
-  font-size: 8px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-
-  margin: 5px;
+  margin: 10px  10px  10px 10px;
 }
+
 #button-space {
   height: 40px;
   width: 100%;
   position: relative;
-  padding-right: 20px;
+  padding-right: 25px;
   padding-top: 10px;
   float: right;
 }
 .button-style {
+  margin-top: -3px;
   float: right;
   font-family: "Segoe UI";
-  width: 130px;
+  font-size: 14px;
+  width: 100px;
   height: 30px;
-  margin: 2px;
   object-fit: contain;
   border-radius: 4px;
   color: #62c6d6;
@@ -181,20 +180,19 @@
   font-family: "Segoe UI";
   width: 100px;
   height: 30px;
-  margin: 2px;
-  padding-top: 5px;
   object-fit: contain;
   border-radius: 3px;
   border: solid 1px #62c6d6;
   background-color: white;
   color: #62c6d6;
   text-align: center;
-  font-size: 12px;
-  margin-top: -5px;
+
+  margin-right: 5px;
+  margin-top: -30px;
 }
 .button-style-group:hover {
   background-color: #272f33;
   color: white;
-  border: transparent;
+  border: #272f33;
   cursor: pointer;
 }
