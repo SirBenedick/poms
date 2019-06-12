@@ -73,4 +73,8 @@ export class PrinterComponent implements OnInit {
   togglePrinter(id: Number) {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
   }
+
+  onStopOpen():void{
+    event.stopPropagation();
+  }
 }
