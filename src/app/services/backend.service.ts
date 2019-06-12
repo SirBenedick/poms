@@ -189,7 +189,7 @@ export class BackendService {
     /** Subscribes to observable and saves response in an array accessible for every component  */
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       this.allPrinterData = newPrinterData;
-      // this.allPrinterData = this.mockedPrinterData;
+      //this.allPrinterData = this.mockedPrinterData;
 
       /** If count of printer has changed then "everySinglePrinter$" gets updated */
       if (this.everySinglePrinter$.length != this.allPrinterData.length) {

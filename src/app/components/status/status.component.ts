@@ -44,7 +44,6 @@ export class StatusComponent implements OnInit {
     const dialogRef = this.dialog.open(PopUpVanikComponent, {
       data: { printerDetails: this.printerDetails, detail: detail }
     });
-
     dialogRef.afterClosed().subscribe(result => {});
   }
   onInfoClick():void{
