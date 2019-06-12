@@ -3,22 +3,18 @@
   <div cdkDropListGroup>
     <div
       class="half-container"
-      style=" border: transparent;
-  border-bottom: solid 1px #a2a2a2;"
     >
-      <h1 class="heading">Gruppierte Aufträge</h1>
-      <div class="button-space">
+      <h1 class="title">Gruppierte Aufträge</h1>
+      <div>
         <div
-          class="button-style-group"
-          (click)="openDialogFilterGroups()"
-          [appFilterButtonActivated]="isGroupFilterSet"
-        >
-          Filter setzen
+                class="button-style-group"
+                (click)="openDialogFilterGroups()"
+                [appFilterButtonActivated]="isGroupFilterSet">
+          <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>
           <div
-            style="color:black;"
-            *ngIf="isGroupFilterSet != 0"
-            (click)="resetGroupFilter($event)"
-          >
+                  style="color:black;"
+                  *ngIf="isGroupFilterSet != 0"
+                  (click)="resetGroupFilter($event)">
             ({{ isGroupFilterSet }}) X
           </div>
         </div>
@@ -26,7 +22,9 @@
         <div class="copy-filter" (click)="copyOrderFilterToGroup()">
           Auftragsfilter übernehmen
         </div>
+
       </div>
+
       <button
         id="new-group-button"
         cdkDropList
@@ -52,10 +50,11 @@
               <div>
                 <p id="order-heading">
                   Gruppe: {{ group.group_id }}, Aufträge:
-                  {{ group.orders.length }}
+                  {{ group.orders.length }} -
+                <b (click)="copyResinFromGroup(group)">{{ group.resin_name }}</b>
                 </p>
               </div>
-              <p (click)="copyResinFromGroup(group)">{{ group.resin_name }}</p>
+
             </mat-panel-title>
 
             <div
@@ -66,16 +65,16 @@
               "
             ></div>
             <ng-template #printingBlock>
-              <div id="button-space">
+              <div class="button-space">
                 <div class="button-style-printing">
                   druckt gerade ...
                 </div>
               </div>
             </ng-template>
             <ng-template #elseBlock>
-              <div id="button-space">
+              <div class="button-space">
                 <button class="button-style" (click)="onPrintClick(group)">
-                  Drucken
+                  drucken
                 </button>
               </div>
             </ng-template>
@@ -97,7 +96,7 @@
     </div>
     <div class="half-container">
       <div>
-        <h1 class="heading">
+        <h1 class="title">
           Unzugeordnete Aufträge, Aufträge: {{ filteredUngroupedOrders.length }}
         </h1>
         <div class="button-space">
@@ -106,7 +105,7 @@
             (click)="openDialogFilterOrders()"
             [appFilterButtonActivated]="isOrderFilterSet"
           >
-            Filter setzen
+            <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px">Filter setzen</h2>
             <div
               style="color:black;"
               *ngIf="isOrderFilterSet != 0"
