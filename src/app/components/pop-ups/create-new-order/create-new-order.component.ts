@@ -83,7 +83,7 @@ export class CreateNewOrderComponent implements OnInit {
       hochladen: new FormControl(
         this.fileInputScan.nativeElement
           ? this.fileInputScan.nativeElement
-          : null,
+          : "",
         [Validators.required]
       )
     });
@@ -125,7 +125,6 @@ export class CreateNewOrderComponent implements OnInit {
     newOrder.append("status", formData.status);
     newOrder.append("scan_file", formData.hochladen.files[0]);
 
-    
     this.backendService
       .alterOrderById(this.data.order_id, newOrder)
       .then(response => console.log("alterOrderById", response));

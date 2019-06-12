@@ -91,7 +91,7 @@ export class BackendService {
       name: "TestPrinter4",
       host: "141.19.113.185",
       port: 8080,
-      is_printing: 1,
+      is_printing: 0,
       current_layer: 98,
       max_layer: 176,
       print_start: "11:58:31",
@@ -122,7 +122,7 @@ export class BackendService {
   allOrderData$: Observable<Object>;
   allGroupData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
-  /** "everySinglePrinter$" saves only important data and allows components to subscribe to printer observables */
+  /** "everySinglePrinter$" saves only static data and allows components to subscribe to printer observables */
   everySinglePrinter$: Array<IPrinterDataPolling> = [];
 
   /** Values saved from polling */
@@ -189,7 +189,7 @@ export class BackendService {
     /** Subscribes to observable and saves response in an array accessible for every component  */
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       this.allPrinterData = newPrinterData;
-      //this.allPrinterData = this.mockedPrinterData;
+      // this.allPrinterData = this.mockedPrinterData;
 
       /** If count of printer has changed then "everySinglePrinter$" gets updated */
       if (this.everySinglePrinter$.length != this.allPrinterData.length) {
@@ -255,7 +255,6 @@ export class BackendService {
   }
 
   /** Get data */
-
   getPrinterById(id: Number): Observable<Object> {
     return this.http.get(this.backendUrl + "printer/get/" + id);
   }

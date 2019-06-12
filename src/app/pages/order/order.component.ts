@@ -66,6 +66,15 @@ export class OrderComponent implements OnInit {
   }
 
   /** Datahandling functions */
+  loadGroupData() {
+    this.backendService
+      .getAllGroups()
+      .toPromise()
+      .then((allGroupData: Array<IGroupedOrders>) => {
+        this.refreshAllGroupData(allGroupData);
+      });
+  }
+
   loadOrderData() {
     this.backendService
       .pollAllOrdersFromBackend()
@@ -73,16 +82,6 @@ export class OrderComponent implements OnInit {
       .then((allOrderData: Array<IOrder>) => {
         this.allUngroupedOrders = [];
         this.sortOrderLists(allOrderData);
-        this.backendService.allUngroupedOrders = allOrderData;
-      });
-  }
-
-  loadGroupData() {
-    this.backendService
-      .getAllGroups()
-      .toPromise()
-      .then((allGroupData: Array<IGroupedOrders>) => {
-        this.refreshAllGroupData(allGroupData);
       });
   }
 

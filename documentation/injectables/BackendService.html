@@ -1,0 +1,4271 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>poms documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">poms documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>BackendService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/backend.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allGroupData">allGroupData</a>
+                            </li>
+                            <li>
+                                <a href="#allGroupData$">allGroupData$</a>
+                            </li>
+                            <li>
+                                <a href="#allOrderData$">allOrderData$</a>
+                            </li>
+                            <li>
+                                <a href="#allPrinterData">allPrinterData</a>
+                            </li>
+                            <li>
+                                <a href="#allPrinterData$">allPrinterData$</a>
+                            </li>
+                            <li>
+                                <a href="#allUngroupedOrders">allUngroupedOrders</a>
+                            </li>
+                            <li>
+                                <a href="#backendUrl">backendUrl</a>
+                            </li>
+                            <li>
+                                <a href="#categorysData">categorysData</a>
+                            </li>
+                            <li>
+                                <a href="#customerData">customerData</a>
+                            </li>
+                            <li>
+                                <a href="#everySinglePrinter$">everySinglePrinter$</a>
+                            </li>
+                            <li>
+                                <a href="#helpData">helpData</a>
+                            </li>
+                            <li>
+                                <a href="#mockedPrinterData">mockedPrinterData</a>
+                            </li>
+                            <li>
+                                <a href="#mockedResinData">mockedResinData</a>
+                            </li>
+                            <li>
+                                <a href="#mockedURL">mockedURL</a>
+                            </li>
+                            <li>
+                                <a href="#orderStatus">orderStatus</a>
+                            </li>
+                            <li>
+                                <a href="#pollingTimeInMs">pollingTimeInMs</a>
+                            </li>
+                            <li>
+                                <a href="#resineData">resineData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addNewPrinter">addNewPrinter</a>
+                            </li>
+                            <li>
+                                <a href="#alterCategory">alterCategory</a>
+                            </li>
+                            <li>
+                                <a href="#alterCustomer">alterCustomer</a>
+                            </li>
+                            <li>
+                                <a href="#alterFAQ">alterFAQ</a>
+                            </li>
+                            <li>
+                                <a href="#alterGroupOrderStatus">alterGroupOrderStatus</a>
+                            </li>
+                            <li>
+                                <a href="#alterGroupStatus">alterGroupStatus</a>
+                            </li>
+                            <li>
+                                <a href="#alterOrderById">alterOrderById</a>
+                            </li>
+                            <li>
+                                <a href="#alterResin">alterResin</a>
+                            </li>
+                            <li>
+                                <a href="#assignGroupToPrinterAndStartPrint">assignGroupToPrinterAndStartPrint</a>
+                            </li>
+                            <li>
+                                <a href="#assignOrderToGroup">assignOrderToGroup</a>
+                            </li>
+                            <li>
+                                <a href="#createCategory">createCategory</a>
+                            </li>
+                            <li>
+                                <a href="#createCustomer">createCustomer</a>
+                            </li>
+                            <li>
+                                <a href="#createFAQ">createFAQ</a>
+                            </li>
+                            <li>
+                                <a href="#createNewGroup">createNewGroup</a>
+                            </li>
+                            <li>
+                                <a href="#createNewOrder">createNewOrder</a>
+                            </li>
+                            <li>
+                                <a href="#createResin">createResin</a>
+                            </li>
+                            <li>
+                                <a href="#downloadSkinFilesFromGroup">downloadSkinFilesFromGroup</a>
+                            </li>
+                            <li>
+                                <a href="#downloadSlicedFileFromGroup">downloadSlicedFileFromGroup</a>
+                            </li>
+                            <li>
+                                <a href="#getAllCategoryData">getAllCategoryData</a>
+                            </li>
+                            <li>
+                                <a href="#getAllCustomer">getAllCustomer</a>
+                            </li>
+                            <li>
+                                <a href="#getAllGroupData">getAllGroupData</a>
+                            </li>
+                            <li>
+                                <a href="#getAllGroups">getAllGroups</a>
+                            </li>
+                            <li>
+                                <a href="#getAllHelpData">getAllHelpData</a>
+                            </li>
+                            <li>
+                                <a href="#getAllResin">getAllResin</a>
+                            </li>
+                            <li>
+                                <a href="#getPrinterById">getPrinterById</a>
+                            </li>
+                            <li>
+                                <a href="#getSearchResults">getSearchResults</a>
+                            </li>
+                            <li>
+                                <a href="#loadCategoryData">loadCategoryData</a>
+                            </li>
+                            <li>
+                                <a href="#loadCustomerData">loadCustomerData</a>
+                            </li>
+                            <li>
+                                <a href="#loadHelpData">loadHelpData</a>
+                            </li>
+                            <li>
+                                <a href="#loadResinData">loadResinData</a>
+                            </li>
+                            <li>
+                                <a href="#pollAllOrdersFromBackend">pollAllOrdersFromBackend</a>
+                            </li>
+                            <li>
+                                <a href="#pollAllPrinterFromBackend">pollAllPrinterFromBackend</a>
+                            </li>
+                            <li>
+                                <a href="#removeCategoryByName">removeCategoryByName</a>
+                            </li>
+                            <li>
+                                <a href="#removeCustomerByName">removeCustomerByName</a>
+                            </li>
+                            <li>
+                                <a href="#removeGroupById">removeGroupById</a>
+                            </li>
+                            <li>
+                                <a href="#removeOrderById">removeOrderById</a>
+                            </li>
+                            <li>
+                                <a href="#removePrinterById">removePrinterById</a>
+                            </li>
+                            <li>
+                                <a href="#removeResinByName">removeResinByName</a>
+                            </li>
+                            <li>
+                                <a href="#startGroupObservable">startGroupObservable</a>
+                            </li>
+                            <li>
+                                <a href="#startOrderObservable">startOrderObservable</a>
+                            </li>
+                            <li>
+                                <a href="#startPrinter">startPrinter</a>
+                            </li>
+                            <li>
+                                <a href="#startPrinterObservable">startPrinterObservable</a>
+                            </li>
+                            <li>
+                                <a href="#stopPrinter">stopPrinter</a>
+                            </li>
+                            <li>
+                                <a href="#togglePrinter">togglePrinter</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, uploadService: <a href="../injectables/UploadService.html">UploadService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/app/services/backend.service.ts:143</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>uploadService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UploadService.html" target="_self" >UploadService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addNewPrinter"></a>
+                    <span class="name">
+                        <b>
+                            addNewPrinter
+                        </b>
+                        <a href="#addNewPrinter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addNewPrinter(newPrinter: <a href="../interfaces/IPrinterNew.html">IPrinterNew</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="341"
+                            class="link-to-prism">src/app/services/backend.service.ts:341</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newPrinter</td>
+                                    <td>
+                                                <code><a href="../interfaces/IPrinterNew.html" target="_self" >IPrinterNew</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterCategory"></a>
+                    <span class="name">
+                        <b>
+                            alterCategory
+                        </b>
+                        <a href="#alterCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterCategory(alteredCategory: <a href="../interfaces/IAlterCategory.html">IAlterCategory</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="398"
+                            class="link-to-prism">src/app/services/backend.service.ts:398</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>alteredCategory</td>
+                                    <td>
+                                                <code><a href="../interfaces/IAlterCategory.html" target="_self" >IAlterCategory</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterCustomer"></a>
+                    <span class="name">
+                        <b>
+                            alterCustomer
+                        </b>
+                        <a href="#alterCustomer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterCustomer(customer_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, newCustomer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="404"
+                            class="link-to-prism">src/app/services/backend.service.ts:404</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customer_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>newCustomer</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterFAQ"></a>
+                    <span class="name">
+                        <b>
+                            alterFAQ
+                        </b>
+                        <a href="#alterFAQ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterFAQ(alteredTopic: <a href="../interfaces/IFAQPageAlter.html">IFAQPageAlter</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="371"
+                            class="link-to-prism">src/app/services/backend.service.ts:371</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Modify existing data </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>alteredTopic</td>
+                                    <td>
+                                                <code><a href="../interfaces/IFAQPageAlter.html" target="_self" >IFAQPageAlter</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterGroupOrderStatus"></a>
+                    <span class="name">
+                        <b>
+                            alterGroupOrderStatus
+                        </b>
+                        <a href="#alterGroupOrderStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterGroupOrderStatus(group_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="410"
+                            class="link-to-prism">src/app/services/backend.service.ts:410</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>group_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterGroupStatus"></a>
+                    <span class="name">
+                        <b>
+                            alterGroupStatus
+                        </b>
+                        <a href="#alterGroupStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterGroupStatus(group_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="416"
+                            class="link-to-prism">src/app/services/backend.service.ts:416</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>group_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>status</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterOrderById"></a>
+                    <span class="name">
+                        <b>
+                            alterOrderById
+                        </b>
+                        <a href="#alterOrderById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterOrderById(order_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, alteredOrder: FormData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="383"
+                            class="link-to-prism">src/app/services/backend.service.ts:383</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>order_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>alteredOrder</td>
+                                    <td>
+                                            <code>FormData</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterResin"></a>
+                    <span class="name">
+                        <b>
+                            alterResin
+                        </b>
+                        <a href="#alterResin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>alterResin(new_name: <a href="../interfaces/IAlterResin.html">IAlterResin</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="392"
+                            class="link-to-prism">src/app/services/backend.service.ts:392</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>new_name</td>
+                                    <td>
+                                                <code><a href="../interfaces/IAlterResin.html" target="_self" >IAlterResin</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="assignGroupToPrinterAndStartPrint"></a>
+                    <span class="name">
+                        <b>
+                            assignGroupToPrinterAndStartPrint
+                        </b>
+                        <a href="#assignGroupToPrinterAndStartPrint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>assignGroupToPrinterAndStartPrint(group_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, printer_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="456"
+                            class="link-to-prism">src/app/services/backend.service.ts:456</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controll printer </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>group_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>printer_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="assignOrderToGroup"></a>
+                    <span class="name">
+                        <b>
+                            assignOrderToGroup
+                        </b>
+                        <a href="#assignOrderToGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>assignOrderToGroup(order_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, group_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="377"
+                            class="link-to-prism">src/app/services/backend.service.ts:377</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>order_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>group_id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCategory"></a>
+                    <span class="name">
+                        <b>
+                            createCategory
+                        </b>
+                        <a href="#createCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createCategory(createNewCategory: <a href="../interfaces/ICategoryName.html">ICategoryName</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="359"
+                            class="link-to-prism">src/app/services/backend.service.ts:359</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>createNewCategory</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICategoryName.html" target="_self" >ICategoryName</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCustomer"></a>
+                    <span class="name">
+                        <b>
+                            createCustomer
+                        </b>
+                        <a href="#createCustomer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createCustomer(createNewCustomer: <a href="../interfaces/ICustomerName.html">ICustomerName</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="353"
+                            class="link-to-prism">src/app/services/backend.service.ts:353</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>createNewCustomer</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICustomerName.html" target="_self" >ICustomerName</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFAQ"></a>
+                    <span class="name">
+                        <b>
+                            createFAQ
+                        </b>
+                        <a href="#createFAQ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createFAQ(createTopic: <a href="../interfaces/IFAQPageCreate.html">IFAQPageCreate</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">src/app/services/backend.service.ts:364</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>createTopic</td>
+                                    <td>
+                                                <code><a href="../interfaces/IFAQPageCreate.html" target="_self" >IFAQPageCreate</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewGroup"></a>
+                    <span class="name">
+                        <b>
+                            createNewGroup
+                        </b>
+                        <a href="#createNewGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewGroup(order: <a href="../interfaces/IOrder.html">IOrder</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="331"
+                            class="link-to-prism">src/app/services/backend.service.ts:331</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Create data</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>order</td>
+                                    <td>
+                                                <code><a href="../interfaces/IOrder.html" target="_self" >IOrder</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewOrder"></a>
+                    <span class="name">
+                        <b>
+                            createNewOrder
+                        </b>
+                        <a href="#createNewOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewOrder(newOrder: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="337"
+                            class="link-to-prism">src/app/services/backend.service.ts:337</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newOrder</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createResin"></a>
+                    <span class="name">
+                        <b>
+                            createResin
+                        </b>
+                        <a href="#createResin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createResin(createNewResin: <a href="../interfaces/IResinName.html">IResinName</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="347"
+                            class="link-to-prism">src/app/services/backend.service.ts:347</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>createNewResin</td>
+                                    <td>
+                                                <code><a href="../interfaces/IResinName.html" target="_self" >IResinName</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadSkinFilesFromGroup"></a>
+                    <span class="name">
+                        <b>
+                            downloadSkinFilesFromGroup
+                        </b>
+                        <a href="#downloadSkinFilesFromGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>downloadSkinFilesFromGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="324"
+                            class="link-to-prism">src/app/services/backend.service.ts:324</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadSlicedFileFromGroup"></a>
+                    <span class="name">
+                        <b>
+                            downloadSlicedFileFromGroup
+                        </b>
+                        <a href="#downloadSlicedFileFromGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>downloadSlicedFileFromGroup(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="320"
+                            class="link-to-prism">src/app/services/backend.service.ts:320</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Download </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllCategoryData"></a>
+                    <span class="name">
+                        <b>
+                            getAllCategoryData
+                        </b>
+                        <a href="#getAllCategoryData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllCategoryData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="271"
+                            class="link-to-prism">src/app/services/backend.service.ts:271</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllCustomer"></a>
+                    <span class="name">
+                        <b>
+                            getAllCustomer
+                        </b>
+                        <a href="#getAllCustomer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllCustomer()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">src/app/services/backend.service.ts:267</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllGroupData"></a>
+                    <span class="name">
+                        <b>
+                            getAllGroupData
+                        </b>
+                        <a href="#getAllGroupData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllGroupData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="283"
+                            class="link-to-prism">src/app/services/backend.service.ts:283</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IGroupedOrders.html" target="_self" >Array&lt;IGroupedOrders&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllGroups"></a>
+                    <span class="name">
+                        <b>
+                            getAllGroups
+                        </b>
+                        <a href="#getAllGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllGroups()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">src/app/services/backend.service.ts:279</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllHelpData"></a>
+                    <span class="name">
+                        <b>
+                            getAllHelpData
+                        </b>
+                        <a href="#getAllHelpData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllHelpData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="275"
+                            class="link-to-prism">src/app/services/backend.service.ts:275</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllResin"></a>
+                    <span class="name">
+                        <b>
+                            getAllResin
+                        </b>
+                        <a href="#getAllResin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllResin()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="263"
+                            class="link-to-prism">src/app/services/backend.service.ts:263</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPrinterById"></a>
+                    <span class="name">
+                        <b>
+                            getPrinterById
+                        </b>
+                        <a href="#getPrinterById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPrinterById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="259"
+                            class="link-to-prism">src/app/services/backend.service.ts:259</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get data </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSearchResults"></a>
+                    <span class="name">
+                        <b>
+                            getSearchResults
+                        </b>
+                        <a href="#getSearchResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSearchResults(searchValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="287"
+                            class="link-to-prism">src/app/services/backend.service.ts:287</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>searchValue</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Array&lt;any&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCategoryData"></a>
+                    <span class="name">
+                        <b>
+                            loadCategoryData
+                        </b>
+                        <a href="#loadCategoryData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadCategoryData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="246"
+                            class="link-to-prism">src/app/services/backend.service.ts:246</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCustomerData"></a>
+                    <span class="name">
+                        <b>
+                            loadCustomerData
+                        </b>
+                        <a href="#loadCustomerData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadCustomerData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="240"
+                            class="link-to-prism">src/app/services/backend.service.ts:240</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadHelpData"></a>
+                    <span class="name">
+                        <b>
+                            loadHelpData
+                        </b>
+                        <a href="#loadHelpData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadHelpData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="251"
+                            class="link-to-prism">src/app/services/backend.service.ts:251</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadResinData"></a>
+                    <span class="name">
+                        <b>
+                            loadResinData
+                        </b>
+                        <a href="#loadResinData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadResinData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="233"
+                            class="link-to-prism">src/app/services/backend.service.ts:233</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pollAllOrdersFromBackend"></a>
+                    <span class="name">
+                        <b>
+                            pollAllOrdersFromBackend
+                        </b>
+                        <a href="#pollAllOrdersFromBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pollAllOrdersFromBackend()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="219"
+                            class="link-to-prism">src/app/services/backend.service.ts:219</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pollAllPrinterFromBackend"></a>
+                    <span class="name">
+                        <b>
+                            pollAllPrinterFromBackend
+                        </b>
+                        <a href="#pollAllPrinterFromBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pollAllPrinterFromBackend()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="226"
+                            class="link-to-prism">src/app/services/backend.service.ts:226</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;Object&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCategoryByName"></a>
+                    <span class="name">
+                        <b>
+                            removeCategoryByName
+                        </b>
+                        <a href="#removeCategoryByName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeCategoryByName(name: <a href="../interfaces/ICategoryDelete.html">ICategoryDelete</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="435"
+                            class="link-to-prism">src/app/services/backend.service.ts:435</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICategoryDelete.html" target="_self" >ICategoryDelete</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCustomerByName"></a>
+                    <span class="name">
+                        <b>
+                            removeCustomerByName
+                        </b>
+                        <a href="#removeCustomerByName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeCustomerByName(customer_id: <a href="../interfaces/ICustomerDelete.html">ICustomerDelete</a>, name: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="441"
+                            class="link-to-prism">src/app/services/backend.service.ts:441</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customer_id</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICustomerDelete.html" target="_self" >ICustomerDelete</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeGroupById"></a>
+                    <span class="name">
+                        <b>
+                            removeGroupById
+                        </b>
+                        <a href="#removeGroupById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeGroupById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="450"
+                            class="link-to-prism">src/app/services/backend.service.ts:450</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeOrderById"></a>
+                    <span class="name">
+                        <b>
+                            removeOrderById
+                        </b>
+                        <a href="#removeOrderById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeOrderById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="423"
+                            class="link-to-prism">src/app/services/backend.service.ts:423</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Remove existing data </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removePrinterById"></a>
+                    <span class="name">
+                        <b>
+                            removePrinterById
+                        </b>
+                        <a href="#removePrinterById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removePrinterById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="427"
+                            class="link-to-prism">src/app/services/backend.service.ts:427</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeResinByName"></a>
+                    <span class="name">
+                        <b>
+                            removeResinByName
+                        </b>
+                        <a href="#removeResinByName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeResinByName(name: <a href="../interfaces/IResinDelete.html">IResinDelete</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="431"
+                            class="link-to-prism">src/app/services/backend.service.ts:431</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="../interfaces/IResinDelete.html" target="_self" >IResinDelete</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startGroupObservable"></a>
+                    <span class="name">
+                        <b>
+                            startGroupObservable
+                        </b>
+                        <a href="#startGroupObservable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startGroupObservable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">src/app/services/backend.service.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startOrderObservable"></a>
+                    <span class="name">
+                        <b>
+                            startOrderObservable
+                        </b>
+                        <a href="#startOrderObservable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startOrderObservable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/app/services/backend.service.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startPrinter"></a>
+                    <span class="name">
+                        <b>
+                            startPrinter
+                        </b>
+                        <a href="#startPrinter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startPrinter(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="474"
+                            class="link-to-prism">src/app/services/backend.service.ts:474</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controlls printer, for development </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startPrinterObservable"></a>
+                    <span class="name">
+                        <b>
+                            startPrinterObservable
+                        </b>
+                        <a href="#startPrinterObservable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startPrinterObservable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">src/app/services/backend.service.ts:182</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopPrinter"></a>
+                    <span class="name">
+                        <b>
+                            stopPrinter
+                        </b>
+                        <a href="#stopPrinter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stopPrinter(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="479"
+                            class="link-to-prism">src/app/services/backend.service.ts:479</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="togglePrinter"></a>
+                    <span class="name">
+                        <b>
+                            togglePrinter
+                        </b>
+                        <a href="#togglePrinter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>togglePrinter(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">Number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="490"
+                            class="link-to-prism">src/app/services/backend.service.ts:490</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" >Number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The target to process see {</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">This is a good example
+processTarget(&amp;#39;yo&amp;#39;)</code></pre>
+                        </div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>The processed target number</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allGroupData"></a>
+                        <span class="name">
+                            <b>
+                            allGroupData</b>
+                            <a href="#allGroupData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IGroupedOrders.html" target="_self" >Array&lt;IGroupedOrders&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/services/backend.service.ts:130</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allGroupData$"></a>
+                        <span class="name">
+                            <b>
+                            allGroupData$</b>
+                            <a href="#allGroupData$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;Object&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/services/backend.service.ts:123</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allOrderData$"></a>
+                        <span class="name">
+                            <b>
+                            allOrderData$</b>
+                            <a href="#allOrderData$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;Object&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/services/backend.service.ts:122</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allPrinterData"></a>
+                        <span class="name">
+                            <b>
+                            allPrinterData</b>
+                            <a href="#allPrinterData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IPrinterData.html" target="_self" >Array&lt;IPrinterData&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/services/backend.service.ts:132</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>&quot;allPrinterData&quot; always up to date and easy accesible for quick information access </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allPrinterData$"></a>
+                        <span class="name">
+                            <b>
+                            allPrinterData$</b>
+                            <a href="#allPrinterData$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;Object&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/services/backend.service.ts:124</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allUngroupedOrders"></a>
+                        <span class="name">
+                            <b>
+                            allUngroupedOrders</b>
+                            <a href="#allUngroupedOrders"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IOrder.html" target="_self" >Array&lt;IOrder&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/services/backend.service.ts:129</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Values saved from polling </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="backendUrl"></a>
+                        <span class="name">
+                            <b>
+                            backendUrl</b>
+                            <a href="#backendUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;http://141.19.113.166:8081/&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/backend.service.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="categorysData"></a>
+                        <span class="name">
+                            <b>
+                            categorysData</b>
+                            <a href="#categorysData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ICategory.html" target="_self" >Array&lt;ICategory&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/services/backend.service.ts:138</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="customerData"></a>
+                        <span class="name">
+                            <b>
+                            customerData</b>
+                            <a href="#customerData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ICustomer.html" target="_self" >Array&lt;ICustomer&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/app/services/backend.service.ts:136</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="everySinglePrinter$"></a>
+                        <span class="name">
+                            <b>
+                            everySinglePrinter$</b>
+                            <a href="#everySinglePrinter$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;IPrinterDataPolling&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/services/backend.service.ts:126</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>&quot;everySinglePrinter$&quot; saves only important data and allows components to subscribe to printer observables </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="helpData"></a>
+                        <span class="name">
+                            <b>
+                            helpData</b>
+                            <a href="#helpData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IFAQPage.html" target="_self" >Array&lt;IFAQPage&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/services/backend.service.ts:137</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mockedPrinterData"></a>
+                        <span class="name">
+                            <b>
+                            mockedPrinterData</b>
+                            <a href="#mockedPrinterData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IPrinterData.html" target="_self" >Array&lt;IPrinterData&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter1&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 0,
+      offline: 0,
+      progress: 0.7068181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    },
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter2&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 1,
+      offline: 0,
+      progress: 0.5568181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    },
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter3&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 0,
+      offline: 0,
+      progress: 0.7568181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    },
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter4&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 0,
+      offline: 0,
+      progress: 0.1568181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    }
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/services/backend.service.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Mocked Printer Data for testing multiple printer during development </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mockedResinData"></a>
+                        <span class="name">
+                            <b>
+                            mockedResinData</b>
+                            <a href="#mockedResinData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IResinType.html" target="_self" >Array&lt;IResinType&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    { resin_name: &quot;Cast UV&quot;, color: &quot;#fe6254&quot; },
+    { resin_name: &quot;Gingiva UV&quot;, color: &quot;#f88379&quot; },
+    { resin_name: &quot;T UV&quot;, color: &quot;#3f99dd&quot; },
+    { resin_name: &quot;Temp A1&quot;, color: &quot;#fbfced&quot; },
+    { resin_name: &quot;Temp A2&quot;, color: &quot;#e2e4c1&quot; },
+    { resin_name: &quot;Temp A3&quot;, color: &quot;#c2b280&quot; },
+    { resin_name: &quot;Tray UV&quot;, color: &quot;#fafafa&quot; },
+    { resin_name: &quot;UV Caramel&quot;, color: &quot;#ffd59a&quot; },
+    { resin_name: &quot;UV Grey&quot;, color: &quot;#d8d8d8&quot; },
+    { resin_name: &quot;UV Ivory&quot;, color: &quot;#fffff0&quot; }
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/services/backend.service.ts:107</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mockedURL"></a>
+                        <span class="name">
+                            <b>
+                            mockedURL</b>
+                            <a href="#mockedURL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;http://5cda86ebeb39f80014a756b7.mockapi.io/&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/services/backend.service.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="orderStatus"></a>
+                        <span class="name">
+                            <b>
+                            orderStatus</b>
+                            <a href="#orderStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;IOrderStatus&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    { value: &quot;created&quot;, display_name: &quot;Druckbereit&quot; },
+    { value: &quot;postPrint&quot;, display_name: &quot;Nachbereitung&quot; },
+    { value: &quot;sent&quot;, display_name: &quot;Abgeschlossen&quot; }
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/app/services/backend.service.ts:139</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pollingTimeInMs"></a>
+                        <span class="name">
+                            <b>
+                            pollingTimeInMs</b>
+                            <a href="#pollingTimeInMs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>2000</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/services/backend.service.ts:121</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable which poll every pollingTimeInMs ms </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resineData"></a>
+                        <span class="name">
+                            <b>
+                            resineData</b>
+                            <a href="#resineData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IResinType.html" target="_self" >Array&lt;IResinType&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/services/backend.service.ts:135</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Data that does not need to be polled </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UploadService } from &quot;./upload.service&quot;;
+import { Injectable } from &quot;@angular/core&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+import { Observable, timer } from &quot;rxjs&quot;;
+import {
+  IOrder,
+  IPrinterData,
+  IGroupedOrders,
+  IResinType,
+  ICategory,
+  ICustomer,
+  IPrinterNew,
+  IFAQPage,
+  IFAQPageAlter,
+  IFAQPageCreate,
+  IResinName,
+  ICustomerName,
+  IResinDelete,
+  ICustomerDelete,
+  IAlterResin,
+  ICategoryName,
+  ICategoryDelete,
+  IAlterCategory,
+  IPrinterDataPolling,
+  IOrderStatus
+} from &quot;../shared/interfaces&quot;;
+import { switchMap, catchError } from &quot;rxjs/operators&quot;;
+
+@Injectable({
+  providedIn: &quot;root&quot;
+})
+export class BackendService {
+  backendUrl &#x3D; &quot;http://141.19.113.166:8081/&quot;;
+  mockedURL &#x3D; &quot;http://5cda86ebeb39f80014a756b7.mockapi.io/&quot;;
+
+  /** Mocked Printer Data for testing multiple printer during development */
+  mockedPrinterData: Array&lt;IPrinterData&gt; &#x3D; [
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter1&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 0,
+      offline: 0,
+      progress: 0.7068181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    },
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter2&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 1,
+      offline: 0,
+      progress: 0.5568181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    },
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter3&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 0,
+      offline: 0,
+      progress: 0.7568181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    },
+    {
+      printer_id: 23,
+      name: &quot;TestPrinter4&quot;,
+      host: &quot;141.19.113.185&quot;,
+      port: 8080,
+      is_printing: 1,
+      current_layer: 98,
+      max_layer: 176,
+      print_start: &quot;11:58:31&quot;,
+      time_estimated: &quot;01:06:51&quot;,
+      model_height: 18,
+      paused: 0,
+      offline: 0,
+      progress: 0.1568181818181818,
+      estimated_time_remaining: &quot;12h&quot;,
+      resin_volume: 0.7
+    }
+  ];
+  mockedResinData: Array&lt;IResinType&gt; &#x3D; [
+    { resin_name: &quot;Cast UV&quot;, color: &quot;#fe6254&quot; },
+    { resin_name: &quot;Gingiva UV&quot;, color: &quot;#f88379&quot; },
+    { resin_name: &quot;T UV&quot;, color: &quot;#3f99dd&quot; },
+    { resin_name: &quot;Temp A1&quot;, color: &quot;#fbfced&quot; },
+    { resin_name: &quot;Temp A2&quot;, color: &quot;#e2e4c1&quot; },
+    { resin_name: &quot;Temp A3&quot;, color: &quot;#c2b280&quot; },
+    { resin_name: &quot;Tray UV&quot;, color: &quot;#fafafa&quot; },
+    { resin_name: &quot;UV Caramel&quot;, color: &quot;#ffd59a&quot; },
+    { resin_name: &quot;UV Grey&quot;, color: &quot;#d8d8d8&quot; },
+    { resin_name: &quot;UV Ivory&quot;, color: &quot;#fffff0&quot; }
+  ];
+
+  /** Observable which poll every pollingTimeInMs ms */
+  pollingTimeInMs: number &#x3D; 2000;
+  allOrderData$: Observable&lt;Object&gt;;
+  allGroupData$: Observable&lt;Object&gt;;
+  allPrinterData$: Observable&lt;Object&gt;;
+  /** &quot;everySinglePrinter$&quot; saves only important data and allows components to subscribe to printer observables */
+  everySinglePrinter$: Array&lt;IPrinterDataPolling&gt; &#x3D; [];
+
+  /** Values saved from polling */
+  allUngroupedOrders: Array&lt;IOrder&gt; &#x3D; [];
+  allGroupData: Array&lt;IGroupedOrders&gt; &#x3D; [];
+  /** &quot;allPrinterData&quot; always up to date and easy accesible for quick information access */
+  allPrinterData: Array&lt;IPrinterData&gt; &#x3D; [];
+
+  /**  Data that does not need to be polled */
+  resineData: Array&lt;IResinType&gt;;
+  customerData: Array&lt;ICustomer&gt;;
+  helpData: Array&lt;IFAQPage&gt;;
+  categorysData: Array&lt;ICategory&gt;;
+  orderStatus: Array&lt;IOrderStatus&gt; &#x3D; [
+    { value: &quot;created&quot;, display_name: &quot;Druckbereit&quot; },
+    { value: &quot;postPrint&quot;, display_name: &quot;Nachbereitung&quot; },
+    { value: &quot;sent&quot;, display_name: &quot;Abgeschlossen&quot; }
+  ];
+
+  constructor(private http: HttpClient, private uploadService: UploadService) {
+    /** Starts observable and polls from Backend */
+    this.startOrderObservable();
+    this.startGroupObservable();
+    this.startPrinterObservable();
+
+    /** Loads data that does not need to be polled */
+    this.loadResinData();
+    this.loadHelpData();
+    this.loadCustomerData();
+    this.loadCategoryData();
+  }
+
+  startOrderObservable(): void {
+    /** Creates observable which request data every &quot;pollingTimeInMs&quot; ms */
+    this.allOrderData$ &#x3D; timer(0, this.pollingTimeInMs).pipe(
+      switchMap((counter: number) &#x3D;&gt; this.pollAllOrdersFromBackend()),
+      catchError((err, caught) &#x3D;&gt; caught)
+    );
+    /** Subscribes to observable and saves response in an array accessible for every component  */
+    this.allOrderData$.subscribe((allOrderData: Array&lt;any&gt;) &#x3D;&gt; {
+      this.allUngroupedOrders &#x3D; allOrderData;
+    });
+  }
+
+  startGroupObservable(): void {
+    /** Creates observable which request data every &quot;pollingTimeInMs&quot; ms */
+    this.allGroupData$ &#x3D; timer(0, this.pollingTimeInMs).pipe(
+      switchMap((counter: number) &#x3D;&gt; this.getAllGroups()),
+      catchError((err, caught) &#x3D;&gt; caught)
+    );
+    /** Subscribes to observable and saves response in an array accessible for every component  */
+    this.allGroupData$.subscribe((allGroupData: Array&lt;any&gt;) &#x3D;&gt; {
+      this.allGroupData &#x3D; allGroupData;
+    });
+  }
+
+  startPrinterObservable() {
+    /** Creates observable which request data every &quot;pollingTimeInMs&quot; ms */
+    this.allPrinterData$ &#x3D; timer(0, this.pollingTimeInMs).pipe(
+      switchMap((counter: number) &#x3D;&gt; this.pollAllPrinterFromBackend()),
+      catchError((err, caught) &#x3D;&gt; caught)
+    );
+
+    /** Subscribes to observable and saves response in an array accessible for every component  */
+    this.allPrinterData$.subscribe((newPrinterData: Array&lt;IPrinterData&gt;) &#x3D;&gt; {
+      this.allPrinterData &#x3D; newPrinterData;
+      //this.allPrinterData &#x3D; this.mockedPrinterData;
+
+      /** If count of printer has changed then &quot;everySinglePrinter$&quot; gets updated */
+      if (this.everySinglePrinter$.length !&#x3D; this.allPrinterData.length) {
+        this.everySinglePrinter$ &#x3D; [];
+        /** Each printer becomes one observable and stores printer_id and the printer name*/
+        this.allPrinterData.forEach((printer: IPrinterData) &#x3D;&gt; {
+          /** Creates observable for each printer */
+          var singlePrinter$: Observable&lt;IPrinterData&gt; &#x3D; &lt;
+            Observable&lt;IPrinterData&gt;
+          &gt;(&lt;unknown&gt;timer(0, this.pollingTimeInMs).pipe(
+            switchMap((counter: number) &#x3D;&gt;
+              this.getPrinterById(printer.printer_id)
+            ),
+            catchError((err, caught) &#x3D;&gt; caught)
+          ));
+          /** Saves id, name and observable in an array accessible for every component  */
+          this.everySinglePrinter$.push({
+            printer_id: printer.printer_id,
+            printer_name: printer.name,
+            printer$: singlePrinter$
+          });
+        });
+      }
+    });
+  }
+
+  pollAllOrdersFromBackend(): Observable&lt;Object&gt; {
+    //** Backendcall */
+    return this.http.get(this.backendUrl + &quot;order/get/all&quot;);
+    //** Mocked Data for development */
+    // return this.http.get(this.mockedURL + &quot;allOrders&quot;);
+  }
+
+  pollAllPrinterFromBackend(): Observable&lt;Object&gt; {
+    //** Backendcall */
+    return this.http.get(this.backendUrl + &quot;printer/get/all&quot;);
+    //** Mocked Data for development */
+    // return this.http.get(this.mockedURL + &quot;allPrinter&quot;);
+  }
+
+  loadResinData() {
+    this.getAllResin().then((harzData: Array&lt;IResinType&gt;) &#x3D;&gt; {
+      // this.resineData &#x3D; harzData;
+      this.resineData &#x3D; this.mockedResinData;
+      this.resineData.sort();
+    });
+  }
+  loadCustomerData() {
+    this.getAllCustomer().then((customerData: Array&lt;ICustomer&gt;) &#x3D;&gt; {
+      this.customerData &#x3D; customerData;
+      this.customerData.sort((a, b) &#x3D;&gt; a.name.localeCompare(b.name));
+    });
+  }
+  loadCategoryData() {
+    this.getAllCategoryData().then(
+      (categoryData: Array&lt;ICategory&gt;) &#x3D;&gt; (this.categorysData &#x3D; categoryData)
+    );
+  }
+  loadHelpData() {
+    this.getAllHelpData().then(
+      (helpData: Array&lt;IFAQPage&gt;) &#x3D;&gt; (this.helpData &#x3D; helpData)
+    );
+  }
+
+  /** Get data */
+
+  getPrinterById(id: Number): Observable&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;printer/get/&quot; + id);
+  }
+
+  getAllResin(): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;resin/get/all/&quot;).toPromise();
+  }
+
+  getAllCustomer(): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;customer/get/all/&quot;).toPromise();
+  }
+
+  getAllCategoryData(): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;model_type/get/all/&quot;).toPromise();
+  }
+
+  getAllHelpData(): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;faq/get/all/&quot;).toPromise();
+  }
+
+  getAllGroups(): Observable&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;group/get/all&quot;);
+  }
+
+  getAllGroupData(): Array&lt;IGroupedOrders&gt; {
+    return this.allGroupData;
+  }
+
+  getSearchResults(searchValue: string): Promise&lt;Array&lt;any&gt;&gt; {
+    //this.http.get(this.backendUrl + &quot;search/&quot; + searchValue).toPromise();
+    // let mockedOptions: Array&lt;string&gt; &#x3D; [
+    //   &quot;One&quot;,
+    //   &quot;Two&quot;,
+    //   &quot;Three&quot;,
+    //   &quot;Four&quot;,
+    //   &quot;Five&quot;,
+    //   &quot;Six&quot;,
+    //   &quot;Seven&quot;,
+    //   &quot;Eight&quot;,
+    //   &quot;Nine&quot;
+    // ];
+    // return new Promise((resolve, reject) &#x3D;&gt; {
+    //   resolve(
+    //     mockedOptions.filter(option &#x3D;&gt;
+    //       option.toLowerCase().includes(searchValue)
+    //     )
+    //   );
+    // });
+    let mockedOptions: Array&lt;{ category: string; result: string }&gt; &#x3D; [
+      { category: &quot;Hilfestellung&quot;, result: &quot;Wie fülle ich harz auf&quot; },
+      { category: &quot;Hilfestellung&quot;, result: &quot;Wie fülle ich harz auf&quot; },
+      { category: &quot;Hilfestellung&quot;, result: &quot;Wie fülle ich harz auf&quot; },
+      { category: &quot;Hilfestellung&quot;, result: &quot;Wie fülle ich harz auf&quot; },
+      { category: &quot;Hilfestellung&quot;, result: &quot;Wie fülle ich harz auf&quot; }
+    ];
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      resolve(mockedOptions);
+    });
+  }
+
+  /** Download */
+  downloadSlicedFileFromGroup(id: number): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;group/download/&quot; + id).toPromise();
+  }
+
+  downloadSkinFilesFromGroup(id: number): Promise&lt;Object&gt; {
+    return this.http
+      .get(this.backendUrl + &quot;group/order/download&quot; + id)
+      .toPromise();
+  }
+
+  /** Create data*/
+  createNewGroup(order: IOrder): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;group/create/&quot;, { order_id: order.order_id })
+      .toPromise();
+  }
+
+  createNewOrder(newOrder: any): Observable&lt;Object&gt; {
+    return this.uploadService.createNewOrder(newOrder);
+  }
+
+  addNewPrinter(newPrinter: IPrinterNew): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;printer/create/&quot;, newPrinter)
+      .toPromise();
+  }
+
+  createResin(createNewResin: IResinName): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;resin/create/&quot;, createNewResin)
+      .toPromise();
+  }
+
+  createCustomer(createNewCustomer: ICustomerName): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;customer/create/&quot;, createNewCustomer)
+      .toPromise();
+  }
+
+  createCategory(createNewCategory: ICategoryName): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;model_type/create/&quot;, createNewCategory)
+      .toPromise();
+  }
+  createFAQ(createTopic: IFAQPageCreate): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;faq/create/&quot;, createTopic)
+      .toPromise();
+  }
+
+  /** Modify existing data */
+  alterFAQ(alteredTopic: IFAQPageAlter): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;faq/alter/&quot;, alteredTopic)
+      .toPromise();
+  }
+
+  assignOrderToGroup(order_id: number, group_id: number): Promise&lt;Object&gt; {
+    return this.http
+      .get(this.backendUrl + &quot;order/assign/&quot; + order_id + &quot;/to/&quot; + group_id)
+      .toPromise();
+  }
+
+  alterOrderById(order_id: number, alteredOrder: FormData): Promise&lt;Object&gt; {
+    /** When an order is in status &quot;sent&quot; the ground information needs to get removed so it does not get displayed twice */
+    if (alteredOrder.get(&quot;status&quot;) &#x3D;&#x3D;&#x3D; &quot;sent&quot;) {
+      return this.assignOrderToGroup(order_id, 0).then(res &#x3D;&gt;
+        this.uploadService.alterOrderById(order_id, alteredOrder)
+      );
+    } else return this.uploadService.alterOrderById(order_id, alteredOrder);
+  }
+
+  alterResin(new_name: IAlterResin): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;resin/alter/&quot;, new_name)
+      .toPromise();
+  }
+
+  alterCategory(alteredCategory: IAlterCategory): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;model_type/alter/&quot;, alteredCategory)
+      .toPromise();
+  }
+
+  alterCustomer(customer_id: number, newCustomer: Object): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;customer/alter/&quot; + customer_id, newCustomer)
+      .toPromise();
+  }
+
+  alterGroupOrderStatus(group_id: number): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;group/alter/orders&quot;, { id: group_id })
+      .toPromise();
+  }
+
+  alterGroupStatus(group_id: number, status: string): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;group/alter/1&quot;, { id: group_id, status: status })
+      .toPromise();
+  }
+
+  /** Remove existing data */
+  removeOrderById(id: number): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;order/remove/&quot; + id).toPromise();
+  }
+
+  removePrinterById(id: number): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;printer/remove/&quot; + id).toPromise();
+  }
+
+  removeResinByName(name: IResinDelete): Promise&lt;Object&gt; {
+    return this.http.post(this.backendUrl + &quot;resin/remove/&quot;, name).toPromise();
+  }
+
+  removeCategoryByName(name: ICategoryDelete): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;model_type/remove/&quot;, name)
+      .toPromise();
+  }
+
+  removeCustomerByName(
+    customer_id: ICustomerDelete,
+    name: any
+  ): Promise&lt;Object&gt; {
+    return this.http
+      .post(this.backendUrl + &quot;customer/remove/&quot; + customer_id, name)
+      .toPromise();
+  }
+
+  removeGroupById(id: number): Promise&lt;Object&gt; {
+    return this.http.get(this.backendUrl + &quot;group/remove/&quot; + id).toPromise();
+  }
+
+  /** Controll printer */
+
+  assignGroupToPrinterAndStartPrint(
+    group_id: number,
+    printer_id: number,
+    email: string
+  ): Promise&lt;Object&gt; {
+    return this.http
+      .post(
+        this.backendUrl +
+          &quot;printer/action/upload/&quot; +
+          printer_id +
+          &quot;/&quot; +
+          group_id,
+        { email_to_notify: email }
+      )
+      .toPromise();
+  }
+
+  /** Controlls printer, for development */
+  startPrinter(id: Number) {
+    return this.http
+      .get(this.backendUrl + &quot;printer/action/start/&quot; + id)
+      .toPromise();
+  }
+  stopPrinter(id: Number) {
+    return this.http.get(this.backendUrl + &quot;printer/action/stop/&quot; + id);
+  }
+  /**
+   * @example
+   * This is a good example
+   * processTarget(&#x27;yo&#x27;)
+   *
+   * @param {number} id  The target to process see {@link Todo}
+   * @returns The processed target number
+   */
+  togglePrinter(id: Number) {
+    return this.http.get(this.backendUrl + &quot;printer/action/toggle/&quot; + id);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'BackendService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
