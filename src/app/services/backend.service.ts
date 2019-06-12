@@ -91,7 +91,7 @@ export class BackendService {
       name: "TestPrinter4",
       host: "141.19.113.185",
       port: 8080,
-      is_printing: 0,
+      is_printing: 1,
       current_layer: 98,
       max_layer: 176,
       print_start: "11:58:31",
