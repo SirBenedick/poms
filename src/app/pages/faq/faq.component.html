@@ -1,6 +1,6 @@
 <div class="page-container">
   <div >
-    <div *ngFor="let category of helpData | keyvalue" class="half-container">
+    <div style="padding-left: 30px" *ngFor="let category of helpData | keyvalue" class="half-container">
       <h1 id="title">{{category.key}}</h1>
       <mat-expansion-panel style=" margin-left: -20px;" *ngFor="let subcategory of category.value | keyvalue"
         class="expand-collapse">
@@ -21,7 +21,7 @@
           <br />
         </div>
         <div id="button-space">
-          <button id="button-style" (click)="createNewFaq(category, subcategory)">Hinzufügen</button>
+          <button id="button-style" (click)="createNewFaq(category, subcategory)">hinzufügen</button>
         </div>
       </mat-expansion-panel>
     </div>

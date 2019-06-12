@@ -5,23 +5,24 @@
 }
 
 .half-container {
-  max-height: 47.25vh;
-  min-height: 47.25vh;
+  max-height: 47.3vh;
+  min-height: 47.3vh;
   border: transparent;
   border-bottom: solid 1px #a2a2a2;
   overflow: auto;
-  margin: 2px;
   object-fit: contain;
 }
-#title {
+#title{
+  font-size: 20px;
   object-fit: contain;
   font-family: "Segoe UI";
-  padding-left: 5px;
-  font-size: 20px;
-  font-weight: bold;
   text-align: left;
   color: #272f33;
+  font-weight: bold;
+  margin-left: -20px;
+  margin-top: 9px;
 }
+
 
 .hilfestellung {
   width: 157px;
@@ -35,25 +36,21 @@
   color: #272f33;
 }
 #heading {
-  padding-left: 10px;
-  padding-top: 5px;
-  height: 21px;
-  object-fit: contain;
   font-family: "Segoe UI";
   font-size: 16px;
   font-weight: bold;
-  line-height: 1.31;
   text-align: left;
+  padding-top: 5px;
   color: #272f33;
+  padding-left: 10px;
+
 }
 #sub-titel {
-  padding-left: 35px;
+  padding-left: 40px;
   object-fit: contain;
   font-family: "Segoe UI";
   font-size: 14px;
   font-weight: bold;
-  line-height: 1.31;
-  text-align: left;
   color: #272f33;
 }
 #button-style {
@@ -64,6 +61,8 @@
   text-align: center;
   justify-items: right;
   font-size: 14px;
+  width: 100px;
+  height: 30px;
 }
 #button-style:hover {
   background-color: #62c6d6;
@@ -85,8 +84,6 @@
 
 .expand-collapse {
   flex-wrap: wrap;
-  font-size: 8px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-
-  margin: 5px;
+  margin: 10px  10px  10px 10px;
 }
