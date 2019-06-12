@@ -47,7 +47,16 @@
   text-align: left;
   color: #272f33;
   position: relative;
-  width: 500px;
+  width: 100%;
+}
+.titel-lenght{
+  object-fit: contain;
+  font-family: "Segoe UI";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  color: #62c6d6;
+  position: relative;
 }
 #new-group-button {
   border-radius: 4px;
@@ -61,13 +70,22 @@
   margin-top: 10px;
 }
 #order-heading {
-  padding-top: 5px;
+  margin-top: -30px;
+  padding-left: 30px;
   font-family: "Segoe UI";
   font-size: 14px;
   font-weight: bold;
   position: relative;
   height: 30px;
   width: 300px;
+}
+#color-block{
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  border: #62c6d6 1px solid;
+  margin-bottom: -20px;
+
 }
 
 .button-space {
@@ -80,7 +98,8 @@
   font-size: 14px;
   width: 100px;
   height: 30px;
-  margin-top: 2px;
+  margin-top: 13px;
+  margin-right: 20px;
   object-fit: contain;
   border-radius: 4px;
   color: #62c6d6;
