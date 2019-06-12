@@ -31,6 +31,7 @@
   font-weight: bold;
   padding-left: 15px;
   align-self: center;
+  color: #272f33;
 }
 
 .add-new-printer {
@@ -49,20 +50,17 @@
   /* color: red; */
 }
 
-  .available-printer {
-    font-family: "Segoe UI";
-    font-size: 22px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.35;
-  letter-spacing: normal;
+#title{
+  font-size: 20px;
+  object-fit: contain;
+  font-family: "Segoe UI";
   text-align: left;
   color: #272f33;
-  padding-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 5px;
 }
+
 
 /* .expand-collapse {
   width: 1272px;
@@ -78,9 +76,8 @@
 
 .expand-collapse {
   flex-wrap: wrap;
-  font-size: 8px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  margin: 5px;
+  margin: 10px  1px  10px 1px;
 }
 
 #order-heading {
