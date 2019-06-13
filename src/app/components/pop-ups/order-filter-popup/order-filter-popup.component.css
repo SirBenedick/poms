@@ -15,6 +15,14 @@
 .inner.container{
   margin-top: -10px;
 }
+#color-block{
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  border: #62c6d6 1px solid;
+  margin-top: -14px;
+  margin-left: -18px;
+}
 
 .radio-container input{
   position: absolute;
@@ -54,7 +62,9 @@ padding-top: 8px;
   overflow: visible;
   height: 30px;
   width: 100px;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
+
 }
 .heading{
   object-fit: contain;
