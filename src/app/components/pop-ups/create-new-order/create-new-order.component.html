@@ -113,11 +113,29 @@
     </div>
     <!-- Hier versteckt sich das feature -->
 
-    <h1 class="title">Datei hochladen</h1>
-    <img
-      src="../../../assets/svg/Hochladen.svg"
-      style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
-    />
+    <div
+      *ngIf="
+        data.file_scan_name != null;
+        then scanExists;
+        else scanDoesNotExist
+      "
+    ></div>
+    <ng-template #scanExists>
+      <h1 class="title">Datei herunterladen oder neue hochladen</h1>
+      <img
+        src="../../../assets/svg/icon-downlode.svg"
+        style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
+        (click)="onDownloadScan()"
+      />
+    </ng-template>
+    <ng-template #scanDoesNotExist>
+      <h1 class="title">Datei hochladen</h1>
+      <img
+        src="../../../assets/svg/Hochladen.svg"
+        style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"
+      />
+    </ng-template>
+
     <div>
       <input
         id="file"
@@ -147,6 +165,7 @@
     </div>
 
     <!-- bis hier Fehlersuche -->
+    <ng-template #scanDoesntExist> </ng-template>
 
     <div class="input-container">
       <h1 class="title">Sonstige Informationen</h1>

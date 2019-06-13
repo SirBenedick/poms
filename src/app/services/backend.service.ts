@@ -325,6 +325,24 @@ export class BackendService {
       .get(this.backendUrl + "group/order/download" + id)
       .toPromise();
   }
+  downloadScanFileFromOrder(id: number, filename: string = null): void {
+    this.http
+      .get(this.backendUrl + "order/download/scan/" + id, {
+        responseType: "blob" as "json"
+      })
+      .subscribe((response: any) => {
+        let dataType = response.type;
+        let binaryData = [];
+        binaryData.push(response);
+        let downloadLink = document.createElement("a");
+        downloadLink.href = window.URL.createObjectURL(
+          new Blob(binaryData, { type: dataType })
+        );
+        if (filename) downloadLink.setAttribute("download", filename);
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+      });
+  }
 
   /** Create data*/
   createNewGroup(order: IOrder): Promise<Object> {

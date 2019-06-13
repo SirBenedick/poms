@@ -3,7 +3,8 @@ import { BackendService } from "../../services/backend.service";
 import {
   IOrder,
   IFilterOrders,
-  IGroupedOrders, IResinType
+  IGroupedOrders,
+  IResinType
 } from "src/app/shared/interfaces";
 import {
   CdkDragDrop,
@@ -215,7 +216,6 @@ export class OrderComponent implements OnInit {
               this.loadOrderData();
             }
           });
-          console.log(newOrder);
         }
       }
     });
@@ -297,7 +297,6 @@ export class OrderComponent implements OnInit {
     );
 
     this.backendService.createNewGroup(draggedOrder).then(res => {
-      console.log("createNewGroup:", res);
       this.loadGroupData();
       this.loadOrderData();
     });
@@ -361,7 +360,9 @@ export class OrderComponent implements OnInit {
       }
     });
   }
-  getResineColorValue(resine_name: string){
-    return this.backendService.resineData.find((harz: IResinType) => harz.resin_name == resine_name).color;
+  getResineColorValue(resine_name: string) {
+    return this.backendService.resineData.find(
+      (harz: IResinType) => harz.resin_name == resine_name
+    ).color;
   }
 }

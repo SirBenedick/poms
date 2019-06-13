@@ -133,4 +133,10 @@ export class CreateNewOrderComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUploadName = files.item(0).name;
   }
+  onDownloadScan() {
+    this.backendService.downloadScanFileFromOrder(
+      this.data.order_id,
+      this.data.file_scan_name
+    );
+  }
 }
