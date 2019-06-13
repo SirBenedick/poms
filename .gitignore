@@ -2,6 +2,8 @@
 #manually added
 .idea/
 .vscode/
+.dist/
+.documentation
 
 # Logs
 logs

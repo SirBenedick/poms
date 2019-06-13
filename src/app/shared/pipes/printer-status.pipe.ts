@@ -7,7 +7,7 @@ export class PrinterStatusPipe implements PipeTransform {
     let printerStatus;
     if (printer.offline == 0) {
       if (printer.is_printing == 0) {
-        printerStatus = printer.paused ? "Standby" : "Standby";
+        printerStatus = "Standby";
       } else {
         printerStatus = printer.paused ? "Pausiert" : "Druckt";
       }
