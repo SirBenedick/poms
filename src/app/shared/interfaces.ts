@@ -61,7 +61,7 @@ export interface IOrderCreateNew {
 export interface IGroupedOrders {
   group_id: number;
   resin_name: string;
-  creationDate: string;
+  creation_date: string;
   file_sliced_name?: any; //REST-Url to file
   orders?: Array<IOrder>;
   status: "preprint" | "printing" | "postprint";

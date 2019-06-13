@@ -66,9 +66,11 @@
                     group.resin_name
                   }}</b>
                 </p>
+                <p class="order-heading-creation-date">
+                  erstellt: {{ group.creation_date | date:'yyyy-LL-dd' }}
+                </p>
               </div>
             </mat-panel-title>
-
             <div
               *ngIf="
                 group.status == 'printing';

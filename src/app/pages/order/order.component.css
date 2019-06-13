@@ -205,3 +205,18 @@
   text-align: center;
   color: rgb(98, 198, 214);
 }
+
+.order-heading-creation-date{
+  width: 285px;
+  height: 17px;
+  object-fit: contain;
+  font-family: 'Segoe UI';
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
+}
