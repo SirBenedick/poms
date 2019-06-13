@@ -55,6 +55,13 @@
             </div>
           </div>
         </div>
+        <div *ngIf="(printer.printer$ | async)?.offline != 0">
+            <div id="button-space">
+                <div class="button-style" (click)="onStopOpen()">
+                  offline
+                </div>
+              </div>
+        </div>
 
       </mat-expansion-panel-header>
 

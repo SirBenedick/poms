@@ -27,9 +27,7 @@ export class PrinterComponent implements OnInit {
     if (this.backendService.everySinglePrinter$.length == 0)
       setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
     else this.refreshPrinterList();
-
   }
-
 
   openDialogNewPrinter(): void {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
@@ -55,9 +53,11 @@ export class PrinterComponent implements OnInit {
     });
   }
 
-
   deletePrinter(printer_id: any): void {
-    alert(`Drucker wurde erfolgreich gelöscht`);
+    this.backendService.removePrinterById(printer_id).then(res => {
+      console.log("removePrinterById: ", res);
+      setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+    });
   }
 
   refreshPrinterList() {
@@ -73,5 +73,4 @@ export class PrinterComponent implements OnInit {
   togglePrinter(id: Number) {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
   }
-
 }

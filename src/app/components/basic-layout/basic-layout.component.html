@@ -89,7 +89,6 @@
   <!-- Middle Bar -->
   <div class="center-row">
     <nav class="nav" id="page-header">
-
       <app-search-bar style="margin-top: -20px"></app-search-bar>
       <div class="poms" style="text-align: center; margin-left: 200px;  ">
         P O M S
@@ -141,13 +140,17 @@
               />
             </div>
             <div class="info-print-heading-paused">
-                <p>
-                  Druck unterbrochen {{ (printer.printer$ | async)?.progress | percent}}
-                </p>
-                <div>
-                  {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
-                </div>
-              </div>
+              <p>
+                Druckfortschritt bei
+                {{ (printer.printer$ | async)?.progress | percent }}
+              </p>
+              <p>
+                {{
+                  (printer.printer$ | async)?.estimated_time_remaining
+                    | estimatedTime
+                }}
+              </p>
+            </div>
           </div>
           <!-- Not paused printer-->
           <div *ngIf="(printer.printer$ | async)?.paused != 1">
@@ -171,12 +174,17 @@
                 src="../../../assets/fonts/abbrechen.svg"
               />
             </div>
+
             <div class="info-print-heading">
               <p>
-                Druckfortschritt bei {{ (printer.printer$ | async)?.progress| percent}}
+                Druckfortschritt bei
+                {{ (printer.printer$ | async)?.progress | percent }}
               </p>
               <p>
-                {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
+                {{
+                  (printer.printer$ | async)?.estimated_time_remaining
+                    | estimatedTime
+                }}
               </p>
             </div>
           </div>

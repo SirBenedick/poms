@@ -205,7 +205,7 @@ befindet sich in eigener komponente
   line-height: 1.35;
   text-align: left;
   padding-top: 40px;
-  padding-bottom: 4px;
+  padding-bottom: 10px;
   border: transparent;
   border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
@@ -218,8 +218,10 @@ befindet sich in eigener komponente
   border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
   margin-right: 10px;
-  padding-bottom: 4px;
+  padding-bottom: 0px;
   font-style: italic;
+  display: flex;
+  justify-content: space-between;
 }
 .info-print-heading-paused{
   font-family: "Segoe UI";
@@ -228,9 +230,10 @@ befindet sich in eigener komponente
   margin-top: -4px;
   margin-left: 10px;
   margin-right: 10px;
-  padding-bottom: 4px;
   font-style: italic;
   color: #cd0000;
+  display: flex;
+  justify-content: space-between;
 }
 #print-prozess-info{
   font-family: "Segoe UI";
@@ -255,7 +258,7 @@ befindet sich in eigener komponente
 }
 
 .printer-prints-group-text {
-  margin-top: -10px;
+  margin-top: 4px;
   padding-left: 10px;
   font-family: "Segoe UI";
   font-size: 12px;
