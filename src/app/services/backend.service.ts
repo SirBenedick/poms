@@ -209,7 +209,7 @@ export class BackendService {
           this.everySinglePrinter$.push({
             printer_id: printer.printer_id,
             printer_name: printer.name,
-            printer$: singlePrinter$
+            printer$: singlePrinter$,
           });
         });
       }

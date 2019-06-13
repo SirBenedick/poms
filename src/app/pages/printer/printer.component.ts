@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { IPrinterData, IPrinterDataPolling } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
+import { Observable, Subscription } from "rxjs";
 
 @Component({
   selector: "app-printer",
@@ -26,6 +27,7 @@ export class PrinterComponent implements OnInit {
     if (this.backendService.everySinglePrinter$.length == 0)
       setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
     else this.refreshPrinterList();
+
   }
 
 
@@ -42,7 +44,10 @@ export class PrinterComponent implements OnInit {
               alert("Drucker konnte nicht hinzugefügt werden: \n" + res.error);
             } else {
               console.log("added printer");
-              setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+              setTimeout(
+                res => this.refreshPrinterList(),
+                this.refreshWaitTimeInMs
+              );
             }
           });
         }
@@ -51,14 +56,9 @@ export class PrinterComponent implements OnInit {
   }
 
 
-  // deletePrinter(printer_id: any): void {
-  //   this.backendService.removePrinterById(printer_id).then(response => {
-  //     setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
-  //   });
-  // }
-   deletePrinter(printer_id: any): void {
-    alert(`Drucker wurde erfolgreich gelöscht`)
-   }
+  deletePrinter(printer_id: any): void {
+    alert(`Drucker wurde erfolgreich gelöscht`);
+  }
 
   refreshPrinterList() {
     this.printerData = this.backendService.everySinglePrinter$;
@@ -74,7 +74,4 @@ export class PrinterComponent implements OnInit {
     this.backendService.togglePrinter(id).subscribe(data => console.log(data));
   }
 
-  onStopOpen():void{
-    event.stopPropagation();
-  }
 }

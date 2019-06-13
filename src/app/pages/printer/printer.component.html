@@ -7,7 +7,10 @@
   </div>
   <div class="half-container">
     <!-- Schleife und Ausgabe von den verfügbaren Druckern -->
-    <mat-expansion-panel *ngFor="let printer of printerData" class="expand-collapse" >
+    <mat-expansion-panel
+      *ngFor="let printer of printerData"
+      class="expand-collapse"
+    >
       <mat-expansion-panel-header>
         <!-- Ausgabe von allen verfügbaren Druckern -->
         <mat-panel-title id="order-heading">
@@ -21,36 +24,50 @@
             Drucker: {{ printer.printer_id }}, {{ printer.printer_name }}
           </div>
         </mat-panel-title>
-        <div
-        *ngIf="
-          printer.status == 'printing';
-          then printingBlock;
-          else elseBlock
-        "
-      ></div>
-      <ng-template #printingBlock>
-        <div id="button-space">
-          <div class="button-style-printing" (click)="onStopOpen()">
-            druckt gerade ...
+
+        <!-- Printer is online -->
+        <div *ngIf="(printer.printer$ | async)?.offline == 0">
+          <!-- Printer is in printing process -->
+          <div *ngIf="(printer.printer$ | async)?.is_printing == 1">
+            <!-- Paused printer-->
+            <div *ngIf="(printer.printer$ | async)?.paused == 1">
+              <div id="button-space">
+                <div class="button-style-printing" >
+                  pausiert
+                </div>
+              </div>
+            </div>
+            <!-- Not paused -->
+            <div *ngIf="(printer.printer$ | async)?.paused != 1">
+              <div id="button-space">
+                <div class="button-style-printing" >
+                  druckt gerade ...
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Printer is not printing-->
+          <div *ngIf="(printer.printer$ | async)?.is_printing != 1">
+            <div id="button-space">
+              <div class="button-style" (click)="onStopOpen()">
+                verfügbar
+              </div>
+            </div>
           </div>
         </div>
-      </ng-template>
-      <ng-template #elseBlock>
-        <div id="button-space">
-          <div class="button-style" (click)="onStopOpen()">
-            verfügbar
-          </div>
-        </div>
-      </ng-template>
+
       </mat-expansion-panel-header>
-      
-      <app-status style="overflow: auto" [printer]="printer.printer$"></app-status>
-      <button (click)="deletePrinter(printer.printer_id)">Drucker löschen</button>
+
+      <app-status
+        style="overflow: auto"
+        [printer]="printer.printer$"
+      ></app-status>
+      <button (click)="deletePrinter(printer.printer_id)">
+        Drucker löschen
+      </button>
     </mat-expansion-panel>
     <button (click)="startPrinter(23)">Druck Starten</button>
     <button (click)="stopPrinter(23)">Druck Stop</button>
     <button (click)="togglePrinter(23)">Pause toggeln</button>
   </div>
- 
-
 </div>
