@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { IOrder } from "src/app/shared/interfaces";
 import { CreateNewOrderComponent } from "../pop-ups/create-new-order/create-new-order.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
-import { BackendService } from 'src/app/services/backend.service';
+import { BackendService } from "src/app/services/backend.service";
 
 @Component({
   selector: "app-order-card",
@@ -17,17 +17,17 @@ export class OrderCardComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private backendService: BackendService) {}
+    private backendService: BackendService
+  ) {}
 
   ngOnInit() {
     let oldDateFormat = new Date(this.order.creation_date);
     this.dateForFrontendView =
-    oldDateFormat.getFullYear()+
-    "-" +
-    (oldDateFormat.getMonth() + 1) +
-    "-" +
-    oldDateFormat.getDate()
-      
+      oldDateFormat.getFullYear() +
+      "-" +
+      ("00" + (oldDateFormat.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + oldDateFormat.getDate()).slice(-2);
   }
 
   onCardClick(event) {
