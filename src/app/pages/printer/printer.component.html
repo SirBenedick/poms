@@ -49,7 +49,7 @@
           <!-- Printer is not printing-->
           <div *ngIf="(printer.printer$ | async)?.is_printing != 1">
             <div id="button-space">
-              <div class="button-style" (click)="onStopOpen()">
+              <div class="button-style">
                 verfügbar
               </div>
             </div>
@@ -57,7 +57,7 @@
         </div>
         <div *ngIf="(printer.printer$ | async)?.offline != 0">
             <div id="button-space">
-                <div class="button-style" (click)="onStopOpen()">
+                <div class="button-style">
                   offline
                 </div>
               </div>

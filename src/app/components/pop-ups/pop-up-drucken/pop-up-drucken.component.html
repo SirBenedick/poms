@@ -70,6 +70,7 @@
           placeholder="Drucker auswählen"
           class=" drucker"
         >
+        <div *ngIf="printerAvailable"> 
           <div *ngFor="let printer of printerData">
             <mat-option
               *ngIf="!printer.is_printing"
@@ -77,12 +78,15 @@
             >
               {{ printer.name }}
             </mat-option>
+          </div>
+          </div>
+          <div *ngIf="!printerAvailable" >
             <mat-option
             *ngIf="printer.is_printing"
             >
             Es steht kein Drucker zur Verfügung
           </mat-option>
-        </div>
+          </div>
         </mat-select>
       </div>
     </div>
