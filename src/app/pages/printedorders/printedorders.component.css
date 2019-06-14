@@ -158,7 +158,9 @@
   font-weight: bold;
   position: relative;
   height: 30px;
-  width: 100%;
+  width: 300px;
+  margin-top: -30px;
+  padding-left: 30px;
 }
 
 .draggable-card-container {
@@ -184,7 +186,7 @@
   width: 100%;
   position: relative;
   padding-right: 25px;
-  padding-top: 10px;
+  padding-top: 15px;
   float: right;
 }
 .button-style {

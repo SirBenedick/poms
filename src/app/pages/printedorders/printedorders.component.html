@@ -41,22 +41,19 @@
         >
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <div style="padding-top: 15px">
-                <div
-                  id="color-block"
-                  [style.backgroundColor]="
+                <div style="padding-top: 15px">
+                    <div id="color-block" [style.backgroundColor]="
                     getResineColorValue(group.resin_name)
-                  "
-                ></div>
-                <div id="order-heading">
-                  Gruppe: {{ group.group_id }}, Aufträge:
-                  {{ group.orders.length }} -
-                  <b (click)="copyResinFromGroup(group)">{{
-                    group.resin_name
-                  }}</b>
-                </div>
-                <div class="order-heading-creation-date">
-                  erstellt: {{ group.creation_date | date: "yyyy-LL-dd" }}
+                  "></div>
+              <div id="order-heading">
+                Gruppe: {{ group.group_id }}, Aufträge:
+                {{ group.orders.length }} -
+                <b (click)="copyResinFromGroup(group)">{{
+                  group.resin_name
+                }}</b>
+              </div>
+              <div class="order-heading-creation-date">
+                  erstellt: {{ group.creation_date | date:'yyyy-LL-dd' }}
                 </div>
               </div>
             </mat-panel-title>

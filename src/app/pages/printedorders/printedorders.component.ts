@@ -199,7 +199,6 @@ export class PrintedordersComponent implements OnInit {
       if (result) this.filterGroupData(result.data);
     });
   }
-
   getResineColorValue(resine_name: string) {
     return this.backendService.resineData.find(
       (harz: IResinType) => harz.resin_name == resine_name
