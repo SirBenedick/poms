@@ -25,51 +25,23 @@
           </div>
         </mat-panel-title>
 
-        <!-- Printer is online -->
-        <div *ngIf="(printer.printer$ | async)?.offline == 0">
-          <!-- Printer is in printing process -->
-          <div *ngIf="(printer.printer$ | async)?.is_printing == 1">
-            <!-- Paused printer-->
-            <div *ngIf="(printer.printer$ | async)?.paused == 1">
-              <div id="button-space">
-                <div class="button-style-printing" >
-                  pausiert
-                </div>
-              </div>
-            </div>
-            <!-- Not paused -->
-            <div *ngIf="(printer.printer$ | async)?.paused != 1">
-              <div id="button-space">
-                <div class="button-style-printing" >
-                  druckt gerade ...
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Printer is not printing-->
-          <div *ngIf="(printer.printer$ | async)?.is_printing != 1">
-            <div id="button-space">
-              <div class="button-style">
-                verfügbar
-              </div>
-            </div>
+        <div id="button-space" *ngIf="printer.status">
+          <div [ngClass]="printer.status.style">
+            {{ printer.status.message }}
           </div>
         </div>
-        <div *ngIf="(printer.printer$ | async)?.offline != 0">
-            <div id="button-space">
-                <div class="button-style">
-                  offline
-                </div>
-              </div>
-        </div>
-
+        <!-- old code -->
       </mat-expansion-panel-header>
 
       <app-status
         style="overflow: auto"
         [printer]="printer.printer$"
       ></app-status>
-      <button mat-button (click)="deletePrinter(printer.printer_id)" class="delete-button">
+      <button
+        mat-button
+        (click)="deletePrinter(printer.printer_id)"
+        class="delete-button"
+      >
         Drucker löschen
       </button>
     </mat-expansion-panel>
