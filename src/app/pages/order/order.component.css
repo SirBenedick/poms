@@ -207,8 +207,8 @@
 }
 
 .order-heading-creation-date{
-  width: 285px;
-  height: 17px;
+  /* width: 285px;
+  height: 17px; */
   object-fit: contain;
   font-family: 'Segoe UI';
   font-size: 13px;
@@ -217,6 +217,11 @@
   font-stretch: normal;
   line-height: 1.31;
   letter-spacing: normal;
-  text-align: left;
+  /* text-align: left; */
   color: #272f33;
+  padding-left: 30px;
+  position: relative;
+  height: 30px;
+  width: 300px;
+  margin-top: -10px;
 }

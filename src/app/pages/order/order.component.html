@@ -8,20 +8,18 @@
           <b class="titel-lenght">{{ allGroupedOrders.length }}</b>
         </h1>
         <div class="button-space">
-          <div
-            class="button-style-group"
-            (click)="openDialogFilterGroups()"
-            [appFilterButtonActivated]="isGroupFilterSet"
-          >
-            <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px">
-              Filter setzen
-            </h2>
-            <div
-              style="color:black;"
-              *ngIf="isGroupFilterSet != 0"
-              (click)="resetGroupFilter($event)"
-            >
-              ({{ isGroupFilterSet }}) X
+          <div class="button-style-group" (click)="openDialogFilterGroups()"
+            [appFilterButtonActivated]="isGroupFilterSet">
+            <div *ngIf="isGroupFilterSet == 0">
+              <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px">
+                Filter setzen
+              </h2>
+            </div>
+            <div style="color:black;" *ngIf="isGroupFilterSet != 0" (click)="resetGroupFilter($event)">
+              <h2 style="font-size: 12px; padding-bottom: 3px; padding-left: 3px; color:white">
+                Filter setzen
+                ({{ isGroupFilterSet }})x
+              </h2>
             </div>
           </div>
 
@@ -30,11 +28,7 @@
           </div>
         </div>
       </div>
-      <button
-        id="new-group-button"
-        cdkDropList
-        (cdkDropListDropped)="dropNewGroup($event)"
-      >
+      <button id="new-group-button" cdkDropList (cdkDropListDropped)="dropNewGroup($event)">
         <b>+</b> Aufträge hierhinziehen um neue Gruppe zu erstellen
       </button>
       <div class="no-data-to-display" *ngIf="!filteredGroupData.length">
@@ -43,41 +37,31 @@
         einfach einen oder mehrere Aufträge von unten auf das Gruppenfeld oben.
       </div>
       <div class="expand-print" *ngIf="filteredGroupData.length">
-        <mat-expansion-panel
-          *ngFor="let group of filteredGroupData"
-          class="expand-collapse"
-          cdkDropList
-          [cdkDropListData]="group.orders"
-          (cdkDropListDropped)="drop($event)"
-        >
+        <mat-expansion-panel *ngFor="let group of filteredGroupData" class="expand-collapse" cdkDropList
+          [cdkDropListData]="group.orders" (cdkDropListDropped)="drop($event)">
           <mat-expansion-panel-header>
             <mat-panel-title>
               <div style="padding-top: 15px">
-                <div
-                  id="color-block"
-                  [style.backgroundColor]="
+                <div id="color-block" [style.backgroundColor]="
                     getResineColorValue(group.resin_name)
-                  "
-                ></div>
-                <p id="order-heading">
+                  "></div>
+                <div id="order-heading">
                   Gruppe: {{ group.group_id }}, Aufträge:
                   {{ group.orders.length }} -
                   <b (click)="copyResinFromGroup(group)">{{
                     group.resin_name
                   }}</b>
-                </p>
-                <p class="order-heading-creation-date">
+                </div>
+                <div class="order-heading-creation-date">
                   erstellt: {{ group.creation_date | date:'yyyy-LL-dd' }}
-                </p>
+                </div>
               </div>
             </mat-panel-title>
-            <div
-              *ngIf="
+            <div *ngIf="
                 group.status == 'printing';
                 then printingBlock;
                 else elseBlock
-              "
-            ></div>
+              "></div>
             <ng-template #printingBlock>
               <div class="button-space">
                 <div class="button-style-printing">
@@ -94,13 +78,8 @@
             </ng-template>
           </mat-expansion-panel-header>
           <div class="draggable-card-container">
-            <app-order-card
-              id="dragging"
-              *ngFor="let orderCard of group.orders"
-              cdkDragBoundary=".page-container"
-              cdkDrag
-              [order]="orderCard"
-            >
+            <app-order-card id="dragging" *ngFor="let orderCard of group.orders" cdkDragBoundary=".page-container"
+              cdkDrag [order]="orderCard">
             </app-order-card>
           </div>
         </mat-expansion-panel>
@@ -115,20 +94,18 @@
           <b class="titel-lenght">{{ filteredUngroupedOrders.length }}</b>
         </h1>
         <div class="button-space">
-          <div
-            class="button-style-group"
-            (click)="openDialogFilterOrders()"
-            [appFilterButtonActivated]="isOrderFilterSet"
-          >
-            <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px">
-              Filter setzen
-            </h2>
-            <div
-              style="color:black;"
-              *ngIf="isOrderFilterSet != 0"
-              (click)="resetOrderFilter($event)"
-            >
-              ({{ isOrderFilterSet }}) X
+          <div class="button-style-group" (click)="openDialogFilterOrders()"
+            [appFilterButtonActivated]="isOrderFilterSet">
+            <div *ngIf="isOrderFilterSet == 0">
+              <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px">
+                Filter setzen
+              </h2>
+            </div>
+            <div style="color:black;" *ngIf="isOrderFilterSet != 0" (click)="resetOrderFilter($event)">
+              <h2 style="font-size: 12px; padding-bottom: 3px; padding-left: 3px; color:white">
+                Filter setzen
+                ({{ isOrderFilterSet }})x
+              </h2>
             </div>
           </div>
           <div class="copy-filter" (click)="copyGroupFilterToOrder()">
@@ -137,23 +114,15 @@
         </div>
       </div>
       <!-- Draggable Cards, take the cards from one List to the other List -->
-      <div
-        class="draggable-card-container"
-        cdkDropList
-        [cdkDropListData]="filteredUngroupedOrders"
-        (cdkDropListDropped)="drop($event)"
-      >
+      <div class="draggable-card-container" cdkDropList [cdkDropListData]="filteredUngroupedOrders"
+        (cdkDropListDropped)="drop($event)">
         <!-- Plus-Button to create a new Order -->
         <div class="create-new-order" (click)="openDialogCreateNewOrder()">
           <img src="../../../assets/svg/plus-order.svg" />
         </div>
         <!-- Show all Order-Cards with Layout from Order-Card -->
-        <app-order-card
-          *ngFor="let orderCard of filteredUngroupedOrders"
-          cdkDragBoundary=".page-container"
-          cdkDrag
-          [order]="orderCard"
-        >
+        <app-order-card *ngFor="let orderCard of filteredUngroupedOrders" cdkDragBoundary=".page-container" cdkDrag
+          [order]="orderCard">
         </app-order-card>
         <div class="no-data-to-display" *ngIf="!filteredUngroupedOrders.length">
           <img src="../../../assets/svg/Zahn.svg" /><br />
