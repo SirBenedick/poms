@@ -69,7 +69,7 @@
         style="overflow: auto"
         [printer]="printer.printer$"
       ></app-status>
-      <button (click)="deletePrinter(printer.printer_id)">
+      <button mat-button (click)="deletePrinter(printer.printer_id)" class="delete-button">
         Drucker löschen
       </button>
     </mat-expansion-panel>
