@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import {
   IOrder,
   IFilterOrders,
-  IGroupedOrders
+  IGroupedOrders,
+  IResinType
 } from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
 import { MatDialog } from "@angular/material";
@@ -197,5 +198,25 @@ export class PrintedordersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) this.filterGroupData(result.data);
     });
+  }
+
+  getResineColorValue(resine_name: string) {
+    return this.backendService.resineData.find(
+      (harz: IResinType) => harz.resin_name == resine_name
+    ).color;
+  }
+
+  copyResinFromGroup(group: IGroupedOrders) {
+    event.stopPropagation();
+    let tempFilter = {
+      resin_name: group.resin_name,
+      priority: null,
+      due_date: null,
+      customer_id: null
+    };
+
+    this.filterGroupData(tempFilter);
+    this.isGroupFilterSet = this.numberOfFilterParameters(tempFilter);
+    this.filterParameterGroup = tempFilter;
   }
 }

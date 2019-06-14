@@ -21,9 +21,8 @@
   background-color: white;
   flex-wrap: wrap;
   margin-left: 10px;
- margin-top: 20px;
+  margin-top: 20px;
   cursor: grab;
-
 }
 .draggable-card-container:active {
   cursor: grabbing;
@@ -32,10 +31,8 @@
 .expand-collapse {
   flex-wrap: wrap;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  margin: 10px  10px  10px 10px;
+  margin: 10px 10px 10px 10px;
 }
-
-
 
 .title {
   object-fit: contain;
@@ -49,7 +46,7 @@
   position: relative;
   width: 100%;
 }
-.titel-lenght{
+.titel-length {
   object-fit: contain;
   font-family: "Segoe UI";
   font-weight: bold;
@@ -79,13 +76,12 @@
   height: 30px;
   width: 300px;
 }
-#color-block{
+#color-block {
   width: 25px;
   height: 25px;
   border-radius: 4px;
   border: #62c6d6 1px solid;
   margin-bottom: -20px;
-
 }
 
 .button-space {
@@ -105,7 +101,6 @@
   color: #62c6d6;
   border: solid 1px #62c6d6;
   background-color: white;
-
 }
 .button-style:hover {
   background-color: #62c6d6;
@@ -206,11 +201,11 @@
   color: rgb(98, 198, 214);
 }
 
-.order-heading-creation-date{
+.order-heading-creation-date {
   /* width: 285px;
   height: 17px; */
   object-fit: contain;
-  font-family: 'Segoe UI';
+  font-family: "Segoe UI";
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -224,4 +219,18 @@
   height: 30px;
   width: 300px;
   margin-top: -10px;
+}
+.filter-is-set {
+  object-fit: contain;
+  font-family: "Segoe UI";
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  padding-bottom: 3px;
+  padding-left: 3px;
 }
