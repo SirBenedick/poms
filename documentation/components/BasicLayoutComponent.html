@@ -871,7 +871,7 @@ export class BasicLayoutComponent implements OnInit {
   &lt;!-- Middle Bar --&gt;
   &lt;div class&#x3D;&quot;center-row&quot;&gt;
     &lt;nav class&#x3D;&quot;nav&quot; id&#x3D;&quot;page-header&quot;&gt;
-      &lt;app-search-bar&gt;&lt;/app-search-bar&gt;
+      &lt;app-search-bar style&#x3D;&quot;margin-top: -20px&quot;&gt;&lt;/app-search-bar&gt;
       &lt;div class&#x3D;&quot;poms&quot; style&#x3D;&quot;text-align: center; margin-left: 200px;  &quot;&gt;
         P O M S
       &lt;/div&gt;
@@ -886,7 +886,7 @@ export class BasicLayoutComponent implements OnInit {
               style&#x3D;&quot;color: #ffffff; font-family: &#x27;Segoe UI&#x27;; font-size:12px;margin-left: 30px;
               margin-right: 30px;&quot;
             &gt;
-              + neuen Auftrag anlegen
+              + Neuen Auftrag anlegen
             &lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -922,13 +922,17 @@ export class BasicLayoutComponent implements OnInit {
               /&gt;
             &lt;/div&gt;
             &lt;div class&#x3D;&quot;info-print-heading-paused&quot;&gt;
-                &lt;p&gt;
-                  Druck unterbrochen {{ (printer.printer$ | async)?.progress | percent}}
-                &lt;/p&gt;
-                &lt;div&gt;
-                  {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
-                &lt;/div&gt;
-              &lt;/div&gt;
+              &lt;p&gt;
+                Druckfortschritt bei
+                {{ (printer.printer$ | async)?.progress | percent }}
+              &lt;/p&gt;
+              &lt;p&gt;
+                {{
+                  (printer.printer$ | async)?.estimated_time_remaining
+                    | estimatedTime
+                }}
+              &lt;/p&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
           &lt;!-- Not paused printer--&gt;
           &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.paused !&#x3D; 1&quot;&gt;
@@ -952,12 +956,17 @@ export class BasicLayoutComponent implements OnInit {
                 src&#x3D;&quot;../../../assets/fonts/abbrechen.svg&quot;
               /&gt;
             &lt;/div&gt;
+
             &lt;div class&#x3D;&quot;info-print-heading&quot;&gt;
               &lt;p&gt;
-                Druckfortschritt bei {{ (printer.printer$ | async)?.progress| percent}}
+                Druckfortschritt bei
+                {{ (printer.printer$ | async)?.progress | percent }}
               &lt;/p&gt;
               &lt;p&gt;
-                {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}
+                {{
+                  (printer.printer$ | async)?.estimated_time_remaining
+                    | estimatedTime
+                }}
               &lt;/p&gt;
             &lt;/div&gt;
           &lt;/div&gt;
@@ -1127,6 +1136,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
 }
+
 /* #search-input {
   background-color: white;
   border: transparent;
@@ -1179,7 +1189,7 @@ befindet sich in eigener komponente
   line-height: 1.35;
   text-align: left;
   padding-top: 40px;
-  padding-bottom: 4px;
+  padding-bottom: 10px;
   border: transparent;
   border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
@@ -1192,8 +1202,10 @@ befindet sich in eigener komponente
   border-bottom: solid 1px #a2a2a2;
   margin-left: 10px;
   margin-right: 10px;
-  padding-bottom: 4px;
+  padding-bottom: 0px;
   font-style: italic;
+  display: flex;
+  justify-content: space-between;
 }
 .info-print-heading-paused{
   font-family: &quot;Segoe UI&quot;;
@@ -1202,9 +1214,10 @@ befindet sich in eigener komponente
   margin-top: -4px;
   margin-left: 10px;
   margin-right: 10px;
-  padding-bottom: 4px;
   font-style: italic;
   color: #cd0000;
+  display: flex;
+  justify-content: space-between;
 }
 #print-prozess-info{
   font-family: &quot;Segoe UI&quot;;
@@ -1229,7 +1242,7 @@ befindet sich in eigener komponente
 }
 
 .printer-prints-group-text {
-  margin-top: -10px;
+  margin-top: 4px;
   padding-left: 10px;
   font-family: &quot;Segoe UI&quot;;
   font-size: 12px;
@@ -1264,7 +1277,7 @@ befindet sich in eigener komponente
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="flex-container">  <!-- Left sidebar -->  <div class="small-bar-left"></div>  <div id="left-row" [ngClass]="ref.click === true ? \'toggled\' : \'\'">    <div class="small-bar-left"></div>    <button      appSidebar      #ref="appSidebar"      type="button"      id="expand-collapse-left"      data-toggle="offcanvas"    >      >    </button>    <div style="margin-bottom: auto">      <div>        <nav          routerLink="order"          class="button-style"          id="order-overview"          (click)="onMenuItem(\'auftragsuebersicht\')"          [class.button-style-focus]="menuItems.auftragsuebersicht"        >          <a class="transparent">Auftragsübersicht</a>        </nav>      </div>      <div>        <nav          routerLink="printedorders"          class="button-style"          id="printed-orders"          (click)="onMenuItem(\'gedruckte_auftraege\')"          [class.button-style-focus]="menuItems.gedruckte_auftraege"        >          <a class="transparent">Gedruckte Aufträge</a>        </nav>      </div>      <div>        <nav          routerLink="printer"          class="button-style"          id="printer-management"          (click)="onMenuItem(\'druckerverwaltung\')"          [class.button-style-focus]="menuItems.druckerverwaltung"        >          <a class="transparent">Druckerverwaltung</a>        </nav>      </div>    </div>    <div style="margin-top: auto">      <nav        routerLink="hilfestellung"        class="button-style"        id="help"        (click)="onMenuItem(\'hilfestellung\')"        [class.button-style-focus]="menuItems.hilfestellung"      >        <a class="transparent"></a>Hilfestellung      </nav>    </div>    <div>      <nav        routerLink="einstellungen"        class="button-style"        id="settings"        (click)="onMenuItem(\'einstellung\')"        [class.button-style-focus]="menuItems.einstellung"      >        <a class="transparent"></a>Verwaltung      </nav>    </div>    <div>      <nav        routerLink="logout"        class="button-style"        id="logout"        (click)="logout()"      >        <a class="transparent"></a>Logout      </nav>    </div>  </div>  <!-- Middle Bar -->  <div class="center-row">    <nav class="nav" id="page-header">      <app-search-bar></app-search-bar>      <div class="poms" style="text-align: center; margin-left: 200px;  ">        P O M S      </div>      <div        style="padding-top: 3px; padding-right: 10px"        href="#"        (click)="openDialogCreateNewOrder()"      >        <div style="padding-top: 2px; padding-right: 200px" href="#">          <div id="new-assignment-box">            <p              style="color: #ffffff; font-family: \'Segoe UI\'; font-size:12px;margin-left: 30px;              margin-right: 30px;"            >              + neuen Auftrag anlegen            </p>          </div>        </div>      </div>    </nav>    <div style="flex-grow: 1">      <ng-content></ng-content>    </div>  </div>  <!-- Right sidebar -->  <div id="right-row">    <p id="print-progress">Druckfortschritt</p>    <div *ngFor="let printer of printerData">      <div *ngIf="(printer.printer$ | async)?.offline == 0">        <div *ngIf="(printer.printer$ | async)?.is_printing == 1">          <!-- Paused printer-->          <div *ngIf="(printer.printer$ | async)?.paused == 1">            <p class="printer-prints-group-text" style="margin-bottom: 10px">              <b>Drucker {{ (printer.printer$ | async)?.printer_id }}</b> druckt              <b>Gruppe {{ (printer.printer$ | async)?.assigned_group_id }}</b>            </p>            <div class="progressbar">              <mat-progress-bar                [value]="(printer.printer$ | async)?.progress * 100"                color="warn"              >              </mat-progress-bar>              <img                width="20px"                height="20px"                src="../../../assets/svg/warning.svg"              />            </div>            <div class="info-print-heading-paused">                <p>                  Druck unterbrochen {{ (printer.printer$ | async)?.progress | percent}}                </p>                <div>                  {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}                </div>              </div>          </div>          <!-- Not paused printer-->          <div *ngIf="(printer.printer$ | async)?.paused != 1">            <p class="printer-prints-group-text">              <b>Drucker {{ (printer.printer$ | async)?.printer_id }}</b> druckt              <b>Gruppe {{ (printer.printer$ | async)?.assigned_group_id }}</b>            </p>            <div class="progressbar">              <mat-progress-bar                [value]="(printer.printer$ | async)?.progress * 100"              >              </mat-progress-bar>              <img                width="10px"                height="10px"                src="../../../assets/svg/pause.svg"              />              <img                width="10px"                height="10px"                src="../../../assets/fonts/abbrechen.svg"              />            </div>            <div class="info-print-heading">              <p>                Druckfortschritt bei {{ (printer.printer$ | async)?.progress| percent}}              </p>              <p>                {{ (printer.printer$ | async)?.estimated_time_remaining | estimatedTime}}              </p>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="flex-container">  <!-- Left sidebar -->  <div class="small-bar-left"></div>  <div id="left-row" [ngClass]="ref.click === true ? \'toggled\' : \'\'">    <div class="small-bar-left"></div>    <button      appSidebar      #ref="appSidebar"      type="button"      id="expand-collapse-left"      data-toggle="offcanvas"    >      >    </button>    <div style="margin-bottom: auto">      <div>        <nav          routerLink="order"          class="button-style"          id="order-overview"          (click)="onMenuItem(\'auftragsuebersicht\')"          [class.button-style-focus]="menuItems.auftragsuebersicht"        >          <a class="transparent">Auftragsübersicht</a>        </nav>      </div>      <div>        <nav          routerLink="printedorders"          class="button-style"          id="printed-orders"          (click)="onMenuItem(\'gedruckte_auftraege\')"          [class.button-style-focus]="menuItems.gedruckte_auftraege"        >          <a class="transparent">Gedruckte Aufträge</a>        </nav>      </div>      <div>        <nav          routerLink="printer"          class="button-style"          id="printer-management"          (click)="onMenuItem(\'druckerverwaltung\')"          [class.button-style-focus]="menuItems.druckerverwaltung"        >          <a class="transparent">Druckerverwaltung</a>        </nav>      </div>    </div>    <div style="margin-top: auto">      <nav        routerLink="hilfestellung"        class="button-style"        id="help"        (click)="onMenuItem(\'hilfestellung\')"        [class.button-style-focus]="menuItems.hilfestellung"      >        <a class="transparent"></a>Hilfestellung      </nav>    </div>    <div>      <nav        routerLink="einstellungen"        class="button-style"        id="settings"        (click)="onMenuItem(\'einstellung\')"        [class.button-style-focus]="menuItems.einstellung"      >        <a class="transparent"></a>Verwaltung      </nav>    </div>    <div>      <nav        routerLink="logout"        class="button-style"        id="logout"        (click)="logout()"      >        <a class="transparent"></a>Logout      </nav>    </div>  </div>  <!-- Middle Bar -->  <div class="center-row">    <nav class="nav" id="page-header">      <app-search-bar style="margin-top: -20px"></app-search-bar>      <div class="poms" style="text-align: center; margin-left: 200px;  ">        P O M S      </div>      <div        style="padding-top: 3px; padding-right: 10px"        href="#"        (click)="openDialogCreateNewOrder()"      >        <div style="padding-top: 2px; padding-right: 200px" href="#">          <div id="new-assignment-box">            <p              style="color: #ffffff; font-family: \'Segoe UI\'; font-size:12px;margin-left: 30px;              margin-right: 30px;"            >              + Neuen Auftrag anlegen            </p>          </div>        </div>      </div>    </nav>    <div style="flex-grow: 1">      <ng-content></ng-content>    </div>  </div>  <!-- Right sidebar -->  <div id="right-row">    <p id="print-progress">Druckfortschritt</p>    <div *ngFor="let printer of printerData">      <div *ngIf="(printer.printer$ | async)?.offline == 0">        <div *ngIf="(printer.printer$ | async)?.is_printing == 1">          <!-- Paused printer-->          <div *ngIf="(printer.printer$ | async)?.paused == 1">            <p class="printer-prints-group-text" style="margin-bottom: 10px">              <b>Drucker {{ (printer.printer$ | async)?.printer_id }}</b> druckt              <b>Gruppe {{ (printer.printer$ | async)?.assigned_group_id }}</b>            </p>            <div class="progressbar">              <mat-progress-bar                [value]="(printer.printer$ | async)?.progress * 100"                color="warn"              >              </mat-progress-bar>              <img                width="20px"                height="20px"                src="../../../assets/svg/warning.svg"              />            </div>            <div class="info-print-heading-paused">              <p>                Druckfortschritt bei                {{ (printer.printer$ | async)?.progress | percent }}              </p>              <p>                {{                  (printer.printer$ | async)?.estimated_time_remaining                    | estimatedTime                }}              </p>            </div>          </div>          <!-- Not paused printer-->          <div *ngIf="(printer.printer$ | async)?.paused != 1">            <p class="printer-prints-group-text">              <b>Drucker {{ (printer.printer$ | async)?.printer_id }}</b> druckt              <b>Gruppe {{ (printer.printer$ | async)?.assigned_group_id }}</b>            </p>            <div class="progressbar">              <mat-progress-bar                [value]="(printer.printer$ | async)?.progress * 100"              >              </mat-progress-bar>              <img                width="10px"                height="10px"                src="../../../assets/svg/pause.svg"              />              <img                width="10px"                height="10px"                src="../../../assets/fonts/abbrechen.svg"              />            </div>            <div class="info-print-heading">              <p>                Druckfortschritt bei                {{ (printer.printer$ | async)?.progress | percent }}              </p>              <p>                {{                  (printer.printer$ | async)?.estimated_time_remaining                    | estimatedTime                }}              </p>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicLayoutComponent', 'selector': 'app-basic-layout'},{'name': 'CreateNewOrderComponent', 'selector': 'app-create-new-order'},{'name': 'EinstellungenComponent', 'selector': 'app-einstellungen'},{'name': 'ErrorPopUpComponent', 'selector': 'app-error-pop-up'},{'name': 'FAQComponent', 'selector': 'app-faq'},{'name': 'FAQPopUpComponent', 'selector': 'app-faqpop-up'},{'name': 'HarzinfobearbeitenComponent', 'selector': 'app-harzinfobearbeiten'},{'name': 'HarzloeschenComponent', 'selector': 'app-harzloeschen'},{'name': 'KategorieinfobearbeitenComponent', 'selector': 'app-kategorieinfobearbeiten'},{'name': 'KategorieloeschenComponent', 'selector': 'app-kategorieloeschen'},{'name': 'KundeloeschenComponent', 'selector': 'app-kundeloeschen'},{'name': 'KundeninfobearbeitenComponent', 'selector': 'app-kundeninfobearbeiten'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NeueKategorieComponent', 'selector': 'app-neue-kategorie'},{'name': 'NeuerKundeComponent', 'selector': 'app-neuer-kunde'},{'name': 'NeuesHarzComponent', 'selector': 'app-neues-harz'},{'name': 'OrderCardComponent', 'selector': 'app-order-card'},{'name': 'OrderComponent', 'selector': 'app-order'},{'name': 'OrderFilterPopupComponent', 'selector': 'app-order-filter-popup'},{'name': 'PopUpDruckenComponent', 'selector': 'app-pop-up-drucken'},{'name': 'PopUpFAQComponent', 'selector': 'app-pop-up-faq'},{'name': 'PopUpNeuerDruckerComponent', 'selector': 'app-pop-up-neuer-drucker'},{'name': 'PopUpVanikComponent', 'selector': 'app-pop-up-vanik'},{'name': 'PostprintGroupActionComponent', 'selector': 'app-postprint-group-action'},{'name': 'PrintedordersComponent', 'selector': 'app-printedorders'},{'name': 'PrinterComponent', 'selector': 'app-printer'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'UrlTextPopUpComponent', 'selector': 'app-url-text-pop-up'}];
     var DIRECTIVES = [{'name': 'FilterButtonActivatedDirective', 'selector': '[appFilterButtonActivated]'},{'name': 'SidebarDirective', 'selector': '[appSidebar]'}];
     var ACTUAL_COMPONENT = {'name': 'BasicLayoutComponent'};

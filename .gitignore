@@ -3,7 +3,7 @@
 .idea/
 .vscode/
 dist/
-documentation
+/documentation/*
 
 # Logs
 logs

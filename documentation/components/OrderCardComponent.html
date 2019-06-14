@@ -336,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/components/order-card/order-card.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/components/order-card/order-card.component.ts:33</a></div>
                 </td>
             </tr>
 
@@ -502,11 +502,12 @@ export class OrderCardComponent implements OnInit {
   ngOnInit() {
     let oldDateFormat &#x3D; new Date(this.order.creation_date);
     this.dateForFrontendView &#x3D;
-      oldDateFormat.getFullYear() +
-      &quot;-&quot; +
-      (oldDateFormat.getMonth() + 1) +
-      &quot;-&quot; +
-      oldDateFormat.getDate();
+    oldDateFormat.getFullYear()+
+    &quot;-&quot; +
+    (oldDateFormat.getMonth() + 1) +
+    &quot;-&quot; +
+    oldDateFormat.getDate()
+      
   }
 
   onCardClick(event) {

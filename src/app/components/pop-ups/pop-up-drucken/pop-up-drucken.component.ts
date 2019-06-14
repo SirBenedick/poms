@@ -15,7 +15,7 @@ export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
   printerData: Array<IPrinterData> = this.backendService.allPrinterData;
   uploadProgress: number = 0;
-  printerAvailable: boolean = true;
+  noPrinterAvailable: boolean = true;
 
   @ViewChild("fileInputSliced") fileInputSliced;
   fileToUploadName: string;
@@ -36,16 +36,15 @@ export class PopUpDruckenComponent implements OnInit {
       EMail: new FormControl("", [Validators.minLength(6), Validators.required])
     });
 
-    this.printerData.forEach(isAvailable => {
-      console.log(isAvailable.is_printing)
-      if (isAvailable.is_printing == 1) {
-        this.printerAvailable = false; 
-      }
-      else{
-       this.printerAvailable = true;
+    this.checkIfThereAreAvailiblePrinter();
+  }
+
+  checkIfThereAreAvailiblePrinter() {
+    this.printerData.forEach(printer => {
+      if (printer.is_printing == 0 && printer.offline == 0) {
+        this.noPrinterAvailable = false;
       }
     });
-  
   }
 
   onBreakButton(): void {
@@ -64,7 +63,8 @@ export class PopUpDruckenComponent implements OnInit {
       )
       .then(response => {
         console.log("assignGroupToPrinterAndStartPrint :", response);
-        if(response["error"]) alert("Bitte alle Informationen angeben: \n" + response["error"])
+        if (response["error"])
+          alert("Bitte alle Informationen angeben: \n" + response["error"]);
       });
     this.dialogRef.close();
   }
