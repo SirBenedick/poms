@@ -158,7 +158,7 @@ export class BackendService {
   startOrderObservable(): void {
     /** Creates observable which request data every "pollingTimeInMs" ms */
     this.allOrderData$ = timer(0, this.pollingTimeInMs).pipe(
-      switchMap((counter: number) => this.pollAllOrdersFromBackend()),
+      switchMap((counter: number) => this.getAllOrders()),
       catchError((err, caught) => caught)
     );
     /** Subscribes to observable and saves response in an array accessible for every component  */
@@ -182,7 +182,7 @@ export class BackendService {
   startPrinterObservable() {
     /** Creates observable which request data every "pollingTimeInMs" ms */
     this.allPrinterData$ = timer(0, this.pollingTimeInMs).pipe(
-      switchMap((counter: number) => this.pollAllPrinterFromBackend()),
+      switchMap((counter: number) => this.getAllPrinter()),
       catchError((err, caught) => caught)
     );
 
@@ -216,18 +216,16 @@ export class BackendService {
     });
   }
 
-  pollAllOrdersFromBackend(): Observable<Object> {
+  /** Umbennen in getAllOrders */
+  getAllOrders(): Observable<Object> {
     //** Backendcall */
     return this.http.get(this.backendUrl + "order/get/all");
-    //** Mocked Data for development */
-    // return this.http.get(this.mockedURL + "allOrders");
   }
-
-  pollAllPrinterFromBackend(): Observable<Object> {
+  
+  /** Umbennen in getAllPrinter */
+  getAllPrinter(): Observable<Object> {
     //** Backendcall */
     return this.http.get(this.backendUrl + "printer/get/all");
-    //** Mocked Data for development */
-    // return this.http.get(this.mockedURL + "allPrinter");
   }
 
   loadResinData() {

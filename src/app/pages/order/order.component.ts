@@ -22,7 +22,9 @@ import { ErrorPopUpComponent } from "src/app/components/pop-ups/error-pop-up/err
   styleUrls: ["./order.component.css"]
 })
 export class OrderComponent implements OnInit {
-  /** Saves all data, doesnt get changed, is used to reset the "filtered...Data" */
+  /** Saves all data, doesnt get changed, is used to reset the "filtered...Data" 
+   * ungrouped orders = orders which are not included in any group
+  */
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
 
@@ -62,7 +64,7 @@ export class OrderComponent implements OnInit {
     if (this.backendService.allUngroupedOrders.length == 0) {
       this.loadOrderData();
     } else {
-      this.sortOrderLists(this.backendService.allUngroupedOrders);
+      this.sortAllOrdersByStatus(this.backendService.allUngroupedOrders);
     }
   }
 
@@ -78,11 +80,11 @@ export class OrderComponent implements OnInit {
 
   loadOrderData() {
     this.backendService
-      .pollAllOrdersFromBackend()
+      .getAllOrders()
       .toPromise()
       .then((allOrderData: Array<IOrder>) => {
         this.allUngroupedOrders = [];
-        this.sortOrderLists(allOrderData);
+        this.sortAllOrdersByStatus(allOrderData);
       });
   }
 
@@ -94,8 +96,8 @@ export class OrderComponent implements OnInit {
     this.filteredGroupData = this.allGroupedOrders;
   }
 
-  sortOrderLists(allOrdersUnsorted: Array<IOrder>) {
-    /** Handles incoming orders and only forwards orders with status "created" or "isSolid" */
+  /** Handles incoming orders and only forwards orders with status "created" or "isSolid" */
+  sortAllOrdersByStatus(allOrdersUnsorted: Array<IOrder>) {
     allOrdersUnsorted.forEach(singleOrder => {
       if (singleOrder.group_id == 0 || singleOrder.group_id == null) {
         if (
@@ -110,6 +112,7 @@ export class OrderComponent implements OnInit {
     this.filteredGroupData = this.allGroupedOrders;
   }
 
+  /** Filters all ungrouped orders, by parameter */
   filterUngroupedOrders(parameter: IFilterOrders) {
     this.resetOrderFilter();
 

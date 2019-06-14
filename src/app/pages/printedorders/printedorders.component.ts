@@ -65,9 +65,8 @@ export class PrintedordersComponent implements OnInit {
   }
 
   loadOrderData() {
-    console.log("loadOrderData");
     this.backendService
-      .pollAllOrdersFromBackend()
+      .getAllOrders()
       .toPromise()
       .then((allOrderData: Array<IOrder>) => {
         this.sortOrderLists(allOrderData);

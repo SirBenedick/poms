@@ -2,7 +2,6 @@ import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpEventType } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { IOrderCreateNew } from "../shared/interfaces";
 
 @Injectable({
   providedIn: "root"
