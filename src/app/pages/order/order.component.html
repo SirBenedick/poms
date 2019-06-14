@@ -59,16 +59,16 @@
                     getResineColorValue(group.resin_name)
                   "
                 ></div>
-                <p id="order-heading">
+                <div id="order-heading">
                   Gruppe: {{ group.group_id }}, Aufträge:
                   {{ group.orders.length }} -
                   <b (click)="copyResinFromGroup(group)">{{
                     group.resin_name
                   }}</b>
-                </p>
-                <p class="order-heading-creation-date">
+                </div>
+                <div class="order-heading-creation-date">
                   erstellt: {{ group.creation_date | date:'yyyy-LL-dd' }}
-                </p>
+                </div>
               </div>
             </mat-panel-title>
             <div
