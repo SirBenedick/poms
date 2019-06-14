@@ -132,7 +132,9 @@ margin-right: 4px;
   font-weight: bold;
   position: relative;
   height: 30px;
-  width: 100%;
+  width: 300px;
+  margin-top: -30px;
+  padding-left: 30px;
 }
 
 .draggable-card-container {
@@ -154,7 +156,7 @@ margin-right: 4px;
   width: 100%;
   position: relative;
   padding-right: 25px;
-  padding-top: 10px;
+  padding-top: 15px;
   float: right;
 }
 .button-style {
@@ -195,4 +197,32 @@ margin-right: 4px;
   color: white;
   border: #272f33;
   cursor: pointer;
+}
+
+#color-block{
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  border: #62c6d6 1px solid;
+  margin-bottom: -20px;
+}
+
+.order-heading-creation-date{
+  /* width: 285px;
+  height: 17px; */
+  object-fit: contain;
+  font-family: 'Segoe UI';
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  /* text-align: left; */
+  color: #272f33;
+  padding-left: 30px;
+  position: relative;
+  height: 30px;
+  width: 300px;
+  margin-top: -10px;
 }
