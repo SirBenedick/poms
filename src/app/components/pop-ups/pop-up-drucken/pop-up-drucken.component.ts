@@ -15,6 +15,7 @@ export class PopUpDruckenComponent implements OnInit {
   newPrinterForm: FormGroup;
   printerData: Array<IPrinterData> = this.backendService.allPrinterData;
   uploadProgress: number = 0;
+  printerAvailable: boolean = true;
 
   @ViewChild("fileInputSliced") fileInputSliced;
   fileToUploadName: string;
@@ -34,6 +35,17 @@ export class PopUpDruckenComponent implements OnInit {
       drucker: new FormControl(),
       EMail: new FormControl("", [Validators.minLength(6), Validators.required])
     });
+
+    this.printerData.forEach(isAvailable => {
+      console.log(isAvailable.is_printing)
+      if (isAvailable.is_printing == 1) {
+        this.printerAvailable = false; 
+      }
+      else{
+       this.printerAvailable = true;
+      }
+    });
+  
   }
 
   onBreakButton(): void {
