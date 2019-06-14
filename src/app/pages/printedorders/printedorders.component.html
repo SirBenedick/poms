@@ -12,13 +12,18 @@
               (click)="openDialogFilterGroups()"
               [appFilterButtonActivated]="isGroupFilterSet"
             >
+            <div *ngIf="isGroupFilterSet ==0">
             <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>
+            </div>
               <div
                 style="color:black;"
                 *ngIf="isGroupFilterSet != 0"
                 (click)="resetGroupFilter($event)"
               >
-                ({{ isGroupFilterSet }}) X
+              <h2 style="font-size: 12px; padding-bottom: 3px; padding-left: 3px; color:white">
+                Filter setzen
+                ({{ isGroupFilterSet }})x
+                </h2>
               </div>
             </div>
       </div>
@@ -99,13 +104,18 @@
         (click)="openSentFilter()"
         [appFilterButtonActivated]="isSentFilterSet"
       >
+      <div *ngIf="isSentFilterSet == 0">
         <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>
+      </div>
         <div
           style="color:black;"
           *ngIf="isSentFilterSet != 0"
           (click)="resetSentFilter($event)"
         >
-          ({{ isSentFilterSet }}) X
+        <h2 style="font-size: 12px; padding-bottom: 3px; padding-left: 3px; color:white">
+          Filter setzen
+          ({{ isSentFilterSet }})x
+          </h2>
         </div>
       </div>
       <div class="cards">
