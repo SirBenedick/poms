@@ -186,6 +186,9 @@
                                 <a href="#onDeleteButton">onDeleteButton</a>
                             </li>
                             <li>
+                                <a href="#onDownloadScan">onDownloadScan</a>
+                            </li>
+                            <li>
                                 <a href="#onQuit">onQuit</a>
                             </li>
                             <li>
@@ -307,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">src/app/components/pop-ups/create-new-order/create-new-order.component.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/components/pop-ups/create-new-order/create-new-order.component.ts:133</a></div>
                 </td>
             </tr>
 
@@ -418,6 +421,45 @@
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="105"
                             class="link-to-prism">src/app/components/pop-ups/create-new-order/create-new-order.component.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDownloadScan"></a>
+                    <span class="name">
+                        <b>
+                            onDownloadScan
+                        </b>
+                        <a href="#onDownloadScan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDownloadScan()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">src/app/components/pop-ups/create-new-order/create-new-order.component.ts:136</a></div>
                 </td>
             </tr>
 
@@ -938,7 +980,7 @@ export class CreateNewOrderComponent implements OnInit {
       hochladen: new FormControl(
         this.fileInputScan.nativeElement
           ? this.fileInputScan.nativeElement
-          : null,
+          : &quot;&quot;,
         [Validators.required]
       )
     });
@@ -980,7 +1022,6 @@ export class CreateNewOrderComponent implements OnInit {
     newOrder.append(&quot;status&quot;, formData.status);
     newOrder.append(&quot;scan_file&quot;, formData.hochladen.files[0]);
 
-    
     this.backendService
       .alterOrderById(this.data.order_id, newOrder)
       .then(response &#x3D;&gt; console.log(&quot;alterOrderById&quot;, response));
@@ -988,6 +1029,12 @@ export class CreateNewOrderComponent implements OnInit {
   }
   handleFileInput(files: FileList) {
     this.fileToUploadName &#x3D; files.item(0).name;
+  }
+  onDownloadScan() {
+    this.backendService.downloadScanFileFromOrder(
+      this.data.order_id,
+      this.data.file_scan_name
+    );
   }
 }
 </code></pre>
@@ -1109,11 +1156,29 @@ export class CreateNewOrderComponent implements OnInit {
     &lt;/div&gt;
     &lt;!-- Hier versteckt sich das feature --&gt;
 
-    &lt;h1 class&#x3D;&quot;title&quot;&gt;Datei hochladen&lt;/h1&gt;
-    &lt;img
-      src&#x3D;&quot;../../../assets/svg/Hochladen.svg&quot;
-      style&#x3D;&quot;width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px&quot;
-    /&gt;
+    &lt;div
+      *ngIf&#x3D;&quot;
+        data.file_scan_name !&#x3D; null;
+        then scanExists;
+        else scanDoesNotExist
+      &quot;
+    &gt;&lt;/div&gt;
+    &lt;ng-template #scanExists&gt;
+      &lt;h1 class&#x3D;&quot;title&quot;&gt;Datei herunterladen oder neue hochladen&lt;/h1&gt;
+      &lt;img
+        src&#x3D;&quot;../../../assets/svg/icon-downlode.svg&quot;
+        style&#x3D;&quot;width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px&quot;
+        (click)&#x3D;&quot;onDownloadScan()&quot;
+      /&gt;
+    &lt;/ng-template&gt;
+    &lt;ng-template #scanDoesNotExist&gt;
+      &lt;h1 class&#x3D;&quot;title&quot;&gt;Datei hochladen&lt;/h1&gt;
+      &lt;img
+        src&#x3D;&quot;../../../assets/svg/Hochladen.svg&quot;
+        style&#x3D;&quot;width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px&quot;
+      /&gt;
+    &lt;/ng-template&gt;
+
     &lt;div&gt;
       &lt;input
         id&#x3D;&quot;file&quot;
@@ -1143,6 +1208,7 @@ export class CreateNewOrderComponent implements OnInit {
     &lt;/div&gt;
 
     &lt;!-- bis hier Fehlersuche --&gt;
+    &lt;ng-template #scanDoesntExist&gt; &lt;/ng-template&gt;
 
     &lt;div class&#x3D;&quot;input-container&quot;&gt;
       &lt;h1 class&#x3D;&quot;title&quot;&gt;Sonstige Informationen&lt;/h1&gt;
@@ -1388,7 +1454,7 @@ label{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form [formGroup]="newOrderForm">  <div class="page-container">    <div *ngIf="data.order_id; then orderExists; else createNeworder"></div>    <ng-template #orderExists>      <div class="a">        <h1 class="heading">          Auftrag: #{{ data.order_id | orderIdLeadingZeros }}        </h1>      </div>      <div class="input-container">        <h1 class="title">Zahnarzt</h1>        <mat-select          formControlName="customer_id"          placeholder="{{ customer_name }}"          class=" rechteck-eingabe"        >          <mat-option            *ngFor="let doctor of customerData"            value="{{ doctor.customer_id }}"            >{{ doctor.name }}          </mat-option>        </mat-select>      </div>    </ng-template>    <ng-template #createNeworder>      <div class="a">        <h1 class="heading">          Neuen Auftrag erstellen        </h1>      </div>      <div class="input-container">        <h1 class="title">Zahnarzt</h1>        <mat-select          formControlName="customer_id"          placeholder="Kunde auswählen"          class=" rechteck-eingabe"        >          <mat-option            *ngFor="let doctor of customerData"            value="{{ doctor.customer_id }}"            >{{ doctor.name }}          </mat-option>        </mat-select>      </div>    </ng-template>    <!-- <div id="data-ist-nicht-vorhanden" *ngIf="!data.customer_id"></div>    <div id="data-ist-vorhanden" *ngIf="data.customer_id"></div> -->    <div class="input-container">      <h1 class="title">Patient/Titel</h1>      <mat-form-field class="example-full-width" style="margin-top: -20px">        <input matInput formControlName="patient" />      </mat-form-field>    </div>    <div class="input-container" style="margin-top: -15px">      <h1 class="title">Fälligkeit</h1>      <mat-form-field style="width: 350px">        <input          matInput          [matDatepicker]="due_date"          class=" rechteck-eingabe"          formControlName="dueDate"          style="border: transparent"          (click)="due_date.open()"        />        <mat-datepicker-toggle          matSuffix          [for]="due_date"        ></mat-datepicker-toggle>        <mat-datepicker #due_date></mat-datepicker>      </mat-form-field>    </div>    <div      class="input-container"      style="margin-top: -10px"      *ngIf="data.status != \'sent\'"    >      <h1 class="title">Harzfarbe</h1>      <mat-select        formControlName="harz"        placeholder="Harzfarbe auswählen"        class=" rechteck-eingabe"      >        <mat-option          *ngFor="let harzfarbe of harzList"          value="{{ harzfarbe.resin_name }}"          >{{ harzfarbe.resin_name }}        </mat-option>      </mat-select>    </div>    <div      class="input-container"      *ngIf="data.status != \'sent\' && data.status != \'postPrint\'"    >      <h1 class="title">Kategorie</h1>      <mat-select        formControlName="dental_print_type"        placeholder="Kategorie auswählen"        class=" rechteck-eingabe"      >        <mat-option          *ngFor="let oneCategory of categoryData"          value="{{ oneCategory.model_type_name }}"        >          {{ oneCategory.model_type_name }}        </mat-option>      </mat-select>    </div>    <!-- Hier versteckt sich das feature -->    <h1 class="title">Datei hochladen</h1>    <img      src="../../../assets/svg/Hochladen.svg"      style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"    />    <div>      <input        id="file"        class="inputfile"        formControlName="hochladen"        #fileInputScan        type="file"        (change)="handleFileInput($event.target.files)"      />      <label for="file" *ngIf="fileToUploadName">        <h1          class="title"          style="text-align: center; padding-top: 5px;font-weight: normal"        >          {{ fileToUploadName }}        </h1>      </label>      <label for="file" *ngIf="!fileToUploadName">        <h1          class="title"          style="text-align: center;padding-top: 5px;font-weight: normal"        >          Oralscan hochladen        </h1>      </label>    </div>    <!-- bis hier Fehlersuche -->    <div class="input-container">      <h1 class="title">Sonstige Informationen</h1>      <textarea        class=" rechteck-eingabe"        formControlName="comment"        rows="4"        style="resize:none; width: 350px;height: 80px"        placeholder="Anmerkung"      ></textarea>    </div>    <div      class="input-container"      *ngIf="data.status == \'postPrint\' || data.status == \'sent\'"    >      <h1 class="title">Status setzten</h1>      <mat-select        formControlName="status"        placeholder="Kategorie auswählen"        class=" rechteck-eingabe"      >        <mat-option          *ngFor="let status of orderStatus"          value="{{ status.value }}"        >          {{ status.display_name }}        </mat-option>      </mat-select>    </div>    <div style="align-self: flex-end; margin-top: -10px">      <mat-dialog-actions>        <button          *ngIf="!data.customer_id"          class="break-button"          mat-button          (click)="onQuit()"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Abbrechen          </h1>        </button>        <button          *ngIf="!data.customer_id"          class="send-button"          mat-button          [mat-dialog-close]="newOrderForm"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Erstellen          </h1>        </button>        <button          *ngIf="data.customer_id"          class="break-button"          mat-button          (click)="onDeleteButton()"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Löschen          </h1>        </button>        <button          *ngIf="data.customer_id"          class="send-button"          mat-button          (click)="onSaveButton()"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Speichern          </h1>        </button>      </mat-dialog-actions>    </div>  </div></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="newOrderForm">  <div class="page-container">    <div *ngIf="data.order_id; then orderExists; else createNeworder"></div>    <ng-template #orderExists>      <div class="a">        <h1 class="heading">          Auftrag: #{{ data.order_id | orderIdLeadingZeros }}        </h1>      </div>      <div class="input-container">        <h1 class="title">Zahnarzt</h1>        <mat-select          formControlName="customer_id"          placeholder="{{ customer_name }}"          class=" rechteck-eingabe"        >          <mat-option            *ngFor="let doctor of customerData"            value="{{ doctor.customer_id }}"            >{{ doctor.name }}          </mat-option>        </mat-select>      </div>    </ng-template>    <ng-template #createNeworder>      <div class="a">        <h1 class="heading">          Neuen Auftrag erstellen        </h1>      </div>      <div class="input-container">        <h1 class="title">Zahnarzt</h1>        <mat-select          formControlName="customer_id"          placeholder="Kunde auswählen"          class=" rechteck-eingabe"        >          <mat-option            *ngFor="let doctor of customerData"            value="{{ doctor.customer_id }}"            >{{ doctor.name }}          </mat-option>        </mat-select>      </div>    </ng-template>    <!-- <div id="data-ist-nicht-vorhanden" *ngIf="!data.customer_id"></div>    <div id="data-ist-vorhanden" *ngIf="data.customer_id"></div> -->    <div class="input-container">      <h1 class="title">Patient/Titel</h1>      <mat-form-field class="example-full-width" style="margin-top: -20px">        <input matInput formControlName="patient" />      </mat-form-field>    </div>    <div class="input-container" style="margin-top: -15px">      <h1 class="title">Fälligkeit</h1>      <mat-form-field style="width: 350px">        <input          matInput          [matDatepicker]="due_date"          class=" rechteck-eingabe"          formControlName="dueDate"          style="border: transparent"          (click)="due_date.open()"        />        <mat-datepicker-toggle          matSuffix          [for]="due_date"        ></mat-datepicker-toggle>        <mat-datepicker #due_date></mat-datepicker>      </mat-form-field>    </div>    <div      class="input-container"      style="margin-top: -10px"      *ngIf="data.status != \'sent\'"    >      <h1 class="title">Harzfarbe</h1>      <mat-select        formControlName="harz"        placeholder="Harzfarbe auswählen"        class=" rechteck-eingabe"      >        <mat-option          *ngFor="let harzfarbe of harzList"          value="{{ harzfarbe.resin_name }}"          >{{ harzfarbe.resin_name }}        </mat-option>      </mat-select>    </div>    <div      class="input-container"      *ngIf="data.status != \'sent\' && data.status != \'postPrint\'"    >      <h1 class="title">Kategorie</h1>      <mat-select        formControlName="dental_print_type"        placeholder="Kategorie auswählen"        class=" rechteck-eingabe"      >        <mat-option          *ngFor="let oneCategory of categoryData"          value="{{ oneCategory.model_type_name }}"        >          {{ oneCategory.model_type_name }}        </mat-option>      </mat-select>    </div>    <!-- Hier versteckt sich das feature -->    <div      *ngIf="        data.file_scan_name != null;        then scanExists;        else scanDoesNotExist      "    ></div>    <ng-template #scanExists>      <h1 class="title">Datei herunterladen oder neue hochladen</h1>      <img        src="../../../assets/svg/icon-downlode.svg"        style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"        (click)="onDownloadScan()"      />    </ng-template>    <ng-template #scanDoesNotExist>      <h1 class="title">Datei hochladen</h1>      <img        src="../../../assets/svg/Hochladen.svg"        style="width: 10px;z-index: 1; margin-bottom: -22px;padding-top: 10px;margin-left: 10px"      />    </ng-template>    <div>      <input        id="file"        class="inputfile"        formControlName="hochladen"        #fileInputScan        type="file"        (change)="handleFileInput($event.target.files)"      />      <label for="file" *ngIf="fileToUploadName">        <h1          class="title"          style="text-align: center; padding-top: 5px;font-weight: normal"        >          {{ fileToUploadName }}        </h1>      </label>      <label for="file" *ngIf="!fileToUploadName">        <h1          class="title"          style="text-align: center;padding-top: 5px;font-weight: normal"        >          Oralscan hochladen        </h1>      </label>    </div>    <!-- bis hier Fehlersuche -->    <ng-template #scanDoesntExist> </ng-template>    <div class="input-container">      <h1 class="title">Sonstige Informationen</h1>      <textarea        class=" rechteck-eingabe"        formControlName="comment"        rows="4"        style="resize:none; width: 350px;height: 80px"        placeholder="Anmerkung"      ></textarea>    </div>    <div      class="input-container"      *ngIf="data.status == \'postPrint\' || data.status == \'sent\'"    >      <h1 class="title">Status setzten</h1>      <mat-select        formControlName="status"        placeholder="Kategorie auswählen"        class=" rechteck-eingabe"      >        <mat-option          *ngFor="let status of orderStatus"          value="{{ status.value }}"        >          {{ status.display_name }}        </mat-option>      </mat-select>    </div>    <div style="align-self: flex-end; margin-top: -10px">      <mat-dialog-actions>        <button          *ngIf="!data.customer_id"          class="break-button"          mat-button          (click)="onQuit()"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Abbrechen          </h1>        </button>        <button          *ngIf="!data.customer_id"          class="send-button"          mat-button          [mat-dialog-close]="newOrderForm"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Erstellen          </h1>        </button>        <button          *ngIf="data.customer_id"          class="break-button"          mat-button          (click)="onDeleteButton()"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Löschen          </h1>        </button>        <button          *ngIf="data.customer_id"          class="send-button"          mat-button          (click)="onSaveButton()"        >          <h1            style="font-size: 14px ; font-family: \'Segoe UI\';padding-top: 5px"          >            Speichern          </h1>        </button>      </mat-dialog-actions>    </div>  </div></form></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicLayoutComponent', 'selector': 'app-basic-layout'},{'name': 'CreateNewOrderComponent', 'selector': 'app-create-new-order'},{'name': 'EinstellungenComponent', 'selector': 'app-einstellungen'},{'name': 'ErrorPopUpComponent', 'selector': 'app-error-pop-up'},{'name': 'FAQComponent', 'selector': 'app-faq'},{'name': 'FAQPopUpComponent', 'selector': 'app-faqpop-up'},{'name': 'HarzinfobearbeitenComponent', 'selector': 'app-harzinfobearbeiten'},{'name': 'HarzloeschenComponent', 'selector': 'app-harzloeschen'},{'name': 'KategorieinfobearbeitenComponent', 'selector': 'app-kategorieinfobearbeiten'},{'name': 'KategorieloeschenComponent', 'selector': 'app-kategorieloeschen'},{'name': 'KundeloeschenComponent', 'selector': 'app-kundeloeschen'},{'name': 'KundeninfobearbeitenComponent', 'selector': 'app-kundeninfobearbeiten'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NeueKategorieComponent', 'selector': 'app-neue-kategorie'},{'name': 'NeuerKundeComponent', 'selector': 'app-neuer-kunde'},{'name': 'NeuesHarzComponent', 'selector': 'app-neues-harz'},{'name': 'OrderCardComponent', 'selector': 'app-order-card'},{'name': 'OrderComponent', 'selector': 'app-order'},{'name': 'OrderFilterPopupComponent', 'selector': 'app-order-filter-popup'},{'name': 'PopUpDruckenComponent', 'selector': 'app-pop-up-drucken'},{'name': 'PopUpFAQComponent', 'selector': 'app-pop-up-faq'},{'name': 'PopUpNeuerDruckerComponent', 'selector': 'app-pop-up-neuer-drucker'},{'name': 'PopUpVanikComponent', 'selector': 'app-pop-up-vanik'},{'name': 'PostprintGroupActionComponent', 'selector': 'app-postprint-group-action'},{'name': 'PrintedordersComponent', 'selector': 'app-printedorders'},{'name': 'PrinterComponent', 'selector': 'app-printer'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'UrlTextPopUpComponent', 'selector': 'app-url-text-pop-up'}];
     var DIRECTIVES = [{'name': 'FilterButtonActivatedDirective', 'selector': '[appFilterButtonActivated]'},{'name': 'SidebarDirective', 'selector': '[appSidebar]'}];
     var ACTUAL_COMPONENT = {'name': 'CreateNewOrderComponent'};

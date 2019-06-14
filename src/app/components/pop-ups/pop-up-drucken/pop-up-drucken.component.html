@@ -32,13 +32,13 @@
           (change)="handleFileInput($event.target.files)"
         />
         <label for="file" *ngIf="fileToUploadName">
-            <h1
-              class="title"
-              style="text-align: center; padding-top: 5px;font-weight: normal"
-            >
-              {{ fileToUploadName }}
-            </h1>
-          </label>
+          <h1
+            class="title"
+            style="text-align: center; padding-top: 5px;font-weight: normal"
+          >
+            {{ fileToUploadName }}
+          </h1>
+        </label>
         <label for="file" *ngIf="!fileToUploadName"
           ><h1
             class="title"
@@ -70,23 +70,24 @@
           placeholder="Drucker auswählen"
           class=" drucker"
         >
-        <div *ngIf="printerAvailable"> 
-          <div *ngFor="let printer of printerData">
-            <mat-option
-              *ngIf="!printer.is_printing"
-              value="{{ printer.printer_id }}"
-            >
-              {{ printer.name }}
+          <div
+            *ngIf="noPrinterAvailable; then noPrinter; else printerAvailable"
+          ></div>
+          <ng-template #printerAvailable>
+            <div *ngFor="let printer of printerData">
+              <mat-option
+                *ngIf="!printer.is_printing"
+                value="{{ printer.printer_id }}"
+              >
+                {{ printer.name }}
+              </mat-option>
+            </div>
+          </ng-template>
+          <ng-template #noPrinter>
+            <mat-option>
+              Es steht kein Drucker zur Verfügung
             </mat-option>
-          </div>
-          </div>
-          <div *ngIf="!printerAvailable" >
-            <mat-option
-            *ngIf="printer.is_printing"
-            >
-            Es steht kein Drucker zur Verfügung
-          </mat-option>
-          </div>
+          </ng-template>
         </mat-select>
       </div>
     </div>

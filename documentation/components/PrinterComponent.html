@@ -199,7 +199,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/printer/printer.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/printer/printer.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -292,8 +292,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/app/pages/printer/printer.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/pages/printer/printer.component.ts:56</a></div>
                 </td>
             </tr>
 
@@ -362,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/pages/printer/printer.component.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/pages/printer/printer.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -703,7 +703,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/printer/printer.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/printer/printer.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -731,7 +731,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/printer/printer.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/printer/printer.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -763,7 +763,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/printer/printer.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/printer/printer.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -801,7 +801,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/printer/printer.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/printer/printer.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -816,9 +816,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Inject } from &quot;@angular/core&quot;;
 import { BackendService } from &quot;../../services/backend.service&quot;;
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &quot;@angular/material&quot;;
+import { MatDialog, MAT_DIALOG_DATA } from &quot;@angular/material&quot;;
 import { IPrinterData, IPrinterDataPolling } from &quot;../../shared/interfaces&quot;;
 import { PopUpNeuerDruckerComponent } from &quot;src/app/components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component&quot;;
+import { Observable, Subscription } from &quot;rxjs&quot;;
 
 @Component({
   selector: &quot;app-printer&quot;,
@@ -844,7 +845,6 @@ export class PrinterComponent implements OnInit {
     else this.refreshPrinterList();
   }
 
-
   openDialogNewPrinter(): void {
     const dialogRef &#x3D; this.dialog.open(PopUpNeuerDruckerComponent, {
       data: {}
@@ -858,7 +858,10 @@ export class PrinterComponent implements OnInit {
               alert(&quot;Drucker konnte nicht hinzugefügt werden: \n&quot; + res.error);
             } else {
               console.log(&quot;added printer&quot;);
-              setTimeout(res &#x3D;&gt; this.refreshPrinterList(), this.refreshWaitTimeInMs);
+              setTimeout(
+                res &#x3D;&gt; this.refreshPrinterList(),
+                this.refreshWaitTimeInMs
+              );
             }
           });
         }
@@ -866,15 +869,12 @@ export class PrinterComponent implements OnInit {
     });
   }
 
-
-  // deletePrinter(printer_id: any): void {
-  //   this.backendService.removePrinterById(printer_id).then(response &#x3D;&gt; {
-  //     setTimeout(res &#x3D;&gt; this.refreshPrinterList(), this.refreshWaitTimeInMs);
-  //   });
-  // }
-   deletePrinter(printer_id: any): void {
-    alert(&#x60;Drucker wurde erfolgreich gelöscht&#x60;)
-   }
+  deletePrinter(printer_id: any): void {
+    this.backendService.removePrinterById(printer_id).then(res &#x3D;&gt; {
+      console.log(&quot;removePrinterById: &quot;, res);
+      setTimeout(res &#x3D;&gt; this.refreshPrinterList(), this.refreshWaitTimeInMs);
+    });
+  }
 
   refreshPrinterList() {
     this.printerData &#x3D; this.backendService.everySinglePrinter$;
@@ -895,7 +895,7 @@ export class PrinterComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-container&quot;&gt;
-  &lt;div class&#x3D;&quot;available-printer&quot;&gt;Druckerverwaltung&lt;/div&gt;
+  &lt;div id&#x3D;&quot;title&quot;&gt;Druckerverwaltung&lt;/div&gt;
   &lt;div class&#x3D;&quot;new-printer&quot; (click)&#x3D;&quot;openDialogNewPrinter()&quot;&gt;
     &lt;div class&#x3D;&quot;add-new-printer&quot;&gt;
       &lt;h4&gt;&lt;b&gt;+&lt;/b&gt; neuen Drucker hinzufügen&lt;/h4&gt;
@@ -903,7 +903,10 @@ export class PrinterComponent implements OnInit {
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;half-container&quot;&gt;
     &lt;!-- Schleife und Ausgabe von den verfügbaren Druckern --&gt;
-    &lt;mat-expansion-panel *ngFor&#x3D;&quot;let printer of printerData&quot; class&#x3D;&quot;expand-collapse&quot; &gt;
+    &lt;mat-expansion-panel
+      *ngFor&#x3D;&quot;let printer of printerData&quot;
+      class&#x3D;&quot;expand-collapse&quot;
+    &gt;
       &lt;mat-expansion-panel-header&gt;
         &lt;!-- Ausgabe von allen verfügbaren Druckern --&gt;
         &lt;mat-panel-title id&#x3D;&quot;order-heading&quot;&gt;
@@ -917,17 +920,59 @@ export class PrinterComponent implements OnInit {
             Drucker: {{ printer.printer_id }}, {{ printer.printer_name }}
           &lt;/div&gt;
         &lt;/mat-panel-title&gt;
+
+        &lt;!-- Printer is online --&gt;
+        &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.offline &#x3D;&#x3D; 0&quot;&gt;
+          &lt;!-- Printer is in printing process --&gt;
+          &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.is_printing &#x3D;&#x3D; 1&quot;&gt;
+            &lt;!-- Paused printer--&gt;
+            &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.paused &#x3D;&#x3D; 1&quot;&gt;
+              &lt;div id&#x3D;&quot;button-space&quot;&gt;
+                &lt;div class&#x3D;&quot;button-style-printing&quot; &gt;
+                  pausiert
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- Not paused --&gt;
+            &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.paused !&#x3D; 1&quot;&gt;
+              &lt;div id&#x3D;&quot;button-space&quot;&gt;
+                &lt;div class&#x3D;&quot;button-style-printing&quot; &gt;
+                  druckt gerade ...
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- Printer is not printing--&gt;
+          &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.is_printing !&#x3D; 1&quot;&gt;
+            &lt;div id&#x3D;&quot;button-space&quot;&gt;
+              &lt;div class&#x3D;&quot;button-style&quot; (click)&#x3D;&quot;onStopOpen()&quot;&gt;
+                verfügbar
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;(printer.printer$ | async)?.offline !&#x3D; 0&quot;&gt;
+            &lt;div id&#x3D;&quot;button-space&quot;&gt;
+                &lt;div class&#x3D;&quot;button-style&quot; (click)&#x3D;&quot;onStopOpen()&quot;&gt;
+                  offline
+                &lt;/div&gt;
+              &lt;/div&gt;
+        &lt;/div&gt;
+
       &lt;/mat-expansion-panel-header&gt;
-      
-      &lt;app-status style&#x3D;&quot;overflow: auto&quot; [printer]&#x3D;&quot;printer.printer$&quot;&gt;&lt;/app-status&gt;
-      &lt;button (click)&#x3D;&quot;deletePrinter(printer.printer_id)&quot;&gt;Drucker löschen&lt;/button&gt;
+
+      &lt;app-status
+        style&#x3D;&quot;overflow: auto&quot;
+        [printer]&#x3D;&quot;printer.printer$&quot;
+      &gt;&lt;/app-status&gt;
+      &lt;button (click)&#x3D;&quot;deletePrinter(printer.printer_id)&quot;&gt;
+        Drucker löschen
+      &lt;/button&gt;
     &lt;/mat-expansion-panel&gt;
     &lt;button (click)&#x3D;&quot;startPrinter(23)&quot;&gt;Druck Starten&lt;/button&gt;
     &lt;button (click)&#x3D;&quot;stopPrinter(23)&quot;&gt;Druck Stop&lt;/button&gt;
     &lt;button (click)&#x3D;&quot;togglePrinter(23)&quot;&gt;Pause toggeln&lt;/button&gt;
   &lt;/div&gt;
- 
-
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -969,6 +1014,7 @@ export class PrinterComponent implements OnInit {
   font-weight: bold;
   padding-left: 15px;
   align-self: center;
+  color: #272f33;
 }
 
 .add-new-printer {
@@ -987,20 +1033,17 @@ export class PrinterComponent implements OnInit {
   /* color: red; */
 }
 
-  .available-printer {
-    font-family: &quot;Segoe UI&quot;;
-    font-size: 22px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.35;
-  letter-spacing: normal;
+#title{
+  font-size: 20px;
+  object-fit: contain;
+  font-family: &quot;Segoe UI&quot;;
   text-align: left;
   color: #272f33;
-  padding-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 5px;
 }
+
 
 /* .expand-collapse {
   width: 1272px;
@@ -1016,9 +1059,8 @@ export class PrinterComponent implements OnInit {
 
 .expand-collapse {
   flex-wrap: wrap;
-  font-size: 8px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  margin: 5px;
+  margin: 10px  1px  10px 1px;
 }
 
 #order-heading {
@@ -1039,7 +1081,49 @@ export class PrinterComponent implements OnInit {
   margin-top: 7px;
 
 }
-</code></pre>
+
+.button-style-printing {
+  float: right;
+  font-family: &quot;Segoe UI&quot;;
+  width: 130px;
+  height: 30px;
+  margin: 2px;
+  padding-right: 20px;
+  object-fit: contain;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: center;
+  color: #272f33;
+}
+
+.button-style {
+  float: right;
+  width: 130px;
+  height: 30px;
+  object-fit: contain;
+  font-family: &quot;Segoe UI&quot;;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: center;
+  color: #62c6d6;
+}
+
+ #button-space {
+  height: 40px;
+  width: 100%;
+  position: relative;
+  padding-right: 20px;
+  padding-top: 10px;
+  float: right;
+} </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -1067,7 +1151,7 @@ export class PrinterComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div class="available-printer">Druckerverwaltung</div>  <div class="new-printer" (click)="openDialogNewPrinter()">    <div class="add-new-printer">      <h4><b>+</b> neuen Drucker hinzufügen</h4>    </div>  </div>  <div class="half-container">    <!-- Schleife und Ausgabe von den verfügbaren Druckern -->    <mat-expansion-panel *ngFor="let printer of printerData" class="expand-collapse" >      <mat-expansion-panel-header>        <!-- Ausgabe von allen verfügbaren Druckern -->        <mat-panel-title id="order-heading">          <img            height="35px"            width="35px"            src="../../../assets/svg/Pfad 141.svg"            style="padding-left: 10px; height: 30px"          />          <div class="printer">            Drucker: {{ printer.printer_id }}, {{ printer.printer_name }}          </div>        </mat-panel-title>      </mat-expansion-panel-header>            <app-status style="overflow: auto" [printer]="printer.printer$"></app-status>      <button (click)="deletePrinter(printer.printer_id)">Drucker löschen</button>    </mat-expansion-panel>    <button (click)="startPrinter(23)">Druck Starten</button>    <button (click)="stopPrinter(23)">Druck Stop</button>    <button (click)="togglePrinter(23)">Pause toggeln</button>  </div> </div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div id="title">Druckerverwaltung</div>  <div class="new-printer" (click)="openDialogNewPrinter()">    <div class="add-new-printer">      <h4><b>+</b> neuen Drucker hinzufügen</h4>    </div>  </div>  <div class="half-container">    <!-- Schleife und Ausgabe von den verfügbaren Druckern -->    <mat-expansion-panel      *ngFor="let printer of printerData"      class="expand-collapse"    >      <mat-expansion-panel-header>        <!-- Ausgabe von allen verfügbaren Druckern -->        <mat-panel-title id="order-heading">          <img            height="35px"            width="35px"            src="../../../assets/svg/Pfad 141.svg"            style="padding-left: 10px; height: 30px"          />          <div class="printer">            Drucker: {{ printer.printer_id }}, {{ printer.printer_name }}          </div>        </mat-panel-title>        <!-- Printer is online -->        <div *ngIf="(printer.printer$ | async)?.offline == 0">          <!-- Printer is in printing process -->          <div *ngIf="(printer.printer$ | async)?.is_printing == 1">            <!-- Paused printer-->            <div *ngIf="(printer.printer$ | async)?.paused == 1">              <div id="button-space">                <div class="button-style-printing" >                  pausiert                </div>              </div>            </div>            <!-- Not paused -->            <div *ngIf="(printer.printer$ | async)?.paused != 1">              <div id="button-space">                <div class="button-style-printing" >                  druckt gerade ...                </div>              </div>            </div>          </div>          <!-- Printer is not printing-->          <div *ngIf="(printer.printer$ | async)?.is_printing != 1">            <div id="button-space">              <div class="button-style" (click)="onStopOpen()">                verfügbar              </div>            </div>          </div>        </div>        <div *ngIf="(printer.printer$ | async)?.offline != 0">            <div id="button-space">                <div class="button-style" (click)="onStopOpen()">                  offline                </div>              </div>        </div>      </mat-expansion-panel-header>      <app-status        style="overflow: auto"        [printer]="printer.printer$"      ></app-status>      <button (click)="deletePrinter(printer.printer_id)">        Drucker löschen      </button>    </mat-expansion-panel>    <button (click)="startPrinter(23)">Druck Starten</button>    <button (click)="stopPrinter(23)">Druck Stop</button>    <button (click)="togglePrinter(23)">Pause toggeln</button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicLayoutComponent', 'selector': 'app-basic-layout'},{'name': 'CreateNewOrderComponent', 'selector': 'app-create-new-order'},{'name': 'EinstellungenComponent', 'selector': 'app-einstellungen'},{'name': 'ErrorPopUpComponent', 'selector': 'app-error-pop-up'},{'name': 'FAQComponent', 'selector': 'app-faq'},{'name': 'FAQPopUpComponent', 'selector': 'app-faqpop-up'},{'name': 'HarzinfobearbeitenComponent', 'selector': 'app-harzinfobearbeiten'},{'name': 'HarzloeschenComponent', 'selector': 'app-harzloeschen'},{'name': 'KategorieinfobearbeitenComponent', 'selector': 'app-kategorieinfobearbeiten'},{'name': 'KategorieloeschenComponent', 'selector': 'app-kategorieloeschen'},{'name': 'KundeloeschenComponent', 'selector': 'app-kundeloeschen'},{'name': 'KundeninfobearbeitenComponent', 'selector': 'app-kundeninfobearbeiten'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NeueKategorieComponent', 'selector': 'app-neue-kategorie'},{'name': 'NeuerKundeComponent', 'selector': 'app-neuer-kunde'},{'name': 'NeuesHarzComponent', 'selector': 'app-neues-harz'},{'name': 'OrderCardComponent', 'selector': 'app-order-card'},{'name': 'OrderComponent', 'selector': 'app-order'},{'name': 'OrderFilterPopupComponent', 'selector': 'app-order-filter-popup'},{'name': 'PopUpDruckenComponent', 'selector': 'app-pop-up-drucken'},{'name': 'PopUpFAQComponent', 'selector': 'app-pop-up-faq'},{'name': 'PopUpNeuerDruckerComponent', 'selector': 'app-pop-up-neuer-drucker'},{'name': 'PopUpVanikComponent', 'selector': 'app-pop-up-vanik'},{'name': 'PostprintGroupActionComponent', 'selector': 'app-postprint-group-action'},{'name': 'PrintedordersComponent', 'selector': 'app-printedorders'},{'name': 'PrinterComponent', 'selector': 'app-printer'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'UrlTextPopUpComponent', 'selector': 'app-url-text-pop-up'}];
     var DIRECTIVES = [{'name': 'FilterButtonActivatedDirective', 'selector': '[appFilterButtonActivated]'},{'name': 'SidebarDirective', 'selector': '[appSidebar]'}];
     var ACTUAL_COMPONENT = {'name': 'PrinterComponent'};
