@@ -195,6 +195,7 @@ export interface IPrinterDataPolling {
   printer_id: number;
   printer_name: string;
   printer$: Observable<IPrinterData>;
+  status?: {style: any; message: string;};
 }
 export interface IOrderStatus{
   value: string;
