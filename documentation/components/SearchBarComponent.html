@@ -434,19 +434,20 @@ export class SearchBarComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;padding-top: 5px; padding-left: 10px&quot; href&#x3D;&quot;#&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">
+&lt;div id&#x3D;&quot;search-input&quot; href&#x3D;&quot;#&quot;&gt;
   &lt;img
     src&#x3D;&quot;../../../assets/svg/lupe.svg&quot;
     alt&#x3D;&quot;lupe&quot;
     width&#x3D;&quot;12&quot;
     height&#x3D;&quot;12&quot;
-    style&#x3D;&quot;margin-top: -8px; margin-left: 5px; fill: #272f33&quot;
+    style&#x3D;&quot; margin-left: 15px;margin-bottom: -40px; fill: #ff0c3d&quot;
   /&gt;
   &lt;div id&#x3D;&quot;such-balken&quot;&gt;
-    &lt;mat-form-field id&#x3D;&quot;search-input&quot;&gt;
+    &lt;mat-form-field style&#x3D;&quot;margin-top: -25px; padding-left: 22px&quot; &gt;
       &lt;input
         type&#x3D;&quot;text&quot;
-        placeholder&#x3D;&quot;Pick one&quot;
+        placeholder&#x3D;&quot;Suche...&quot;
         aria-label&#x3D;&quot;Number&quot;
         matInput
         [formControl]&#x3D;&quot;searchControl&quot;
@@ -472,25 +473,16 @@ export class SearchBarComponent implements OnInit {
                 <p class="comment">
                     <code>./search-bar.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">#search-input {
-    background-color: white;
-    border: transparent;
-    border-radius: 2px;
-    color: #272f33;
-    position: absolute;
-    height: 20px;
+                <pre class="line-numbers"><code class="language-scss">
+#such-balken{
     width: 200px;
-    justify-content: left;
-    margin-top: -24px;
-    z-index: -1;
-  }
-  
-  #such-balken input[type&#x3D;&quot;search&quot;] {
-    padding-left: 25px;
-    padding-top: 2px;
-    font-style: italic;
-    font-size: 10px;
-  }</code></pre>
+    height: 20px;
+    margin-left: 10px;
+    border: red;
+    border-radius: 4px;
+    background-color: white;
+
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -518,7 +510,7 @@ export class SearchBarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="padding-top: 5px; padding-left: 10px" href="#">  <img    src="../../../assets/svg/lupe.svg"    alt="lupe"    width="12"    height="12"    style="margin-top: -8px; margin-left: 5px; fill: #272f33"  />  <div id="such-balken">    <mat-form-field id="search-input">      <input        type="text"        placeholder="Pick one"        aria-label="Number"        matInput        [formControl]="searchControl"        [matAutocomplete]="auto"      />      <mat-autocomplete #auto="matAutocomplete">        <mat-option          *ngFor="let option of filteredResultOptions | async"          [value]="option"          (click)="onOptionClicked(option)"        >          {{ option.category }}          {{ option.result }}        </mat-option>      </mat-autocomplete>    </mat-form-field>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div id="search-input" href="#">  <img    src="../../../assets/svg/lupe.svg"    alt="lupe"    width="12"    height="12"    style=" margin-left: 15px;margin-bottom: -40px; fill: #ff0c3d"  />  <div id="such-balken">    <mat-form-field style="margin-top: -25px; padding-left: 22px" >      <input        type="text"        placeholder="Suche..."        aria-label="Number"        matInput        [formControl]="searchControl"        [matAutocomplete]="auto"      />      <mat-autocomplete #auto="matAutocomplete">        <mat-option          *ngFor="let option of filteredResultOptions | async"          [value]="option"          (click)="onOptionClicked(option)"        >          {{ option.category }}          {{ option.result }}        </mat-option>      </mat-autocomplete>    </mat-form-field>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicLayoutComponent', 'selector': 'app-basic-layout'},{'name': 'CreateNewOrderComponent', 'selector': 'app-create-new-order'},{'name': 'EinstellungenComponent', 'selector': 'app-einstellungen'},{'name': 'ErrorPopUpComponent', 'selector': 'app-error-pop-up'},{'name': 'FAQComponent', 'selector': 'app-faq'},{'name': 'FAQPopUpComponent', 'selector': 'app-faqpop-up'},{'name': 'HarzinfobearbeitenComponent', 'selector': 'app-harzinfobearbeiten'},{'name': 'HarzloeschenComponent', 'selector': 'app-harzloeschen'},{'name': 'KategorieinfobearbeitenComponent', 'selector': 'app-kategorieinfobearbeiten'},{'name': 'KategorieloeschenComponent', 'selector': 'app-kategorieloeschen'},{'name': 'KundeloeschenComponent', 'selector': 'app-kundeloeschen'},{'name': 'KundeninfobearbeitenComponent', 'selector': 'app-kundeninfobearbeiten'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NeueKategorieComponent', 'selector': 'app-neue-kategorie'},{'name': 'NeuerKundeComponent', 'selector': 'app-neuer-kunde'},{'name': 'NeuesHarzComponent', 'selector': 'app-neues-harz'},{'name': 'OrderCardComponent', 'selector': 'app-order-card'},{'name': 'OrderComponent', 'selector': 'app-order'},{'name': 'OrderFilterPopupComponent', 'selector': 'app-order-filter-popup'},{'name': 'PopUpDruckenComponent', 'selector': 'app-pop-up-drucken'},{'name': 'PopUpFAQComponent', 'selector': 'app-pop-up-faq'},{'name': 'PopUpNeuerDruckerComponent', 'selector': 'app-pop-up-neuer-drucker'},{'name': 'PopUpVanikComponent', 'selector': 'app-pop-up-vanik'},{'name': 'PostprintGroupActionComponent', 'selector': 'app-postprint-group-action'},{'name': 'PrintedordersComponent', 'selector': 'app-printedorders'},{'name': 'PrinterComponent', 'selector': 'app-printer'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'UrlTextPopUpComponent', 'selector': 'app-url-text-pop-up'}];
     var DIRECTIVES = [{'name': 'FilterButtonActivatedDirective', 'selector': '[appFilterButtonActivated]'},{'name': 'SidebarDirective', 'selector': '[appSidebar]'}];
     var ACTUAL_COMPONENT = {'name': 'SearchBarComponent'};

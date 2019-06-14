@@ -1520,18 +1520,17 @@ export class PrintedordersComponent implements OnInit {
   &lt;div cdkDropListGroup&gt;
     &lt;div
       class&#x3D;&quot;half-container&quot;
-      style&#x3D;&quot; border: transparent;
-      border-bottom: solid 1px #a2a2a2;&quot;
+
     &gt;
-      &lt;h1 class&#x3D;&quot;heading&quot;&gt;Gruppierte Aufträge&lt;/h1&gt;
-      &lt;p&gt;Aktuell werden &quot;preprint&quot; Gruppen angezeigt, da das backend den status nicht setzt&lt;/p&gt;
+      &lt;h1 class&#x3D;&quot;title&quot;&gt;Gruppierte Aufträge&lt;/h1&gt;
+      &lt;p style&#x3D;&quot;display: none&quot;&gt;Aktuell werden &quot;preprint&quot; Gruppen angezeigt, da das backend den status nicht setzt&lt;/p&gt;
       &lt;div class&#x3D;&quot;button-space&quot;&gt;
         &lt;div
               class&#x3D;&quot;button-style-group&quot;
               (click)&#x3D;&quot;openDialogFilterGroups()&quot;
               [appFilterButtonActivated]&#x3D;&quot;isGroupFilterSet&quot;
             &gt;
-              Filter setzen
+            &lt;h2 style&#x3D;&quot;font-size: 14px; padding-bottom: 3px; padding-left: 3px&quot;&gt; Filter setzen&lt;/h2&gt;
               &lt;div
                 style&#x3D;&quot;color:black;&quot;
                 *ngIf&#x3D;&quot;isGroupFilterSet !&#x3D; 0&quot;
@@ -1546,7 +1545,7 @@ export class PrintedordersComponent implements OnInit {
         Momentan existieren keine Gruppen die sich in der Nachbereitung
         befinden.
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;expand-print&quot; *ngIf&#x3D;&quot;filteredGroupData.length&quot;&gt;
+      &lt;div style&#x3D;&quot;padding-top: 5px&quot; *ngIf&#x3D;&quot;filteredGroupData.length&quot;&gt;
         &lt;mat-expansion-panel
           *ngFor&#x3D;&quot;let group of filteredGroupData&quot;
           class&#x3D;&quot;expand-collapse&quot;
@@ -1612,13 +1611,13 @@ export class PrintedordersComponent implements OnInit {
     &lt;/div&gt;
   &lt;/div&gt; --&gt;
     &lt;div class&#x3D;&quot;half-container&quot;&gt;
-      &lt;div class&#x3D;&quot;ueberschriften&quot;&gt;Abgeschlossene Aufträge&lt;/div&gt;
+      &lt;h1 class&#x3D;&quot;title&quot;&gt;Abgeschlossene Aufträge&lt;/h1&gt;
       &lt;div
         class&#x3D;&quot;button-style-group&quot;
         (click)&#x3D;&quot;openSentFilter()&quot;
         [appFilterButtonActivated]&#x3D;&quot;isSentFilterSet&quot;
       &gt;
-        Filter
+        &lt;h2 style&#x3D;&quot;font-size: 14px; padding-bottom: 3px; padding-left: 3px&quot;&gt; Filter setzen&lt;/h2&gt;
         &lt;div
           style&#x3D;&quot;color:black;&quot;
           *ngIf&#x3D;&quot;isSentFilterSet !&#x3D; 0&quot;
@@ -1628,7 +1627,7 @@ export class PrintedordersComponent implements OnInit {
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;cards&quot;&gt;
-        &lt;app-order-card
+        &lt;app-order-card id&#x3D;&quot;order-card&quot;
           *ngFor&#x3D;&quot;let orderCard of filteredSentOrders&quot;
           [order]&#x3D;&quot;orderCard&quot;
         &gt;
@@ -1646,16 +1645,17 @@ export class PrintedordersComponent implements OnInit {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.page-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
 .half-container {
-  max-height: 45vh;
-  min-height: 45vh;
+  max-height: 47.3vh;
+  min-height: 47.3vh;
+  border: transparent;
+  border-bottom: solid 1px #a2a2a2;
   overflow: auto;
-  margin: 2px;
   object-fit: contain;
-  /* box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25); */
 }
 
 .hilfe-nachbereitung {
@@ -1696,8 +1696,12 @@ export class PrintedordersComponent implements OnInit {
   color: #272f33;
 }
 .cards {
+  margin-left: 10px;
   display: flex;
   flex-wrap: wrap;
+}
+#order-card:hover{
+  cursor: pointer;
 }
 .filter-box {
   width: 149px;
@@ -1708,7 +1712,7 @@ export class PrintedordersComponent implements OnInit {
 .button-style {
   float: right;
   font-family: &quot;Segoe UI&quot;;
-  width: 130px;
+  width: 100px;
   height: 30px;
   margin: 2px;
   object-fit: contain;
@@ -1727,22 +1731,20 @@ export class PrintedordersComponent implements OnInit {
   font-family: &quot;Segoe UI&quot;;
   width: 100px;
   height: 30px;
-  margin: 2px;
   padding-top: 5px;
   object-fit: contain;
-  border-radius: 3px;
+  border-radius: 4px;
   border: solid 1px #62c6d6;
   background-color: white;
   color: #62c6d6;
   text-align: center;
-  font-size: 12px;
-  margin-top: -5px;
+  font-size: 14px;
+margin-right: 4px;
 }
 .button-style-group:hover {
   background-color: #272f33;
   color: white;
   border: transparent;
-  cursor: pointer;
 }
 .no-data-to-display {
   width: 376px;
@@ -1758,20 +1760,16 @@ export class PrintedordersComponent implements OnInit {
   text-align: center;
   color: rgb(98, 198, 214);
 }
-.heading {
-  height: 40px;
-  width: 70%;
+.title {
+  font-size: 20px;
   object-fit: contain;
   font-family: &quot;Segoe UI&quot;;
-  font-weight: bold;
-  font-size: 20px;
-  padding-left: 5px;
-  padding-top: 10px;
-  line-height: 1.35;
-  letter-spacing: normal;
   text-align: left;
   color: #272f33;
-  position: relative;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 8px;
+  width: 400px;
 }
 #order-heading {
   font-family: &quot;Segoe UI&quot;;
@@ -1792,25 +1790,25 @@ export class PrintedordersComponent implements OnInit {
 }
 .expand-collapse {
   flex-wrap: wrap;
-  font-size: 8px;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-
-  margin: 5px;
+  margin: 10px  10px  10px 10px;
 }
+
 #button-space {
   height: 40px;
   width: 100%;
   position: relative;
-  padding-right: 20px;
+  padding-right: 25px;
   padding-top: 10px;
   float: right;
 }
 .button-style {
+  margin-top: -3px;
   float: right;
   font-family: &quot;Segoe UI&quot;;
-  width: 130px;
+  font-size: 14px;
+  width: 100px;
   height: 30px;
-  margin: 2px;
   object-fit: contain;
   border-radius: 4px;
   color: #62c6d6;
@@ -1827,21 +1825,20 @@ export class PrintedordersComponent implements OnInit {
   font-family: &quot;Segoe UI&quot;;
   width: 100px;
   height: 30px;
-  margin: 2px;
-  padding-top: 5px;
   object-fit: contain;
-  border-radius: 3px;
+  border-radius: 4px;
   border: solid 1px #62c6d6;
   background-color: white;
   color: #62c6d6;
   text-align: center;
-  font-size: 12px;
-  margin-top: -5px;
+
+  margin-right: 8px;
+  margin-top: -24px;
 }
 .button-style-group:hover {
   background-color: #272f33;
   color: white;
-  border: transparent;
+  border: #272f33;
   cursor: pointer;
 }</code></pre>
     </div>
@@ -1871,7 +1868,7 @@ export class PrintedordersComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div cdkDropListGroup>    <div      class="half-container"      style=" border: transparent;      border-bottom: solid 1px #a2a2a2;"    >      <h1 class="heading">Gruppierte Aufträge</h1>      <p>Aktuell werden "preprint" Gruppen angezeigt, da das backend den status nicht setzt</p>      <div class="button-space">        <div              class="button-style-group"              (click)="openDialogFilterGroups()"              [appFilterButtonActivated]="isGroupFilterSet"            >              Filter setzen              <div                style="color:black;"                *ngIf="isGroupFilterSet != 0"                (click)="resetGroupFilter($event)"              >                ({{ isGroupFilterSet }}) X              </div>            </div>      </div>      <div class="no-data-to-display" *ngIf="!filteredGroupData.length">        <img src="../../../assets/svg/Zahn.svg" /><br />        Momentan existieren keine Gruppen die sich in der Nachbereitung        befinden.      </div>      <div class="expand-print" *ngIf="filteredGroupData.length">        <mat-expansion-panel          *ngFor="let group of filteredGroupData"          class="expand-collapse"          cdkDropList          [cdkDropListData]="group.orders"        >          <mat-expansion-panel-header>            <mat-panel-title>              <div>                <p id="order-heading">                  Gruppe: {{ group.group_id }}, Aufträge:                  {{ group.orders.length }}                </p>              </div>            </mat-panel-title>            <div id="button-space">                  <button class="button-style" (click)="onGroupClick(group)">                    Details                  </button>                 </div>          </mat-expansion-panel-header>          <div class="draggable-card-container">            <app-order-card              id="dragging"              *ngFor="let orderCard of group.orders"              [order]="orderCard"            >            </app-order-card>          </div>        </mat-expansion-panel>      </div>      <!-- <button class="expand-collapse" (click)="onClick()">drucken</button>        </div> -->    </div>    <!-- <div class="half-container">    <div>      <b class="ueberschriften"> Nachbereitung ausstehend </b>      <a (click)="help()" class="ueberschriften1"        >Hilfe zur Nachbereitung findest du hier      </a>      <div        class="button-style-group"        (click)="openUnsentFilter()"        [appFilterButtonActivated]="isUnsentFilterSet"      >        Filter        <div          style="color:black;"          *ngIf="isUnsentFilterSet != 0"          (click)="resetUnsentFilter($event)"        >          ({{ isUnsentFilterSet }}) X        </div>      </div>    </div>    -- with filter --    <div class="cards">      <app-order-card        *ngFor="let orderCard of filteredUnsentOrders"        [order]="orderCard"      >      </app-order-card>    </div>  </div> -->    <div class="half-container">      <div class="ueberschriften">Abgeschlossene Aufträge</div>      <div        class="button-style-group"        (click)="openSentFilter()"        [appFilterButtonActivated]="isSentFilterSet"      >        Filter        <div          style="color:black;"          *ngIf="isSentFilterSet != 0"          (click)="resetSentFilter($event)"        >          ({{ isSentFilterSet }}) X        </div>      </div>      <div class="cards">        <app-order-card          *ngFor="let orderCard of filteredSentOrders"          [order]="orderCard"        >        </app-order-card>      </div>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="page-container">  <div cdkDropListGroup>    <div      class="half-container"    >      <h1 class="title">Gruppierte Aufträge</h1>      <p style="display: none">Aktuell werden "preprint" Gruppen angezeigt, da das backend den status nicht setzt</p>      <div class="button-space">        <div              class="button-style-group"              (click)="openDialogFilterGroups()"              [appFilterButtonActivated]="isGroupFilterSet"            >            <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>              <div                style="color:black;"                *ngIf="isGroupFilterSet != 0"                (click)="resetGroupFilter($event)"              >                ({{ isGroupFilterSet }}) X              </div>            </div>      </div>      <div class="no-data-to-display" *ngIf="!filteredGroupData.length">        <img src="../../../assets/svg/Zahn.svg" /><br />        Momentan existieren keine Gruppen die sich in der Nachbereitung        befinden.      </div>      <div style="padding-top: 5px" *ngIf="filteredGroupData.length">        <mat-expansion-panel          *ngFor="let group of filteredGroupData"          class="expand-collapse"          cdkDropList          [cdkDropListData]="group.orders"        >          <mat-expansion-panel-header>            <mat-panel-title>              <div>                <p id="order-heading">                  Gruppe: {{ group.group_id }}, Aufträge:                  {{ group.orders.length }}                </p>              </div>            </mat-panel-title>            <div id="button-space">                  <button class="button-style" (click)="onGroupClick(group)">                    Details                  </button>                 </div>          </mat-expansion-panel-header>          <div class="draggable-card-container">            <app-order-card              id="dragging"              *ngFor="let orderCard of group.orders"              [order]="orderCard"            >            </app-order-card>          </div>        </mat-expansion-panel>      </div>      <!-- <button class="expand-collapse" (click)="onClick()">drucken</button>        </div> -->    </div>    <!-- <div class="half-container">    <div>      <b class="ueberschriften"> Nachbereitung ausstehend </b>      <a (click)="help()" class="ueberschriften1"        >Hilfe zur Nachbereitung findest du hier      </a>      <div        class="button-style-group"        (click)="openUnsentFilter()"        [appFilterButtonActivated]="isUnsentFilterSet"      >        Filter        <div          style="color:black;"          *ngIf="isUnsentFilterSet != 0"          (click)="resetUnsentFilter($event)"        >          ({{ isUnsentFilterSet }}) X        </div>      </div>    </div>    -- with filter --    <div class="cards">      <app-order-card        *ngFor="let orderCard of filteredUnsentOrders"        [order]="orderCard"      >      </app-order-card>    </div>  </div> -->    <div class="half-container">      <h1 class="title">Abgeschlossene Aufträge</h1>      <div        class="button-style-group"        (click)="openSentFilter()"        [appFilterButtonActivated]="isSentFilterSet"      >        <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px"> Filter setzen</h2>        <div          style="color:black;"          *ngIf="isSentFilterSet != 0"          (click)="resetSentFilter($event)"        >          ({{ isSentFilterSet }}) X        </div>      </div>      <div class="cards">        <app-order-card id="order-card"          *ngFor="let orderCard of filteredSentOrders"          [order]="orderCard"        >        </app-order-card>      </div>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicLayoutComponent', 'selector': 'app-basic-layout'},{'name': 'CreateNewOrderComponent', 'selector': 'app-create-new-order'},{'name': 'EinstellungenComponent', 'selector': 'app-einstellungen'},{'name': 'ErrorPopUpComponent', 'selector': 'app-error-pop-up'},{'name': 'FAQComponent', 'selector': 'app-faq'},{'name': 'FAQPopUpComponent', 'selector': 'app-faqpop-up'},{'name': 'HarzinfobearbeitenComponent', 'selector': 'app-harzinfobearbeiten'},{'name': 'HarzloeschenComponent', 'selector': 'app-harzloeschen'},{'name': 'KategorieinfobearbeitenComponent', 'selector': 'app-kategorieinfobearbeiten'},{'name': 'KategorieloeschenComponent', 'selector': 'app-kategorieloeschen'},{'name': 'KundeloeschenComponent', 'selector': 'app-kundeloeschen'},{'name': 'KundeninfobearbeitenComponent', 'selector': 'app-kundeninfobearbeiten'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NeueKategorieComponent', 'selector': 'app-neue-kategorie'},{'name': 'NeuerKundeComponent', 'selector': 'app-neuer-kunde'},{'name': 'NeuesHarzComponent', 'selector': 'app-neues-harz'},{'name': 'OrderCardComponent', 'selector': 'app-order-card'},{'name': 'OrderComponent', 'selector': 'app-order'},{'name': 'OrderFilterPopupComponent', 'selector': 'app-order-filter-popup'},{'name': 'PopUpDruckenComponent', 'selector': 'app-pop-up-drucken'},{'name': 'PopUpFAQComponent', 'selector': 'app-pop-up-faq'},{'name': 'PopUpNeuerDruckerComponent', 'selector': 'app-pop-up-neuer-drucker'},{'name': 'PopUpVanikComponent', 'selector': 'app-pop-up-vanik'},{'name': 'PostprintGroupActionComponent', 'selector': 'app-postprint-group-action'},{'name': 'PrintedordersComponent', 'selector': 'app-printedorders'},{'name': 'PrinterComponent', 'selector': 'app-printer'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'UrlTextPopUpComponent', 'selector': 'app-url-text-pop-up'}];
     var DIRECTIVES = [{'name': 'FilterButtonActivatedDirective', 'selector': '[appFilterButtonActivated]'},{'name': 'SidebarDirective', 'selector': '[appSidebar]'}];
     var ACTUAL_COMPONENT = {'name': 'PrintedordersComponent'};

@@ -167,7 +167,7 @@ export class PrinterStatusPipe implements PipeTransform {
     let printerStatus;
     if (printer.offline &#x3D;&#x3D; 0) {
       if (printer.is_printing &#x3D;&#x3D; 0) {
-        printerStatus &#x3D; printer.paused ? &quot;Standby&quot; : &quot;Standby&quot;;
+        printerStatus &#x3D; &quot;Standby&quot;;
       } else {
         printerStatus &#x3D; printer.paused ? &quot;Pausiert&quot; : &quot;Druckt&quot;;
       }
