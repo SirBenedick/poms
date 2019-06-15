@@ -119,6 +119,8 @@ export class BackendService {
 
   /** Observable which poll every pollingTimeInMs ms */
   pollingTimeInMs: number = 2000;
+  reloadDataAfterMs: number = 2000;
+
   allOrderData$: Observable<Object>;
   allGroupData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
@@ -209,7 +211,7 @@ export class BackendService {
           this.everySinglePrinter$.push({
             printer_id: printer.printer_id,
             printer_name: printer.name,
-            printer$: singlePrinter$,
+            printer$: singlePrinter$
           });
         });
       }
@@ -221,7 +223,7 @@ export class BackendService {
     //** Backendcall */
     return this.http.get(this.backendUrl + "order/get/all");
   }
-  
+
   /** Umbennen in getAllPrinter */
   getAllPrinter(): Observable<Object> {
     //** Backendcall */
@@ -283,24 +285,6 @@ export class BackendService {
 
   getSearchResults(searchValue: string): Promise<Array<any>> {
     //this.http.get(this.backendUrl + "search/" + searchValue).toPromise();
-    // let mockedOptions: Array<string> = [
-    //   "One",
-    //   "Two",
-    //   "Three",
-    //   "Four",
-    //   "Five",
-    //   "Six",
-    //   "Seven",
-    //   "Eight",
-    //   "Nine"
-    // ];
-    // return new Promise((resolve, reject) => {
-    //   resolve(
-    //     mockedOptions.filter(option =>
-    //       option.toLowerCase().includes(searchValue)
-    //     )
-    //   );
-    // });
     let mockedOptions: Array<{ category: string; result: string }> = [
       { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
       { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
@@ -360,18 +344,21 @@ export class BackendService {
   }
 
   createResin(createNewResin: IResinName): Promise<Object> {
+    setTimeout(res => this.loadResinData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "resin/create/", createNewResin)
       .toPromise();
   }
 
   createCustomer(createNewCustomer: ICustomerName): Promise<Object> {
+    setTimeout(res => this.loadCustomerData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "customer/create/", createNewCustomer)
       .toPromise();
   }
 
   createCategory(createNewCategory: ICategoryName): Promise<Object> {
+    setTimeout(res => this.loadCategoryData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "model_type/create/", createNewCategory)
       .toPromise();
@@ -405,18 +392,21 @@ export class BackendService {
   }
 
   alterResin(new_name: IAlterResin): Promise<Object> {
+    setTimeout(res => this.loadResinData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "resin/alter/", new_name)
       .toPromise();
   }
 
   alterCategory(alteredCategory: IAlterCategory): Promise<Object> {
+    setTimeout(res => this.loadCategoryData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "model_type/alter/", alteredCategory)
       .toPromise();
   }
 
   alterCustomer(customer_id: number, newCustomer: Object): Promise<Object> {
+    setTimeout(res => this.loadCustomerData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "customer/alter/" + customer_id, newCustomer)
       .toPromise();
@@ -444,10 +434,12 @@ export class BackendService {
   }
 
   removeResinByName(name: IResinDelete): Promise<Object> {
+    setTimeout(res => this.loadResinData(), this.reloadDataAfterMs);
     return this.http.post(this.backendUrl + "resin/remove/", name).toPromise();
   }
 
   removeCategoryByName(name: ICategoryDelete): Promise<Object> {
+    setTimeout(res => this.loadCategoryData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "model_type/remove/", name)
       .toPromise();
@@ -457,6 +449,7 @@ export class BackendService {
     customer_id: ICustomerDelete,
     name: any
   ): Promise<Object> {
+    setTimeout(res => this.loadCustomerData(), this.reloadDataAfterMs);
     return this.http
       .post(this.backendUrl + "customer/remove/" + customer_id, name)
       .toPromise();
