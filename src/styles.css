@@ -171,4 +171,99 @@
   font-style: italic;
 }
 
+/* sweet arlert2 lib overwritig*/
+.swal2-container {
+  align-items: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-container.swal2-center {
+  align-items: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-container.swal2-center-start, .swal2-container.swal2-center-left {
+  align-items: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-container.swal2-center-end, .swal2-container.swal2-center-right {
+  align-items: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-popup {
+  justify-content: left !important;
 
+}
+.swal2-styled:focus {
+  box-shadow: 0 0 0 0px rgba(255, 0, 47, 0), 0 0 0 4px rgba(5, 183, 0, 0) !important;
+}
+.swal2-actions.swal2-loading .swal2-styled.swal2-cancel {
+  margin-right: 150px !important;
+  margin-left: 150px !important;
+}
+.swal2-styled {
+  margin: 4px !important;
+  padding: 4px  !important;
+  box-shadow: none;
+  font-weight: normal !important;
+  background-color: #62c6d6 !important;
+  height: 35px;
+  width: 100px;
+  font-size: 12px;
+  border-radius: 4px;
+  justify-content: flex-end !important;
+  justify-items: flex-end !important;
+
+}
+#swal2-content {
+  text-align: left !important;
+  padding-left: 20px ;
+  justify-content: left !important;
+  color: #272f33 !important;
+  font-size: 14px !important;
+}
+.swal2-textarea {
+  font-size: 14px !important;
+  color: #1f282c !important;
+}
+.swal2-title {
+  color: #272f33 !important;
+  font-size: 20px !important;
+}
+.swal2-header {
+  align-items: flex-start !important;
+  padding-left: 20px !important;
+}
+.swal2-popup.swal2-toast .swal2-title {
+  justify-content: flex-end !important;
+}
+.swal2-range output {
+  text-align: left !important;
+}
+.swal2-checkbox {
+  align-items: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-validation-message {
+  align-items: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-validation-message::before {
+  text-align: left !important;
+}
+.swal2-popup.swal2-toast .swal2-title {
+  justify-content: left !important;
+}
+.swal2-container.swal2-grow-fullscreen > .swal2-modal {
+  justify-content: left !important;
+}
+.swal2-container.swal2-grow-row > .swal2-modal {
+  align-content: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-container.swal2-grow-column > .swal2-modal {
+  align-content: flex-start !important;
+  justify-content: left !important;
+}
+.swal2-actions {
+  align-content: end !important;
+  justify-content: flex-end !important;
+}

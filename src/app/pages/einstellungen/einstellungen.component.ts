@@ -114,7 +114,7 @@ export class EinstellungenComponent implements OnInit {
       Swal.fire({
         title: 'Fehler!',
         text: "Für die Priorität ist noch kein Pop-Up vorhanden!",
-        confirmButtonText: "Ok",
+        confirmButtonText: "Verstanden",
         confirmButtonColor: "#62c6d6",
         background: 'url(../assets/svg/FehlerPopUp.svg)',
       })
