@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../../login/login.component';
 import { MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-logout',
@@ -10,7 +12,8 @@ import { MatDialogRef } from '@angular/material';
 export class LogoutComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<LoginComponent>
+    public dialogRef: MatDialogRef<LoginComponent>,
+
   ) { }
 
   ngOnInit() {
@@ -18,5 +21,6 @@ export class LogoutComponent implements OnInit {
 
   onOkClick():void{
     this.dialogRef.close();
+ 
   }
 }
