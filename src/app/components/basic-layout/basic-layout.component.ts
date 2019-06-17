@@ -7,6 +7,7 @@ import { User, IPrinterDataPolling } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
 import { LogoutComponent } from "../pop-ups/logout/logout.component";
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
@@ -24,7 +25,8 @@ export class BasicLayoutComponent implements OnInit {
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog,
-    private authService: LoginService
+    private authService: LoginService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -90,7 +92,6 @@ export class BasicLayoutComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.dialog.open(LogoutComponent);
   }
 
   onMenuItem(menuItem) {
