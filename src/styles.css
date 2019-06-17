@@ -216,6 +216,7 @@
 #swal2-content {
   text-align: left !important;
   padding-left: 20px ;
+  margin-top: 10px !important;
   justify-content: left !important;
   color: #272f33 !important;
   font-size: 14px !important;
@@ -231,6 +232,7 @@
 .swal2-header {
   align-items: flex-start !important;
   padding-left: 20px !important;
+  margin-top: 10px !important;
 }
 .swal2-popup.swal2-toast .swal2-title {
   justify-content: flex-end !important;
