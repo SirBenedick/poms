@@ -23,6 +23,7 @@ export class CreateNewOrderComponent implements OnInit {
   customerData: Array<ICustomer> = this.backendService.customerData;
   orderStatus: Array<IOrderStatus> = this.backendService.orderStatus;
 
+  doesOrderExists: boolean = false;
   fileToUploadName: string;
 
   @ViewChild("fileInputScan") fileInputScan;
@@ -33,6 +34,8 @@ export class CreateNewOrderComponent implements OnInit {
     private backendService: BackendService
   ) {}
   ngOnInit() {
+    if (this.data.order_id && this.data.customer_id)
+      this.doesOrderExists = true;
     this.newOrderForm = new FormGroup({
       order_id: new FormControl(this.data.order_id ? this.data.order_id : "", [
         Validators.minLength(1),
@@ -62,7 +65,7 @@ export class CreateNewOrderComponent implements OnInit {
       status: new FormControl(this.data.status ? this.data.status : "", [
         Validators.required
       ]),
-      dueDate: new FormControl(this.data.due_date ? this.data.due_date : "", [
+      due_date: new FormControl(this.data.due_date ? this.data.due_date : "", [
         Validators.required
       ]),
       priority: new FormControl(this.data.priority ? this.data.priority : "", [
@@ -92,7 +95,8 @@ export class CreateNewOrderComponent implements OnInit {
       this.customer_name = this.customerData.find(
         customer => customer.customer_id == this.data.customer_id
       ).name;
-
+    console.log(this.customer_name);
+    console.log(this.newOrderForm.controls["customer_id"]);
     this.fileToUploadName = this.data.file_scan_name
       ? this.data.file_scan_name
       : "";
@@ -120,7 +124,7 @@ export class CreateNewOrderComponent implements OnInit {
     newOrder.append("patient", formData.patient);
     newOrder.append("dental_print_type", formData.dental_print_type);
     newOrder.append("resin_name", formData.harz);
-    newOrder.append("due_date", formData.dueDate);
+    newOrder.append("due_date", formData.due_date);
     newOrder.append("comment", formData.comment);
     newOrder.append("status", formData.status);
     newOrder.append("scan_file", formData.hochladen.files[0]);

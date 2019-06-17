@@ -15,16 +15,16 @@ import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/pop-ups/order-filter-popup/order-filter-popup.component";
 import { PopUpDruckenComponent } from "src/app/components/pop-ups/pop-up-drucken/pop-up-drucken.component";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
   styleUrls: ["./order.component.css"]
 })
 export class OrderComponent implements OnInit {
-  /** Saves all data, doesnt get changed, is used to reset the "filtered...Data" 
+  /** Saves all data, doesnt get changed, is used to reset the "filtered...Data"
    * ungrouped orders = orders which are not included in any group
-  */
+   */
   allUngroupedOrders: Array<IOrder> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
 
@@ -191,9 +191,9 @@ export class OrderComponent implements OnInit {
     this.filterParameterGroup = null;
   }
 
-  openDialogCreateNewOrder(): void {
-    const dialogRef = this.dialog.open(CreateNewOrderComponent, {
-      data: { newPrinterForm: "Keine Auswahl getroffen" }
+  openDialogCreateNewOrder(data?: any): void {
+    let dialogRef = this.dialog.open(CreateNewOrderComponent, {
+      data: data
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -205,7 +205,7 @@ export class OrderComponent implements OnInit {
           newOrder.append("patient", order.patient);
           newOrder.append("dental_print_type", order.dental_print_type);
           newOrder.append("resin_name", order.harz);
-          newOrder.append("due_date", order.dueDate);
+          newOrder.append("due_date", order.due_date);
           newOrder.append("comment", order.comment);
           newOrder.append("status", "created");
           newOrder.append("scan_file", order.hochladen.files[0]);
@@ -213,13 +213,14 @@ export class OrderComponent implements OnInit {
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               Swal.fire({
-                title: 'Fehler!',
-                text:res.error,
+                title: "Fehler!",
+                text: res.error,
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#62c6d6",
-                background: 'url(../assets/svg/FehlerPopUp.svg)',
-              })
+                background: "url(../assets/svg/FehlerPopUp.svg)"
+              });
               console.log("createNewOrder Error: ", res.error);
+              this.openDialogCreateNewOrder(order);
             } else {
               console.log("createNewOrder Response: ", res);
               this.loadOrderData();
@@ -356,14 +357,14 @@ export class OrderComponent implements OnInit {
         firstItemFromGroup.group_id
       );
     } else {
-       Swal.fire({
-         title: 'Fehler!',
-         text:'Der Auftrag kann nicht in der Gruppe zugewiesen werden, weil die Harzfarbe des Auftrags und der Gruppe nicht übereinstimmen. Bitte ordne den Auftrag einer anderen Gruppe zu.',
-         confirmButtonText: "Verstanden",
-         confirmButtonColor: "#62c6d6",
-         background: 'url(../assets/svg/FehlerPopUp.svg)',
-       })
-      
+      Swal.fire({
+        title: "Fehler!",
+        text:
+          "Der Auftrag kann nicht in der Gruppe zugewiesen werden, weil die Harzfarbe des Auftrags und der Gruppe nicht übereinstimmen. Bitte ordne den Auftrag einer anderen Gruppe zu.",
+        confirmButtonText: "Verstanden",
+        confirmButtonColor: "#62c6d6",
+        background: "url(../assets/svg/FehlerPopUp.svg)"
+      });
     }
     this.deleteEmptyGroup();
   }

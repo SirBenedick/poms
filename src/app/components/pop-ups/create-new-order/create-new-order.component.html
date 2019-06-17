@@ -1,6 +1,6 @@
 <form [formGroup]="newOrderForm">
   <div class="page-container">
-    <div *ngIf="data.order_id; then orderExists; else createNeworder"></div>
+    <div *ngIf="doesOrderExists; then orderExists; else createNeworder"></div>
     <ng-template #orderExists>
       <div class="a">
         <h1 class="heading">
@@ -32,7 +32,7 @@
         <h1 class="title">Zahnarzt</h1>
         <mat-select
           formControlName="customer_id"
-          placeholder="Kunde auswählen"
+          placeholder="{{ customer_name ? customer_name : 'Kunde auswählen'}}"
           class=" rechteck-eingabe"
         >
           <mat-option
@@ -44,9 +44,6 @@
       </div>
     </ng-template>
 
-    <!-- <div id="data-ist-nicht-vorhanden" *ngIf="!data.customer_id"></div>
-
-    <div id="data-ist-vorhanden" *ngIf="data.customer_id"></div> -->
 
     <div class="input-container">
       <h1 class="title">Patient/Titel</h1>
@@ -62,7 +59,7 @@
           matInput
           [matDatepicker]="due_date"
           class=" rechteck-eingabe"
-          formControlName="dueDate"
+          formControlName="due_date"
           style="border: transparent"
           (click)="due_date.open()"
         />
@@ -199,7 +196,7 @@
     <div style="align-self: flex-end; ">
       <mat-dialog-actions>
         <button
-          *ngIf="!data.customer_id"
+          *ngIf="!doesOrderExists"
           class="break-button"
           mat-button
           (click)="onQuit()"
@@ -211,7 +208,7 @@
           </h1>
         </button>
         <button
-          *ngIf="!data.customer_id"
+          *ngIf="!doesOrderExists"
           class="send-button"
           mat-button
           [mat-dialog-close]="newOrderForm"
@@ -223,7 +220,7 @@
           </h1>
         </button>
         <button
-          *ngIf="data.customer_id"
+          *ngIf="doesOrderExists"
           class="break-button"
           mat-button
           (click)="onDeleteButton()"
@@ -235,7 +232,7 @@
           </h1>
         </button>
         <button
-          *ngIf="data.customer_id"
+          *ngIf="doesOrderExists"
           class="send-button"
           mat-button
           (click)="onSaveButton()"
