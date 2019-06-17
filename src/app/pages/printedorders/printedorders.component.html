@@ -5,7 +5,7 @@
         Gruppierte Aufträge
         <b class="titel-length">{{ filteredGroupData.length }}</b>
       </h1>
-      <div class="button-space">
+      <div class="button-space" style="margin-top: -6px; ">
         <div
           class="button-style-group"
           (click)="openDialogFilterGroups()"
@@ -80,12 +80,13 @@
         Abgeschlossene Aufträge
         <b class="titel-length">{{ allSentOrders.length }}</b>
       </h1>
+        <div style="margin-top: -6px">
       <div
         class="button-style-group"
         (click)="openSentFilter()"
         [appFilterButtonActivated]="isSentFilterSet"
       >
-        <div *ngIf="isSentFilterSet == 0">
+        <div *ngIf="isSentFilterSet == 0" >
           <h2 style="font-size: 14px; padding-bottom: 3px; padding-left: 3px">
             Filter setzen
           </h2>
@@ -100,6 +101,7 @@
           </h2>
         </div>
       </div>
+        </div>
       <div class="cards">
         <app-order-card
           id="order-card"
