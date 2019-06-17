@@ -140,6 +140,10 @@
   letter-spacing: normal;
   text-align: center;
   color: rgb(98, 198, 214);
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 80px; */
+  margin-block-start: 8%
 }
 .title {
   font-size: 20px;
