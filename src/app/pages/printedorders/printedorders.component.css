@@ -51,6 +51,7 @@
   color: #272f33;
 }
 .cards {
+  padding-top: 18px;
   margin-left: 10px;
   display: flex;
   flex-wrap: wrap;
