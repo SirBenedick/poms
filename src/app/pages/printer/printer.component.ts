@@ -73,7 +73,7 @@ export class PrinterComponent implements OnInit {
               Swal.fire({
                 title: 'Fehler!',
                 text:"Drucker konnte nicht hinzugefügt werden: \n" + res.error,
-                confirmButtonText: "Ok",
+                confirmButtonText: "Verstanden",
                 confirmButtonColor: "#62c6d6",
                 background: 'url(../assets/svg/FehlerPopUp.svg)',
               })
@@ -98,7 +98,7 @@ export class PrinterComponent implements OnInit {
     Swal.fire({
       title: 'Drucker gelöscht!',
       text:"Der Drucker wurde erfolgreich gelöscht",
-      confirmButtonText: "Ok",
+      confirmButtonText: "Verstanden",
       confirmButtonColor: "#62c6d6",
       background: 'url(../assets/svg/FehlerPopUp.svg)',
     })

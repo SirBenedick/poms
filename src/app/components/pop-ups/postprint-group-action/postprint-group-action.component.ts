@@ -45,7 +45,7 @@ export class PostprintGroupActionComponent implements OnInit {
           Swal.fire({
             title: 'Fehler!',
             text:response["error"],
-            confirmButtonText: "Ok",
+            confirmButtonText: "Verstanden",
             confirmButtonColor: "#62c6d6",
             background: 'url(../assets/svg/FehlerPopUp.svg)',
           })
