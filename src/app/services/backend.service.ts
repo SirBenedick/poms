@@ -31,79 +31,8 @@ import { switchMap, catchError } from "rxjs/operators";
 })
 export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
-  mockedURL = "http://5cda86ebeb39f80014a756b7.mockapi.io/";
 
   /** Mocked Printer Data for testing multiple printer during development */
-  mockedPrinterData: Array<IPrinterData> = [
-    {
-      printer_id: 23,
-      name: "TestPrinter1",
-      host: "141.19.113.185",
-      port: 8080,
-      is_printing: 1,
-      current_layer: 98,
-      max_layer: 176,
-      print_start: "11:58:31",
-      time_estimated: "01:06:51",
-      model_height: 18,
-      paused: 0,
-      offline: 0,
-      progress: 0.7068181818181818,
-      estimated_time_remaining: "12h",
-      resin_volume: 0.7
-    },
-    {
-      printer_id: 23,
-      name: "TestPrinter2",
-      host: "141.19.113.185",
-      port: 8080,
-      is_printing: 1,
-      current_layer: 98,
-      max_layer: 176,
-      print_start: "11:58:31",
-      time_estimated: "01:06:51",
-      model_height: 18,
-      paused: 1,
-      offline: 0,
-      progress: 0.5568181818181818,
-      estimated_time_remaining: "12h",
-      resin_volume: 0.7
-    },
-    {
-      printer_id: 23,
-      name: "TestPrinter3",
-      host: "141.19.113.185",
-      port: 8080,
-      is_printing: 1,
-      current_layer: 98,
-      max_layer: 176,
-      print_start: "11:58:31",
-      time_estimated: "01:06:51",
-      model_height: 18,
-      paused: 0,
-      offline: 0,
-      progress: 0.7568181818181818,
-      estimated_time_remaining: "12h",
-      resin_volume: 0.7
-    },
-    {
-      printer_id: 23,
-      name: "TestPrinter4",
-      host: "141.19.113.185",
-      port: 8080,
-      is_printing: 0,
-      current_layer: 98,
-      max_layer: 176,
-      print_start: "11:58:31",
-      time_estimated: "01:06:51",
-      model_height: 18,
-      paused: 0,
-      offline: 0,
-      progress: 0.1568181818181818,
-      estimated_time_remaining: "12h",
-      resin_volume: 0.7
-    }
-  ];
   mockedResinData: Array<IResinType> = [
     { resin_name: "Cast UV", color: "#fe6254" },
     { resin_name: "Gingiva UV", color: "#f88379" },
@@ -191,7 +120,6 @@ export class BackendService {
     /** Subscribes to observable and saves response in an array accessible for every component  */
     this.allPrinterData$.subscribe((newPrinterData: Array<IPrinterData>) => {
       this.allPrinterData = newPrinterData;
-      // this.allPrinterData = this.mockedPrinterData;
 
       /** If count of printer has changed then "everySinglePrinter$" gets updated */
       if (this.everySinglePrinter$.length != this.allPrinterData.length) {
@@ -220,13 +148,11 @@ export class BackendService {
 
   /** Umbennen in getAllOrders */
   getAllOrders(): Observable<Object> {
-    //** Backendcall */
     return this.http.get(this.backendUrl + "order/get/all");
   }
 
   /** Umbennen in getAllPrinter */
   getAllPrinter(): Observable<Object> {
-    //** Backendcall */
     return this.http.get(this.backendUrl + "printer/get/all");
   }
 
@@ -237,16 +163,21 @@ export class BackendService {
       this.resineData.sort();
     });
   }
+
   loadCustomerData() {
     this.getAllCustomer().then((customerData: Array<ICustomer>) => {
       this.customerData = customerData;
       this.customerData.sort((a, b) => a.name.localeCompare(b.name));
     });
   }
+
   loadCategoryData() {
-    this.getAllCategoryData().then(
-      (categoryData: Array<ICategory>) => (this.categorysData = categoryData)
-    );
+    this.getAllCategoryData().then((categoryData: Array<ICategory>) => {
+      this.categorysData = categoryData;
+      this.categorysData.sort((a, b) =>
+        a.model_type_name.localeCompare(b.model_type_name)
+      );
+    });
   }
   loadHelpData() {
     this.getAllHelpData().then(
