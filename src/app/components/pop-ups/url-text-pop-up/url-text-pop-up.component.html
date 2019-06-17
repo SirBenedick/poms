@@ -3,13 +3,13 @@
     <h1>{{ data.item.title }}</h1>
 
     <iframe
-      *ngIf="data.item.video_url"
-      width="560"
-      height="315"
-      [src]="data.item.video_url | safe"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
+            *ngIf="data.item.video_url"
+            width="560"
+            height="315"
+            [src]="data.item.video_url | safe"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
     ></iframe>
 
     <div class="text">
@@ -18,61 +18,61 @@
   </div>
 
   <div class="text" *ngIf="bearbeitenAktiv">
-    <div><h4>Titel bearbeiten</h4></div>
+    <div style="margin-bottom: 10px"><h4>Titel bearbeiten</h4></div>
     <h1>
       <textarea
-        cols="51"
-        rows="2"
-        style="resize:none;"
-        [(ngModel)]="data.item.title"
+              cols="52"
+              rows="2"
+              style="resize:none; border: #62c6d6 solid 1px"
+              [(ngModel)]="data.item.title"
       >
       {{ data.item.title }}</textarea
       >
     </h1>
-    <div><h4>Video bearbeiten</h4></div>
+    <div style="margin-bottom: 10px"><h4>Video bearbeiten</h4></div>
     <textarea
-      cols="90"
-      rows="8"
-      class="text"
-      style="resize:none;"
-      [(ngModel)]="data.item.video_url"
+            cols="78"
+            rows="2"
+            class="text"
+            style="resize:none;border: #62c6d6 solid 1px"
+            [(ngModel)]="data.item.video_url"
     >
       {{ data.item.video_url }} /></textarea
     >
 
-    <div><h4>Beschreibung der Hilfestellung bearbeiten</h4></div>
+    <div style="margin-bottom: 10px"><h4>Beschreibung der Hilfestellung bearbeiten</h4></div>
     <textarea
-      cols="90"
-      rows="8"
-      style="resize:none;"
-      [(ngModel)]="data.item.content"
+            cols="78"
+            rows="8"
+            style="resize:none;border: #62c6d6 solid 1px"
+            [(ngModel)]="data.item.content"
     >
   {{ data.item.content }}
 </textarea
-    >
+>
   </div>
-  <div>
+  <div style="margin-top: 20px">
     <button *ngIf="bearbeitenAktiv" class="button-first" (click)="saveButton()">
       Speichern
     </button>
     <button
-      *ngIf="bearbeitenAktiv"
-      class="button-sec"
-      (click)="onBreakButton()"
+            *ngIf="bearbeitenAktiv"
+            class="button-sec"
+            (click)="onBreakButton()"
     >
       Schließen
     </button>
     <button
-      *ngIf="!bearbeitenAktiv"
-      class="button-first"
-      (click)="onBreakButton()"
+            *ngIf="!bearbeitenAktiv"
+            class="button-first"
+            (click)="onBreakButton()"
     >
       Schließen
     </button>
     <button
-      *ngIf="!bearbeitenAktiv"
-      class="button-sec"
-      (click)="bearbeitenButton()"
+            *ngIf="!bearbeitenAktiv"
+            class="button-sec"
+            (click)="bearbeitenButton()"
     >
       Bearbeiten
     </button>
