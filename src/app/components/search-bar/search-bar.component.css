@@ -10,21 +10,6 @@
 .category-icon {
   width: 16.5px;
   height: 20px;
-  object-fit: contain;
-}
-
-.result_small {
-  width: 172px;
-  height: 17px;
-  object-fit: contain;
-  font-family: 'Segoe UI';
-  font-size: 7px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.31;
-  letter-spacing: normal;
-  text-align: left;
-  color: #272f33;
-  white-space: nowrap;
+  margin-right: 8px;
+  margin-top: -5px;
 }

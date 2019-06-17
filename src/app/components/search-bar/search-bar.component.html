@@ -24,7 +24,6 @@
         >
         <mat-option
           *ngFor="let option of filteredResultOptions | async"
-          [value]="option.result"
           (click)="onOptionClicked(option)"
         >
           <img src="{{ option.img_src }}" class="category-icon" />

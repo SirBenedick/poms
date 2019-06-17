@@ -78,6 +78,7 @@ export interface IFilterOrders {
   due_date: any;
   customer_id: string;
 }
+
 export interface IFAQPage {
   category: {
     sub_category: Array<{
@@ -86,6 +87,14 @@ export interface IFAQPage {
       content: string;
     }>;
   };
+}
+
+export interface IFAQPageSearchResult {
+  category: string;
+  sub_category: string;
+  title: string;
+  video_url: string;
+  content: string;
 }
 
 export interface IFAQPageAlter {
@@ -203,7 +212,7 @@ export interface IOrderStatus {
 }
 
 export interface ISearchResults {
-  faq_entry: Array<IFAQPage>;
+  faq_entry: Array<IFAQPageSearchResult>;
   printer: Array<IPrinterData>;
   order: Array<IOrder>;
 }
@@ -211,4 +220,5 @@ export interface ISingleSearchResult {
   img_src: string;
   result: string;
   result_small: string;
+  original_object?: Object;
 }

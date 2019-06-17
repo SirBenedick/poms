@@ -215,20 +215,9 @@ export class BackendService {
   }
 
   getSearchResults(searchValue: string): Promise<Object> {
-    console.log("getSearchResults", searchValue)
     return this.http
       .post(this.backendUrl + "system/search/", { search_data: searchValue })
       .toPromise();
-    // let mockedOptions: Array<{ category: string; result: string }> = [
-    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" }
-    // ];
-    // return new Promise((resolve, reject) => {
-    //   resolve(mockedOptions);
-    // });
   }
 
   /** Download */
@@ -317,7 +306,7 @@ export class BackendService {
   }
 
   alterOrderById(order_id: number, alteredOrder: FormData): Promise<Object> {
-    /** When an order is in status "sent" the ground information needs to get removed so it does not get displayed twice */
+    /** When an order is in status "sent" the group information needs to get removed so it does not get displayed twice */
     if (alteredOrder.get("status") === "sent") {
       return this.assignOrderToGroup(order_id, 0).then(res =>
         this.uploadService.alterOrderById(order_id, alteredOrder)
