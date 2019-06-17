@@ -111,8 +111,8 @@ padding-top: 8px;
   border-radius: 4px;
   border: solid 1px #62c6d6;
 }
-#boxenPrio{
-  width: 149px;
+.boxenPrio{
+  width: 190px;
   height: auto;
   object-fit: contain;
   border: solid 1px #62c6d6;

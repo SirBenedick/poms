@@ -7,10 +7,16 @@
     src: url(./assets/fonts/Segoe_UI.ttf) format("opentype");
   }
 
-mat-dialog-container{
-  border-image: linear-gradient(to bottom, #bef0e8, #5fdfff) 100 100%;
-  border-left: 10px solid;
-  border-right: 0.5px solid transparent;
+.mat-dialog-container{
+  border-width: 10px 0 10px 10px;
+  border-style: solid;
+  -webkit-border-image: -webkit-gradient(linear, 100% 0, 0 0, from(#bef0e8), to(#62c6d6)) 1 100%;
+  -webkit-border-image: -webkit-linear-gradient(bottom, #bef0e8, #62c6d6) 1 100%;
+  -moz-border-image: -moz-linear-gradient(bottom, #bef0e8, #62c6d6) 1 100%;
+  -o-border-image: -o-linear-gradient(bottom, #bef0e8, #62c6d6) 1 100%;
+  border-image: linear-gradient(to bottom, #bef0e8, #62c6d6) 1 100%;
+  /*border-image: linear-gradient(to bottom, #bef0e8, #62c6d6) 100 100%;
+  border-left: 10px solid;*/
 }
 
 .mat-progress-bar {
