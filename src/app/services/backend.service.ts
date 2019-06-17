@@ -214,18 +214,21 @@ export class BackendService {
     return this.allGroupData;
   }
 
-  getSearchResults(searchValue: string): Promise<Array<any>> {
-    //this.http.get(this.backendUrl + "search/" + searchValue).toPromise();
-    let mockedOptions: Array<{ category: string; result: string }> = [
-      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-      { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
-      { category: "Hilfestellung", result: "Wie fülle ich harz auf" }
-    ];
-    return new Promise((resolve, reject) => {
-      resolve(mockedOptions);
-    });
+  getSearchResults(searchValue: string): Promise<Object> {
+    console.log("getSearchResults", searchValue)
+    return this.http
+      .post(this.backendUrl + "system/search/", { search_data: searchValue })
+      .toPromise();
+    // let mockedOptions: Array<{ category: string; result: string }> = [
+    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" },
+    //   { category: "Hilfestellung", result: "Wie fülle ich harz auf" }
+    // ];
+    // return new Promise((resolve, reject) => {
+    //   resolve(mockedOptions);
+    // });
   }
 
   /** Download */

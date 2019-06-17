@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="17.5" viewBox="0 0 17.5 17.5">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{stroke:#62c6d6;stroke-width:1.5px}.cls-4{fill:#62c6d6;font-size:10px;font-family:SegoeUI-Bold,Segoe UI;font-weight:700}.cls-5{stroke:none}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h17.5v17.5H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Komponente_2" class="cls-2" data-name="Komponente 2">
+        <g id="Gruppe_679" data-name="Gruppe 679">
+            <g id="Ellipse_37" class="cls-3" data-name="Ellipse 37">
+                <circle cx="8.75" cy="8.75" r="8.75" class="cls-5"/>
+                <circle cx="8.75" cy="8.75" r="8" class="cls-1"/>
+            </g>
+        </g>
+        <text id="_" class="cls-4" data-name="?" transform="translate(7 12.397)">
+            <tspan x="0" y="0">?</tspan>
+        </text>
+    </g>
+</svg>
