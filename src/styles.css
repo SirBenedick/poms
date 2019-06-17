@@ -105,7 +105,7 @@ mat-dialog-container{
 .mat-form-field.mat-focused .mat-form-field-ripple{
   background-color: #62c6d6;
 }
-.mat-input-element::placeholder{color: rgba#62c6d6;font-style: italic}
+.mat-input-element::placeholder{color: #62c6d6;font-style: italic}
 .mat-input-element::-moz-placeholder{color: #62c6d6;font-style: italic}
 .mat-input-element::-webkit-input-placeholder{color: #62c6d6;font-style: italic}
 .mat-input-element:-ms-input-placeholder{color: #62c6d6;font-style: italic}

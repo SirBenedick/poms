@@ -87,6 +87,7 @@
   position: relative;
   height: 30px;
   width: 100%;
+  padding-top: 7px;
 }
 
 .half-container {
