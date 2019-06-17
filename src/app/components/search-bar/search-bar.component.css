@@ -1,10 +1,30 @@
+#such-balken {
+  width: 200px;
+  height: 20px;
+  margin-left: 10px;
+  border: red;
+  border-radius: 4px;
+  background-color: white;
+}
 
-#such-balken{
-    width: 200px;
-    height: 20px;
-    margin-left: 10px;
-    border: red;
-    border-radius: 4px;
-    background-color: white;
+.category-icon {
+  width: 16.5px;
+  height: 20px;
+  object-fit: contain;
+}
 
+.result_small {
+  width: 172px;
+  height: 17px;
+  object-fit: contain;
+  font-family: 'Segoe UI';
+  font-size: 7px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #272f33;
+  white-space: nowrap;
 }

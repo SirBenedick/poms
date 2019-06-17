@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
 
 export interface IPrinterData {
   printer_id: number;
@@ -195,9 +195,20 @@ export interface IPrinterDataPolling {
   printer_id: number;
   printer_name: string;
   printer$: Observable<IPrinterData>;
-  status?: {style: any; message: string;};
+  status?: { style: any; message: string };
 }
-export interface IOrderStatus{
+export interface IOrderStatus {
   value: string;
   display_name: string;
+}
+
+export interface ISearchResults {
+  faq_entry: Array<IFAQPage>;
+  printer: Array<IPrinterData>;
+  order: Array<IOrder>;
+}
+export interface ISingleSearchResult {
+  img_src: string;
+  result: string;
+  result_small: string;
 }

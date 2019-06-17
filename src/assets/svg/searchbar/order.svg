@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.515" height="20.001" viewBox="0 0 16.515 20.001">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#62c6d6}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h16.515v20.001H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Komponente_1" class="cls-2" data-name="Komponente 1">
+        <path id="Pfad_244" d="M525.673 130.167h-8.113a.413.413 0 0 0 0 .825h8.114a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 244" transform="translate(-515.321 -128.012)"/>
+        <path id="Pfad_245" d="M518.39 139h-.83a.413.413 0 0 0 0 .825h.83a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 245" transform="translate(-515.321 -134.693)"/>
+        <path id="Pfad_246" d="M529.343 148.658h4.672c.15 0 .272-.185.272-.413s-.122-.413-.272-.413h-4.672c-.151 0-.273.185-.273.413s.122.413.273.413z" class="cls-3" data-name="Pfad 246" transform="translate(-524.339 -141.373)"/>
+        <path id="Pfad_247" d="M534.691 139h-5.208a.413.413 0 1 0 0 .825h5.208a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 247" transform="translate(-524.339 -134.693)"/>
+        <path id="Pfad_248" d="M518.39 147.833h-.83a.413.413 0 0 0 0 .825h.83a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 248" transform="translate(-515.321 -141.373)"/>
+        <path id="Pfad_249" d="M518.39 156.666h-.83a.413.413 0 0 0 0 .825h.83a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 249" transform="translate(-515.321 -148.054)"/>
+        <path id="Pfad_250" d="M518.39 165.5h-.83a.413.413 0 1 0 0 .825h.83a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 250" transform="translate(-515.321 -154.735)"/>
+        <path id="Pfad_251" d="M518.39 174.332h-.83a.413.413 0 0 0 0 .825h.83a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 251" transform="translate(-515.321 -161.415)"/>
+        <path id="Pfad_252" d="M518.39 183.166h-.83a.413.413 0 1 0 0 .825h.83a.413.413 0 0 0 0-.825z" class="cls-3" data-name="Pfad 252" transform="translate(-515.321 -168.096)"/>
+        <path id="Pfad_253" d="M529.3 157.491h3.858c.124 0 .225-.185.225-.413s-.1-.413-.225-.413H529.3c-.125 0-.225.185-.225.413s.096.413.225.413z" class="cls-3" data-name="Pfad 253" transform="translate(-524.339 -148.054)"/>
+        <path id="Pfad_254" d="M529.327 166.325h4.4c.142 0 .257-.185.257-.413s-.115-.413-.257-.413h-4.4c-.142 0-.257.185-.257.413s.115.413.257.413z" class="cls-3" data-name="Pfad 254" transform="translate(-524.339 -154.735)"/>
+        <path id="Pfad_255" d="M529.372 175.157h5.167c.166 0 .3-.185.3-.413s-.135-.413-.3-.413h-5.167c-.167 0-.3.185-.3.413s.133.413.3.413z" class="cls-3" data-name="Pfad 255" transform="translate(-524.339 -161.415)"/>
+        <path id="Pfad_256" d="M534.692 183.166h-5.312c-.171 0-.31.184-.31.413s.139.413.31.413h5.312c.171 0 .31-.185.31-.413s-.138-.413-.31-.413z" class="cls-3" data-name="Pfad 256" transform="translate(-524.339 -168.096)"/>
+        <path id="Pfad_257" d="M526.169 125.508a.4.4 0 0 0-.008-.08.424.424 0 0 0-.036-.1l-.012-.023a.413.413 0 0 0-.065-.088l-3.771-3.771a.41.41 0 0 0-.087-.065l-.024-.013a.417.417 0 0 0-.1-.036.406.406 0 0 0-.079-.008h-10.41a1.924 1.924 0 0 0-1.922 1.922V139.4a1.924 1.924 0 0 0 1.922 1.922h12.671a1.922 1.922 0 0 0 1.911-1.747h.011zm-3.771-2.774l2.362 2.362h-1.265a1.1 1.1 0 0 1-1.1-1.1zm1.849 17.767h-12.671a1.1 1.1 0 0 1-1.1-1.1v-16.154a1.1 1.1 0 0 1 1.1-1.1h10V124a1.924 1.924 0 0 0 1.922 1.922h1.849V139.4a1.1 1.1 0 0 1-1.1 1.1z" class="cls-3" data-name="Pfad 257" transform="translate(-509.654 -121.325)"/>
+    </g>
+</svg>
