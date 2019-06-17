@@ -56,7 +56,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-#order-card:hover{
+#order-card:hover {
   cursor: pointer;
 }
 .filter-box {
@@ -143,7 +143,7 @@
   margin-left: auto;
   margin-right: auto;
   /* margin-top: 80px; */
-  margin-block-start: 8%
+  margin-block-start: 8%;
 }
 .title {
   font-size: 20px;
@@ -172,7 +172,7 @@
   background-color: white;
   flex-wrap: wrap;
   margin-left: 10px;
- margin-top: 20px;
+  margin-top: 20px;
   cursor: grab;
 }
 .draggable-card-container:active {
@@ -182,7 +182,7 @@
 .expand-collapse {
   flex-wrap: wrap;
   box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  margin: 10px  10px  10px 10px;
+  margin: 10px 10px 10px 10px;
 }
 
 #button-space {
@@ -233,7 +233,7 @@
   cursor: pointer;
 }
 
-#color-block{
+#color-block {
   width: 25px;
   height: 25px;
   border-radius: 4px;
@@ -241,11 +241,11 @@
   margin-bottom: -20px;
 }
 
-.order-heading-creation-date{
+.order-heading-creation-date {
   /* width: 285px;
   height: 17px; */
   object-fit: contain;
-  font-family: 'Segoe UI';
+  font-family: "Segoe UI";
   font-size: 13px;
   font-weight: normal;
   font-style: normal;
@@ -270,7 +270,7 @@
   height: 30px;
   width: 300px;
 }
-.titel-length{
+.titel-length {
   object-fit: contain;
   font-family: "Segoe UI";
   font-weight: bold;
