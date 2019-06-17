@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       Swal.fire({
         title: 'Fehler!',
         text:'Bitte geben Sie einen Benutzernamen und Password ein!',
-        confirmButtonText: "Ok",
+        confirmButtonText: "Verstanden",
         confirmButtonColor: "#62c6d6",
         background: 'url(../assets/svg/FehlerPopUp.svg)',
       })
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             title: 'Fehler!',
             text:'Benutzername oder Password falsch!',
-            confirmButtonText: "Ok",
+            confirmButtonText: "Verstanden",
             confirmButtonColor: "#62c6d6",
             background: 'url(../assets/svg/FehlerPopUp.svg)',
           })

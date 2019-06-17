@@ -51,7 +51,7 @@ export class StatusComponent implements OnInit {
     Swal.fire({
       title: 'Fehler!',
       text:'Keine näheren Informationen hinterlegt',
-      confirmButtonText: "Ok",
+      confirmButtonText: "Verstanden",
       confirmButtonColor: "#62c6d6",
       background: 'url(../assets/svg/FehlerPopUp.svg)',
     })

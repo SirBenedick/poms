@@ -67,7 +67,7 @@ export class PopUpDruckenComponent implements OnInit {
         Swal.fire({
           title: 'Fehler!',
           text:"Bitte alle Informationen angeben: \n" + response["error"],
-          confirmButtonText: "Ok",
+          confirmButtonText: "Verstanden",
           confirmButtonColor: "#62c6d6",
           background: 'url(../assets/svg/FehlerPopUp.svg)',
         })
@@ -92,7 +92,7 @@ export class PopUpDruckenComponent implements OnInit {
       Swal.fire({
         title: 'Fehler!',
         text:"Bitte Datei auswählen!",
-        confirmButtonText: "Ok",
+        confirmButtonText: "Verstanden",
         confirmButtonColor: "#62c6d6",
         background: 'url(../assets/svg/FehlerPopUp.svg)',
       })
