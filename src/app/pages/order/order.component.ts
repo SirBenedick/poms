@@ -215,7 +215,7 @@ export class OrderComponent implements OnInit {
               Swal.fire({
                 title: "Fehler!",
                 text: res.error,
-                confirmButtonText: "Ok",
+                confirmButtonText: "Verstanden",
                 confirmButtonColor: "#62c6d6",
                 background: "url(../assets/svg/FehlerPopUp.svg)"
               });
