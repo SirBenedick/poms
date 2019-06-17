@@ -10,7 +10,7 @@ import { KategorieinfobearbeitenComponent } from "src/app/components/pop-ups/Set
 import { KategorieloeschenComponent } from "src/app/components/pop-ups/Settings/kategorieloeschen/kategorieloeschen.component";
 import { HarzinfobearbeitenComponent } from "src/app/components/pop-ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component";
 import { HarzloeschenComponent } from "src/app/components/pop-ups/Settings/harzloeschen/harzloeschen.component";
-
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-einstellungen",
   templateUrl: "./einstellungen.component.html",
@@ -111,7 +111,13 @@ export class EinstellungenComponent implements OnInit {
     } else if (subtopic.subtopicTitel == " Bestehende Harze entfernen") {
       this.dialog.open(HarzloeschenComponent, {});
     } else {
-      alert(`Für die Priorität ist noch kein Pop-Up vorhanden!`);
+      Swal.fire({
+        title: 'Fehler!',
+        text: "Für die Priorität ist noch kein Pop-Up vorhanden!",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#62c6d6",
+        background: 'url(../assets/svg/FehlerPopUp.svg)',
+      })
     }
   }
 }

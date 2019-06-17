@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="602" height="504" viewBox="0 0 602 504">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:url(#linear-gradient)}.cls-3{filter:url(#Rechteck_291)}
+        </style>
+        <filter id="Rechteck_291" width="602" height="504" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dx="2" dy="2"/>
+            <feGaussianBlur result="blur" stdDeviation="4"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f6d1d1"/>
+            <stop offset="1" stop-color="#cd0000"/>
+        </linearGradient>
+    </defs>
+    <g id="Gruppe_666" data-name="Gruppe 666" transform="translate(-372 -290)">
+        <g id="Gruppe_665" data-name="Gruppe 665">
+            <g class="cls-3" transform="translate(372 290)">
+                <path id="Rechteck_291-2" d="M0 0h578v480H0z" class="cls-1" data-name="Rechteck 291" transform="translate(10 10)"/>
+            </g>
+            <path id="Spalte_Links" d="M0 0h13v480H0z" class="cls-2" transform="translate(382 300)"/>
+        </g>
+    </g>
+</svg>

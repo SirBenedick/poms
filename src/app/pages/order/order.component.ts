@@ -15,7 +15,7 @@ import { MatDialog } from "@angular/material";
 import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-order/create-new-order.component";
 import { OrderFilterPopupComponent } from "src/app/components/pop-ups/order-filter-popup/order-filter-popup.component";
 import { PopUpDruckenComponent } from "src/app/components/pop-ups/pop-up-drucken/pop-up-drucken.component";
-import { ErrorPopUpComponent } from "src/app/components/pop-ups/error-pop-up/error-pop-up.component";
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-order",
   templateUrl: "./order.component.html",
@@ -212,7 +212,13 @@ export class OrderComponent implements OnInit {
 
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
-              alert(res.error);
+              Swal.fire({
+                title: 'Fehler!',
+                text:res.error,
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#62c6d6",
+                background: 'url(../assets/svg/FehlerPopUp.svg)',
+              })
               console.log("createNewOrder Error: ", res.error);
             } else {
               console.log("createNewOrder Response: ", res);
@@ -350,7 +356,14 @@ export class OrderComponent implements OnInit {
         firstItemFromGroup.group_id
       );
     } else {
-      this.dialog.open(ErrorPopUpComponent);
+       Swal.fire({
+         title: 'Fehler!',
+         text:'Der Auftrag kann nicht in der Gruppe zugewiesen werden, weil die Harzfarbe des Auftrags und der Gruppe nicht übereinstimmen. Bitte ordne den Auftrag einer anderen Gruppe zu.',
+         confirmButtonText: "Verstanden",
+         confirmButtonColor: "#62c6d6",
+         background: 'url(../assets/svg/FehlerPopUp.svg)',
+       })
+      
     }
     this.deleteEmptyGroup();
   }

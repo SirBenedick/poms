@@ -7,6 +7,8 @@ import {
 } from "@angular/router";
 
 import { LoginService } from "./login.service";
+import Swal from 'sweetalert2';
+
 @Injectable({
   providedIn: "root"
 })
@@ -26,9 +28,13 @@ export class BenutzerService implements CanActivate {
         route.data.roles.indexOf(currentUser.role) === -1
       ) {
         // role not authorised so redirect to order page
-        alert(
-          "Du darfst nicht auf diese Seite, bitte wende dich an einen Administrator."
-        );
+        Swal.fire({
+          title: 'Fehler!',
+          text:'Du darfst nicht auf diese Seite, bitte wende dich an einen Administrator.',
+          confirmButtonText: "Verstanden",
+          confirmButtonColor: "#62c6d6",
+          background: 'url(../assets/svg/FehlerPopUp.svg)',
+        })
         this.router.navigate(["order"]);
         return false;
       }

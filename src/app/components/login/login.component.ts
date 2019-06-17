@@ -4,7 +4,7 @@ import { LoginService } from "src/app/services/login.service";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { first } from "rxjs/operators";
 import { MatDialog, MatDialogRef } from "@angular/material";
-
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -43,7 +43,13 @@ export class LoginComponent implements OnInit {
 
     // stop here if form is invalid, if one of two is empty
     if (this.loginForm.invalid) {
-      alert("Bitte geben Sie einen Benutzernamen und Password ein!")
+      Swal.fire({
+        title: 'Fehler!',
+        text:'Bitte geben Sie einen Benutzernamen und Password ein!',
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#62c6d6",
+        background: 'url(../assets/svg/FehlerPopUp.svg)',
+      })
       return;
     }
 
@@ -61,7 +67,14 @@ export class LoginComponent implements OnInit {
           this.error = error;
           this.loading = false;
           //if both false
-          alert("Benutzername oder Password falsch!")
+          Swal.fire({
+            title: 'Fehler!',
+            text:'Benutzername oder Password falsch!',
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#62c6d6",
+            background: 'url(../assets/svg/FehlerPopUp.svg)',
+          })
+        
         }
       );
   }

@@ -3,7 +3,7 @@ import { IGroupedOrders } from "./../../../shared/interfaces";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
-
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-postprint-group-action",
   templateUrl: "./postprint-group-action.component.html",
@@ -42,7 +42,13 @@ export class PostprintGroupActionComponent implements OnInit {
       .downloadSlicedFileFromGroup(this.data.group_id)
       .then(response => {
         if (response["error"]) {
-          alert(response["error"]);
+          Swal.fire({
+            title: 'Fehler!',
+            text:response["error"],
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#62c6d6",
+            background: 'url(../assets/svg/FehlerPopUp.svg)',
+          })
         } else {
           console.log("downloadFile", response);
         }

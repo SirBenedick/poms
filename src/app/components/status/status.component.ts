@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { PopUpNeuerDruckerComponent } from "../pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { PopUpVanikComponent } from "../pop-ups/pop-up-vanik/pop-up-vanik.component";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-status",
@@ -47,6 +48,12 @@ export class StatusComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {});
   }
   onInfoClick():void{
-    alert(`Keine näheren Informationen hinterlegt`)
+    Swal.fire({
+      title: 'Fehler!',
+      text:'Keine näheren Informationen hinterlegt',
+      confirmButtonText: "Ok",
+      confirmButtonColor: "#62c6d6",
+      background: 'url(../assets/svg/FehlerPopUp.svg)',
+    })
   }
 }

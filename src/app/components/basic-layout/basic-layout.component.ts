@@ -6,6 +6,7 @@ import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-o
 import { User, IPrinterDataPolling } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
 import { LogoutComponent } from "../pop-ups/logout/logout.component";
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
@@ -69,7 +70,13 @@ export class BasicLayoutComponent implements OnInit {
 
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
-              alert(res.error);
+              Swal.fire({
+                title: 'Fehler!',
+                text: res.error,
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#62c6d6",
+                background: 'url(../assets/svg/FehlerPopUp.svg)',
+              })
               console.log("createNewOrder Error: ", res.error);
             } else {
               console.log("createNewOrder Response: ", res);
