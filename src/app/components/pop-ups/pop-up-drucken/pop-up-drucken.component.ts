@@ -5,7 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
 import { IPrinterData, IGroupedOrders } from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
-
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-pop-up-drucken",
   templateUrl: "./pop-up-drucken.component.html",
@@ -64,7 +64,13 @@ export class PopUpDruckenComponent implements OnInit {
       .then(response => {
         console.log("assignGroupToPrinterAndStartPrint :", response);
         if (response["error"])
-          alert("Bitte alle Informationen angeben: \n" + response["error"]);
+        Swal.fire({
+          title: 'Fehler!',
+          text:"Bitte alle Informationen angeben: \n" + response["error"],
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#62c6d6",
+          background: 'url(../assets/svg/FehlerPopUp.svg)',
+        })
       });
     this.dialogRef.close();
   }
@@ -83,7 +89,13 @@ export class PopUpDruckenComponent implements OnInit {
           if (res["status"] == "progress") this.uploadProgress = res["message"];
         });
     } else {
-      alert("Bitte Datei auswählen!");
+      Swal.fire({
+        title: 'Fehler!',
+        text:"Bitte Datei auswählen!",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#62c6d6",
+        background: 'url(../assets/svg/FehlerPopUp.svg)',
+      })
     }
   }
   handleFileInput(files: FileList) {

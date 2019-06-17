@@ -50,7 +50,6 @@ import { PopUpFAQComponent } from './components/pop-ups/pop-up-faq/pop-up-faq.co
 import { PopUpDruckenComponent } from './components/pop-ups/pop-up-drucken/pop-up-drucken.component';
 import { PopUpVanikComponent } from './components/pop-ups/pop-up-vanik/pop-up-vanik.component';
 import { LogoutComponent } from './components/pop-ups/logout/logout.component';
-import { ErrorPopUpComponent } from './components/pop-ups/error-pop-up/error-pop-up.component';
 import { FAQPopUpComponent } from './components/pop-ups/faqpop-up/faqpop-up.component';
 import { UrlTextPopUpComponent } from './components/pop-ups/url-text-pop-up/url-text-pop-up.component';
 import { NeuerKundeComponent } from './components/pop-ups/Settings/neuer-kunde/neuer-kunde.component';
@@ -92,7 +91,6 @@ registerLocaleData(de);
     PopUpDruckenComponent,
     PopUpVanikComponent,
     LogoutComponent,
-    ErrorPopUpComponent,
     FAQPopUpComponent,
     UrlTextPopUpComponent,
     NeuerKundeComponent,
@@ -147,7 +145,6 @@ registerLocaleData(de);
     PopUpDruckenComponent,
     PopUpVanikComponent,
     LogoutComponent,
-    ErrorPopUpComponent,
     FAQPopUpComponent,
     UrlTextPopUpComponent,
     NeuerKundeComponent,

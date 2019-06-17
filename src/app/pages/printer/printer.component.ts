@@ -4,7 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { IPrinterData, IPrinterDataPolling } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { take } from "rxjs/operators";
-
+import Swal from 'sweetalert2';
 @Component({
   selector: "app-printer",
   templateUrl: "./printer.component.html",
@@ -70,7 +70,13 @@ export class PrinterComponent implements OnInit {
           console.log("Dialog was closed", result.value);
           this.backendService.addNewPrinter(result.value).then((res: any) => {
             if (res.error) {
-              alert("Drucker konnte nicht hinzugefügt werden: \n" + res.error);
+              Swal.fire({
+                title: 'Fehler!',
+                text:"Drucker konnte nicht hinzugefügt werden: \n" + res.error,
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#62c6d6",
+                background: 'url(../assets/svg/FehlerPopUp.svg)',
+              })
             } else {
               console.log("added printer");
               setTimeout(
