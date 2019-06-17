@@ -3,6 +3,9 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { User } from "../shared/interfaces";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { LogoutComponent } from '../components/pop-ups/logout/logout.component';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
@@ -11,7 +14,10 @@ export class LoginService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient,
+    public dialog: MatDialog,
+    private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem("currentUser"))
     );
@@ -43,5 +49,8 @@ export class LoginService {
     // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
     this.currentUserSubject.next(null);
+   //this.router.navigate(["logout"]);
+    this.dialog.open(LogoutComponent)
+
   }
 }

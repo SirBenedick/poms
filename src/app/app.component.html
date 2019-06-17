@@ -2,6 +2,11 @@
 <div *ngIf="!currentUser">
   <app-login></app-login>
 </div>
+
+
+
+
+
 <!-- Wenn der User angemeldet ist, wird er erst auf die Seiten geleitet -->
 <app-basic-layout *ngIf="currentUser">
   <router-outlet></router-outlet>
