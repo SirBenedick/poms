@@ -18,33 +18,27 @@
   </div>
 
   <div class="text" *ngIf="bearbeitenAktiv">
-    <div style="margin-bottom: 10px"><h4>Titel bearbeiten</h4></div>
+    <div style="margin-bottom: 10px"><h4 class="heading">Titel bearbeiten</h4></div>
     <h1>
       <textarea
-              cols="52"
-              rows="2"
-              style="resize:none; border: #62c6d6 solid 1px"
+              style="resize:none; border: #62c6d6 solid 1px;width: 495px;height: 35px;"
               [(ngModel)]="data.item.title"
       >
       {{ data.item.title }}</textarea
       >
     </h1>
-    <div style="margin-bottom: 10px"><h4>Video bearbeiten</h4></div>
+    <div style="margin-bottom: 10px"><h4 class="heading">Video bearbeiten</h4></div>
     <textarea
-            cols="78"
-            rows="2"
             class="text"
-            style="resize:none;border: #62c6d6 solid 1px"
+            style="resize:none;border: #62c6d6 solid 1px; width: 495px;height: 35px;"
             [(ngModel)]="data.item.video_url"
     >
       {{ data.item.video_url }} /></textarea
     >
 
-    <div style="margin-bottom: 10px"><h4>Beschreibung der Hilfestellung bearbeiten</h4></div>
+    <div style="margin-bottom: 10px;"><h4 class="heading">Beschreibung der Hilfestellung bearbeiten</h4></div>
     <textarea
-            cols="78"
-            rows="8"
-            style="resize:none;border: #62c6d6 solid 1px"
+            style="resize:none;border: #62c6d6 solid 1px; height: 135px;width: 495px;"
             [(ngModel)]="data.item.content"
     >
   {{ data.item.content }}

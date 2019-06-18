@@ -16,6 +16,12 @@ h1{
   font-size: 20px;
   font-weight: bold;
 }
+.heading{
+  font-size: 20px;
+  font-family: "Segoe UI";
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 .text{
   font-family: "Segoe UI";
   font-size: 12px;
