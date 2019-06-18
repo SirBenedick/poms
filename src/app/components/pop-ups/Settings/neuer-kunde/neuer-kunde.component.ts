@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { EinstellungenComponent } from "src/app/pages/einstellungen/einstellungen.component";
 import { MatDialogRef } from "@angular/material";
 import { BackendService } from "src/app/services/backend.service";
@@ -37,4 +37,5 @@ export class NeuerKundeComponent implements OnInit {
   onBreakButton(): void {
     this.dialogRef.close();
   }
+
 }
