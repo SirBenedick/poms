@@ -92,16 +92,16 @@ export class PrinterComponent implements OnInit {
 
   deletePrinter(printer_id: any): void {
     // this.backendService.removePrinterById(printer_id).then(res => {
-    //   console.log("removePrinterById: ", res);
-    //   setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
-    // });
-    Swal.fire({
-      title: 'Drucker gelöscht!',
-      text:"Der Drucker wurde erfolgreich gelöscht",
-      confirmButtonText: "Verstanden",
-      confirmButtonColor: "#62c6d6",
-      background: 'url(../assets/svg/FehlerPopUp.svg)',
-    })
+    //    console.log("removePrinterById: ", res);
+    //  setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+    //  });
+     Swal.fire({
+       title: 'Drucker gelöscht!',
+       text:"Der Drucker wurde erfolgreich gelöscht.",
+       confirmButtonText: "Verstanden",
+       confirmButtonColor: "#62c6d6",
+       background: 'url(../assets/svg/FehlerPopUp.svg)',
+     })
   }
 
   refreshPrinterList() {
