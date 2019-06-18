@@ -135,7 +135,7 @@ export class PopUpDruckenComponent implements OnInit {
         title: "Fehler!",
         text: "Bitte Datei auswählen!",
         confirmButtonText: "Verstanden",
-        
+
         background: "url(../assets/svg/FehlerPopUp.svg)"
       });
     }

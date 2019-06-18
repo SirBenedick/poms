@@ -20,8 +20,10 @@ export class PostprintGroupActionComponent implements OnInit {
   onRepeatPrintJob() {
     console.log("onRepeatPrintJob");
     this.backendService
-      .alterGroupStatus(this.data.group_id, "preprint")
-      .then(response => console.log("alterGroupStatus: ", response));
+      .alterGroupStatus(this.data.group_id, "prePrint")
+      .then(response => {
+        this.dialogRef.close({result: "refresh"})
+      });
   }
 
   onBreakButton(): void {

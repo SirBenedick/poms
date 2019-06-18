@@ -66,7 +66,7 @@ export class BasicLayoutComponent implements OnInit {
           newOrder.append("dental_print_type", order.dental_print_type);
           newOrder.append("resin_name", order.harz);
           newOrder.append("due_date", order.dueDate);
-          newOrder.append("comment", order.comment);
+          newOrder.append("comment", order.comment + " ");
           newOrder.append("status", "created");
           newOrder.append("scan_file", order.hochladen.files[0]);
 

@@ -271,3 +271,18 @@
   align-content: end !important;
   justify-content: flex-end !important;
 }
+.swal2-styled.swal2-cancel{
+  margin: 4px !important;
+  padding: 4px  !important;
+  box-shadow: none;
+  font-weight: normal !important;
+  background-color: white !important;
+  color: #62c6d6 !important;
+  border: #62c6d6 1px solid !important;
+  height: 35px !important;
+  width: 100px !important;
+  font-size: 14px !important;
+  border-radius: 4px !important;
+  justify-content: flex-end !important;
+  justify-items: flex-end !important;
+ }

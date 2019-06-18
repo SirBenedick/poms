@@ -145,7 +145,6 @@ export class BackendService {
   loadResinData() {
     this.getAllResin().then((harzData: Array<IResinType>) => {
       this.resineData = harzData;
-      // this.resineData = this.mockedResinData;
       this.resineData.sort();
     });
   }
@@ -357,7 +356,7 @@ export class BackendService {
 
   alterGroupStatus(group_id: number, status: string): Promise<Object> {
     return this.http
-      .post(this.backendUrl + "group/alter/1", { id: group_id, status: status })
+      .post(this.backendUrl + "group/alter/" + group_id , { status: status })
       .toPromise();
   }
 
