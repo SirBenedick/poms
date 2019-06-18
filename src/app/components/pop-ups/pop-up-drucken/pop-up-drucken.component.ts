@@ -5,7 +5,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
 import { IPrinterData, IGroupedOrders } from "src/app/shared/interfaces";
 import { BackendService } from "src/app/services/backend.service";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import { take } from "rxjs/operators";
+
 @Component({
   selector: "app-pop-up-drucken",
   templateUrl: "./pop-up-drucken.component.html",
@@ -18,6 +20,7 @@ export class PopUpDruckenComponent implements OnInit {
   noPrinterAvailable: boolean = true;
 
   @ViewChild("fileInputSliced") fileInputSliced;
+  /** Gets displayed in .html */
   fileToUploadName: string;
 
   constructor(
@@ -56,6 +59,44 @@ export class PopUpDruckenComponent implements OnInit {
     let selctedEmail: string = this.newPrinterForm.get("EMail").value;
 
     this.backendService
+      .getPrinterById(selectedPrinterId)
+      .pipe(take(1))
+      .subscribe((printer: IPrinterData) => {
+        if (printer.maintenance_required == 1) {
+          Swal.fire({
+            title: "Fehler!",
+            text:
+              "Der Drucker scheint nicht druckbereit zu sein. \n Dennoch Druck starten?",
+            cancelButtonText: "Abbrechen",
+            confirmButtonText: "Verstanden",
+            showCancelButton: true,
+            background: "url(../assets/svg/FehlerPopUp.svg)"
+          }).then(res => {
+            if (res.value) {
+              this.assignGroupToPrinterAndStartPrint(
+                groupId,
+                selectedPrinterId,
+                selctedEmail
+              );
+            }
+          });
+        } else {
+          this.assignGroupToPrinterAndStartPrint(
+            groupId,
+            selectedPrinterId,
+            selctedEmail
+          );
+        }
+      });
+    //
+  }
+
+  assignGroupToPrinterAndStartPrint(
+    groupId: number,
+    selectedPrinterId: number,
+    selctedEmail: string
+  ) {
+    this.backendService
       .assignGroupToPrinterAndStartPrint(
         groupId,
         selectedPrinterId,
@@ -64,20 +105,21 @@ export class PopUpDruckenComponent implements OnInit {
       .then(response => {
         console.log("assignGroupToPrinterAndStartPrint :", response);
         if (response["error"])
-        Swal.fire({
-          title: 'Fehler!',
-          text:"Bitte alle Informationen angeben: \n" + response["error"],
-          confirmButtonText: "Verstanden",
-          confirmButtonColor: "#62c6d6",
-          background: 'url(../assets/svg/FehlerPopUp.svg)',
-        })
+          Swal.fire({
+            title: "Fehler!",
+            text: "Bitte alle Informationen angeben: \n" + response["error"],
+            confirmButtonText: "Verstanden",
+            background: "url(../assets/svg/FehlerPopUp.svg)"
+          });
       });
     this.dialogRef.close();
   }
-  downloadSkinFiles() {
-    this.backendService
-      .downloadSkinFilesFromGroup(this.data.group_id)
-      .then(response => console.log("downloadSkinFilesFromGroup: ", response));
+
+  downloadSolidFiles() {
+    this.backendService.downloadSolidFilesFromGroup(
+      this.data.group_id,
+      `Skins_for_group_id_${this.data.group_id}`
+    );
   }
   uploadSlicedFile() {
     let fi = this.fileInputSliced.nativeElement;
@@ -90,12 +132,12 @@ export class PopUpDruckenComponent implements OnInit {
         });
     } else {
       Swal.fire({
-        title: 'Fehler!',
-        text:"Bitte Datei auswählen!",
+        title: "Fehler!",
+        text: "Bitte Datei auswählen!",
         confirmButtonText: "Verstanden",
-        confirmButtonColor: "#62c6d6",
-        background: 'url(../assets/svg/FehlerPopUp.svg)',
-      })
+        
+        background: "url(../assets/svg/FehlerPopUp.svg)"
+      });
     }
   }
   handleFileInput(files: FileList) {

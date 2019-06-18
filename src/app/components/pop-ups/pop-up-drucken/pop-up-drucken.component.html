@@ -8,7 +8,7 @@
       </h3>
 
       <!-- Herunterladen Feld-->
-      <div (click)="downloadSkinFiles()">
+      <div (click)="downloadSolidFiles()">
         <label
           ><h1
             class="title"
@@ -57,6 +57,7 @@
         <mat-progress-bar
           *ngIf="uploadProgress > 0"
           [value]="uploadProgress"
+          style="width: 351px;"
         ></mat-progress-bar>
       </div>
     </div>

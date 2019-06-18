@@ -32,7 +32,6 @@ export class BenutzerService implements CanActivate {
           title: 'Fehler!',
           text:'Du darfst nicht auf diese Seite, bitte wende dich an einen Administrator.',
           confirmButtonText: "Verstanden",
-          confirmButtonColor: "#62c6d6",
           background: 'url(../assets/svg/FehlerPopUp.svg)',
         })
         this.router.navigate(["order"]);
