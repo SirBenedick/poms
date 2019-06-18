@@ -10,11 +10,14 @@
   height: 40px;
   width: 98%;
   object-fit: contain;
-  opacity: 0.5;
   background-color: #f6f6f6;
   border-radius: 4px;
-  box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
+  border: #62c6d6 solid 1px;
   margin-left: 8px;
+}
+
+.new-printer:hover{
+  cursor: pointer;
 }
 
 #print-icon {
@@ -23,6 +26,11 @@
 
 #print-icon path {
   fill: #62c6d6;
+}
+#heading{
+  font-size: 14px;
+  color: #62c6d6;
+  margin-top: 5px;
 }
 
 .printer {

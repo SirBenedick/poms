@@ -147,30 +147,30 @@
   color: #272f33;
 }
 .create-new-order {
-  width: 149px;
-  height: 149px;
-  /* margin: 1px; */
   object-fit: contain;
-  opacity: 0.5;
-  box-shadow: 4px 4px 6px 0 rgba(39, 47, 51, 0.25);
   background-color: #ffffff;
-  border: 1px solid #272f33;
-}
-
-.create-new-order {
   width: 100px;
   height: 100px;
-  border: transparent 2px solid;
-  object-fit: contain;
   border-radius: 4px;
-  box-shadow: 2px 2px 8px 0 rgba(39, 47, 51, 0.25);
-  background-color: #ffffff;
+  border: #62c6d6 solid 1px;
   display: flex;
   margin: 2px;
-  align-content: center;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  justify-content: center;
+}
+#new-order-title{
+  padding: 2px;
+  width: 90px;
+  font-size: 12px;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+}
+#icon-new-order{
+  flex-direction: column;
+  display: flex;
+  width: 30px;
+  padding-top: 15px;
 }
 .copy-filter {
   background-color: white;
