@@ -18,16 +18,18 @@ export class NeuesHarzComponent implements OnInit {
 
   ngOnInit() {
     this.newHarz = new FormGroup({
-      harzname: new FormControl()
+      harzname: new FormControl(),
+      harzfarbe: new FormControl(),
     });
   }
   onSaveButton(): void {
     let newHarzcolor = {
-      name: this.newHarz.value.harzname
+      name: this.newHarz.value.harzname,
+      color: this.newHarz.value.harzfarbe,
     };
     this.backendService
       .createResin(newHarzcolor)
-      .then(response => this.backendService.loadResinData());
+     .then(response => this.backendService.loadResinData());
   }
 
   onBreakButton(): void {

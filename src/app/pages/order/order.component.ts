@@ -91,7 +91,7 @@ export class OrderComponent implements OnInit {
   refreshAllGroupData(newData: Array<IGroupedOrders>) {
     this.allGroupedOrders = [];
     newData.forEach((group: IGroupedOrders) => {
-      if (group.status != "postprint") this.allGroupedOrders.push(group);
+      if (group.status != "postPrint") this.allGroupedOrders.push(group);
     });
     this.filteredGroupData = this.allGroupedOrders;
   }

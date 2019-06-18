@@ -21,13 +21,15 @@ export class HarzinfobearbeitenComponent implements OnInit {
   ngOnInit() {
     this.alterResin = new FormGroup({
       resinAltered: new FormControl(),
-      resingNew: new FormControl()
+      resingNew: new FormControl(),
+      color: new FormControl(),
     });
   }
   onSaveButton(): void {
     let Harzändern = {
       name: this.alterResin.value.resinAltered,
-      new_name: this.alterResin.value.resingNew
+      new_name: this.alterResin.value.resingNew,
+      color: this.alterResin.value.color,
     };
     this.backendService
       .alterResin(Harzändern)

@@ -18,6 +18,7 @@ import { PostprintGroupActionComponent } from "src/app/components/pop-ups/postpr
 })
 export class PrintedordersComponent implements OnInit {
   allSentOrders: Array<any> = [];
+  allPostPrintOrders: Array<any>=[];
   allGroupedOrders: Array<IGroupedOrders> = [];
 
   filteredSentOrders: Array<IGroupedOrders> = [];
@@ -56,10 +57,13 @@ export class PrintedordersComponent implements OnInit {
         this.refreshAllGroupData(allGroupData);
       });
   }
-  refreshAllGroupData(newData: Array<IGroupedOrders>) {
+  refreshAllGroupData(
+    newData: Array<IGroupedOrders>) {
     this.allGroupedOrders = [];
-    newData.forEach((group: IGroupedOrders) => {
-      if (group.status == "preprint") this.allGroupedOrders.push(group);
+     newData.forEach((group: IGroupedOrders) => {
+     if (group.status == "postPrint"){
+     this.allGroupedOrders.push(group);
+     }
     });
     this.filteredGroupData = this.allGroupedOrders;
   }

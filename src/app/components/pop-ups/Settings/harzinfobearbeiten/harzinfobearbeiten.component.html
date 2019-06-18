@@ -13,6 +13,11 @@
       <input matInput formControlName="resingNew" placeholder="Neuen Harzfarbenamen eingeben">
     </mat-form-field>
     </div>
+    <div>
+    <mat-form-field style="width: 350px;">
+      <input type="color" matInput formControlName="color" placeholder="Harzfarbe auswählen">
+    </mat-form-field>
+    </div>
     <mat-dialog-actions>
       <button class="break-button" mat-button (click)="onBreakButton()">Abbrechen</button>
       <button class="save-button" mat-button [mat-dialog-close]="" (click)="onSaveButton()">

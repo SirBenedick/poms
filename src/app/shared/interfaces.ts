@@ -64,7 +64,7 @@ export interface IGroupedOrders {
   creation_date: string;
   file_sliced_name?: any; //REST-Url to file
   orders?: Array<IOrder>;
-  status: "preprint" | "printing" | "postprint";
+  status: "preprint" | "printing" | "postPrint";
 }
 
 export interface ICreateNewOrder {
