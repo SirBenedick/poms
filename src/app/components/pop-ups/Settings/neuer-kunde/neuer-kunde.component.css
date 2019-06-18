@@ -27,3 +27,9 @@
     border: solid 1px #62c6d6;
     background-color: #62c6d6;
   }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+    
+  }
