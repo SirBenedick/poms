@@ -21,10 +21,7 @@
   background-color: white;
   flex-wrap: wrap;
   margin-top: 20px;
-  cursor: grab;
-}
-.draggable-card-container:active {
-  cursor: grabbing;
+  margin-left: 10px;
 }
 
 .expand-collapse {
@@ -156,6 +153,9 @@
   margin: 2px;
   flex-direction: column;
   align-items: center;
+}
+.create-new-order{
+  cursor: pointer;
 }
 #new-order-title{
   padding: 2px;
