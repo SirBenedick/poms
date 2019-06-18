@@ -1,6 +1,6 @@
 <form [formGroup]="alterResin">
   <div class="page-container">
-    <h1> Harzfarbe bearbeiten </h1>
+    <h1 id="heading"> Harz bearbeiten </h1>
 
     <div>
       <mat-select formControlName="resinAltered" placeholder="Harz auswählen" class=" rechteck-eingabe">
@@ -9,15 +9,15 @@
       </mat-select>
     </div>
     <div>
-    <mat-form-field style="width: 350px;">
+    <mat-form-field style="width: 380px;">
       <input matInput formControlName="resingNew" placeholder="Neuen Harzfarbenamen eingeben">
     </mat-form-field>
     </div>
-    <mat-dialog-actions>
-      <button class="break-button" mat-button (click)="onBreakButton()">Abbrechen</button>
-      <button class="save-button" mat-button [mat-dialog-close]="" (click)="onSaveButton()">
-        Anwenden
-      </button>
+    <mat-dialog-actions style="align-self: flex-end; float: right">
+      <button class="break-button" mat-button (click)="onBreakButton()">
+        <h1 style="font-size: 14px; padding-top: 5px">Abbrechen</h1></button>
+      <button class="send-button" mat-button [mat-dialog-close]="" (click)="onSaveButton()">
+        <h1 style="font-size: 14px; padding-top: 5px">Anwenden</h1></button>
     </mat-dialog-actions>
   </div>
 </form>

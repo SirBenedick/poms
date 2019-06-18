@@ -1,20 +1,30 @@
-.break-button{
-    width: 149px;
-    height: 38px;
+#heading{
     object-fit: contain;
+    font-family: "Segoe UI";
+    font-size: 20px;
+    font-weight: bold;
+    /* text-align: center; */
+    text-align: left;
+    color: #272f33;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+.send-button {
+    width: 100px;
+    height: 30px;
+    color: white;
     border: solid 1px #62c6d6;
+    border-radius: 4px;
+    background-color: #62c6d6;
+}
+.break-button{
+    width: 100px;
+    height: 30px;
+    border: solid 1px #62c6d6;
+    border-radius: 4px;
     color: #62c6d6;
     background-color: #ffffff;
-  }
-
-.save-button {
-    width: 149px;
-    height: 38px;
-    color: white;
-    object-fit: contain;
-    border: solid 1px #62c6d6;
-    background-color: #62c6d6;
-  }
+}
 
   .rechteck-eingabe {
     width: 350px;
