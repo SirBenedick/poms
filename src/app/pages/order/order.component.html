@@ -45,8 +45,8 @@
       </button>
       <div class="no-data-to-display" *ngIf="!filteredGroupData.length">
         <img src="../../../assets/svg/Zahn.svg" /><br />
-        Momentan existieren keine Gruppen. Um eine Gruppe zu erstellen, ziehe
-        einfach einen oder mehrere Aufträge von unten auf das Gruppenfeld oben.
+        <b style="font-family: 'Segoe UI'; font-size: 14px">Momentan existieren keine Gruppen. Um eine Gruppe zu erstellen, ziehe
+          einfach einen oder mehrere Aufträge von unten auf das Gruppenfeld oben.</b>
       </div>
       <div class="expand-print" *ngIf="filteredGroupData.length">
         <mat-expansion-panel
@@ -157,7 +157,8 @@
       >
         <!-- Plus-Button to create a new Order -->
         <div class="create-new-order" (click)="openDialogCreateNewOrder()">
-          <img src="../../../assets/svg/plus-order.svg" />
+          <img id="icon-new-order" src="../../../assets/svg/new-order-icon.svg" />
+          <p id="new-order-title">neuen Auftrag anlegen</p>
         </div>
         <!-- Show all Order-Cards with Layout from Order-Card -->
         <app-order-card
@@ -169,8 +170,9 @@
         </app-order-card>
         <div class="no-data-to-display" *ngIf="!filteredUngroupedOrders.length" style="margin-left: 20%;">
           <img src="../../../assets/svg/Zahn.svg" /><br />
-          Momentan sind keine Aufträge vorhanden. Erstelle einfach einen, indem
-          du den Button anklickst.
+          <b style="font-family: 'Segoe UI'; font-size: 14px">
+            Momentan sind keine Aufträge vorhanden. Erstelle einfach einen, indem
+            du den Button anklickst.</b>
         </div>
       </div>
     </div>

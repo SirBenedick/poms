@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.255" height="33.255" viewBox="0 0 33.255 33.255">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#272f33}.cls-4{stroke:#272f33;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h33.255v33.255H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Komponente_2" class="cls-2" data-name="Komponente 2">
+        <g id="Komponente_27_50" class="cls-2" data-name="Komponente 27 – 50">
+            <path id="Pfad_112" d="M299.519 501.477a16.628 16.628 0 1 0 16.627 16.623 16.646 16.646 0 0 0-16.627-16.623zm14.962 16.623a14.962 14.962 0 1 1-14.962-14.962 14.979 14.979 0 0 1 14.962 14.962z" class="cls-3" data-name="Pfad 112" transform="translate(-282.891 -501.477)"/>
+        </g>
+        <path id="Pfad_200" d="M1400.577 271.047l-6.758 6.732-6.808-6.732" class="cls-4" data-name="Pfad 200" transform="rotate(-90 576.648 833.495)"/>
+    </g>
+</svg>

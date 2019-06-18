@@ -18,6 +18,7 @@ margin: 2px;
 }
 
 .icon-card{
+    padding-top: 5px;
   width: 35px;
   height: 35px;
   margin: 5px;
@@ -28,7 +29,7 @@ margin: 2px;
     object-fit: contain;
   margin-right: 5px;
   width: 7px;
-  margin-top: -10px;
+
    }
 
    .order-card-text {
