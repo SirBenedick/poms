@@ -20,7 +20,6 @@
   display: flex;
   background-color: white;
   flex-wrap: wrap;
-  margin-left: 10px;
   margin-top: 20px;
   cursor: grab;
 }
@@ -176,11 +175,11 @@
   background-color: white;
   border: transparent;
   font-family: "Segoe UI";
-  font-size: 12px;
+  font-size: 14px;
   color: #62c6d6;
   float: right;
   margin-right: 115px;
-  margin-top: -25px;
+  margin-top: -27px;
 }
 
 .copy-filter:hover {
