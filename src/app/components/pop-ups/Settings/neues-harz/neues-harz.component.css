@@ -36,3 +36,6 @@
     border-radius: 4px;
     border: solid 1px #62c6d6;
 }
+input[type="color"] {
+    height: 30px;
+}
