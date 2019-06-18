@@ -43,7 +43,7 @@
       >
         <b>+</b> Aufträge hierhinziehen um neue Gruppe zu erstellen
       </button>
-      <div class="no-data-to-display" *ngIf="!filteredGroupData.length">
+      <div class="no-data-to-display" *ngIf="!filteredGroupData.length" style="margin-top: 50px">
         <img src="../../../assets/svg/Zahn.svg" /><br />
         <b style="font-family: 'Segoe UI'; font-size: 14px">Momentan existieren keine Gruppen. Um eine Gruppe zu erstellen, ziehe
           einfach einen oder mehrere Aufträge von unten auf das Gruppenfeld oben.</b>
@@ -168,9 +168,9 @@
           [order]="orderCard"
         >
         </app-order-card>
-        <div class="no-data-to-display" *ngIf="!filteredUngroupedOrders.length" style="margin-left: 20%;">
+        <div class="no-data-to-display" *ngIf="!filteredUngroupedOrders.length" style="margin-left: 100px; margin-top: 50px">
           <img src="../../../assets/svg/Zahn.svg" /><br />
-          <b style="font-family: 'Segoe UI'; font-size: 14px; padding-right: 50px">
+          <b style="font-family: 'Segoe UI'; font-size: 14px;">
             Momentan sind keine Aufträge vorhanden. Erstelle einfach einen, indem
             du den Button anklickst.</b>
         </div>
