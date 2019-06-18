@@ -95,8 +95,6 @@ export class CreateNewOrderComponent implements OnInit {
       this.customer_name = this.customerData.find(
         customer => customer.customer_id == this.data.customer_id
       ).name;
-    console.log(this.customer_name);
-    console.log(this.newOrderForm.controls["customer_id"]);
     this.fileToUploadName = this.data.file_scan_name
       ? this.data.file_scan_name
       : "";
