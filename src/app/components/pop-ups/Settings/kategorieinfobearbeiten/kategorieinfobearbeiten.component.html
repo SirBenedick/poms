@@ -1,6 +1,6 @@
 <form [formGroup]="alterCategory">
   <div class="page-container">
-    <h1> Kategorie bearbeiten </h1>
+    <h1 id="heading"> Kategorie bearbeiten </h1>
     <div>
       <mat-select formControlName="categoryAltered" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
         <mat-option *ngFor="let kategorie of categoryData" value="{{ kategorie.model_type_name }}">
@@ -13,11 +13,11 @@
         <input matInput formControlName="categoryNew" placeholder="Neuen Kategorienamen eingeben">
       </mat-form-field>
     </div>
-    <mat-dialog-actions>
-      <button class="break-button" mat-button (click)="onBreakButton()">Abbrechen</button>
-      <button class="save-button" mat-button [mat-dialog-close]="" (click)="onSaveButton()">
-        Anwenden
-      </button>
+    <mat-dialog-actions style="align-self: flex-end; float: right">
+      <button class="break-button" mat-button (click)="onBreakButton()">
+        <h1 style="font-size: 14px; padding-top: 5px">Abbrechen</h1></button>
+      <button class="send-button" mat-button [mat-dialog-close]="" (click)="onSaveButton()">
+        <h1 style="font-size: 14px; padding-top: 5px">Anwenden</h1></button>
     </mat-dialog-actions>
   </div>
 </form>

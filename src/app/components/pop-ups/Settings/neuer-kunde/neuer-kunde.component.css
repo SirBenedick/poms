@@ -1,13 +1,21 @@
 .page-container{
     display: flex;
     flex-direction: column;
-    width: 750px;
-    height: 570px;
+    width: 730px;
+    height: 530px;
+}
+#heading{
+    object-fit: contain;
+    font-family: "Segoe UI";
+    font-size: 20px;
+    font-weight: bold;
+    /* text-align: center; */
+    text-align: left;
+    color: #272f33;
+    margin-bottom: 20px;
 }
 .plz-stadt{
     display: flex;
-    justify-content: space-between;
-    grid-column: auto / span 2;
 }
 
 .break-button{
