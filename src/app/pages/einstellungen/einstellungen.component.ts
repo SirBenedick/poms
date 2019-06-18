@@ -25,15 +25,15 @@ export class EinstellungenComponent implements OnInit {
           topicTitel: "Kunden verwalten",
           subtopics: [
             {
-              subtopicTitel: "Einen Kunden hinzufügen",
+              subtopicTitel: "Kunde hinzufügen",
               subtopicContent: "subtopicContent 111"
             },
             {
-              subtopicTitel: "Kundeninformation bearbeiten",
+              subtopicTitel: "Kunde bearbeiten",
               subtopicContent: "subtopicContent 112"
             },
             {
-              subtopicTitel: "Bestehende Kunden entfernen",
+              subtopicTitel: "Kunde löschen",
               subtopicContent: "subtopicContent 112"
             }
           ]
@@ -42,15 +42,15 @@ export class EinstellungenComponent implements OnInit {
           topicTitel: "Kategorien verwalten",
           subtopics: [
             {
-              subtopicTitel: "Eine Kategorie hinzufügen",
+              subtopicTitel: "Kategorie hinzufügen",
               subtopicContent: "subtopicContent 121"
             },
             {
-              subtopicTitel: "Kategorieinformation bearbeiten",
+              subtopicTitel: "Kategorie bearbeiten",
               subtopicContent: "subtopicContent 122"
             },
             {
-              subtopicTitel: " Bestehende Kategorie entfernen",
+              subtopicTitel: " Kategorie löschen",
               subtopicContent: "subtopicContent 122"
             }
           ]
@@ -59,15 +59,15 @@ export class EinstellungenComponent implements OnInit {
           topicTitel: " Harze verwalten",
           subtopics: [
             {
-              subtopicTitel: "Ein Harz hinzufügen",
+              subtopicTitel: "Harz hinzufügen",
               subtopicContent: "subtopicContent 121"
             },
             {
-              subtopicTitel: " Harzinformationen bearbeiten",
+              subtopicTitel: " Harz bearbeiten",
               subtopicContent: "subtopicContent 122"
             },
             {
-              subtopicTitel: " Bestehende Harze entfernen",
+              subtopicTitel: " Harz löschen",
               subtopicContent: "subtopicContent 122"
             }
           ]
@@ -76,7 +76,7 @@ export class EinstellungenComponent implements OnInit {
           topicTitel: "Prioritäten verwalten",
           subtopics: [
             {
-              subtopicTitel: "Den Zeitraum der Priorität ändern",
+              subtopicTitel: "Prioritätszeitraum ändern",
               subtopicContent: "subtopicContent 121"
             }
           ]
@@ -92,23 +92,23 @@ export class EinstellungenComponent implements OnInit {
 
   ngOnInit() {}
   onClick(subtopic: { subtopicTitel: string; subtopicContent: string }) {
-    if (subtopic.subtopicTitel == "Einen Kunden hinzufügen") {
+    if (subtopic.subtopicTitel == "Kunde hinzufügen") {
       this.dialog.open(NeuerKundeComponent, {});
-    } else if (subtopic.subtopicTitel == "Eine Kategorie hinzufügen") {
+    } else if (subtopic.subtopicTitel == "Kategorie hinzufügen") {
       this.dialog.open(NeueKategorieComponent, {});
-    } else if (subtopic.subtopicTitel == "Ein Harz hinzufügen") {
+    } else if (subtopic.subtopicTitel == "Harz hinzufügen") {
       this.dialog.open(NeuesHarzComponent, {});
-    } else if (subtopic.subtopicTitel == "Kundeninformation bearbeiten") {
+    } else if (subtopic.subtopicTitel == "Kunde bearbeiten") {
       this.dialog.open(KundeninfobearbeitenComponent, {});
-    } else if (subtopic.subtopicTitel == "Bestehende Kunden entfernen") {
+    } else if (subtopic.subtopicTitel == "Kunde löschen") {
       this.dialog.open(KundeloeschenComponent, {});
-    } else if (subtopic.subtopicTitel == "Kategorieinformation bearbeiten") {
+    } else if (subtopic.subtopicTitel == "Kategorie bearbeiten") {
       this.dialog.open(KategorieinfobearbeitenComponent, {});
-    } else if (subtopic.subtopicTitel == " Bestehende Kategorie entfernen") {
+    } else if (subtopic.subtopicTitel == " Kategorie löschen") {
       this.dialog.open(KategorieloeschenComponent, {});
-    } else if (subtopic.subtopicTitel == " Harzinformationen bearbeiten") {
+    } else if (subtopic.subtopicTitel == " Harz bearbeiten") {
       this.dialog.open(HarzinfobearbeitenComponent, {});
-    } else if (subtopic.subtopicTitel == " Bestehende Harze entfernen") {
+    } else if (subtopic.subtopicTitel == " Harz löschen") {
       this.dialog.open(HarzloeschenComponent, {});
     } else {
       Swal.fire({

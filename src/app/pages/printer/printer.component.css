@@ -10,7 +10,7 @@
   height: 40px;
   width: 98%;
   object-fit: contain;
-  background-color: #f6f6f6;
+  background-color: white;
   border-radius: 4px;
   border: #62c6d6 solid 1px;
   margin-left: 8px;
@@ -34,7 +34,6 @@
 }
 
 .printer {
-  font-family: "Segoe UI";
   font-size: 16px;
   font-weight: bold;
   padding-left: 15px;
@@ -46,7 +45,6 @@
   /* width: 224px;
     height: 24px; */
   object-fit: contain;
-  font-family: "Segoe UI";
   font-size: 18px;
   font-weight: bold;
   font-style: normal;
@@ -116,7 +114,7 @@
   margin: 2px;
   padding-right: 20px;
   object-fit: contain;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
   font-style: italic;
   font-stretch: normal;
@@ -128,11 +126,10 @@
 
 .button-style {
   float: right;
-  width: 130px;
+  width: 100px;
   height: 30px;
   object-fit: contain;
-  font-family: "Segoe UI";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
   font-style: italic;
   font-stretch: normal;
@@ -152,11 +149,12 @@
 } 
 
 .delete-button {
-  width: 149px;
-  height: 38px;
-  color: white;
+  width: 130px;
+  height: 30px;
+  color: #62c6d6;
+  font-size: 14px;
   object-fit: contain;
   border: solid 1px #62c6d6;
-  background-color: #62c6d6;
+  background-color: white;
   float: right;
 }

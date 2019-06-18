@@ -1,50 +1,50 @@
 <form [formGroup]="newCustomer">
   <div class="page-container">
 
-    <h2>Einen Kunden hinzufügen</h2>
+    <h2 id="heading">Kunde hinzufügen</h2>
 
-    <div>
-      <h5>Kundenname</h5>
+    <div style="margin-bottom: 10px">
+      <h5 style="font-size: 14px; font-weight: bold">Kundenname</h5>
       <div>
-        <mat-form-field>
+        <mat-form-field style="width: 305px">
           <input matInput placeholder="Kundennamen eintragen" formControlName="kundenname">
         </mat-form-field>
       </div>
     </div>
 
-    <div>
-      <h5>Adresse </h5>
+    <div style="margin-bottom: 10px">
+      <h5 style="font-size: 14px; font-weight: bold">Adresse </h5>
       <div>
         <div>
-          <mat-form-field>
+          <mat-form-field style="width: 305px">
             <input matInput formControlName="straßehausnummer" placeholder="Straße, Hausnummer">
           </mat-form-field>
         </div>
         <div class="plz-stadt">
-          <mat-form-field style="width: 10%">
+          <mat-form-field style="width: 100px">
             <input matInput formControlName="plz" placeholder="PLZ">
           </mat-form-field>
-          <mat-form-field style="width: 20%">
+          <mat-form-field style="width: 200px; margin-left: 7px">
             <input matInput formControlName="stadt" placeholder="Stadt">
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field style="width:41%">
+          <mat-form-field style="width: 305px">
             <input matInput formControlName="land" placeholder="Land">
           </mat-form-field>
         </div>
       </div>
     </div>
 
-    <div>
-      <h5>Sonstige Informationen </h5>
+    <div style="margin-bottom: 10px">
+      <h5 style="font-size: 14px; font-weight: bold">Sonstige Informationen </h5>
       <div>
         <textarea cols="40" rows="5" style="resize: none" placeholder="Anmerkungen"></textarea>
       </div>
     </div>
 
-    <div style="align-self: flex-end">
-      <mat-dialog-actions>
+    <div style="align-self: flex-end; margin-top: -10px">
+      <mat-dialog-actions >
         <button mat-button class="break-button" (click)="onBreakButton()"> Abbrechen</button>
         <button mat-button class="save-button" [mat-dialog-close]="newCustomer" (click)="onSaveButton()"> Erstellen</button>
       </mat-dialog-actions>

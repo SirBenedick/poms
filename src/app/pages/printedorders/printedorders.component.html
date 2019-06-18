@@ -27,10 +27,11 @@
           </div>
         </div>
       </div>
-      <div class="no-data-to-display" *ngIf="!filteredGroupData.length">
+      <div class="no-data-to-display" *ngIf="!filteredGroupData.length" style="margin-top: 50px">
         <img src="../../../assets/svg/Zahn.svg" /><br />
-        Momentan existieren keine Gruppen die sich in der Nachbereitung
-        befinden.
+        <b style="font-family: 'Segoe UI'; font-size: 14px">
+          Momentan existieren keine Gruppen die sich in der Nachbereitung
+          befinden.</b>
       </div>
       <div class="expand-print" *ngIf="filteredGroupData.length">
         <mat-expansion-panel
@@ -59,7 +60,7 @@
             </mat-panel-title>
             <div id="button-space">
               <button class="button-style" (click)="onGroupClick(group)">
-                Gruppendetails
+               Gruppendetails
               </button>
             </div>
           </mat-expansion-panel-header>
