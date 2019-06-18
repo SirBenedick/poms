@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
         title: 'Fehler!',
         text:'Bitte geben Sie einen Benutzernamen und Password ein!',
         confirmButtonText: "Verstanden",
-        confirmButtonColor: "#62c6d6",
         background: 'url(../assets/svg/FehlerPopUp.svg)',
       })
       return;
@@ -71,7 +70,6 @@ export class LoginComponent implements OnInit {
             title: 'Fehler!',
             text:'Benutzername oder Password falsch!',
             confirmButtonText: "Verstanden",
-            confirmButtonColor: "#62c6d6",
             background: 'url(../assets/svg/FehlerPopUp.svg)',
           })
         

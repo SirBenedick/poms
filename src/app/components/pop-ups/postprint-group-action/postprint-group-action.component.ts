@@ -3,14 +3,13 @@ import { IGroupedOrders } from "./../../../shared/interfaces";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { OrderComponent } from "src/app/pages/order/order.component";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 @Component({
   selector: "app-postprint-group-action",
   templateUrl: "./postprint-group-action.component.html",
   styleUrls: ["./postprint-group-action.component.css"]
 })
 export class PostprintGroupActionComponent implements OnInit {
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: IGroupedOrders,
     public dialogRef: MatDialogRef<OrderComponent>,
@@ -30,33 +29,24 @@ export class PostprintGroupActionComponent implements OnInit {
   }
 
   onFinishGroup() {
-    console.log("onFinishGroup");
     this.backendService
       .alterGroupOrderStatus(this.data.group_id)
-      .then(response => console.log("alterGroupOrderStatus: ", response));
+      .then(response => {
+        this.dialogRef.close({result: "refresh"});
+      });
   }
 
   downloadSliced() {
-    console.log("downloadSliced");
-    this.backendService
-      .downloadSlicedFileFromGroup(this.data.group_id)
-      .then(response => {
-        if (response["error"]) {
-          Swal.fire({
-            title: 'Fehler!',
-            text:response["error"],
-            confirmButtonText: "Verstanden",
-            confirmButtonColor: "#62c6d6",
-            background: 'url(../assets/svg/FehlerPopUp.svg)',
-          })
-        } else {
-          console.log("downloadFile", response);
-        }
-      });
+    console.log(this.data.file_sliced_name);
+    this.backendService.downloadSlicedFileFromGroup(
+      this.data.group_id,
+      this.data.file_sliced_name
+    );
   }
-  downloadSkinFiles() {
-    this.backendService
-      .downloadSkinFilesFromGroup(this.data.group_id)
-      .then(response => console.log("downloadSkinFilesFromGroup: ", response));
+  downloadSolidFiles() {
+    this.backendService.downloadSolidFilesFromGroup(
+      this.data.group_id,
+      `Skins_for_group_id_${this.data.group_id}`
+    );
   }
 }

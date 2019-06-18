@@ -145,7 +145,7 @@ export class BackendService {
   loadResinData() {
     this.getAllResin().then((harzData: Array<IResinType>) => {
       this.resineData = harzData;
-     // this.resineData = this.mockedResinData;
+      // this.resineData = this.mockedResinData;
       this.resineData.sort();
     });
   }
@@ -207,14 +207,42 @@ export class BackendService {
   }
 
   /** Download */
-  downloadSlicedFileFromGroup(id: number): Promise<Object> {
-    return this.http.get(this.backendUrl + "group/download/" + id).toPromise();
+  downloadSlicedFileFromGroup(id: number, filename: string = null): void {
+    this.http
+      .get(this.backendUrl + "group/download/" + id, {
+        responseType: "blob" as "json"
+      })
+      .subscribe((response: any) => {
+        let dataType = response.type;
+        let binaryData = [];
+        binaryData.push(response);
+        let downloadLink = document.createElement("a");
+        downloadLink.href = window.URL.createObjectURL(
+          new Blob(binaryData, { type: dataType })
+        );
+        if (filename) downloadLink.setAttribute("download", filename);
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+      });
   }
 
-  downloadSkinFilesFromGroup(id: number): Promise<Object> {
-    return this.http
-      .get(this.backendUrl + "group/order/download" + id)
-      .toPromise();
+  downloadSolidFilesFromGroup(id: number, filename: string = null): void {
+    this.http
+      .get(this.backendUrl + "group/download/solids/" + id, {
+        responseType: "blob" as "json"
+      })
+      .subscribe((response: any) => {
+        let dataType = response.type;
+        let binaryData = [];
+        binaryData.push(response);
+        let downloadLink = document.createElement("a");
+        downloadLink.href = window.URL.createObjectURL(
+          new Blob(binaryData, { type: dataType })
+        );
+        if (filename) downloadLink.setAttribute("download", filename);
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+      });
   }
   downloadScanFileFromOrder(id: number, filename: string = null): void {
     this.http
@@ -323,7 +351,7 @@ export class BackendService {
 
   alterGroupOrderStatus(group_id: number): Promise<Object> {
     return this.http
-      .post(this.backendUrl + "group/alter/orders", { id: group_id })
+      .get(this.backendUrl + "group/complete/"+ group_id)
       .toPromise();
   }
 

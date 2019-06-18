@@ -18,7 +18,7 @@ import { PostprintGroupActionComponent } from "src/app/components/pop-ups/postpr
 })
 export class PrintedordersComponent implements OnInit {
   allSentOrders: Array<any> = [];
-  allPostPrintOrders: Array<any>=[];
+  allPostPrintOrders: Array<any> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
 
   filteredSentOrders: Array<IGroupedOrders> = [];
@@ -57,13 +57,12 @@ export class PrintedordersComponent implements OnInit {
         this.refreshAllGroupData(allGroupData);
       });
   }
-  refreshAllGroupData(
-    newData: Array<IGroupedOrders>) {
+  refreshAllGroupData(newData: Array<IGroupedOrders>) {
     this.allGroupedOrders = [];
-     newData.forEach((group: IGroupedOrders) => {
-     if (group.status == "postPrint"){
-     this.allGroupedOrders.push(group);
-     }
+    newData.forEach((group: IGroupedOrders) => {
+      if (group.status == "postPrint") {
+        this.allGroupedOrders.push(group);
+      }
     });
     this.filteredGroupData = this.allGroupedOrders;
   }
@@ -199,7 +198,10 @@ export class PrintedordersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.filterGroupData(result.data);
+      if (result.result == "refresh") {
+        this.loadGroupData();
+        this.loadOrderData();
+      }
     });
   }
   getResineColorValue(resine_name: string) {

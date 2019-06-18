@@ -76,7 +76,6 @@ export class BasicLayoutComponent implements OnInit {
                 title: 'Fehler!',
                 text: res.error,
                 confirmButtonText: "Verstanden",
-                confirmButtonColor: "#62c6d6",
                 background: 'url(../assets/svg/FehlerPopUp.svg)',
               })
               console.log("createNewOrder Error: ", res.error);
