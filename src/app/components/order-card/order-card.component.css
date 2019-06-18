@@ -16,7 +16,12 @@ margin: 2px;
   border: transparent;
   box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.16);
 }
-
+.card-inner:hover{
+    cursor: grab;
+}
+.card-inner:active{
+    cursor: grabbing;
+}
 .icon-card{
     padding-top: 5px;
   width: 35px;
