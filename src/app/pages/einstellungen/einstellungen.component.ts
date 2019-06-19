@@ -10,7 +10,7 @@ import { KategorieinfobearbeitenComponent } from "src/app/components/pop-ups/Set
 import { KategorieloeschenComponent } from "src/app/components/pop-ups/Settings/kategorieloeschen/kategorieloeschen.component";
 import { HarzinfobearbeitenComponent } from "src/app/components/pop-ups/Settings/harzinfobearbeiten/harzinfobearbeiten.component";
 import { HarzloeschenComponent } from "src/app/components/pop-ups/Settings/harzloeschen/harzloeschen.component";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 @Component({
   selector: "app-einstellungen",
   templateUrl: "./einstellungen.component.html",
@@ -71,15 +71,6 @@ export class EinstellungenComponent implements OnInit {
               subtopicContent: "subtopicContent 122"
             }
           ]
-        },
-        {
-          topicTitel: "Prioritäten verwalten",
-          subtopics: [
-            {
-              subtopicTitel: "Prioritätszeitraum ändern",
-              subtopicContent: "subtopicContent 121"
-            }
-          ]
         }
       ]
     }
@@ -112,12 +103,12 @@ export class EinstellungenComponent implements OnInit {
       this.dialog.open(HarzloeschenComponent, {});
     } else {
       Swal.fire({
-        title: 'Fehler!',
-        text: "Für die Priorität ist noch kein Pop-Up vorhanden!",
+        title: "Fehler!",
+        text: "Für diese Aktion ist noch kein Pop-Up vorhanden!",
         confirmButtonText: "Verstanden",
-        
-        background: 'url(../assets/svg/FehlerPopUp.svg)',
-      })
+
+        background: "url(../assets/svg/FehlerPopUp.svg)"
+      });
     }
   }
 }

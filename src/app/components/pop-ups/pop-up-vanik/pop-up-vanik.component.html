@@ -17,7 +17,7 @@
   </div>
   <!-- Anzeige der Daten geht bis hier hin -->
   <!-- Anzeige der Daten vom Füllstand -->
-  <div *ngIf="data.detail == (data.printerDetails.max_volume)*100">
+  <div *ngIf="data.detail == (data.printerDetails.resin_volume)*100 && data.detail != 0">
     <div id="ueberschriftenTexte">Füllstand des Druckers in %</div>
     <div class="textboxen" id="textausrichten" style="text-align: center">
       {{data.printerDetails.resin_volume |percent}}
@@ -33,7 +33,7 @@
   </div>
   <!-- Anzeige der Daten geht bis hier hin -->
   <!-- Anzeige der Daten vom Druckfortschritt -->
-  <div *ngIf="data.detail ==(data.printerDetails.printer_progress)*100">
+  <div *ngIf="data.detail == data.printerDetails.progress*100 && data.detail !=0">
     <div id="ueberschriftenTexte">Druckfortschritt</div>
     <div class="textboxen" id="textausrichten" style="text-align: center">
       {{data.printerDetails.progress |percent}}
