@@ -64,7 +64,7 @@ export class PopUpDruckenComponent implements OnInit {
       .subscribe((printer: IPrinterData) => {
         if (printer.maintenance_required == 1) {
           Swal.fire({
-            title: "Fehler!",
+            title: "Achtung!",
             text:
               "Der Drucker scheint nicht druckbereit zu sein. \n Dennoch Druck starten?",
             cancelButtonText: "Abbrechen",
@@ -118,7 +118,7 @@ export class PopUpDruckenComponent implements OnInit {
   downloadSolidFiles() {
     this.backendService.downloadSolidFilesFromGroup(
       this.data.group_id,
-      `Skins_for_group_id_${this.data.group_id}`
+      `Solids_for_group_id_${this.data.group_id}`
     );
   }
   uploadSlicedFile() {

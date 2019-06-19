@@ -48,7 +48,7 @@ export class PostprintGroupActionComponent implements OnInit {
   downloadSolidFiles() {
     this.backendService.downloadSolidFilesFromGroup(
       this.data.group_id,
-      `Skins_for_group_id_${this.data.group_id}`
+      `Solids_for_group_id_${this.data.group_id}`
     );
   }
 }

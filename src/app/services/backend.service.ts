@@ -231,14 +231,14 @@ export class BackendService {
       })
       .subscribe((response: any) => {
         /** Downloads file by creating hidden "<a>" html-element and triggering the click event  */
-        let dataType = response.type;
+        let dataType = "zip";
         let binaryData = [];
         binaryData.push(response);
         let downloadLink = document.createElement("a");
         downloadLink.href = window.URL.createObjectURL(
           new Blob(binaryData, { type: dataType })
         );
-        if (filename) downloadLink.setAttribute("download", filename);
+        if (filename) downloadLink.setAttribute("download", filename + ".zip");
         document.body.appendChild(downloadLink);
         downloadLink.click();
       });
