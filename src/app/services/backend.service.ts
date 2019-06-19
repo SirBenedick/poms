@@ -54,7 +54,7 @@ export class BackendService {
   categoriesData: Array<ICategory>;
   /** Used for manually changing status of an order */
   orderStatus: Array<IOrderStatus> = [
-    { value: "created", display_name: "Druckbereit" },
+    { value: "isSolid", display_name: "Druckbereit" },
     { value: "postPrint", display_name: "Nachbereitung" },
     { value: "sent", display_name: "Abgeschlossen" }
   ];

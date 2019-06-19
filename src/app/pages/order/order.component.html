@@ -166,6 +166,7 @@
           cdkDragBoundary=".page-container"
           cdkDrag
           [order]="orderCard"
+          (onRefreshOrders)="loadOrderData()"
         >
         </app-order-card>
         <div class="no-data-to-display" *ngIf="!filteredUngroupedOrders.length" style="margin-left: 100px; margin-top: 50px">

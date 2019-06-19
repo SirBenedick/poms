@@ -108,6 +108,7 @@
           id="order-card"
           *ngFor="let orderCard of filteredSentOrders"
           [order]="orderCard"
+          (onRefreshOrders)="loadOrderData()"
         >
         </app-order-card>
       </div>

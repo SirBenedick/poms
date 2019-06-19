@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { IOrder } from "src/app/shared/interfaces";
 import { CreateNewOrderComponent } from "../pop-ups/create-new-order/create-new-order.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
@@ -9,7 +9,9 @@ import { MatDialogRef, MatDialog } from "@angular/material";
   styleUrls: ["./order-card.component.css"]
 })
 export class OrderCardComponent implements OnInit {
+  @Output() onRefreshOrders = new EventEmitter();
   @Input() order: IOrder;
+  
   dateForFrontendView: string;
   allUngroupedOrders: Array<IOrder> = [];
   ordersNameDialogRef: MatDialogRef<CreateNewOrderComponent>;
@@ -31,6 +33,9 @@ export class OrderCardComponent implements OnInit {
   onCardClick(event) {
     this.ordersNameDialogRef = this.dialog.open(CreateNewOrderComponent, {
       data: event.order
+    });
+    this.ordersNameDialogRef.afterClosed().subscribe(res => {
+      this.onRefreshOrders.emit();
     });
   }
 }
