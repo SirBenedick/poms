@@ -31,11 +31,10 @@ import { switchMap, catchError } from "rxjs/operators";
 })
 export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
-
-  /** Observable which poll every pollingTimeInMs ms */
   pollingTimeInMs: number = 2000;
   reloadDataAfterMs: number = 2000;
 
+  /** Observable which poll every pollingTimeInMs ms */
   allOrderData$: Observable<Object>;
   allGroupData$: Observable<Object>;
   allPrinterData$: Observable<Object>;
@@ -52,7 +51,8 @@ export class BackendService {
   resineData: Array<IResinType>;
   customerData: Array<ICustomer>;
   helpData: Array<IFAQPage>;
-  categorysData: Array<ICategory>;
+  categoriesData: Array<ICategory>;
+  /** Used for manually changing status of an order */
   orderStatus: Array<IOrderStatus> = [
     { value: "created", display_name: "Druckbereit" },
     { value: "postPrint", display_name: "Nachbereitung" },
@@ -110,7 +110,7 @@ export class BackendService {
       /** If count of printer has changed then "everySinglePrinter$" gets updated */
       if (this.everySinglePrinter$.length != this.allPrinterData.length) {
         this.everySinglePrinter$ = [];
-        /** Each printer becomes one observable and stores printer_id and the printer name*/
+        /** Each printer becomes one observable and stores printer_id and the printer_name*/
         this.allPrinterData.forEach((printer: IPrinterData) => {
           /** Creates observable for each printer */
           var singlePrinter$: Observable<IPrinterData> = <
@@ -132,12 +132,11 @@ export class BackendService {
     });
   }
 
-  /** Umbennen in getAllOrders */
+  /** Functions that get data from the backend */
   getAllOrders(): Observable<Object> {
     return this.http.get(this.backendUrl + "order/get/all");
   }
 
-  /** Umbennen in getAllPrinter */
   getAllPrinter(): Observable<Object> {
     return this.http.get(this.backendUrl + "printer/get/all");
   }
@@ -170,7 +169,6 @@ export class BackendService {
     );
   }
 
-  /** Get data */
   getPrinterById(id: Number): Observable<Object> {
     return this.http.get(this.backendUrl + "printer/get/" + id);
   }
@@ -212,6 +210,7 @@ export class BackendService {
         responseType: "blob" as "json"
       })
       .subscribe((response: any) => {
+        /** Downloads file by creating hidden "<a>" html-element and triggering the click event  */
         let dataType = response.type;
         let binaryData = [];
         binaryData.push(response);
@@ -231,6 +230,7 @@ export class BackendService {
         responseType: "blob" as "json"
       })
       .subscribe((response: any) => {
+        /** Downloads file by creating hidden "<a>" html-element and triggering the click event  */
         let dataType = response.type;
         let binaryData = [];
         binaryData.push(response);
@@ -243,12 +243,14 @@ export class BackendService {
         downloadLink.click();
       });
   }
+
   downloadScanFileFromOrder(id: number, filename: string = null): void {
     this.http
       .get(this.backendUrl + "order/download/scan/" + id, {
         responseType: "blob" as "json"
       })
       .subscribe((response: any) => {
+        /** Downloads file by creating hidden "<a>" html-element and triggering the click event  */
         let dataType = response.type;
         let binaryData = [];
         binaryData.push(response);
@@ -299,6 +301,7 @@ export class BackendService {
       .post(this.backendUrl + "model_type/create/", createNewCategory)
       .toPromise();
   }
+
   createFAQ(createTopic: IFAQPageCreate): Promise<Object> {
     return this.http
       .post(this.backendUrl + "faq/create/", createTopic)
@@ -350,13 +353,13 @@ export class BackendService {
 
   alterGroupOrderStatus(group_id: number): Promise<Object> {
     return this.http
-      .get(this.backendUrl + "group/complete/"+ group_id)
+      .get(this.backendUrl + "group/complete/" + group_id)
       .toPromise();
   }
 
   alterGroupStatus(group_id: number, status: string): Promise<Object> {
     return this.http
-      .post(this.backendUrl + "group/alter/" + group_id , { status: status })
+      .post(this.backendUrl + "group/alter/" + group_id, { status: status })
       .toPromise();
   }
 
@@ -396,7 +399,6 @@ export class BackendService {
   }
 
   /** Controll printer */
-
   assignGroupToPrinterAndStartPrint(
     group_id: number,
     printer_id: number,

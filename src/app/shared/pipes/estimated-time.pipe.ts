@@ -2,6 +2,11 @@ import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({ name: "estimatedTime" })
 export class EstimatedTimePipe implements PipeTransform {
+  /** Displays time in human readable format
+   * under 1m = XXs
+   * under 1h = XXmin
+   * greater 1h = Xh XXmin
+   */
   transform(time: string) {
     if (time == null) return "";
     
@@ -19,7 +24,4 @@ export class EstimatedTimePipe implements PipeTransform {
       return `${seconds}s`;
     }
   }
-  //unter 1min
-  //unter 1h
-  //alles 00 dann nichts
 }

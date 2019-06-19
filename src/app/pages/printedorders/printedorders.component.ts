@@ -17,15 +17,18 @@ import { PostprintGroupActionComponent } from "src/app/components/pop-ups/postpr
   styleUrls: ["./printedorders.component.css"]
 })
 export class PrintedordersComponent implements OnInit {
+  /** Is used to reset the "filtered...Data" */
   allSentOrders: Array<any> = [];
   allPostPrintOrders: Array<any> = [];
   allGroupedOrders: Array<IGroupedOrders> = [];
 
+  /** "filtered...Data" is dsiplayed to user */
   filteredSentOrders: Array<IGroupedOrders> = [];
   filteredGroupData: Array<IGroupedOrders> = [];
-
+  /** "filterParameter..." are saved for copying filter from group to order and viceversa */
   filterParameterOrder: IFilterOrders;
   filterParameterGroup: IFilterOrders;
+  /** "is...FilterSet" controlls the "appFilterButtonActivated" directive */
   isSentFilterSet: number = 0;
   isGroupFilterSet: number = 0;
 
@@ -57,6 +60,7 @@ export class PrintedordersComponent implements OnInit {
         this.refreshAllGroupData(allGroupData);
       });
   }
+
   refreshAllGroupData(newData: Array<IGroupedOrders>) {
     this.allGroupedOrders = [];
     newData.forEach((group: IGroupedOrders) => {
@@ -72,8 +76,8 @@ export class PrintedordersComponent implements OnInit {
       .getAllOrders()
       .toPromise()
       .then((allOrderData: Array<IOrder>) => {
+        this.allSentOrders = [];
         this.sortOrderLists(allOrderData);
-        this.backendService.allUngroupedOrders = allOrderData;
       });
   }
 
@@ -101,6 +105,7 @@ export class PrintedordersComponent implements OnInit {
       }
     });
   }
+
   openDialogFilterGroups(): void {
     const dialogRef = this.dialog.open(OrderFilterPopupComponent, {
       data: { newOrderForm: "newOrder" }
@@ -115,6 +120,7 @@ export class PrintedordersComponent implements OnInit {
       }
     });
   }
+
   filterGroupData(parameter: IFilterOrders) {
     this.resetGroupFilter();
 
@@ -130,15 +136,9 @@ export class PrintedordersComponent implements OnInit {
       }
     }
   }
-  resetGroupFilter() {
-    this.filteredGroupData = this.allGroupedOrders;
-    this.isGroupFilterSet = 0;
-    event.stopPropagation(); //two (click) events on html tags, google it
-    this.filterParameterGroup = null;
-  }
 
   filterSentOrders(parameter: IFilterOrders) {
-    this.resetSentFilter();
+    this.resetSentOrderFilter();
     for (let key in parameter) {
       if (parameter[key]) {
         if (key == "due_date") {
@@ -158,7 +158,22 @@ export class PrintedordersComponent implements OnInit {
       }
     }
   }
-  // Anzahl der Filter berechnen, wie viele Aktiv sind
+
+  resetGroupFilter() {
+    this.filteredGroupData = this.allGroupedOrders;
+    this.isGroupFilterSet = 0;
+    event.stopPropagation(); //two (click) events on html tags, google it
+    this.filterParameterGroup = null;
+  }
+
+  resetSentOrderFilter() {
+    this.filteredSentOrders = this.allSentOrders;
+    this.isSentFilterSet = 0;
+    event.stopPropagation();
+    this.filterParameterGroup = null;
+  }
+
+  /** Calculates number of active filter */
   numberOfFilterParameters(parameter: IFilterOrders): number {
     let setParamters: number = 0;
     let maxTimeForDateCreation = 8640000000000000;
@@ -180,13 +195,6 @@ export class PrintedordersComponent implements OnInit {
     return setParamters;
   }
 
-  resetSentFilter() {
-    this.filteredSentOrders = this.allSentOrders;
-    this.isSentFilterSet = 0;
-    event.stopPropagation();
-    this.filterParameterGroup = null;
-  }
-
   help(): void {
     this.dialog.open(FAQComponent);
   }
@@ -204,6 +212,7 @@ export class PrintedordersComponent implements OnInit {
       }
     });
   }
+
   getResineColorValue(resine_name: string) {
     return this.backendService.resineData.find(
       (harz: IResinType) => harz.resin_name == resine_name

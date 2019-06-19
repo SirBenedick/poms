@@ -4,7 +4,8 @@ import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { IPrinterData, IPrinterDataPolling } from "../../shared/interfaces";
 import { PopUpNeuerDruckerComponent } from "src/app/components/pop-ups/pop-up-neuer-drucker/pop-up-neuer-drucker.component";
 import { take } from "rxjs/operators";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+
 @Component({
   selector: "app-printer",
   templateUrl: "./printer.component.html",
@@ -64,6 +65,7 @@ export class PrinterComponent implements OnInit {
     const dialogRef = this.dialog.open(PopUpNeuerDruckerComponent, {
       data: {}
     });
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         if (result.value) {
@@ -71,12 +73,11 @@ export class PrinterComponent implements OnInit {
           this.backendService.addNewPrinter(result.value).then((res: any) => {
             if (res.error) {
               Swal.fire({
-                title: 'Fehler!',
-                text:"Drucker konnte nicht hinzugefügt werden: \n" + res.error,
+                title: "Fehler!",
+                text: "Drucker konnte nicht hinzugefügt werden: \n" + res.error,
                 confirmButtonText: "Verstanden",
-                
-                background: 'url(../assets/svg/FehlerPopUp.svg)',
-              })
+                background: "url(../assets/svg/FehlerPopUp.svg)"
+              });
             } else {
               console.log("added printer");
               setTimeout(
@@ -91,17 +92,16 @@ export class PrinterComponent implements OnInit {
   }
 
   deletePrinter(printer_id: any): void {
-    // this.backendService.removePrinterById(printer_id).then(res => {
-    //    console.log("removePrinterById: ", res);
-    //  setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
-    //  });
-     Swal.fire({
-       title: 'Drucker gelöscht!',
-       text:"Der Drucker wurde erfolgreich gelöscht.",
-       confirmButtonText: "Verstanden",
-       
-       background: 'url(../assets/svg/FehlerPopUp.svg)',
-     })
+    this.backendService.removePrinterById(printer_id).then(res => {
+      console.log("removePrinterById: ", res);
+      setTimeout(res => this.refreshPrinterList(), this.refreshWaitTimeInMs);
+      Swal.fire({
+        title: "Drucker gelöscht!",
+        text: "Der Drucker wurde erfolgreich gelöscht.",
+        confirmButtonText: "Verstanden",
+        background: "url(../assets/svg/FehlerPopUp.svg)"
+      });
+    });
   }
 
   refreshPrinterList() {

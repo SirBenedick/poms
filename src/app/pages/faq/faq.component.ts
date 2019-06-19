@@ -12,14 +12,16 @@ import { ICategory } from "src/app/shared/interfaces";
 })
 export class FAQComponent implements OnInit {
   helpData: any = this.backendService.helpData;
-  categoryData: Array<ICategory> = this.backendService.categorysData;
+  categoryData: Array<ICategory> = this.backendService.categoriesData;
   item: any;
+  
   constructor(
     private backendService: BackendService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit() {}
+
   onClick(subtopic: {
     subtopicTitel: string;
     subtopicContent: string;
@@ -27,16 +29,6 @@ export class FAQComponent implements OnInit {
   }) {
     console.log(subtopic);
   }
-
-  // addNewTopic(topic: IFAQPage){
-  //   let newSubtopic: IFAQPage = {subtopicTitel: "newSubTitel", subtopicContent: "newSubtopicContent"};
-  //   this.backendService.addNewSubtopic(topic, newSubtopic);
-  // }
-
-  // openFAQPopUp(): void {
-  //   const dialogRef = this.dialog.open(FAQPopUpComponent);
-  //   console.log("PopUp Hilfestellung");
-  // }
 
   openUrlTextPopUp(item, category, subcategory): void {
     let createData = {
@@ -57,8 +49,6 @@ export class FAQComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      // if (result) this.addNewTopic(result.data);
-    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 }

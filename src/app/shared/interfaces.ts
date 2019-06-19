@@ -33,9 +33,9 @@ export interface IOrder {
   priority: string;
   creation_date: string;
   comment?: string;
-  fileScan?: string; //REST-Url to file
+  fileScan?: string; 
   file_scan_name?: string;
-  fileSolid?: string; //REST-Url to file
+  fileSolid?: string; 
   trackingId?: string;
   shippingWay?: string;
   deliveryCompany?: string;
@@ -63,7 +63,7 @@ export interface IGroupedOrders {
   group_id: number;
   resin_name: string;
   creation_date: string;
-  file_sliced_name?: any; //REST-Url to file
+  file_sliced_name?: any;
   orders?: Array<IOrder>;
   status: "prePrint" | "printing" | "postPrint" | "sent";
 }
