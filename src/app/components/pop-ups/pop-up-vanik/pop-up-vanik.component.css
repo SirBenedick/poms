@@ -1,35 +1,42 @@
+.page-container{
+    text-align: center;
+}
 .textboxen {
-    background-color: #62c6d6;
-    color: white;
+    background-color: white;
+    color: #1f282c;
     width: 50%;
     height: auto;
-    margin: 20px 80px;
+    margin: 10px 80px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: #62c6d6 1px solid;
 }
 
-
-#textausrichten{
-    font-family: "Segoe UI";
-  font-size: 15px;
-  font-weight: bold;
-}
 
 #ueberschrift{
     font-family: "Segoe UI";
   font-size: 20px;
   font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
  
 }
 
-#ueberschriftenTexte{
+.ueberschriftenTexte{
     font-family: "Segoe UI";
     font-size: 18px;
     font-weight: bold;
+    text-align: left;
 }
 
 .close-button{
+    width: 100px;
+    height: 30px;
     border-radius: 4px;
     float: right;
     color: white;
     background-color: #62c6d6;
     font-size: 14px;
+    margin-top: 10px;
 }
