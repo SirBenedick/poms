@@ -3,7 +3,7 @@
     <h1 id="heading"> Kategorie bearbeiten </h1>
     <div>
       <mat-select formControlName="categoryAltered" placeholder="Kategorie auswählen" class=" rechteck-eingabe">
-        <mat-option *ngFor="let kategorie of categoryData" value="{{ kategorie.model_type_name }}">
+        <mat-option *ngFor="let kategorie of categoriesData" value="{{ kategorie.model_type_name }}">
           {{ kategorie.model_type_name }}
         </mat-option>
       </mat-select>

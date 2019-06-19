@@ -12,7 +12,7 @@ import { ICategory } from "src/app/shared/interfaces";
 })
 export class KategorieinfobearbeitenComponent implements OnInit {
   alterCategory: FormGroup;
-  categorieData: Array<ICategory> = this.backendService.categoriesData;
+  categoriesData: Array<ICategory> = this.backendService.categoriesData;
   constructor(
     private backendService: BackendService,
     public dialogRef: MatDialogRef<EinstellungenComponent>
