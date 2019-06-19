@@ -85,6 +85,7 @@ export class OrderComponent implements OnInit {
       .then((allOrderData: Array<IOrder>) => {
         this.allUngroupedOrders = [];
         this.sortAllOrdersByStatus(allOrderData);
+        this.resetOrderFilter();
       });
   }
 
