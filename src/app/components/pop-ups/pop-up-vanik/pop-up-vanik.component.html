@@ -1,58 +1,58 @@
-<div class="page-container" style="text-align: center">
+<div class="page-container" style="text-align: left; width: 400px">
   <div id="ueberschrift">Nähere Informationen zum Drucker</div>
   <!-- Anzeige von näheren Informationen über den Drucker -->
   <div *ngIf="data.detail == data.printerDetails.name">
-    <div id="ueberschriftenTexte">Druckername</div>
-    <div class="textboxen" id="textausrichten" style="text-align: center">
+    <div class="ueberschriftenTexte">Druckername</div>
+    <div class="textboxen"  style="text-align: center">
       {{data.detail}}
     </div>
-    <div id="ueberschriftenTexte">Port des Druckers</div>
-    <div class="textboxen" id="textausrichten">
+    <div class="ueberschriftenTexte">Port des Druckers</div>
+    <div class="textboxen" style="text-align: center">
       {{data.printerDetails.port}}
     </div>
-    <div id="ueberschriftenTexte">Host des Druckers</div>
-    <div class="textboxen" id="textausrichten">
+    <div class="ueberschriftenTexte">Host des Druckers</div>
+    <div class="textboxen" style="text-align: center">
       {{data.printerDetails.host}}
     </div>
   </div>
   <!-- Anzeige der Daten geht bis hier hin -->
   <!-- Anzeige der Daten vom Füllstand -->
   <div *ngIf="data.detail == (data.printerDetails.resin_volume)*100 && data.detail != 0">
-    <div id="ueberschriftenTexte">Füllstand des Druckers in %</div>
-    <div class="textboxen" id="textausrichten" style="text-align: center">
+    <div class="ueberschriftenTexte">Füllstand des Druckers in %</div>
+    <div class="textboxen"  style="text-align: left">
       {{data.printerDetails.resin_volume |percent}}
     </div>
-    <div id="ueberschriftenTexte">Füllstand des Druckers in ml</div>
-    <div class="textboxen" id="textausrichten">
+    <div class="ueberschriftenTexte">Füllstand des Druckers in ml</div>
+    <div class="textboxen"  >
       {{(data.printerDetails.resin_volume*0.4)*1000 |number}} ml
     </div>
-    <div id="ueberschriftenTexte">Wie viel ml passen maximal in den Tank?</div>
-    <div class="textboxen" id="textausrichten">
+    <div class="ueberschriftenTexte">Wie viel ml passen maximal in den Tank?</div>
+    <div class="textboxen" >
       {{data.printerDetails.max_volume}} ml
     </div>
   </div>
   <!-- Anzeige der Daten geht bis hier hin -->
   <!-- Anzeige der Daten vom Druckfortschritt -->
   <div *ngIf="data.detail == data.printerDetails.progress*100 && data.detail !=0">
-    <div id="ueberschriftenTexte">Druckfortschritt</div>
-    <div class="textboxen" id="textausrichten" style="text-align: center">
+    <div class="ueberschriftenTexte">Druckfortschritt</div>
+    <div class="textboxen"style="text-align: left">
       {{data.printerDetails.progress |percent}}
     </div>
-    <div id="ueberschriftenTexte">Anzahl der bisher gedruckten Layer</div>
-    <div class="textboxen" id="textausrichten">
+    <div class="ueberschriftenTexte">Anzahl der bisher gedruckten Layer</div>
+    <div class="textboxen" style="text-align: left" >
       {{data.printerDetails.current_layer}}
     </div>
-    <div id="ueberschriftenTexte">Anzahl der gesamt gedruckten Layer</div>
-    <div class="textboxen" id="textausrichten">
+    <div class="ueberschriftenTexte">Anzahl der gesamt gedruckten Layer</div>
+    <div class="textboxen"  style="text-align: left">
       {{data.printerDetails.max_layer}}
     </div>
   </div>
   <!-- Anzeige der Daten geht bis hier hin -->
-   <div *ngIf="data.detail == 0"> Es können keine näheren Informationen angezeigt werden, da der Füllstand oder der
+   <div *ngIf="data.detail == 0" style="font-size: 14px; font-family: 'Segoe UI'"> Es können keine näheren Informationen angezeigt werden, da der Füllstand oder der
     Druckfortschritt 0 beträgt</div>
   <div>
     <button mat-button (click)="onBreakButton()" class="close-button">
-      Schließen
+     <h1 style="font-size: 14px; margin-top: -10px"></h1> Schließen
     </button>
   </div>
 </div>
