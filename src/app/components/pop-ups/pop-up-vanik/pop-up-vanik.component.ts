@@ -15,10 +15,7 @@ export class PopUpVanikComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
-  ngOnInit() {
-    console.log("PopUpVanikComponent", this.data)
-
-  }
+  ngOnInit() {}
 
   onBreakButton():void{
     this.dialogRef.close();
