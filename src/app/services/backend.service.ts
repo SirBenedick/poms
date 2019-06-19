@@ -157,8 +157,8 @@ export class BackendService {
 
   loadCategoryData() {
     this.getAllCategoryData().then((categoryData: Array<ICategory>) => {
-      this.categorysData = categoryData;
-      this.categorysData.sort((a, b) =>
+      this.categoriesData = categoryData;
+      this.categoriesData.sort((a, b) =>
         a.model_type_name.localeCompare(b.model_type_name)
       );
     });

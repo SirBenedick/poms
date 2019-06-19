@@ -12,7 +12,7 @@ import { ICategory } from "src/app/shared/interfaces";
 })
 export class KategorieloeschenComponent implements OnInit {
   deleteKategorie: FormGroup;
-  categoryData: Array<ICategory> = this.backendService.categorysData;
+  categoryData: Array<ICategory> = this.backendService.categoriesData;
   constructor(
     private backendService: BackendService,
     public dialogRef: MatDialogRef<EinstellungenComponent>

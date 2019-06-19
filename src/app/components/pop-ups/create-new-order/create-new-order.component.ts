@@ -18,7 +18,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 export class CreateNewOrderComponent implements OnInit {
   newDate = new Date();
   newOrderForm: FormGroup;
-  categoryData: Array<ICategory> = this.backendService.categorysData;
+  categoryData: Array<ICategory> = this.backendService.categoriesData;
   harzList: Array<IResinType> = this.backendService.resineData;
   customerData: Array<ICustomer> = this.backendService.customerData;
   orderStatus: Array<IOrderStatus> = this.backendService.orderStatus;

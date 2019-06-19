@@ -19,7 +19,7 @@ export class OrderFilterPopupComponent implements OnInit {
 
   filterParamForm: FormGroup;
   customerData: Array<ICustomer> = this.backendService.customerData;
-  categoryData: Array<ICategory> = this.backendService.categorysData;
+  categoryData: Array<ICategory> = this.backendService.categoriesData;
 
   constructor(
     public dialogRef: MatDialogRef<OrderFilterPopupComponent>,
