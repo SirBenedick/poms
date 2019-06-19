@@ -117,13 +117,13 @@ export class PrinterComponent implements OnInit {
     });
   }
   stopPrinter(id: Number) {
-    this.backendService.stopPrinter(id).subscribe(data => {
+    this.backendService.stopPrinter(id).then(data => {
       console.log(data);
       this.getPrinterStatusForEachPrinter();
     });
   }
   togglePrinter(id: Number) {
-    this.backendService.togglePrinter(id).subscribe(data => {
+    this.backendService.togglePrinter(id).then(data => {
       console.log(data);
       this.getPrinterStatusForEachPrinter();
     });

@@ -417,15 +417,16 @@ export class BackendService {
   }
 
   /** Controlls printer, for development */
-  startPrinter(id: Number) {
+  startPrinter(id: Number): Promise<Object> {
     return this.http
       .get(this.backendUrl + "printer/action/start/" + id)
       .toPromise();
   }
-  stopPrinter(id: Number) {
-    return this.http.get(this.backendUrl + "printer/action/stop/" + id);
+  stopPrinter(id: Number): Promise<Object> {
+    return this.http.get(this.backendUrl + "printer/action/stop/" + id).toPromise();
   }
-  togglePrinter(id: Number) {
-    return this.http.get(this.backendUrl + "printer/action/toggle/" + id);
+  togglePrinter(id: Number): Promise<Object> {
+    console.log("toggle", id)
+    return this.http.get(this.backendUrl + "printer/action/toggle/" + id).toPromise();
   }
 }

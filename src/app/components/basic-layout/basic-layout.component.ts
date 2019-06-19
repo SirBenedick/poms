@@ -6,8 +6,8 @@ import { CreateNewOrderComponent } from "src/app/components/pop-ups/create-new-o
 import { User, IPrinterDataPolling } from "src/app/shared/interfaces";
 import { LoginService } from "src/app/services/login.service";
 import { LogoutComponent } from "../pop-ups/logout/logout.component";
-import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import Swal from "sweetalert2";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-basic-layout",
   templateUrl: "./basic-layout.component.html",
@@ -26,7 +26,7 @@ export class BasicLayoutComponent implements OnInit {
     private backendService: BackendService,
     public dialog: MatDialog,
     private authService: LoginService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -73,11 +73,11 @@ export class BasicLayoutComponent implements OnInit {
           this.backendService.createNewOrder(newOrder).subscribe((res: any) => {
             if (res.error) {
               Swal.fire({
-                title: 'Fehler!',
+                title: "Fehler!",
                 text: res.error,
                 confirmButtonText: "Verstanden",
-                background: 'url(../assets/svg/FehlerPopUp.svg)',
-              })
+                background: "url(../assets/svg/FehlerPopUp.svg)"
+              });
               console.log("createNewOrder Error: ", res.error);
             } else {
               console.log("createNewOrder Response: ", res);
@@ -98,5 +98,11 @@ export class BasicLayoutComponent implements OnInit {
       this.menuItems[key] = false;
     }
     this.menuItems[menuItem] = true;
+  }
+
+  stopPrinter(id: number) {
+    this.backendService
+      .stopPrinter(id)
+      .then(res => console.log("toggleprinter", res));
   }
 }
