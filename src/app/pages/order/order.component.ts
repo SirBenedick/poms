@@ -92,7 +92,8 @@ export class OrderComponent implements OnInit {
   refreshAllGroupData(newData: Array<IGroupedOrders>) {
     this.allGroupedOrders = [];
     newData.forEach((group: IGroupedOrders) => {
-      if (group.status != "postPrint" && group.status != "sent") this.allGroupedOrders.push(group);
+      if (group.status != "postPrint" && group.status != "sent")
+        this.allGroupedOrders.push(group);
     });
     this.filteredGroupData = this.allGroupedOrders;
   }
@@ -181,7 +182,7 @@ export class OrderComponent implements OnInit {
   resetOrderFilter() {
     this.filteredUngroupedOrders = this.allUngroupedOrders;
     this.isOrderFilterSet = 0;
-    event.stopPropagation(); //two (click) events on html tags, google it
+    if (event) event.stopPropagation(); //two (click) events on html tags, google it
     this.filterParameterOrder = null;
   }
 
@@ -217,7 +218,7 @@ export class OrderComponent implements OnInit {
                 title: "Fehler!",
                 text: res.error,
                 confirmButtonText: "Verstanden",
-                
+
                 background: "url(../assets/svg/FehlerPopUp.svg)"
               });
               console.log("createNewOrder Error: ", res.error);
@@ -366,7 +367,7 @@ export class OrderComponent implements OnInit {
         text:
           "Der Auftrag kann nicht in der Gruppe zugewiesen werden, weil die Harzfarbe des Auftrags und der Gruppe nicht übereinstimmen. Bitte ordne den Auftrag einer anderen Gruppe zu.",
         confirmButtonText: "Verstanden",
-        
+
         background: "url(../assets/svg/FehlerPopUp.svg)"
       });
     }

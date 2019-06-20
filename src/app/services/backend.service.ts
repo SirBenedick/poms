@@ -31,6 +31,7 @@ import { switchMap, catchError } from "rxjs/operators";
 })
 export class BackendService {
   backendUrl = "http://141.19.113.166:8081/";
+
   pollingTimeInMs: number = 2000;
   reloadDataAfterMs: number = 2000;
 
