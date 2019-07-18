@@ -1,27 +1,31 @@
-# Poms
+# Print Order Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+The Print Order Management System (POMS) helps dental technicians work more efficiently by proving a clear overview of all orders and guiding the technician through his workflow.
 
-## Development server
+## SEP
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Engineering Project". In which small student groups receive a real-world customer with a need which should be solved. These groups all work on the same problem and at the end, the customer decides which program "wins".
 
-## Code scaffolding
+This semester the customer was the company bitExpert located in Mannheim, Germany.
+They challenged us to develop software which helps dental technicians work more efficiently. 
+Our POMS was selected as the wining software.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Team
+* [@Alena]( https://github.com/Kaninala )
+* [@Julian]( https://github.com/TehKuh )
+* [@Maxi]( https://github.com/Maxi789 )
+* [@Tim]( https://github.com/TehKuh )
 
-## Build
+## Technologies/etc.
+* Angular
+* Node.js
+* MariaDB
+* Nginx
+* Websockets
+* REST-API
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Example
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![](https://media.giphy.com/media/XZlPjT2q3T2fH3mg6v/giphy.gif)
+![](https://media.giphy.com/media/jtieKP9S0FfBpuLNYn/giphy.gif)
+![](https://media.giphy.com/media/WTGGFH4oTrar2eCi1T/giphy.gif)
